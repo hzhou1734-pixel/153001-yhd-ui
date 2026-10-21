@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), 'PingFang SC', var(--font-noto-sc), 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+
+  --color-brand: var(--brand);
+  --color-brand-deep: #e08a1e;
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-mist: #fff6e8;
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-2: #7a6f66;
+  --color-ink-3: #b5aba2;
+  --color-danger: #e15019;
+  --color-danger-soft: #fdece4;
+  --color-shell: #2b2420;
+
+  --shadow-card: 0 1px 1px #5a351008, 0 6px 16px -6px #b06a1824;
+  --shadow-float: 0 2px 4px #5a35100a, 0 18px 36px -14px #e08a1e52;
+  --shadow-dock: 0 -8px 24px -12px #b06a1838;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --brand: #f5af3c;
+  --brand-strong: #e08a1e;
+  --brand-soft: #fdf0d9;
+  --surface: #ffffff;
+  --ink: #2b2420;
+  --background: #ece6dc;
+  --foreground: #2b2420;
+  --card: #ffffff;
+  --card-foreground: #2b2420;
+  --popover: #ffffff;
+  --popover-foreground: #2b2420;
+  --primary: #e08a1e;
+  --primary-foreground: #ffffff;
+  --secondary: #fdf3e1;
+  --secondary-foreground: #5a3510;
+  --muted: #f8f5f0;
+  --muted-foreground: #7a6f66;
+  --accent: #e4f4f0;
+  --accent-foreground: #2f9682;
+  --destructive: #e15019;
+  --border: #5a35101f;
+  --input: #5a35101f;
+  --ring: #f5af3c;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility bg-brand-gradient {
+  background-image: linear-gradient(135deg, #f5af3c, #ea7f2a);
+}
+
+@utility bg-header-wash {
+  background-image:
+    radial-gradient(120% 80% at 100% 0, #f0c85a59 0%, #0000 60%),
+    linear-gradient(#ffe9c6 0%, #fff4e2 60%, #fffaf2 100%);
+}
+
+@utility bg-panel-wash {
+  background-image: linear-gradient(#fff6e8 0%, #fffaf3 100%);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility press {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity 0.15s,
+    background-color 0.15s,
+    transform 0.15s;
+  &:active {
+    opacity: 0.6;
+  }
+}
