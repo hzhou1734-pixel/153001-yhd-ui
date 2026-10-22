@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -2149,7 +2149,7 @@ let sH = {
         <C_sp block={!0} onClick={() => e("home")}>
           提交账号注册
         </C_sp>
-        <C_sC>验证码由阿里云短信服务下发，点击获取验证码后 60 秒可重新获取</C_sC>
+        <C_sC>验证码由阿里云短信服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
       </C_si>
     );
   },
@@ -4030,7 +4030,19 @@ let ti = [
         [needDrop, setNeedDrop] = (0, c.useState)(!1),
         [needPick, setNeedPick] = (0, c.useState)(!0),
         [needCare, setNeedCare] = (0, c.useState)(!1),
-        [careSlots, setCareSlots] = (0, c.useState)([]);
+        [careSlots, setCareSlots] = (0, c.useState)([]),
+        [picks, setPicks] = (0, c.useState)({}),
+        [picker, setPicker] = (0, c.useState)(null);
+      const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
+      const dropTimes = ["07:00", "07:15", "07:30", "07:45", "08:00", "08:15"];
+      const pickTimes = ["15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
+      const pickerConfig = {
+        dropSchool: { title: "选择送达学校", options: schools },
+        dropTime: { title: "选择送孩子时间", options: dropTimes, grid: !0 },
+        pickSchool: { title: "选择接孩子学校", options: schools },
+        pickTime: { title: "选择接孩子时间", options: pickTimes, grid: !0 },
+      };
+      const openPicker = (key) => setPicker({ key, ...pickerConfig[key], value: picks[key] });
       return (
         <C_si
           title="托管详情"
@@ -4080,14 +4092,14 @@ let ti = [
               <div className="flex flex-col divide-y divide-fill">
                 {needDrop ? (
                   <>
-                    <TrustPickRow title="送 · 学校" desc="从小区送到学校" placeholder="请选择学校" />
-                    <TrustPickRow title="送 · 时间" desc="请选择送孩子的时间" placeholder="请选择时间" />
+                    <TrustPickRow title="送 · 学校" desc="从小区送到学校" placeholder="请选择学校" value={picks.dropSchool} onClick={() => openPicker("dropSchool")} />
+                    <TrustPickRow title="送 · 时间" desc="请选择送孩子的时间" placeholder="请选择时间" value={picks.dropTime} onClick={() => openPicker("dropTime")} />
                   </>
                 ) : null}
                 {needPick ? (
                   <>
-                    <TrustPickRow title="接 · 学校" desc="从学校送到家里" placeholder="请选择学校" />
-                    <TrustPickRow title="接 · 时间" desc="请选择接孩子的时间" placeholder="请选择时间" />
+                    <TrustPickRow title="接 · 学校" desc="从学校送到家里" placeholder="请选择学校" value={picks.pickSchool} onClick={() => openPicker("pickSchool")} />
+                    <TrustPickRow title="接 · 时间" desc="请选择接孩子的时间" placeholder="请选择时间" value={picks.pickTime} onClick={() => openPicker("pickTime")} />
                   </>
                 ) : null}
                 <div className="flex items-center justify-between gap-3 py-3">
@@ -4127,6 +4139,19 @@ let ti = [
             <C_sv />
           </C_sc>
           <C_sz>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准</C_sz>
+          {picker ? (
+            <C_sPicker
+              title={picker.title}
+              options={picker.options}
+              value={picker.value}
+              grid={picker.grid}
+              onSelect={(v) => {
+                setPicks((prev) => ({ ...prev, [picker.key]: v }));
+                setPicker(null);
+              }}
+              onClose={() => setPicker(null)}
+            />
+          ) : null}
         </C_si>
       );
     },
@@ -5657,7 +5682,7 @@ function C_tP({ value: e, onChange: s }) {
 let t_ = [
     {
       t: "09-04 14:30",
-      c: "服务很贴心，准时又细致，老人很满意。",
+      c: "服务很贴心，准时又��致，老人很满意。",
     },
     {
       t: "09-03 19:08",
