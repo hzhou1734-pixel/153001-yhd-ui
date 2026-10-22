@@ -3677,7 +3677,7 @@ let ti = [
             <C_sd>���康建议</C_sd>
             <C_s6
               items={[
-                "心率与血压均在正常范围，请保持规律作息与适度运动。",
+                "心率与血压均在正常范围，请保持规律作��与适度运动。",
                 "甘油三酯略高于正常值，建议减少油炸与高糖食物摄入，增加膳食纤维。",
                 "近一周平均睡眠 6.2 小时，低于建议时长，建议提前 30 分钟入睡。",
                 "建议每周进行 3 次以上、每次 30 分钟的中等强度有氧运动。",
@@ -3870,7 +3870,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约下单", "选择日期、时段与服务时长，提交后陪诊员接单"],
+                ["预约下单", "选择日期、时段与服务时长���提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -4020,7 +4020,10 @@ let ti = [
       );
     },
     trustDetail: function () {
-      let { go: e } = o();
+      let { go: e } = o(),
+        [needDrop, setNeedDrop] = (0, c.useState)(!1),
+        [needPick, setNeedPick] = (0, c.useState)(!0),
+        [needCare, setNeedCare] = (0, c.useState)(!0);
       return (
         <C_si
           title="托管详情"
@@ -4052,20 +4055,43 @@ let ti = [
               </span>
               <C_sN />
             </div>
-            {["是否需要送", "是否需要接", "是否需要看护"].map((e, s) => (
-              <div key={e} className="flex items-center justify-between">
-                <span className="text-sm text-ink">{e}</span>
-                <C_sg defaultOn={0 !== s} label={e} />
+            {[
+              ["是否需要送", needDrop, setNeedDrop],
+              ["是否需要接", needPick, setNeedPick],
+              ["是否需要看护", needCare, setNeedCare],
+            ].map(([label, on, setOn]) => (
+              <div key={label} className="flex items-center justify-between">
+                <span className="text-sm text-ink">{label}</span>
+                <C_sg defaultOn={on} label={label} onChange={setOn} />
               </div>
             ))}
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sd>接送设置</C_sd>
-            <C_sf label="接 · 学校（从学校送到家里）" placeholder="请选择学校" />
-            <C_sf label="接 · 时间" placeholder="请选择接孩子的时间" />
-            <C_su label="接送地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
-            <C_sv />
+            <C_sd>{needDrop || needPick ? "接送设置" : "服务设置"}</C_sd>
+            {needDrop ? (
+              <>
+                <C_sf label="送 · 学校（从家里送到学校）" placeholder="请选择学校" />
+                <C_sf label="送 · 时间" placeholder="请选择送孩子的时间" />
+              </>
+            ) : null}
+            {needPick ? (
+              <>
+                <C_sf label="接 · 学校（从学校送到家里）" placeholder="请选择学校" />
+                <C_sf label="接 · 时间" placeholder="请选择接孩子的时间" />
+              </>
+            ) : null}
+            {needDrop || needPick ? (
+              <C_su label="接送地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
+            ) : null}
+            {needCare ? <C_sf label="看护 · 时段" placeholder="请选择看护时段" /> : null}
+            {needDrop || needPick || needCare ? (
+              <C_sv />
+            ) : (
+              <span className="rounded-2xl bg-fill px-3.5 py-3 text-xs text-ink-3">
+                请至少选择一项服务（送 / 接 / 看护）
+              </span>
+            )}
           </C_sc>
           <C_sz>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准</C_sz>
         </C_si>
@@ -7493,7 +7519,7 @@ let tX = {
             </span>
           </C_sc>
           <C_sc>
-            <C_su label="设备名称" defaultValue="爸爸的手环" />
+            <C_su label="设备��称" defaultValue="爸爸的手环" />
           </C_sc>
           <C_sp
             block={!0}
@@ -8182,7 +8208,7 @@ let tX = {
     hrOrderDetail: "派单详情",
     sysMsg: "系统消息",
     sysMsgDetail: "消息详情",
-    settings: "系统设置",
+    settings: "系统��置",
     delAccount: "注销账号",
     delVerify: "注销验证",
     about: "关于我们",
