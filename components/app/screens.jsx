@@ -2149,7 +2149,7 @@ let sH = {
         <C_sp block={!0} onClick={() => e("home")}>
           提交账号注册
         </C_sp>
-        <C_sC>验证码由阿里云短信服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
+        <C_sC>验证码由阿里云短��服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
       </C_si>
     );
   },
@@ -2261,7 +2261,7 @@ let sH = {
         锦绣家园: ["1栋", "2栋", "3栋", "4栋"],
         滨江名邸: ["8栋", "9栋", "10栋"],
       },
-      m = ["1单元 101", "1单元 102", "1单元 201", "1单元 202", "2单元 301", "2单元 302", "2单元 401", "2单元 402"],
+      m = ["1单元 101", "1单元 102", "1单元 201", "1单元 202", "2单元 301", "2单元 302", "2���元 401", "2单元 402"],
       u =
         d === "community"
           ? { title: "选择小区", options: Object.keys(p), value: t }
@@ -4026,7 +4026,7 @@ let ti = [
       );
     },
     trustDetail: function () {
-      let { go: e } = o(),
+      let { go: e, toast } = o(),
         [needDrop, setNeedDrop] = (0, c.useState)(!1),
         [needPick, setNeedPick] = (0, c.useState)(!0),
         [needCare, setNeedCare] = (0, c.useState)(!1),
@@ -4039,7 +4039,7 @@ let ti = [
       const pickerConfig = {
         dropSchool: { title: "选择送达学校", options: schools },
         dropTime: { title: "选择送孩子时间", options: dropTimes, grid: !0 },
-        pickSchool: { title: "选择接孩子学校", options: schools },
+        pickSchool: { title: "��择接孩子学校", options: schools },
         pickTime: { title: "选择接孩子时间", options: pickTimes, grid: !0 },
       };
       const openPicker = (key) => setPicker({ key, ...pickerConfig[key], value: picks[key] });
@@ -4053,7 +4053,13 @@ let ti = [
                 <span className="text-[11px] text-ink-3">预估金额</span>
                 <C_sP value="50.00" />
               </span>
-              <C_sp onClick={() => e("payment")}>提交订单</C_sp>
+              <C_sp
+                onClick={() => {
+                  (toast("已使用顾好家币支付，提交成功"), e("ordersTrust"));
+                }}
+              >
+                提交订单
+              </C_sp>
             </>
           }
         >
@@ -4156,7 +4162,7 @@ let ti = [
       );
     },
     meal: function () {
-      let { go: e } = o(),
+      let { go: e, toast } = o(),
         [s, t] = (0, c.useState)("午餐"),
         [l, a] = (0, c.useState)({}),
         [n, r] = (0, c.useState)(!0),
@@ -4172,7 +4178,9 @@ let ti = [
                 <span className="text-[11px] text-ink-3">预估金额</span>
                 <C_sP value={(x + d).toFixed(2)} />
               </span>
-              <C_sp variant={x ? "primary" : "ghost"} onClick={() => x && e("payment")}>
+              <C_sp variant={x ? "primary" : "ghost"} onClick={() => {
+                  x && (toast("已使用顾好家币支付，提交成功"), e("orders"));
+                }}>
                 {x ? "提交订单" : "请选择套餐"}
               </C_sp>
             </>
@@ -5973,7 +5981,7 @@ let t_ = [
             icon: e_,
           },
           {
-            t: "托管单总金额",
+            t: "托管单总��额",
             d: "1 笔托管单待结算",
             p: "1,200.00",
             icon: C_eL,
