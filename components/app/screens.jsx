@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2069,7 +2069,7 @@ let sH = {
           <span className="flex size-16 items-center justify-center rounded-full bg-success-soft text-success">
             <C_e2 className="size-8" strokeWidth={2.4} />
           </span>
-          <p className="text-sm leading-relaxed text-ink-2">微信授权���录成功，请绑定手机号码完成账号注册</p>
+          <p className="text-sm leading-relaxed text-ink-2">微信授权登录成功，请绑定手机号码完成账号注册</p>
         </div>
         <div className="flex flex-col gap-3">
           <C_su placeholder="请输入手机号" type="tel" />
@@ -2210,7 +2210,7 @@ let sH = {
             </p>
           ))}
         </div>
-        <C_sz>多���小区可分别认证，互不影响使用</C_sz>
+        <C_sz>多个小区可分别认证，互不影响使用</C_sz>
         <C_sc className="flex flex-col gap-4">
           <C_sd>房屋信息</C_sd>
           <C_sf label="小区" required={!0} />
@@ -2887,7 +2887,7 @@ let s8 = [
       icon: sU,
     },
     {
-      t: "邻居���话问安",
+      t: "邻居电话问安",
       d: "每日定时电话问候独居老人，了解需求并跟进反馈",
       icon: C_sQ,
     },
@@ -3188,7 +3188,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连接��康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -4115,7 +4115,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高���压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -5665,7 +5665,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用��待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
