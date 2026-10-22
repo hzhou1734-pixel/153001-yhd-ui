@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���������区",
+      label: "�����������区",
       icon: C_eL,
       id: "community",
     },
@@ -2453,7 +2453,7 @@ let sH = {
     );
   },
   certReject: sW({
-    name: "江畔雅苑 2栋-1102",
+    name: "江畔雅苑 2���-1102",
     owner: "林小雨",
     phone: "138****6721",
     submit: "08-28 14:20",
@@ -4402,31 +4402,6 @@ let ti = [
             />
             <p className="text-sm font-semibold text-ink">营养参考</p>
             <p>单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。</p>
-            <p className="text-sm font-semibold text-ink">本周菜单</p>
-            <div className="overflow-hidden rounded-2xl bg-fill text-[13px]">
-              {[
-                ["日期", "主菜", "主食", "汤品"],
-                ["周一", "香菇滑鸡", "软米饭", "紫菜蛋花汤"],
-                ["周二", "红烧排骨", "杂粮饭", "莲藕排骨汤"],
-                ["周三", "清蒸鲈鱼", "软米饭", "山药排骨汤"],
-                ["周四", "番茄炖牛腩", "杂粮饭", "紫菜蛋花汤"],
-                ["周五", "香菇滑鸡", "小米粥", "莲藕排骨汤"],
-                ["周六", "清蒸鲈鱼", "软米饭", "山药排骨汤"],
-                ["周日", "红烧排骨", "杂粮饭", "紫菜蛋花汤"],
-              ].map((e, s) => (
-                <div
-                  key={e[0]}
-                  className={eb(
-                    "grid grid-cols-[3rem_1fr_1fr_1.3fr] gap-2 px-3 py-2",
-                    0 === s ? "bg-brand-soft font-semibold text-brand-ink" : "border-t border-surface text-ink-2",
-                  )}
-                >
-                  {e.map((e) => (
-                    <span key={e}>{e}</span>
-                  ))}
-                </div>
-              ))}
-            </div>
             <p className="text-sm font-semibold text-ink">食材溯源</p>
             <p>所有食材均由物业直采，每日检测留样，确保新鲜安全、来源可追溯。</p>
             </div>
@@ -5038,7 +5013,7 @@ let tf = [
               </div>
             </C_sc>
           ))}
-          <C_sC>支持多条件叠加筛选</C_sC>
+          <C_sC>支持多条件叠加筛���</C_sC>
         </C_si>
       );
     },
@@ -5466,7 +5441,7 @@ let C_tk = ew("image", [
       {
         code: "PZ20250820-006",
         status: "已完成",
-        title: "体检陪诊 · 整天",
+        title: "体检���诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
         price: "160.00",
@@ -7012,7 +6987,7 @@ let tX = {
               <C_sd>协议与条款</C_sd>
             </div>
             <C_so label="用户协议" onClick={() => e("agreement")} />
-            <C_so label="隐私政策" onClick={() => e("privacy")} />
+            <C_so label="隐私���策" onClick={() => e("privacy")} />
           </C_sc>
         </C_si>
       );
