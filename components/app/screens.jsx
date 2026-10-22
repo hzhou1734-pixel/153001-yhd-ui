@@ -1392,13 +1392,13 @@ function C_sc({ children: e, className: s, onClick: t, as: l }) {
     <div className={a}>{e}</div>
   );
 }
-function C_sx({ title: e, action: s, onAction: t }) {
+function C_sx({ title: e, action: s, onAction: t, dot = !0 }) {
   return (
-    <div className="flex items-center justify-between px-1 pt-1">
-      <h2 className="relative text-[15px] font-bold text-ink">
-        {e}
-        <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-danger" aria-hidden="true" />
-      </h2>
+  <div className="flex items-center justify-between px-1 pt-1">
+  <h2 className="relative text-[15px] font-bold text-ink">
+  {e}
+  {dot ? <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-danger" aria-hidden="true" /> : null}
+  </h2>
       {s ? (
         <button type="button" onClick={t} className="press flex items-center text-xs text-ink-2">
           {s}
@@ -3191,7 +3191,7 @@ let ti = [
           },
           {
             t: "历史检测报告",
-            d: "日报 · 周报 · 月报 · ���报",
+            d: "日报 · 周报 · 月报 · ������",
             icon: C_sG,
             to: "healthReport",
           },
@@ -3934,7 +3934,7 @@ let ti = [
             <div className="flex flex-col gap-3">
               {[
                 ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
-                ["上��接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
+                ["上���接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
               ].map(([e, s], t) => (
@@ -4269,9 +4269,8 @@ let ti = [
               <span className="text-lg font-bold">
                 {"9月5日 周六 · "}
                 {s}
-              </span>
-              <span className="text-xs opacity-90">营养师 + 三星主厨联合研发</span>
-            </span>
+  </span>
+  </span>
             <C_e$ className="size-5" />
           </C_sc>
           <C_sw
@@ -4288,7 +4287,7 @@ let ti = [
               </>
             )}
           />
-          <C_sx title="可选套餐" />
+          <C_sx title="可选套餐" dot={!1} />
           {ta.map((e, s) => (
             <C_sc key={e.n} className="flex items-center gap-3 p-3">
               <span className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -7488,7 +7487,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  解除后该成员将无法使用本房号的服务与额度，确定解除吗？
+                  ���除后该成员将无法使用本房号的服务与额度，确定解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
@@ -7767,7 +7766,7 @@ let tX = {
           <C_sc>
             <C_sd extra={<C_sh tone="teal">已通过</C_sh>}>基础资料</C_sd>
             <C_sm k="提交小区" v="翠湖小区" />
-            <C_sm k="姓名" v="李建国" />
+            <C_sm k="��名" v="李建国" />
             <C_sm k="联系电话" v="138****6688" />
             <C_sm k="意向服务小区" v="阳光花园" />
             <C_sm k="服务类目" v="家电维修 · 管道疏通" />
@@ -7858,7 +7857,7 @@ let tX = {
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
             <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
-            <C_sm k="服务数量" v="1 · 线下收取" />
+            <C_sm k="服务数量" v="1 · 线���收取" />
             <C_sm k="服务金额" v="¥150.00" accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
