@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2018,7 +2018,7 @@ function sO() {
   return (
     <C_si className="bg-sub-wash -mx-0 gap-5 px-6" nav={<C_sr noBack={!0} />}>
       <C_sI />
-      <C_sj items={["验证码登录", "密码���录"]} value={t} onChange={l} />
+      <C_sj items={["验证码登录", "密码登录"]} value={t} onChange={l} />
       <div className="flex flex-col gap-3">
         <C_su placeholder="请输入手机号" type="tel" suffix={<C_e9 className="size-4 text-ink-3" />} />
         {"验证码登录" === t ? (
@@ -2200,7 +2200,7 @@ let sH = {
         <C_sp block={!0} onClick={() => e("home")}>
           提交账号注册
         </C_sp>
-        <C_sC>验证码由阿里云短���服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
+        <C_sC>验证码由阿里云短信服务下发，点击获取验证码后 60 秒可重新获取</C_sC>
       </C_si>
     );
   },
@@ -2312,7 +2312,7 @@ let sH = {
         锦绣家园: ["1栋", "2栋", "3栋", "4栋"],
         滨江名邸: ["8栋", "9栋", "10栋"],
       },
-      m = ["1单元 101", "1单元 102", "1单元 201", "1单元 202", "2单元 301", "2单元 302", "2���元 401", "2单元 402"],
+      m = ["1单元 101", "1单元 102", "1单元 201", "1单元 202", "2单元 301", "2单元 302", "2单元 401", "2单元 402"],
       u =
         d === "community"
           ? { title: "选择小区", options: Object.keys(p), value: t }
@@ -3737,10 +3737,10 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>���康建议</C_sd>
+            <C_sd>健康建议</C_sd>
             <C_s6
               items={[
-                "心率与血压均在正常范围，请保持规律作����与适度运动。",
+                "心率与血压均在正常范围，请保持规律作息与适度运动。",
                 "甘油三酯略高于正常值，建议减少油炸与高糖食物摄入，增加膳食纤维。",
                 "近一周平均睡眠 6.2 小时，低于建议时长，建议提前 30 分钟入睡。",
                 "建议每周进行 3 次以上、每次 30 分钟的中等强度有氧运动。",
@@ -3838,13 +3838,13 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原���</C_sd>
+            <C_sd>可能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
                 "运动量不足，能量消耗低于摄入",
                 "作息不规律，睡眠不足影响脂代谢",
-                "��传���素与年龄增长的自然变化",
+                "遗传因素与年龄增长的自然变化",
               ]}
             />
           </C_sc>
@@ -3925,7 +3925,7 @@ let ti = [
             <section>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证陪诊员全程陪同就���，从出门到回家，老��安心、家人放心。支持挂三甲 /
+              由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
               专科医院，覆盖内科外科眼科口腔等常规科室。
             </p>
             </section>
@@ -3933,7 +3933,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约下单", "选择日期、时段与服务���������提交后陪诊员接单"],
+                ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -4091,7 +4091,7 @@ let ti = [
       const pickerConfig = {
         dropSchool: { title: "选择送达学校", options: schools },
         dropTime: { title: "选择送孩子时间", options: dropTimes, grid: !0 },
-        pickSchool: { title: "��择接孩子学校", options: schools },
+        pickSchool: { title: "选择接孩子学校", options: schools },
         pickTime: { title: "选择接孩子时间", options: pickTimes, grid: !0 },
       };
       const openPicker = (key) => setPicker({ key, ...pickerConfig[key], value: picks[key] });
@@ -4452,18 +4452,18 @@ let ti = [
               <C_sT className="size-9" />
             </span>
             <p className="text-xl font-bold text-ink">已打开 物业服务系统</p>
-            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进��</p>
+            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序名称" v="���业服务系统" />
-            <C_sm k="打开方式" v="APP ��跳转" />
-            <C_sm k="状态" v={<C_sh tone="teal">���成功跳转</C_sh>} />
+            <C_sm k="小程序名称" v="物业服务系统" />
+            <C_sm k="打开方式" v="APP 内跳转" />
+            <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
           <C_sp block={!0} onClick={e}>
             返回 顾好家
           </C_sp>
           <C_sp block={!0} variant="ghost" onClick={() => s("暂无更多跳转记录")}>
-            查看跳��记录
+            查看跳转记录
           </C_sp>
         </C_si>
       );
@@ -4570,7 +4570,7 @@ let ti = [
             <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
             <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
-            <C_su label="备注" placeholder="请描述服���需求" textarea={!0} />
+            <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <C_sk max={6} hint="请上传服务需求相关图片" />
@@ -4866,7 +4866,7 @@ let tf = [
       img: "/images/meal-fish.png",
     },
     {
-      t: "小区停车位改���进展说明",
+      t: "小区停车位改造进展说明",
       d: "新增 60 个车位，预计月底完工",
       m: "08-28 · 物业服务中心",
       img: "/images/banner-1.png",
@@ -4939,7 +4939,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入�� · 技能服务派单</span>
+              <span className="text-xs text-ink-2">人才入库 · 技能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -4957,7 +4957,7 @@ let tf = [
             <C_sr title="社区活动" right={<C_to className="size-5 text-ink" />} onRight={() => e("activityFilter")} />
           }
         >
-          <C_sj items={["全部", "���将开始", "报名中", "已结束"]} value={s} onChange={t} />
+          <C_sj items={["全部", "即将开始", "报名中", "已结束"]} value={s} onChange={t} />
           <p className="px-1 text-xs text-ink-3">
             {"共 "}
             {l.length}
@@ -5130,7 +5130,7 @@ let tf = [
             <C_sp
               block={!0}
               onClick={() => {
-                (s("报名成��"), e("mySignup"));
+                (s("报名成功"), e("mySignup"));
               }}
             >
               提交报名
@@ -5232,7 +5232,7 @@ let tf = [
               </span>
             </C_sc>
           ))}
-          <C_sC>���拉刷新 · 上拉加载更多</C_sC>
+          <C_sC>下拉刷新 · 上拉加载更多</C_sC>
         </C_si>
       );
     },
@@ -5319,7 +5319,7 @@ let tf = [
                   <span className="text-sm font-semibold text-ink">{s}</span>
                   <span className="text-xs text-ink-3">
                     {t}
-                    {" · ���击查看凭证"}
+                    {" · 点击查看凭证"}
                   </span>
                 </span>
                 <span
@@ -5763,7 +5763,7 @@ function C_tP({ value: e, onChange: s }) {
 let t_ = [
     {
       t: "09-04 14:30",
-      c: "服务很贴心，准时又��致，老人很满意。",
+      c: "服务很贴心，准时又细致，老人很满意。",
     },
     {
       t: "09-03 19:08",
@@ -5826,13 +5826,13 @@ let t_ = [
     },
     orderMealDetail: function () {
       return (
-        <C_si title="报餐单详���" className="bg-sub-wash" bottom={<C_tS />}>
+        <C_si title="报餐单详情" className="bg-sub-wash" bottom={<C_tS />}>
           <C_tC
             kind="报餐单"
             code="BC20250904-001"
             status="进行中"
             title="午餐× 2"
-            sub="配送 / 使用：09-05 · ��交：09-04 10:20"
+            sub="配送 / 使用：09-05 · 提交：09-04 10:20"
             price="41.00"
           />
           <C_sc>
@@ -6054,7 +6054,7 @@ let t_ = [
             icon: e_,
           },
           {
-            t: "托管单总��额",
+            t: "托管单总金额",
             d: "1 笔托管单待结算",
             p: "1,200.00",
             icon: C_eL,
@@ -6148,7 +6148,7 @@ let t_ = [
             </span>
             <span className="flex flex-col">
               <span className="text-xs text-ink-3">报餐单</span>
-              <span className="text-[15px] font-bold text-ink">午餐 �� 营养套餐</span>
+              <span className="text-[15px] font-bold text-ink">午餐 · 营养套餐</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col items-center gap-3 py-6">
@@ -6234,7 +6234,7 @@ let t_ = [
           <C_sc>
             <C_sd>申请信息</C_sd>
             <C_sm k="订单编号" v="#PZ20250903-012" />
-            <C_sm k="退款原���" v="陪诊时间冲突" />
+            <C_sm k="退款原因" v="陪诊时间冲突" />
             <C_sm k="申请时间" v="09-03 16:20" />
           </C_sc>
           <C_sc>
@@ -6868,7 +6868,7 @@ function C_tQ({ title: e, head: s, items: t }) {
       <C_sc className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-bold text-ink">{s}</h2>
-          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期���2026-08-01</span>
+          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期：2026-08-01</span>
         </div>
         {t.map(([e, s]) => (
           <div key={e} className="flex flex-col gap-1">
@@ -7256,7 +7256,7 @@ let tX = {
                 ]}
               />
               <C_tU
-                title="报餐单��细"
+                title="报餐单明细"
                 count={7}
                 rows={[
                   ["午餐 · 9月5日", "顾家小林 · 业主", "¥18.00"],
@@ -7273,7 +7273,7 @@ let tX = {
                 </span>
                 <span className="flex flex-1 flex-col gap-0.5">
                   <span className="text-sm font-semibold text-ink">{s}</span>
-                  <span className="text-xs text-ink-3">结算时�� 2026-08-01 · 共 7 笔</span>
+                  <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
                 </span>
                 <span className="flex flex-col items-end gap-0.5">
                   <span className="text-base font-bold text-ink tabular-nums">¥405.00</span>
@@ -7562,10 +7562,10 @@ let tX = {
             <span className="flex size-48 items-center justify-center rounded-[24px] bg-surface text-ink">
               <C_tH className="size-36" strokeWidth={1.2} />
             </span>
-            <span className="text-sm">扫码即���加入该房号</span>
+            <span className="text-sm">扫码即可加入该房号</span>
             <span className="flex items-center gap-2 pt-2 text-xs opacity-90">
               <C_sS name="顾" size={24} />
-              顾家小林 邀请��加入 · 顾好家
+              顾家小林 邀请您加入 · 顾好家
             </span>
           </div>
         </C_si>
@@ -7658,7 +7658,7 @@ let tX = {
             </span>
           </C_sc>
           <C_sc>
-            <C_su label="设备��称" defaultValue="爸爸的手环" />
+            <C_su label="设备名称" defaultValue="爸爸的手环" />
           </C_sc>
           <C_sp
             block={!0}
@@ -7735,7 +7735,7 @@ let tX = {
             <span className="text-lg font-bold text-ink">水管维修</span>
             <span className="text-xs text-ink-3">类型：维修 · 提交 09-02 11:20</span>
             <p className="rounded-2xl bg-fill p-3 text-[13px] leading-relaxed text-ink-2">
-              厨房水龙头下方水��漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
+              厨房水龙头下方水管漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
             </p>
           </C_sc>
           <C_sz>需求已同步至物业后台，由楼栋管家跟进处理</C_sz>
@@ -7752,7 +7752,7 @@ let tX = {
               人才入驻
             </span>
             <p className="text-[13px] leading-relaxed opacity-95">
-              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的��活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
+              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
             </p>
             <button
               type="button"
@@ -7920,14 +7920,14 @@ let tX = {
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="订单金额" v="¥150.00" />
-            <C_sm k="收款方式" v="线��不做收款，服务金额由线下收取" />
+            <C_sm k="收款方式" v="线上不做收款，服务金额由线下收取" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
             <C_s_
               items={[
                 {
-                  title: "订单���交",
+                  title: "订单提交",
                   time: "09-18 10:20",
                   state: "done",
                 },
@@ -8022,11 +8022,11 @@ let tX = {
       if (m)
         return (
           <C_si
-            title="���息详情"
+            title="消息详情"
             className="bg-sub-wash"
             bottom={
               <C_sp block={!0} onClick={() => e(m.route)}>
-                {"bill" === m.route ? "查看我的账���" : "查看账单详情"}
+                {"bill" === m.route ? "查看我的账单" : "查看账单详情"}
               </C_sp>
             }
           >
@@ -8119,7 +8119,7 @@ let tX = {
                     取消
                   </C_sp>
                   <C_sp block={!0} onClick={() => s("welcome")}>
-                    退��
+                    退款
                   </C_sp>
                 </div>
               </div>
@@ -8137,7 +8137,7 @@ let tX = {
               <C_e3 className="size-10" strokeWidth={1.6} />
             </span>
             <p className="text-xl font-bold text-ink">注销账号</p>
-            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销��？</p>
+            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销吗？</p>
           </div>
           <div className="flex w-full flex-col gap-3">
             <C_sp block={!0} onClick={s}>
@@ -8311,12 +8311,12 @@ let tX = {
     orderSearch: "搜索订单",
     orderMealDetail: "报餐单详情",
     orderTrustDetail: "托管单详情",
-    orderEscortDetail: "陪���单详情",
+    orderEscortDetail: "陪诊单详情",
     orderHelperDetail: "帮手单详情",
     orderSettlement: "订单结算",
     review: "服务评价",
     addReview: "添加评价",
-    refund: "退���申请",
+    refund: "退款申请",
     refundProgress: "退款进度",
     payment: "收银台",
     payResult: "支付结果",
@@ -8331,7 +8331,7 @@ let tX = {
     billDetail: "账单详情",
     propBackend: "物业后台",
     propRoomQuota: "房号额度",
-    family: "我的��庭",
+    family: "我的家庭",
     familyMembers: "成员列表",
     memberRole: "成员设置",
     invitePoster: "邀请海报",
@@ -8347,7 +8347,7 @@ let tX = {
     hrOrderDetail: "派单详情",
     sysMsg: "系统消息",
     sysMsgDetail: "消息详情",
-    settings: "系统��置",
+    settings: "系统设置",
     delAccount: "注销账号",
     delVerify: "注销验证",
     about: "关于我们",
