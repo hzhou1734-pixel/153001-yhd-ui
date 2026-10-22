@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����区",
+      label: "�������区",
       icon: C_eL,
       id: "community",
     },
@@ -3911,7 +3911,7 @@ let ti = [
           <C_s3
             img="/images/escort.png"
             cover={!0}
-            alt="陪诊员搀扶老人在医院走廊就诊"
+            alt="陪诊员搀扶老人在医院��廊就诊"
             title="医院就诊全程陪诊"
             desc="含挂号协助、问诊陪同、取药代领、报告解读"
             price={
@@ -4130,7 +4130,7 @@ let ti = [
           ) : null}
           <C_s3
             img="/images/trust.png"
-            title="禄口一小课后托管"
+            title="禄口��小课后托管"
             desc="工作日课后看护 · 单日预约"
             price={<C_sP value="45" from={!0} />}
           />
@@ -4381,8 +4381,8 @@ let ti = [
               </span>
             }
           />
-          <C_s5 rating="4.8" served="1.2k+" good="98%" />
-          <C_sz>点击「立即报餐」开始下单 · 各餐别下单 / 取消截止时间详见下单页说明</C_sz>
+  <C_s5 rating="4.8" served="1.2k+" good="98%" />
+
           <C_s4 />
           <C_sc>
             <C_sd>膳食详情</C_sd>
@@ -6058,7 +6058,7 @@ let t_ = [
             icon: e_,
           },
           {
-            t: "托管单总金额",
+            t: "托管单总金���",
             d: "1 笔托管单待结算",
             p: "1,200.00",
             icon: C_eL,
@@ -6730,7 +6730,7 @@ let tT = [
       role: "家庭成员",
     },
     {
-      n: "小明",
+      n: "���明",
       role: "家庭成员",
     },
     {
@@ -7853,7 +7853,7 @@ let tX = {
         >
           <C_sz>人力资源认证无需业主认证；请先选择意向服务小区，物业将就近为您匹配派单。</C_sz>
           <C_sc className="flex flex-col gap-4">
-            <C_sf label="意向服务小区" required={!0} />
+            <C_sf label="意���服务小区" required={!0} />
             <C_su label="姓名" placeholder="请输入姓名" required={!0} />
             <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
