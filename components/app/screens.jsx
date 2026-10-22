@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�������区",
+      label: "���������区",
       icon: C_eL,
       id: "community",
     },
@@ -3934,7 +3934,7 @@ let ti = [
             <div className="flex flex-col gap-3">
               {[
                 ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
-                ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
+                ["上��接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
               ].map(([e, s], t) => (
@@ -4085,7 +4085,7 @@ let ti = [
         [picks, setPicks] = (0, c.useState)({}),
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
-      const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
+      const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中��", "禄口实验小学"];
       const timeSlots = [
         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
         "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
@@ -4386,13 +4386,12 @@ let ti = [
           <C_s4 />
           <C_sc>
             <C_sd>膳食详情</C_sd>
-            <p className="text-[13px] leading-relaxed text-ink-2">
+            <div className="flex flex-col gap-3 text-[13px] leading-relaxed text-ink-2">
+            <p>
               由营养师 +
               三星酒店主厨联合研发的适老营养餐，针对老年人慢病调理、术后恢复与日常养生需求，提供低油低盐、软烂易嚼、营养均衡的搭配方案。
             </p>
-          </C_sc>
-          <C_sc>
-            <C_sd>菜单组成</C_sd>
+            <p className="text-sm font-semibold text-ink">菜单组成</p>
             <C_s6
               items={[
                 "主菜：清蒸鲈鱼 / 香菇滑鸡 / 红烧排骨 / 番茄炖牛腩（每日轮换）",
@@ -4401,18 +4400,9 @@ let ti = [
                 "汤品：紫菜蛋花汤 / 莲藕排骨汤 / 山药排骨汤",
               ]}
             />
-          </C_sc>
-          <C_sc className="flex gap-3 bg-success-soft">
-            <C_s0 className="size-5 shrink-0 text-success" />
-            <span className="flex flex-col gap-1">
-              <span className="text-sm font-semibold text-ink">营养参考</span>
-              <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
-              </span>
-            </span>
-          </C_sc>
-          <C_sc>
-            <C_sd>本周菜单</C_sd>
+            <p className="text-sm font-semibold text-ink">营养参考</p>
+            <p>单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。</p>
+            <p className="text-sm font-semibold text-ink">本周菜单</p>
             <div className="overflow-hidden rounded-2xl bg-fill text-[13px]">
               {[
                 ["日期", "主菜", "主食", "汤品"],
@@ -4437,12 +4427,9 @@ let ti = [
                 </div>
               ))}
             </div>
-          </C_sc>
-          <C_sc>
-            <C_sd>食材溯源</C_sd>
-            <p className="text-[13px] leading-relaxed text-ink-2">
-              所有食材均由物业直采，每日检测留样，确保新鲜安全、来源可追溯。
-            </p>
+            <p className="text-sm font-semibold text-ink">食材溯源</p>
+            <p>所有食材均由物业直采，每日检测留样，确保新鲜安全、来源可追溯。</p>
+            </div>
           </C_sc>
         </C_si>
       );
@@ -4859,7 +4846,7 @@ let tf = [
   tg = [
     {
       t: "垃圾分类新指南来了",
-      d: "了解四分类标准，共建整洁小区",
+      d: "了解四分类标准，共建整洁��区",
       m: "09-03 · 物业服务中心",
       img: "/images/article-recycle.png",
     },
@@ -8222,7 +8209,7 @@ let tX = {
         items={[
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
-          ["三、信息的存储与保护", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
+          ["三、信息的存储与保���", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
           ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的���人信息，也可联系客服申请删除账号数据。"],
         ]}
