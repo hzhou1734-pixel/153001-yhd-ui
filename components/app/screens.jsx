@@ -1689,14 +1689,14 @@ function C_sN({ min: e = 1, max: s = 5, initial: t = 1 }) {
 function C_sk({ kind: e = "image", max: s, hint: t }) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex min-w-0 flex-col gap-0.5">
+      <div className="flex min-w-0 flex-col gap-0.5">
+        <div className="flex items-center gap-2">
           <span className="text-[13px] font-medium text-ink-2">{"image" === e ? "图片上传" : "视频上传"}</span>
-          <p className="text-[11px] leading-relaxed text-ink-3">{t}</p>
+          <span className="shrink-0 rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">
+            0/{s}
+          </span>
         </div>
-        <span className="shrink-0 rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">
-          0/{s}
-        </span>
+        {t && <p className="text-[11px] leading-relaxed text-ink-3">{t}</p>}
       </div>
       <div className="grid grid-cols-4 gap-2">
         <button
@@ -3122,7 +3122,7 @@ let ti = [
       let { go: e } = o(),
         s = [
           {
-            t: "实时健康数据",
+            t: "实时健康数���",
             d: "心率 · 血压 · 血脂",
             icon: sq,
             to: "healthData",
@@ -3316,8 +3316,8 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上传服务需求相关图片（最多 6 张）" />
-            <C_sk kind="video" max={1} hint="请上传服务需求相关视频（最多 1 个）" />
+            <C_sk max={6} hint="请上传服务需求相关图片" />
+            <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
         </C_si>
       );
@@ -3782,7 +3782,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原因</C_sd>
+            <C_sd>可能原���</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -3869,7 +3869,7 @@ let ti = [
             <section>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
+              由物业认证陪诊员全程陪同就���，从出门到回家，老人安心、家人放心。支持挂三甲 /
               专科医院，覆盖内科外科眼科口腔等常规科室。
             </p>
             </section>
@@ -3986,8 +3986,8 @@ let ti = [
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4 divide-y divide-fill [&>*+*]:pt-4">
-            <C_sk max={6} hint="请上传病情或就医相关资料图片（最多 6 张）" />
-            <C_sk kind="video" max={1} hint="请上传病情或就医相关视频（最多 1 个）" />
+<C_sk max={6} hint="请上传病情或就医相关资料图片" />
+          <C_sk kind="video" max={1} hint="请上传病情或就医相关视频" />
           </C_sc>
           <C_sz>
             当前订单金额为预估金额，附加费为陪诊人员垫付的挂号费、打车费等，以实际陪诊服务中发生金额为准，若有对应金额陪诊人员在订单完成时会提交缴费凭证
@@ -4295,7 +4295,7 @@ let ti = [
           </div>
           <C_sc>
             <C_sm k="小程序名称" v="物业服务系统" />
-            <C_sm k="打开方式" v="APP 内跳转" />
+            <C_sm k="打开方式" v="APP ��跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
           <C_sp block={!0} onClick={e}>
@@ -4412,8 +4412,8 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上传服务需求相关图片（最多 6 张）" />
-            <C_sk kind="video" max={1} hint="请上传服务需求相关视频（最多 1 个）" />
+            <C_sk max={6} hint="请上传服务需求相关图片" />
+            <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
           <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
         </C_si>
@@ -6012,7 +6012,7 @@ let t_ = [
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <C_su label="评价内容" placeholder="说说你的服务体验吧" textarea={!0} />
-            <C_sk max={6} hint="可上传服务相关图片（最多 6 张）" />
+            <C_sk max={6} hint="可上传服务相关图片" />
           </C_sc>
         </C_si>
       );
@@ -7405,7 +7405,7 @@ let tX = {
             <span className="text-sm">扫码即可加入该房号</span>
             <span className="flex items-center gap-2 pt-2 text-xs opacity-90">
               <C_sS name="顾" size={24} />
-              顾家小林 邀请你加入 · 顾好家
+              顾家小林 邀请��加入 · 顾好家
             </span>
           </div>
         </C_si>
@@ -7781,7 +7781,7 @@ let tX = {
           </C_sc>
           <C_sc>
             <C_sd extra={<span className="text-xs text-ink-3">0/6</span>}>完成凭证</C_sd>
-            <C_sk max={6} hint="请上传服务完成后的现场照片（最多 6 张），作为订单完成凭证。" />
+            <C_sk max={6} hint="请上传服务完成后的现场照片，作为订单完成凭证。" />
           </C_sc>
         </C_si>
       );
@@ -7862,7 +7862,7 @@ let tX = {
       if (m)
         return (
           <C_si
-            title="消息详情"
+            title="���息详情"
             className="bg-sub-wash"
             bottom={
               <C_sp block={!0} onClick={() => e(m.route)}>
@@ -7959,7 +7959,7 @@ let tX = {
                     取消
                   </C_sp>
                   <C_sp block={!0} onClick={() => s("welcome")}>
-                    退出
+                    退��
                   </C_sp>
                 </div>
               </div>
