@@ -3122,7 +3122,7 @@ let ti = [
       let { go: e } = o(),
         s = [
           {
-            t: "实时健康数���",
+            t: "实时健康数据",
             d: "心率 · 血压 · 血脂",
             icon: sq,
             to: "healthData",
@@ -3869,7 +3869,7 @@ let ti = [
             <section>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证陪诊员全程陪同就���，从出门到回家，老人安心、家人放心。支持挂三甲 /
+              由物业认证陪诊员全程陪同就���，从出门到回家，老��安心、家人放心。支持挂三甲 /
               专科医院，覆盖内科外科眼科口腔等常规科室。
             </p>
             </section>
@@ -3933,7 +3933,7 @@ let ti = [
       );
     },
     escortBook: function () {
-      let { go: e } = o(),
+      let { go: e, toast: x } = o(),
         [s, t] = (0, c.useState)("半天"),
         [l, a] = (0, c.useState)(!0);
       return (
@@ -3946,7 +3946,13 @@ let ti = [
                 <span className="text-[11px] text-ink-3">预估金额（合计）</span>
                 <C_sP value={"半天" === s ? "320.00" : "560.00"} />
               </span>
-              <C_sp onClick={() => e("payment")}>提交订单</C_sp>
+              <C_sp
+                onClick={() => {
+                  (x("提交成功"), e("ordersEscort"));
+                }}
+              >
+                提交订单
+              </C_sp>
             </>
           }
         >
@@ -4296,7 +4302,7 @@ let ti = [
           <C_sc>
             <C_sm k="小程序名称" v="物业服务系统" />
             <C_sm k="打开方式" v="APP ��跳转" />
-            <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
+            <C_sm k="状态" v={<C_sh tone="teal">���成功跳转</C_sh>} />
           </C_sc>
           <C_sp block={!0} onClick={e}>
             返回 顾好家
@@ -5988,7 +5994,7 @@ let t_ = [
             </span>
             <span className="flex flex-col">
               <span className="text-xs text-ink-3">报餐单</span>
-              <span className="text-[15px] font-bold text-ink">午餐 · 营养套餐</span>
+              <span className="text-[15px] font-bold text-ink">午餐 �� 营养套餐</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col items-center gap-3 py-6">
@@ -6074,7 +6080,7 @@ let t_ = [
           <C_sc>
             <C_sd>申请信息</C_sd>
             <C_sm k="订单编号" v="#PZ20250903-012" />
-            <C_sm k="退款原因" v="陪诊时间冲突" />
+            <C_sm k="退款原���" v="陪诊时间冲突" />
             <C_sm k="申请时间" v="09-03 16:20" />
           </C_sc>
           <C_sc>
@@ -7113,7 +7119,7 @@ let tX = {
                 </span>
                 <span className="flex flex-1 flex-col gap-0.5">
                   <span className="text-sm font-semibold text-ink">{s}</span>
-                  <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
+                  <span className="text-xs text-ink-3">结算时�� 2026-08-01 · 共 7 笔</span>
                 </span>
                 <span className="flex flex-col items-end gap-0.5">
                   <span className="text-base font-bold text-ink tabular-nums">¥405.00</span>
@@ -8171,7 +8177,7 @@ let tX = {
     billDetail: "账单详情",
     propBackend: "物业后台",
     propRoomQuota: "房号额度",
-    family: "我的家庭",
+    family: "我的��庭",
     familyMembers: "成员列表",
     memberRole: "成员设置",
     invitePoster: "邀请海报",
