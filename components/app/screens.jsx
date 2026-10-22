@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "�����区",
       icon: C_eL,
       id: "community",
     },
@@ -2484,7 +2484,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证小区</span>
+            <span className="text-[15px] font-semibold text-ink">添���认证小区</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -3198,7 +3198,7 @@ let ti = [
             </span>
             <span className="flex flex-1 flex-col text-left">
               <span className="text-base font-bold">紧急呼叫</span>
-              <span className="text-xs opacity-90">一键联系物业中心 / 急救中心</span>
+              <span className="text-xs opacity-90">一键联系物业中心 / 急救��心</span>
             </span>
             <C_e$ className="size-5" />
           </button>
@@ -3654,14 +3654,9 @@ let ti = [
       let { toast: e } = o();
       return (
         <C_si
-          title="完整评估报告"
-          className="bg-sub-wash"
-          bottom={
-            <C_sp block={!0} onClick={() => e("评估报告已保存")}>
-              保存评估报告
-            </C_sp>
-          }
-        >
+  title="完整评估报告"
+  className="bg-sub-wash"
+  >
           <C_s7 />
           <C_sc>
             <C_sd>各维度评分</C_sd>
@@ -5669,7 +5664,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已���付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">已����付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -7637,7 +7632,7 @@ let tX = {
     },
     hrCertApply: function () {
       let { back: e, toast: s } = o(),
-        [t, l] = (0, c.useState)("家电维修");
+        [t, l] = (0, c.useState)("家电��修");
       return (
         <C_si
           title="人才认证"
@@ -7859,7 +7854,7 @@ let tX = {
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
               您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
-              到达小区南门接人，全程陪同前往医院体检。
+              到达小区南门接人，全程��同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
           </C_sc>
@@ -8012,7 +8007,7 @@ let tX = {
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
-          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中断或终止，并提前予以公告。"],
+          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中���或终止，并提前予以公告。"],
           ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
