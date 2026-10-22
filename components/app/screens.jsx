@@ -1533,17 +1533,64 @@ function C_su({
     </label>
   );
 }
-function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l }) {
+function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, onClick: a }) {
   return (
     <div className="flex flex-col gap-1.5">
       <span className="text-[13px] font-medium text-ink-2">
         {l ? <span className="mr-0.5 text-danger">*</span> : null}
         {e}
       </span>
-      <button type="button" className="press flex h-11 items-center justify-between rounded-2xl bg-fill px-3.5 text-sm">
-        <span className={s ? "text-ink" : "text-ink-3"}>{s ?? t}</span>
-        <C_e$ className="size-4 text-ink-3" strokeWidth={1.8} />
+      <button
+        type="button"
+        onClick={a}
+        aria-haspopup={a ? "dialog" : void 0}
+        className="press flex h-11 min-w-0 items-center justify-between gap-2 rounded-2xl bg-fill px-3.5 text-sm"
+      >
+        <span className={eb("truncate", s ? "text-ink" : "text-ink-3")}>{s ?? t}</span>
+        <C_e$ className="size-4 shrink-0 text-ink-3" strokeWidth={1.8} />
       </button>
+    </div>
+  );
+}
+function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a }) {
+  return (
+    <div className="absolute inset-0 z-40 flex flex-col justify-end">
+      <button type="button" aria-label="关闭" onClick={a} className="absolute inset-0 bg-shell/45" />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={e}
+        className="relative flex max-h-[70%] flex-col rounded-t-[28px] bg-surface pb-6 shadow-float"
+      >
+        <div className="flex items-center justify-between px-5 pt-5 pb-3">
+          <button type="button" onClick={a} className="press text-sm text-ink-3">
+            取消
+          </button>
+          <p className="text-base font-bold text-ink">{e}</p>
+          <span className="w-7" aria-hidden="true" />
+        </div>
+        <ul className="flex flex-col overflow-y-auto px-3">
+          {s.map((s) => {
+            let n = s === t;
+            return (
+              <li key={s}>
+                <button
+                  type="button"
+                  onClick={() => l(s)}
+                  aria-pressed={n}
+                  className={eb(
+                    "press flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-[15px]",
+                    n ? "bg-brand-soft font-semibold text-brand-deep" : "text-ink",
+                  )}
+                >
+                  {s}
+                  {n ? <span className="size-2 rounded-full bg-brand" aria-hidden="true" /> : null}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -2180,7 +2227,36 @@ let sH = {
     );
   },
   certify: function () {
-    let { go: e, toast: s } = o();
+    let { go: e, toast: s } = o(),
+      [t, l] = (0, c.useState)(null),
+      [a, n] = (0, c.useState)(null),
+      [r, i] = (0, c.useState)(null),
+      [d, x] = (0, c.useState)(null),
+      p = {
+        阳光花园: ["1栋", "2栋", "3栋", "5栋", "6栋"],
+        翠湖雅苑: ["A座", "B座", "C座"],
+        锦绣家园: ["1栋", "2栋", "3栋", "4栋"],
+        滨江名邸: ["8栋", "9栋", "10栋"],
+      },
+      m = ["1单元 101", "1单元 102", "1单元 201", "1单元 202", "2单元 301", "2单元 302", "2单元 401", "2单元 402"],
+      u =
+        d === "community"
+          ? { title: "选择小区", options: Object.keys(p), value: t }
+          : d === "building"
+            ? { title: "选择楼栋", options: p[t] ?? [], value: a }
+            : d === "room"
+              ? { title: "选择房号", options: m, value: r }
+              : null;
+    function h(e) {
+      if (d === "community") {
+        if (e !== t) (n(null), i(null));
+        l(e);
+      } else if (d === "building") {
+        if (e !== a) i(null);
+        n(e);
+      } else i(e);
+      x(null);
+    }
     return (
       <C_si
         title="房屋认证"
@@ -2213,12 +2289,23 @@ let sH = {
         <C_sz>多个小区可分别认证，互不影响使用</C_sz>
         <C_sc className="flex flex-col gap-4">
           <C_sd>房屋信息</C_sd>
-          <C_sf label="小区" required={!0} />
+          <C_sf label="小区" required={!0} value={t ?? void 0} onClick={() => x("community")} />
           <div className="grid grid-cols-2 gap-3">
-            <C_sf label="楼栋" required={!0} />
-            <C_sf label="房号" required={!0} />
+            <C_sf
+              label="楼栋"
+              required={!0}
+              value={a ?? void 0}
+              onClick={() => (t ? x("building") : s("请先选择小区"))}
+            />
+            <C_sf
+              label="房号"
+              required={!0}
+              value={r ?? void 0}
+              onClick={() => (a ? x("room") : s(t ? "请先选择楼栋" : "请先选择小区"))}
+            />
           </div>
         </C_sc>
+        {u ? <C_sPicker {...u} onSelect={h} onClose={() => x(null)} /> : null}
         <C_sc className="flex flex-col gap-4">
           <C_sd>业主信息</C_sd>
           <div className="grid grid-cols-2 gap-3">
@@ -2887,7 +2974,7 @@ let s8 = [
       icon: sU,
     },
     {
-      t: "邻居电话问安",
+      t: "邻居���话问安",
       d: "每日定时电话问候独居老人，了解需求并跟进反馈",
       icon: C_sQ,
     },
@@ -3188,7 +3275,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连接��康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -4115,7 +4202,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高���压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -5576,7 +5663,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">已���付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -5665,7 +5752,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用��待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
