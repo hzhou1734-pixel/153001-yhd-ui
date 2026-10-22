@@ -3677,7 +3677,7 @@ let ti = [
             <C_sd>���康建议</C_sd>
             <C_s6
               items={[
-                "心率与血压均在正常范围，请保持规律作��与适度运动。",
+                "心率与血压均在正常范围，请保持规律作���与适度运动。",
                 "甘油三酯略高于正常值，建议减少油炸与高糖食物摄入，增加膳食纤维。",
                 "近一周平均睡眠 6.2 小时，低于建议时长，建议提前 30 分钟入睡。",
                 "建议每周进行 3 次以上、每次 30 分钟的中等强度有氧运动。",
@@ -3870,7 +3870,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约下单", "选择日期、时段与服务时长���提交后陪诊员接单"],
+                ["预约下单", "选择日期、时段与服务时������提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -3998,12 +3998,6 @@ let ti = [
       let { go: e } = o();
       return (
         <C_si title="托管服务" className="bg-sub-wash">
-          <div className="bg-hero-wash shadow-float relative flex h-32 items-center overflow-hidden rounded-[24px] px-5 text-surface">
-            <span className="flex flex-col gap-1">
-              <span className="text-xl font-bold">安心托付</span>
-  <span className="text-xs opacity-90">课后 · 周末 · 节假日 单日随约随托</span>
-  </span>
-  </div>
           {tl.map(([s, t, l]) => (
             <C_sc key={s} onClick={() => e("trustDetail")} className="flex items-center gap-3">
               <span className="relative size-16 shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -4313,7 +4307,7 @@ let ti = [
               <C_sT className="size-9" />
             </span>
             <p className="text-xl font-bold text-ink">已打开 物业服务系统</p>
-            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
+            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进��</p>
           </div>
           <C_sc>
             <C_sm k="小程序名称" v="���业服务系统" />
@@ -5180,7 +5174,7 @@ let tf = [
                   <span className="text-sm font-semibold text-ink">{s}</span>
                   <span className="text-xs text-ink-3">
                     {t}
-                    {" · 点击查看凭证"}
+                    {" · ���击查看凭证"}
                   </span>
                 </span>
                 <span
@@ -7596,7 +7590,7 @@ let tX = {
             <span className="text-lg font-bold text-ink">水管维修</span>
             <span className="text-xs text-ink-3">类型：维修 · 提交 09-02 11:20</span>
             <p className="rounded-2xl bg-fill p-3 text-[13px] leading-relaxed text-ink-2">
-              厨房水龙头下方水管漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
+              厨房水龙头下方水��漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
             </p>
           </C_sc>
           <C_sz>需求已同步至物业后台，由楼栋管家跟进处理</C_sz>
@@ -8172,7 +8166,7 @@ let tX = {
     orderSearch: "搜索订单",
     orderMealDetail: "报餐单详情",
     orderTrustDetail: "托管单详情",
-    orderEscortDetail: "陪诊单详情",
+    orderEscortDetail: "陪���单详情",
     orderHelperDetail: "帮手单详情",
     orderSettlement: "订单结算",
     review: "服务评价",
