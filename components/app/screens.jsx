@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入注册手机号" type="tel" />
+            <C_su placeholder="请输入���册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -3239,18 +3239,13 @@ let ti = [
       );
     },
     careInfo: function () {
-      let { toast: e, back: s } = o();
+      let { go: e } = o();
       return (
         <C_si
           title="服务详情"
           className="bg-sub-wash"
           bottom={
-            <C_sp
-              block={!0}
-              onClick={() => {
-                (e("预约成功，管家将电话确认"), s());
-              }}
-            >
+            <C_sp block={!0} onClick={() => e("careOrder")}>
               立即预约
             </C_sp>
           }
@@ -3281,6 +3276,45 @@ let ti = [
             />
   </C_sc>
   </C_si>
+      );
+    },
+    careOrder: function () {
+      let { go: e, toast: s } = o();
+      return (
+        <C_si
+          title="提交服务订单"
+          className="bg-sub-wash"
+          bottom={
+            <C_sp
+              block={!0}
+              onClick={() => {
+                (s("订单已提交"), e("ordersHelper"));
+              }}
+            >
+              提交订单
+            </C_sp>
+          }
+        >
+          <C_sc className="flex items-center gap-3">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
+              <C_eD className="size-6" />
+            </span>
+            <span className="flex flex-1 flex-col">
+              <span className="text-[15px] font-bold text-ink">上门关爱探访</span>
+              <span className="text-xs text-ink-2">管家上门探望老人，关注生活起居与健康状态</span>
+            </span>
+          </C_sc>
+          <C_sc className="flex flex-col gap-4">
+            <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
+            <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
+            <C_su label="联系电话" defaultValue="13800006688" type="tel" />
+            <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
+          </C_sc>
+          <C_sc className="flex flex-col gap-4">
+            <C_sk max={6} hint="请上传服务需求相关图片（最多 6 张）" />
+            <C_sk kind="video" max={1} hint="请上传服务需求相关视频（最多 1 个）" />
+          </C_sc>
+        </C_si>
       );
     },
     bandConnect: function () {
@@ -5670,7 +5704,7 @@ let t_ = [
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
-            <C_sm k="支付方式" v="顾好家币" />
+            <C_sm k="��付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -8087,6 +8121,7 @@ let tX = {
     riskReport: "完整评估报告",
     riskFactor: "风险因素",
     careInfo: "关爱服务",
+    careOrder: "关爱下单",
     callMine: "一键呼叫",
     escortList: "陪诊服务",
     escortDetail: "陪诊详情",
