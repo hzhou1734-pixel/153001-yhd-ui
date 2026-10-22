@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入�����������册手机号" type="tel" />
+            <C_su placeholder="请输入注册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -2484,7 +2484,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证��区</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证社区</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -3306,7 +3306,7 @@ let ti = [
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
-            <C_su label="服���地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
+            <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
@@ -3497,9 +3497,9 @@ let ti = [
         [l, a] = (0, c.useState)("24小时");
       return (
         <C_si title="历史检测报告" className="bg-sub-wash">
-          <C_sj items={["日报", "周报", "月报", "���报"]} value={s} onChange={t} />
+          <C_sj items={["日报", "周报", "月报", "年报"]} value={s} onChange={t} />
           <div className="flex gap-2">
-            {["24小��", "近七天", "近30天"].map((e) => (
+            {["24小时", "近七天", "近30天"].map((e) => (
               <button
                 key={e}
                 type="button"
@@ -3782,7 +3782,7 @@ let ti = [
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
                 "运动量不足，能量消耗低于摄入",
-                "作息不规律，睡��不足影响脂代谢",
+                "作息不规律，睡眠不足影响脂代谢",
                 "遗传因素与年龄增长的自然变化",
               ]}
             />
@@ -3865,7 +3865,7 @@ let ti = [
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
               由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
-              专科医院，覆盖内科外科���科口腔���常规科室。
+              专科医院，覆盖内科外科眼科口腔等常规科室。
             </p>
             </section>
             <section>
@@ -4036,7 +4036,7 @@ let ti = [
         >
           <C_s3
             img="/images/trust.png"
-            title="禄口一��课后托管"
+            title="禄口一小课后托管"
             desc="工作日课后看护 · 单日预约"
             price={<C_sP value="45" from={!0} />}
           />
@@ -4289,7 +4289,7 @@ let ti = [
             <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序名称" v="���业服务系统" />
+            <C_sm k="小程序名称" v="物业服务系统" />
             <C_sm k="打开方式" v="APP 内跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
@@ -4613,7 +4613,7 @@ let tf = [
       img: "/images/act-midautumn.png",
     },
     {
-      t: "��儿阅读营",
+      t: "幼儿阅读营",
       p: "09-01 至 09-12",
       s: "报名中",
       img: "/images/act-reading.png",
@@ -4773,7 +4773,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入驻 · 技能服务派���</span>
+              <span className="text-xs text-ink-2">人才入驻 · 技能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -5672,7 +5672,7 @@ let t_ = [
           <C_sc>
             <C_sd>菜单信息</C_sd>
             {[
-              ["清蒸���鱼 · 时蔬 · ��饭", "18.00", "/images/meal-fish.png"],
+              ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
               ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
             ].map(([e, s, t]) => (
               <div key={e} className="flex items-center gap-3 py-1.5">
@@ -5699,7 +5699,7 @@ let t_ = [
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
-            <C_sm k="��付方式" v="顾好家币" />
+            <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -5973,7 +5973,7 @@ let t_ = [
                 (s("感谢你的评价"), e());
               }}
             >
-              ���交评价
+              提交评价
             </C_sp>
           }
         >
@@ -5983,7 +5983,7 @@ let t_ = [
             </span>
             <span className="flex flex-col">
               <span className="text-xs text-ink-3">报餐单</span>
-              <span className="text-[15px] font-bold text-ink">午餐 · 营养套���</span>
+              <span className="text-[15px] font-bold text-ink">午餐 · 营养套餐</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col items-center gap-3 py-6">
@@ -6062,9 +6062,9 @@ let t_ = [
           }
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-1 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">当前退款状�� · 退款中</span>
+            <span className="text-xs opacity-90">当前退款状态 · 退款中</span>
             <span className="text-3xl font-bold tabular-nums">¥280.00</span>
-            <span className="text-xs opacity-90">原路退回 · 预计 1-3 个工作���到账</span>
+            <span className="text-xs opacity-90">原路退回 · 预计 1-3 个工作日到账</span>
           </div>
           <C_sc>
             <C_sd>申请信息</C_sd>
@@ -6592,14 +6592,14 @@ let tT = [
     {
       t: "余额充值",
       d: "2026-08-28 14:20",
-      v: "+��500.00",
+      v: "+¥500.00",
       type: "收入",
     },
     {
       t: "托管单支出",
       d: "2026-07-01 15:20",
       v: "-¥980.00",
-      type: "���出",
+      type: "支出",
     },
     {
       t: "报餐单支出",
@@ -6688,7 +6688,7 @@ let tZ = [
       unread: !1,
       heading: "8月报餐账单已结清 ¥186.00",
       body: [
-        "您的8月报餐账单（共 11 笔）已于 2026-09-02 完成结算，金额 ¥186.00��",
+        "您的8月报餐账单（共 11 笔）已于 2026-09-02 完成结算，金额 ¥186.00。",
         "可在「我的账单 - 已结算」中查看账单明细。",
       ],
       amount: "¥186.00",
@@ -7101,7 +7101,7 @@ let tX = {
               />
             </>
           ) : (
-            ["8月托管账单", "8月报餐账单", "7月托管���单"].map((s) => (
+            ["8月托管账单", "8月报餐账单", "7月托管账单"].map((s) => (
               <C_sc key={s} onClick={() => e("billDetail")} className="flex items-center gap-3">
                 <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
                   <C_tq className="size-5" />
@@ -7470,7 +7470,7 @@ let tX = {
             </div>
             <C_so label="修改名称" desc="仅在本系统内生效" onClick={() => e("bandRename")} />
             <C_so label="历史数据" desc="心率 · 血压 · 血脂" onClick={() => e("healthData")} />
-            <C_so label="更���设备" onClick={() => e("bandConnect")} />
+            <C_so label="更换设备" onClick={() => e("bandConnect")} />
           </C_sc>
           <C_sp block={!0} variant="danger" onClick={() => s("已断开连接")}>
             断开连接
@@ -7887,7 +7887,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约���体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8040,8 +8040,8 @@ let tX = {
         items={[
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
-          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规���容进行处理。"],
-          ["四、服务的变更与中止", "平台有权根据运��需要对服务内容进行调整、中止或终止，并提前予以公告。"],
+          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
+          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
           ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
@@ -8182,7 +8182,7 @@ let tX = {
     hrOrderDetail: "派单详情",
     sysMsg: "系统消息",
     sysMsgDetail: "消息详情",
-    settings: "系��设置",
+    settings: "系统设置",
     delAccount: "注销账号",
     delVerify: "注销验证",
     about: "关于我们",
