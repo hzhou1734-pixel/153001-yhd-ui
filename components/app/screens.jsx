@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -1581,7 +1581,7 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
           <p className="text-base font-bold text-ink">{e}</p>
           <span className="w-7" aria-hidden="true" />
         </div>
-  <ul className={eb("overflow-y-auto", r ? "grid grid-cols-3 gap-2.5 px-5 pt-1" : "flex flex-col px-3")}>
+  <ul className={eb("overflow-y-auto", r ? eb("grid gap-2.5 px-5 pt-1", s.some((o) => o.includes(" - ")) ? "grid-cols-2" : "grid-cols-3") : "flex flex-col px-3")}>
   {s.map((s) => {
   let n = s === t;
   return (
@@ -3352,7 +3352,7 @@ let ti = [
                 (s("订单已提交"), e("ordersHelper"));
               }}
             >
-              提交订单
+              提交订���
             </C_sp>
           }
         >
@@ -3721,7 +3721,7 @@ let ti = [
                 ["心率", "正常范围 60 - 100 次/分", "78 次/分", !0],
                 ["血压", "收缩压 120 / 舒张压 80", "120/80", !0],
                 ["血脂", "甘油三酯 1.6 mmol/L", "5.2", !1],
-                ["睡眠", "建议 7 - 9 小时", "6.2 小时", !1],
+                ["睡眠", "建议 7 - 9 小���", "6.2 小时", !1],
               ].map(([e, s, t, l]) => (
                 <div key={e} className={eb("flex flex-col gap-1 rounded-2xl p-3", l ? "bg-fill" : "bg-danger-soft")}>
                   <span className="flex items-center justify-between text-xs">
@@ -4086,8 +4086,8 @@ let ti = [
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
       const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
-      const dropTimes = ["07:00", "07:15", "07:30", "07:45", "08:00", "08:15"];
-      const pickTimes = ["15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
+ const dropTimes = ["07:00 - 07:30", "07:30 - 08:00", "08:00 - 08:30"];
+  const pickTimes = ["12:00 - 13:00", "15:30 - 16:30", "16:30 - 17:30", "17:30 - 18:30"];
       const pickerConfig = {
         dropSchool: { title: "选择送达学校", options: schools },
         dropTime: { title: "选择送孩子时间", options: dropTimes, grid: !0 },
@@ -8052,7 +8052,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约的体检陪诊服务（整��）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8218,7 +8218,7 @@ let tX = {
         items={[
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
-          ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
+          ["三、信息的存储与保护", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
           ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
