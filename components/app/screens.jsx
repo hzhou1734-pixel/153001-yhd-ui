@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "�����区",
       icon: C_eL,
       id: "community",
     },
@@ -1612,6 +1612,57 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
     </div>
   );
 }
+const COIN_BALANCE = 868;
+function C_sCoinConfirm({ amount, onConfirm, onClose }) {
+  const cost = Math.round(Number(amount) || 0);
+  const after = COIN_BALANCE - cost;
+  const enough = after >= 0;
+  return (
+    <div className="absolute inset-0 z-40 flex flex-col justify-end">
+      <button type="button" aria-label="关闭" onClick={onClose} className="absolute inset-0 bg-shell/45" />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="coin-confirm-title"
+        className="relative flex flex-col items-center rounded-t-[28px] bg-surface px-6 pt-3 pb-6 shadow-float"
+      >
+        <span className="h-1 w-10 rounded-full bg-fill" aria-hidden="true" />
+        <span className="mt-5 flex size-16 items-center justify-center rounded-full bg-brand-soft" aria-hidden="true">
+          <span className="flex size-8 items-center justify-center rounded-full border-2 border-brand-deep text-base font-bold text-brand-deep">
+            {"¥"}
+          </span>
+        </span>
+        <p id="coin-confirm-title" className="mt-4 text-lg font-bold text-ink">
+          确认提交
+        </p>
+        <p className="mt-3 flex items-baseline gap-1.5">
+          <span className="text-5xl font-bold tabular-nums text-brand-deep">{`-${cost}`}</span>
+          <span className="text-sm text-ink-2">顾好家币</span>
+        </p>
+        <div className="mt-6 flex w-full items-stretch">
+          <span className="flex flex-1 flex-col items-center gap-1">
+            <span className="text-xs text-ink-3">当前余额</span>
+            <span className="text-lg font-bold tabular-nums text-ink">{COIN_BALANCE}</span>
+          </span>
+          <span className="w-px bg-fill" aria-hidden="true" />
+          <span className="flex flex-1 flex-col items-center gap-1">
+            <span className="text-xs text-ink-3">支付后余额</span>
+            <span className={eb("text-lg font-bold tabular-nums", enough ? "text-brand-deep" : "text-danger")}>
+              {enough ? after : "余额不足"}
+            </span>
+          </span>
+        </div>
+        <p className="mt-5 text-xs text-ink-3">提交后订单支付状态为「进行中」</p>
+        <C_sp block className="mt-5" variant={enough ? "primary" : "ghost"} onClick={() => enough && onConfirm()}>
+          确认提交
+        </C_sp>
+        <button type="button" onClick={onClose} className="press mt-3 py-1 text-sm text-ink-2">
+          取消
+        </button>
+      </div>
+    </div>
+  );
+}
 function C_sj({ items: e, value: s, onChange: t, className: l }) {
   return (
     <div role="tablist" className={eb("flex gap-1 rounded-full bg-surface/80 p-1 shadow-card", l)}>
@@ -2149,7 +2200,7 @@ let sH = {
         <C_sp block={!0} onClick={() => e("home")}>
           提交账号注册
         </C_sp>
-        <C_sC>验证码由阿里云短��服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
+        <C_sC>验证码由阿里云短���服��下发，点击获取验证码后 60 秒可重新获取</C_sC>
       </C_si>
     );
   },
@@ -4032,7 +4083,8 @@ let ti = [
         [needCare, setNeedCare] = (0, c.useState)(!1),
         [careSlots, setCareSlots] = (0, c.useState)([]),
         [picks, setPicks] = (0, c.useState)({}),
-        [picker, setPicker] = (0, c.useState)(null);
+        [picker, setPicker] = (0, c.useState)(null),
+        [coinOpen, setCoinOpen] = (0, c.useState)(!1);
       const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
       const dropTimes = ["07:00", "07:15", "07:30", "07:45", "08:00", "08:15"];
       const pickTimes = ["15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
@@ -4054,15 +4106,24 @@ let ti = [
                 <C_sP value="50.00" />
               </span>
               <C_sp
-                onClick={() => {
-                  (toast("已使用顾好家币支付，提交成功"), e("ordersTrust"));
-                }}
+                onClick={() => setCoinOpen(!0)}
               >
                 提交订单
               </C_sp>
             </>
           }
         >
+          {coinOpen ? (
+            <C_sCoinConfirm
+              amount={50}
+              onClose={() => setCoinOpen(!1)}
+              onConfirm={() => {
+                setCoinOpen(!1);
+                toast("已使用顾好家币支付，提交成功");
+                e("ordersTrust");
+              }}
+            />
+          ) : null}
           <C_s3
             img="/images/trust.png"
             title="禄口一小课后托管"
@@ -4166,6 +4227,7 @@ let ti = [
         [s, t] = (0, c.useState)("午餐"),
         [l, a] = (0, c.useState)({}),
         [n, r] = (0, c.useState)(!0),
+        [coinOpen, setCoinOpen] = (0, c.useState)(!1),
         x = ta.reduce((e, s, t) => e + (l[t] ?? 0) * s.p, 0),
         d = x > 0 && n ? 3 : 0;
       return (
@@ -4179,13 +4241,24 @@ let ti = [
                 <C_sP value={(x + d).toFixed(2)} />
               </span>
               <C_sp variant={x ? "primary" : "ghost"} onClick={() => {
-                  x && (toast("已使用顾好家币支付，提交成功"), e("orders"));
+                  x && setCoinOpen(!0);
                 }}>
                 {x ? "提交订单" : "请选择套餐"}
               </C_sp>
             </>
           }
         >
+          {coinOpen ? (
+            <C_sCoinConfirm
+              amount={x + d}
+              onClose={() => setCoinOpen(!1)}
+              onConfirm={() => {
+                setCoinOpen(!1);
+                toast("已使用顾好家币支付，提交成功");
+                e("orders");
+              }}
+            />
+          ) : null}
           <C_sc onClick={() => e("mealDetail")} className="bg-hero-wash flex items-center gap-3 text-surface">
             <span className="flex flex-1 flex-col gap-1">
               <span className="text-xs opacity-90">今日菜单</span>
@@ -4497,7 +4570,7 @@ let ti = [
             <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
             <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
-            <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
+            <C_su label="备注" placeholder="请描述服���需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <C_sk max={6} hint="请上传服务需求相关图片" />
@@ -4793,7 +4866,7 @@ let tf = [
       img: "/images/meal-fish.png",
     },
     {
-      t: "小区停车位改造进展说明",
+      t: "小区停车位改���进展说明",
       d: "新增 60 个车位，预计月底完工",
       m: "08-28 · 物业服务中心",
       img: "/images/banner-1.png",
@@ -5057,7 +5130,7 @@ let tf = [
             <C_sp
               block={!0}
               onClick={() => {
-                (s("报名成功"), e("mySignup"));
+                (s("报名成��"), e("mySignup"));
               }}
             >
               提交报名
@@ -7854,7 +7927,7 @@ let tX = {
             <C_s_
               items={[
                 {
-                  title: "订单提交",
+                  title: "订单���交",
                   time: "09-18 10:20",
                   state: "done",
                 },
@@ -8064,7 +8137,7 @@ let tX = {
               <C_e3 className="size-10" strokeWidth={1.6} />
             </span>
             <p className="text-xl font-bold text-ink">注销账号</p>
-            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销吗？</p>
+            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销��？</p>
           </div>
           <div className="flex w-full flex-col gap-3">
             <C_sp block={!0} onClick={s}>
@@ -8243,7 +8316,7 @@ let tX = {
     orderSettlement: "订单结算",
     review: "服务评价",
     addReview: "添加评价",
-    refund: "退款申请",
+    refund: "退���申请",
     refundProgress: "退款进度",
     payment: "收银台",
     payResult: "支付结果",
