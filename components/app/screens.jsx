@@ -2930,20 +2930,13 @@ function C_s4() {
         用户评价
       </C_sd>
       <div className="flex flex-col gap-3">
-        {[
-          ["09-04 14:30", "服务很贴心，准时又细致，老人很满意。"],
-          ["09-03 19:08", "流程清楚，沟通顺畅，下次还会预约。"],
-          ["08-29 10:15", "工作人员耐心专业，值得推荐。"],
-        ].map(([e, s]) => (
-          <div key={e} className="flex flex-col gap-1 rounded-2xl bg-fill p-3">
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-xs font-semibold text-ink">
-                匿名
-                <C_sM />
-              </span>
-              <span className="text-[11px] text-ink-3 tabular-nums">{e}</span>
-            </div>
-            <p className="text-xs leading-relaxed text-ink-2">{s}</p>
+        {["09-04 14:30", "09-03 19:08", "08-29 10:15"].map((e) => (
+          <div key={e} className="flex items-center justify-between rounded-2xl bg-fill p-3">
+            <span className="flex items-center gap-2 text-xs font-semibold text-ink">
+              匿名
+              <C_sM />
+            </span>
+            <span className="text-[11px] text-ink-3 tabular-nums">{e}</span>
           </div>
         ))}
       </div>
@@ -5950,7 +5943,7 @@ let t_ = [
             </span>
           </C_sc>
           {t_.map((e) => (
-            <C_sc key={e.t} className="flex flex-col gap-2">
+            <C_sc key={e.t}>
               <div className="flex items-center gap-2.5">
                 <span className="flex size-9 items-center justify-center rounded-full bg-brand-soft text-sm font-bold text-brand-deep">
                   匿
@@ -5961,7 +5954,6 @@ let t_ = [
                 </span>
                 <span className="text-[11px] text-ink-3 tabular-nums">{e.t}</span>
               </div>
-              <p className="text-[13px] leading-relaxed text-ink-2">{e.c}</p>
             </C_sc>
           ))}
         </C_si>
@@ -7869,7 +7861,7 @@ let tX = {
             className="bg-sub-wash"
             bottom={
               <C_sp block={!0} onClick={() => e(m.route)}>
-                {"bill" === m.route ? "查看我的账单" : "查看账单详情"}
+                {"bill" === m.route ? "查看我的账���" : "查看账单详情"}
               </C_sp>
             }
           >
