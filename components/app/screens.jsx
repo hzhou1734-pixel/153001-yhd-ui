@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入���册手机号" type="tel" />
+            <C_su placeholder="请输入�����册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -2877,11 +2877,11 @@ let sq = ew("activity", [
       },
     ],
   ]);
-function C_s3({ img: e, title: s, desc: t, price: l, tag: a }) {
+  function C_s3({ img: e, title: s, desc: t, price: l, tag: a, cover: c, alt: r = "" }) {
   return (
-    <div className="shadow-card relative overflow-hidden rounded-[24px] bg-surface">
-      <div className="relative h-36 bg-brand-mist">
-        <eW.Image src={e} alt="" fill={!0} sizes="343px" className="object-contain p-3" />
+  <div className="shadow-card relative shrink-0 overflow-hidden rounded-[24px] bg-surface">
+  <div className={eb("relative bg-brand-mist", c ? "aspect-[16/9]" : "h-36")}>
+  <eW.Image src={e} alt={r} fill={!0} sizes="343px" className={c ? "object-cover" : "object-contain p-3"} />
         {a ? <C_sh className="absolute top-3 left-3">{a}</C_sh> : null}
       </div>
       <div className="flex items-end justify-between gap-3 p-4">
@@ -3499,7 +3499,7 @@ let ti = [
         <C_si title="历史检测报告" className="bg-sub-wash">
           <C_sj items={["日报", "周报", "月报", "年报"]} value={s} onChange={t} />
           <div className="flex gap-2">
-            {["24小时", "近七天", "近30天"].map((e) => (
+            {["24小��", "近七天", "近30天"].map((e) => (
               <button
                 key={e}
                 type="button"
@@ -3782,7 +3782,7 @@ let ti = [
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
                 "运动量不足，能量消耗低于摄入",
-                "作息不规律，睡眠不足影响脂代谢",
+                "作息不规律，睡��不足影响脂代谢",
                 "遗传因素与年龄增长的自然变化",
               ]}
             />
@@ -3849,6 +3849,8 @@ let ti = [
         >
           <C_s3
             img="/images/escort.png"
+            cover={!0}
+            alt="陪诊员搀扶老人在医院走廊就诊"
             title="医院就诊全程陪诊"
             desc="含挂号协助、问诊陪同、取药代领、报告解读"
             price={
@@ -4041,7 +4043,7 @@ let ti = [
         >
           <C_s3
             img="/images/trust.png"
-            title="禄口一小课后托管"
+            title="禄口一��课后托管"
             desc="工作日课后看护 · 单日预约"
             price={<C_sP value="45" from={!0} />}
           />
@@ -4294,7 +4296,7 @@ let ti = [
             <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序名称" v="物业服务系统" />
+            <C_sm k="小程序名称" v="���业服务系统" />
             <C_sm k="打开方式" v="APP 内跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
@@ -6069,7 +6071,7 @@ let t_ = [
           <div className="bg-hero-wash shadow-float flex flex-col gap-1 rounded-[24px] p-5 text-surface">
             <span className="text-xs opacity-90">当前退款状态 · 退款中</span>
             <span className="text-3xl font-bold tabular-nums">¥280.00</span>
-            <span className="text-xs opacity-90">原路退回 · 预计 1-3 个工作日到账</span>
+            <span className="text-xs opacity-90">原路退回 · 预计 1-3 个工作���到账</span>
           </div>
           <C_sc>
             <C_sd>申请信息</C_sd>
@@ -8187,7 +8189,7 @@ let tX = {
     hrOrderDetail: "派单详情",
     sysMsg: "系统消息",
     sysMsgDetail: "消息详情",
-    settings: "系统设置",
+    settings: "系��设置",
     delAccount: "注销账号",
     delVerify: "注销验证",
     about: "关于我们",
