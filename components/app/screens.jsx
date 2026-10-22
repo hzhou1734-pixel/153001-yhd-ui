@@ -4008,12 +4008,9 @@ let ti = [
           <div className="bg-hero-wash shadow-float relative flex h-32 items-center overflow-hidden rounded-[24px] px-5 text-surface">
             <span className="flex flex-col gap-1">
               <span className="text-xl font-bold">安心托付</span>
-              <span className="text-xs opacity-90">课后 · 周末 · 节假日 单日随约随托</span>
-            </span>
-            <span className="absolute right-0 bottom-0 h-32 w-36">
-              <eW.Image src="/images/trust.png" alt="" fill={!0} sizes="144px" className="object-contain" />
-            </span>
-          </div>
+  <span className="text-xs opacity-90">课后 · 周末 · 节假日 单日随约随托</span>
+  </span>
+  </div>
           {tl.map(([s, t, l]) => (
             <C_sc key={s} onClick={() => e("trustDetail")} className="flex items-center gap-3">
               <span className="relative size-16 shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -4300,7 +4297,7 @@ let ti = [
             <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序名称" v="物业服务系统" />
+            <C_sm k="小程序名称" v="���业服务系统" />
             <C_sm k="打开方式" v="APP ��跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">���成功跳转</C_sh>} />
           </C_sc>
@@ -5077,7 +5074,7 @@ let tf = [
               </span>
             </C_sc>
           ))}
-          <C_sC>下拉刷新 · 上拉加载更多</C_sC>
+          <C_sC>���拉刷新 · 上拉加载更多</C_sC>
         </C_si>
       );
     },
@@ -5677,7 +5674,7 @@ let t_ = [
             code="BC20250904-001"
             status="进行中"
             title="午餐× 2"
-            sub="配送 / 使用：09-05 · 提交：09-04 10:20"
+            sub="配送 / 使用：09-05 · ��交：09-04 10:20"
             price="41.00"
           />
           <C_sc>
