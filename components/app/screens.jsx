@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -2069,7 +2069,7 @@ let sH = {
           <span className="flex size-16 items-center justify-center rounded-full bg-success-soft text-success">
             <C_e2 className="size-8" strokeWidth={2.4} />
           </span>
-          <p className="text-sm leading-relaxed text-ink-2">微信授权登录成功，请绑定手机号码完成账号注册</p>
+          <p className="text-sm leading-relaxed text-ink-2">微信授权���录成功，请绑定手机号码完成账号注册</p>
         </div>
         <div className="flex flex-col gap-3">
           <C_su placeholder="请输入手机号" type="tel" />
@@ -3188,7 +3188,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连��健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -4115,7 +4115,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适��高血压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适����高血压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -5665,7 +5665,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的��加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -6532,7 +6532,75 @@ let tZ = [
     ["陪诊单售后结果", "09-25 15:00", !1],
     ["报餐单下单结果", "09-24 09:15", !1],
     ["托管单下单结果", "09-22 08:50", !1],
+  ],
+  tBillMsgs = [
+    {
+      title: "9月账单待结算提醒",
+      time: "09-30 09:00",
+      unread: !0,
+      heading: "您的9月账单已生成，待结算 ¥450.00",
+      body: [
+        "本房号9月共产生托管单 4 笔（¥315.00）、报餐单 7 笔（¥135.00），合计待结算 ¥450.00。",
+        "请于 10 月 5 日前完成结算，逾期将暂停新订单的提交。",
+      ],
+      amount: "¥450.00",
+      tone: "warn",
+      route: "bill",
+    },
+    {
+      title: "顾好家币额度扣减通知",
+      time: "09-29 18:20",
+      unread: !0,
+      heading: "共享额度已扣减 ¥90.00",
+      body: [
+        "「顾家小林 · 业主」的全天托管单（9月5日）已完成，已从房号共享额度中扣减 ¥90.00。",
+        "当前共享额度剩余 ¥868.00。",
+      ],
+      amount: "-¥90.00",
+      tone: "brand",
+      route: "bill",
+    },
+    {
+      title: "共享额度不足提醒",
+      time: "09-26 10:05",
+      unread: !1,
+      heading: "房号共享额度即将不足",
+      body: [
+        "当前共享额度剩余 ¥868.00，按近期消费预计可使用约 10 天。",
+        "为避免影响家人和租户下单，建议及时联系物业充值额度。",
+      ],
+      amount: null,
+      tone: "warn",
+      route: "bill",
+    },
+    {
+      title: "8月托管账单已结清",
+      time: "09-02 14:30",
+      unread: !1,
+      heading: "8月托管账单已结清 ¥405.00",
+      body: [
+        "您的8月托管账单（共 7 笔）已于 2026-09-02 完成结算，金额 ¥405.00。",
+        "可在「我的账单 - 已结算」中查看账单明细。",
+      ],
+      amount: "¥405.00",
+      tone: "teal",
+      route: "billDetail",
+    },
+    {
+      title: "8月报餐账单已结清",
+      time: "09-02 14:28",
+      unread: !1,
+      heading: "8月报餐账单已结清 ¥186.00",
+      body: [
+        "您的8月报餐账单（共 11 笔）已于 2026-09-02 完成结算，金额 ¥186.00。",
+        "可在「我的账单 - 已结算」中查看账单明细。",
+      ],
+      amount: "¥186.00",
+      tone: "teal",
+      route: "billDetail",
+    },
   ];
+let sysMsgCurrent = null;
 function C_tQ({ title: e, head: s, items: t }) {
   return (
     <C_si title={e} className="bg-sub-wash">
@@ -7635,8 +7703,42 @@ let tX = {
           }
         >
           <C_sj items={["订单", "账单"]} value={t} onChange={l} />
-          {tJ.map(([s, t, l]) => (
-            <C_sc key={s} onClick={() => e("sysMsgDetail")} className="flex items-center gap-3">
+          {"账单" === t
+            ? tBillMsgs.map((m) => (
+                <C_sc
+                  key={m.title}
+                  onClick={() => {
+                    sysMsgCurrent = m;
+                    e("sysMsgDetail");
+                  }}
+                  className="flex items-center gap-3"
+                >
+                  <span className="relative flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
+                    <C_tq className="size-5" />
+                    {m.unread && !a ? (
+                      <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-danger ring-2 ring-surface" />
+                    ) : null}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="truncate text-[15px] font-semibold text-ink">{m.title}</span>
+                    <span className="text-xs text-ink-3 tabular-nums">{m.time}</span>
+                  </span>
+                  {m.amount ? (
+                    <span className="text-sm font-bold text-ink tabular-nums">{m.amount}</span>
+                  ) : null}
+                  <C_e$ className="size-4 text-ink-3" />
+                </C_sc>
+              ))
+            : null}
+          {"订单" === t && tJ.map(([s, t, l]) => (
+            <C_sc
+              key={s}
+              onClick={() => {
+                sysMsgCurrent = null;
+                e("sysMsgDetail");
+              }}
+              className="flex items-center gap-3"
+            >
               <span className="relative flex size-11 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
                 <C_tq className="size-5" />
                 {l && !a ? (
@@ -7654,6 +7756,34 @@ let tX = {
       );
     },
     sysMsgDetail: function () {
+      let { go: e } = o(),
+        m = sysMsgCurrent;
+      if (m)
+        return (
+          <C_si
+            title="消息详情"
+            className="bg-sub-wash"
+            bottom={
+              <C_sp block={!0} onClick={() => e(m.route)}>
+                {"bill" === m.route ? "查看我的账单" : "查看账单详情"}
+              </C_sp>
+            }
+          >
+            <C_sc className="flex flex-col gap-3">
+              <C_sh tone="teal" className="w-fit">
+                账单
+              </C_sh>
+              <h2 className="text-lg font-bold text-ink text-pretty">{m.heading}</h2>
+              <span className="text-xs text-ink-3 tabular-nums">{m.time}</span>
+              {m.body.map((p) => (
+                <p key={p} className="text-sm leading-relaxed text-ink-2">
+                  {p}
+                </p>
+              ))}
+            </C_sc>
+            <C_sC>左右滑动可切换其他消息</C_sC>
+          </C_si>
+        );
       return (
         <C_si title="消息详情" className="bg-sub-wash">
           <C_sc className="flex flex-col gap-3">
@@ -7828,7 +7958,7 @@ let tX = {
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
           ["二、信息的使用", "收集的信息仅用���服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
-          ["四、信息的共享", "除法律法规要求或���您明确同意外，我们不会向任何第三方共享您的个人信息。"],
+          ["四、信息的共���", "除法律法规要求或���您明确同意外，我们不会向任何第三方共享您的个人信息。"],
           ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
