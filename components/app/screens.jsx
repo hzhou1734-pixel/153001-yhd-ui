@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2014,7 +2014,7 @@ let sA = [
     room: "2栋-1102",
     date: "08-28",
     status: "reject",
-    reason: "房号信息与物业登��不一致",
+    reason: "房号信息与物业登记不一致",
     to: "certReject",
   },
   {
@@ -2484,7 +2484,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添���认证小区</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证小区</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -2980,7 +2980,7 @@ let s8 = [
       icon: sU,
     },
     {
-      t: "邻居���话问安",
+      t: "邻居电话问安",
       d: "每日定时电话问候独居老人，了解需求并跟进反馈",
       icon: C_sQ,
     },
@@ -3198,23 +3198,29 @@ let ti = [
             </span>
             <span className="flex flex-1 flex-col text-left">
               <span className="text-base font-bold">紧急呼叫</span>
-              <span className="text-xs opacity-90">一键联系物业中心 / 急救��心</span>
+              <span className="text-xs opacity-90">一键联系物业中心 / 急救中心</span>
             </span>
             <C_e$ className="size-5" />
           </button>
           <C_sx title="暖心陪诊 · 一路相伴" />
-          <C_sc onClick={() => e("escortList")} className="flex items-center gap-3 p-0">
-            <span className="relative h-24 w-28 shrink-0 overflow-hidden rounded-l-[20px] bg-brand-mist">
-              <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="112px" className="object-cover" />
+          <button
+            type="button"
+            onClick={() => e("escortList")}
+            aria-label="陪诊服务，立即预约"
+            className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
+          >
+            <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
+            <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+              <span className="flex flex-col gap-1 text-white">
+                <span className="text-lg font-bold">陪诊服务</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊陪同 · 取药代领 · 报告解读</span>
+              </span>
+              <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
+                立即预约
+              </span>
             </span>
-            <span className="flex flex-1 flex-col gap-1 py-3">
-              <span className="text-[15px] font-bold text-ink">陪诊服务</span>
-              <span className="text-[11px] leading-relaxed text-ink-2">挂号协助 · 问诊陪同 · 取药代领 · 报告解读</span>
-            </span>
-            <span className="bg-brand-gradient mr-3 rounded-full px-3 py-1.5 text-xs font-semibold text-surface">
-              立即预约
-            </span>
-          </C_sc>
+          </button>
           <C_sx title="生活服务帮手" />
           <C_sc className="flex flex-col py-1">
             {s8.map((s, t) => (
@@ -3281,7 +3287,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连接��康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -3915,7 +3921,7 @@ let ti = [
             <span className="relative size-12 overflow-hidden rounded-2xl bg-brand-mist">
               <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="48px" className="object-cover" />
             </span>
-            <span className="text-[15px] font-bold text-ink">医院就诊���程陪诊</span>
+            <span className="text-[15px] font-bold text-ink">医院就诊全程陪诊</span>
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
@@ -4203,7 +4209,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高���压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -4314,7 +4320,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、���房除油��卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
             </p>
           </C_sc>
           <C_sc>
@@ -5664,7 +5670,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已����付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -5733,7 +5739,7 @@ let t_ = [
     },
     orderEscortDetail: function () {
       return (
-        <C_si title="陪诊单详���" className="bg-sub-wash" bottom={<C_tS pay={!0} />}>
+        <C_si title="陪诊单详情" className="bg-sub-wash" bottom={<C_tS pay={!0} />}>
           <C_tC
             kind="陪诊单"
             code="PZ20250903-002"
@@ -5753,7 +5759,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用��待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -7632,7 +7638,7 @@ let tX = {
     },
     hrCertApply: function () {
       let { back: e, toast: s } = o(),
-        [t, l] = (0, c.useState)("家电��修");
+        [t, l] = (0, c.useState)("家电维修");
       return (
         <C_si
           title="人才认证"
@@ -7652,7 +7658,7 @@ let tX = {
           <C_sc className="flex flex-col gap-4">
             <C_sf label="意向服务小区" required={!0} />
             <C_su label="姓名" placeholder="请输入姓名" required={!0} />
-            <C_su label="联系电话" placeholder="请输入��系电话" type="tel" required={!0} />
+            <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
@@ -7854,7 +7860,7 @@ let tX = {
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
               您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
-              到达小区南门接人，全程��同前往医院体检。
+              到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
           </C_sc>
@@ -8007,7 +8013,7 @@ let tX = {
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
-          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中���或终止，并提前予以公告。"],
+          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
           ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
