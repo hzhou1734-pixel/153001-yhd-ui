@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����������区",
+      label: "�������������区",
       icon: C_eL,
       id: "community",
     },
@@ -841,7 +841,7 @@ function C_eJ({ variant: e, className: s, onSelect: t }) {
 let eQ = {
     健康小屋: "healthHome",
     托管服务: "trusteeship",
-    健康膳食: "mealDetail",
+    健康膳食: "meal",
     物业服务: "miniJump",
     生活帮手: "helperList",
     社区活动: "communityList",
@@ -4085,7 +4085,7 @@ let ti = [
         [picks, setPicks] = (0, c.useState)({}),
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
-      const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中��", "禄口实验小学"];
+      const schools = ["禄口第一小学", "禄口第��小学", "禄口第三中��", "禄口实验小学"];
       const timeSlots = [
         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
         "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
@@ -5919,7 +5919,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂��需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -6169,7 +6169,7 @@ let t_ = [
           </C_sc>
           <C_sz>
             <span>仅陪诊日期前可申请全额退款</span>
-            <span>审核通过后原路退回，1-3 个工作日到账</span>
+            <span>审��通过后原路退回，1-3 个工作日到账</span>
           </C_sz>
         </C_si>
       );
@@ -7613,7 +7613,7 @@ let tX = {
       let { back: e, toast: s } = o();
       return (
         <C_si title="修改名称" className="bg-sub-wash gap-4">
-          <C_sz>该名称仅在本系统内生效，用于区分多台手环设备，不会修改手环厂商的原始名称</C_sz>
+          <C_sz>该名称仅在本系统内生效，用于区分多台手环设备，��会修改手环厂商的原始名称</C_sz>
           <C_sc className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
               <C_s2 className="size-5" />
