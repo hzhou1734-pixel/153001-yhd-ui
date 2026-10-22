@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2069,7 +2069,7 @@ let sH = {
           <span className="flex size-16 items-center justify-center rounded-full bg-success-soft text-success">
             <C_e2 className="size-8" strokeWidth={2.4} />
           </span>
-          <p className="text-sm leading-relaxed text-ink-2">微信授权���录成功，请绑定手机号码完成账号注册</p>
+          <p className="text-sm leading-relaxed text-ink-2">微信授权登录成功，请绑定手机号码完成账号注册</p>
         </div>
         <div className="flex flex-col gap-3">
           <C_su placeholder="请输入手机号" type="tel" />
@@ -2887,7 +2887,7 @@ let s8 = [
       icon: sU,
     },
     {
-      t: "��居电话问安",
+      t: "邻居电话问安",
       d: "每日定时电话问候独居老人，了解需求并跟进反馈",
       icon: C_sQ,
     },
@@ -3188,7 +3188,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连��健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -4115,7 +4115,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适����高血压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -4288,7 +4288,7 @@ let ti = [
             <C_sk max={6} hint="请上传服务需求相关图片（最多 6 张）" />
             <C_sk kind="video" max={1} hint="请上传服务需求相关视频（最多 1 个）" />
           </C_sc>
-          <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收���费用</C_sz>
+          <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
         </C_si>
       );
     },
@@ -5665,7 +5665,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的��加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -6669,7 +6669,7 @@ let tX = {
             title="我的服务"
             items={[
               {
-                t: "顾好���币",
+                t: "顾好家币",
                 icon: C_tO,
                 to: "coin",
               },
@@ -6952,7 +6952,7 @@ let tX = {
           title="我的账单"
           className="bg-sub-wash"
           bottom={
-            "���结算" === s ? (
+            "待结算" === s ? (
               <C_sp block={!0} onClick={() => e("payment")}>
                 立即付款 ¥450.00
               </C_sp>
@@ -7067,7 +7067,7 @@ let tX = {
                 <span className="flex flex-col items-end gap-0.5">
                   <span className="text-sm font-bold text-ink tabular-nums">{l}</span>
                   <span className={eb("text-[11px] tabular-nums", a.startsWith("-") ? "text-danger" : "text-ink-3")}>
-                    {"退�� "}
+                    {"退款 "}
                     {a}
                   </span>
                 </span>
@@ -7498,7 +7498,7 @@ let tX = {
               onClick={() => e("hrCertApply")}
               className="press mt-1 h-11 rounded-full bg-surface text-sm font-semibold text-brand-deep"
             >
-              编辑技��与上传凭证
+              编辑技能与上传凭证
             </button>
             <span className="text-center text-[11px] opacity-90">提交后由物业审核，通过后进入人才库</span>
           </div>
@@ -7956,9 +7956,9 @@ let tX = {
         head="顾好家隐私政策"
         items={[
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
-          ["二、信息的使用", "收集的信息仅用���服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
+          ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
-          ["四、信息的共���", "除法律法规要求或���您明确同意外，我们不会向任何第三方共享您的个人信息。"],
+          ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
           ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
