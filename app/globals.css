@@ -18,6 +18,11 @@
   --color-danger: #e15019;
   --color-danger-soft: #fdece4;
   --color-shell: #2b2420;
+  --color-brand-ink: #5a3510;
+  --color-page: #ffffff;
+  --color-fill: #f7f4ef;
+  --color-warm-ink: #8a6410;
+  --color-warm-soft: #fdf6e0;
 
   --shadow-card: 0 1px 1px #5a351008, 0 6px 16px -6px #b06a1824;
   --shadow-float: 0 2px 4px #5a35100a, 0 18px 36px -14px #e08a1e52;
@@ -96,6 +101,37 @@
   background-image:
     radial-gradient(120% 80% at 100% 0, #f0c85a59 0%, #0000 60%),
     linear-gradient(#ffe9c6 0%, #fff4e2 60%, #fffaf2 100%);
+}
+
+@utility bg-sub-wash {
+  background-color: #faf7f2;
+  background-image:
+    radial-gradient(90% 220px at 100% 0, #f0c85a38 0%, #0000 70%),
+    linear-gradient(#ffefd6 0, #fff7ec 180px, #faf7f2 380px);
+}
+
+@utility bg-hero-wash {
+  background-image:
+    radial-gradient(120% 90% at 100% 0, #f0c85a73 0%, #0000 60%),
+    linear-gradient(135deg, #f5af3c 0%, #ea8a2a 100%);
+}
+
+@keyframes screen-in {
+  0% {
+    opacity: 0;
+    transform: translate(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility screen-in {
+  animation: 0.22s ease-out screen-in;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @utility bg-panel-wash {

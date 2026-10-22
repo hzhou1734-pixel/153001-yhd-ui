@@ -9,16 +9,20 @@ import { ActivityList } from './activity-list'
 import { FeaturedContent } from './featured-content'
 import { BottomNav } from './bottom-nav'
 
-export function HomeScreen() {
+export function HomeScreen({ onNavigate }: { onNavigate?: (label: string) => boolean }) {
   const [toast, setToast] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
-  const showToast = useCallback((label: string) => {
-    clearTimeout(timerRef.current)
-    setToast(label)
-    timerRef.current = setTimeout(() => setToast(null), 1800)
-  }, [])
+  const showToast = useCallback(
+    (label: string) => {
+      if (onNavigate?.(label)) return
+      clearTimeout(timerRef.current)
+      setToast(label === '严选商城' ? '严选商城敬请期待' : label)
+      timerRef.current = setTimeout(() => setToast(null), 1800)
+    },
+    [onNavigate],
+  )
 
   return (
     <div className="relative h-full bg-surface text-ink">
