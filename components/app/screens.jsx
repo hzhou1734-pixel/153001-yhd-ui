@@ -1723,14 +1723,14 @@ function C_sv({ label: e = "服务日期（仅可选择未来 7 天内）" }) {
   return (
     <div className="flex flex-col gap-2">
       <span className="text-[13px] font-medium text-ink-2">{e}</span>
-      <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
-        {sy.map(([e, l], a) => (
-          <button
-            key={l}
-            type="button"
-            onClick={() => t(a)}
-            className={eb(
-              "press flex h-16 w-12 shrink-0 flex-col items-center justify-center gap-0.5 rounded-2xl",
+  <div className="flex gap-1.5">
+  {sy.map(([e, l], a) => (
+  <button
+  key={l}
+  type="button"
+  onClick={() => t(a)}
+  className={eb(
+  "press flex h-16 min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl",
               a === s ? "bg-brand-gradient shadow-soft text-surface" : "bg-fill text-ink-2",
             )}
           >
@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入���������册手机号" type="tel" />
+            <C_su placeholder="请输入�����������册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -3865,7 +3865,7 @@ let ti = [
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
               由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
-              专科医院，覆盖内科外科眼科口腔���常规科室。
+              专科医院，覆盖内科外科���科口腔���常规科室。
             </p>
             </section>
             <section>
@@ -5672,7 +5672,7 @@ let t_ = [
           <C_sc>
             <C_sd>菜单信息</C_sd>
             {[
-              ["清蒸���鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
+              ["清蒸���鱼 · 时蔬 · ��饭", "18.00", "/images/meal-fish.png"],
               ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
             ].map(([e, s, t]) => (
               <div key={e} className="flex items-center gap-3 py-1.5">
@@ -5983,7 +5983,7 @@ let t_ = [
             </span>
             <span className="flex flex-col">
               <span className="text-xs text-ink-3">报餐单</span>
-              <span className="text-[15px] font-bold text-ink">午餐 · 营养套餐</span>
+              <span className="text-[15px] font-bold text-ink">午餐 · 营养套���</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col items-center gap-3 py-6">
