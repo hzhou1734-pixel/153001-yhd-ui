@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入�������册手机号" type="tel" />
+            <C_su placeholder="请输入���������册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -3497,7 +3497,7 @@ let ti = [
         [l, a] = (0, c.useState)("24小时");
       return (
         <C_si title="历史检测报告" className="bg-sub-wash">
-          <C_sj items={["日报", "周报", "月报", "年报"]} value={s} onChange={t} />
+          <C_sj items={["日报", "周报", "月报", "���报"]} value={s} onChange={t} />
           <div className="flex gap-2">
             {["24小��", "近七天", "近30天"].map((e) => (
               <button
@@ -3865,7 +3865,7 @@ let ti = [
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
               由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
-              专科医院，覆盖内科外科眼科口腔等常规科室。
+              专科医院，覆盖内科外科眼科口腔���常规科室。
             </p>
             </section>
             <section>
@@ -3923,17 +3923,8 @@ let ti = [
               ]}
             />
             </section>
-          </C_sc>
-          <C_sc className="flex gap-3 bg-success-soft">
-            <C_s0 className="size-5 shrink-0 text-success" />
-            <span className="flex flex-col gap-1">
-              <span className="text-sm font-semibold text-ink">陪诊员资质</span>
-              <span className="text-xs leading-relaxed text-ink-2">
-                所有陪诊员均经过物业统一培训，持健康证与急救证书上岗，月度服务满意度需达到 95% 以上。
-              </span>
-            </span>
-          </C_sc>
-        </C_si>
+  </C_sc>
+  </C_si>
       );
     },
     escortBook: function () {
@@ -5681,7 +5672,7 @@ let t_ = [
           <C_sc>
             <C_sd>菜单信息</C_sd>
             {[
-              ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
+              ["清蒸���鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
               ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
             ].map(([e, s, t]) => (
               <div key={e} className="flex items-center gap-3 py-1.5">
@@ -5982,7 +5973,7 @@ let t_ = [
                 (s("感谢你的评价"), e());
               }}
             >
-              提交评价
+              ���交评价
             </C_sp>
           }
         >
@@ -6601,7 +6592,7 @@ let tT = [
     {
       t: "余额充值",
       d: "2026-08-28 14:20",
-      v: "+¥500.00",
+      v: "+��500.00",
       type: "收入",
     },
     {
@@ -7110,7 +7101,7 @@ let tX = {
               />
             </>
           ) : (
-            ["8月托管账单", "8月报餐账单", "7月托管账单"].map((s) => (
+            ["8月托管账单", "8月报餐账单", "7月托管���单"].map((s) => (
               <C_sc key={s} onClick={() => e("billDetail")} className="flex items-center gap-3">
                 <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
                   <C_tq className="size-5" />
@@ -7479,7 +7470,7 @@ let tX = {
             </div>
             <C_so label="修改名称" desc="仅在本系统内生效" onClick={() => e("bandRename")} />
             <C_so label="历史数据" desc="心率 · 血压 · 血脂" onClick={() => e("healthData")} />
-            <C_so label="更换设备" onClick={() => e("bandConnect")} />
+            <C_so label="更���设备" onClick={() => e("bandConnect")} />
           </C_sc>
           <C_sp block={!0} variant="danger" onClick={() => s("已断开连接")}>
             断开连接
@@ -8050,7 +8041,7 @@ let tX = {
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规���容进行处理。"],
-          ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
+          ["四、服务的变更与中止", "平台有权根据运��需要对服务内容进行调整、中止或终止，并提前予以公告。"],
           ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
