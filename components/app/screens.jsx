@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "�����区",
       icon: C_eL,
       id: "community",
     },
@@ -1581,7 +1581,7 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
           <p className="text-base font-bold text-ink">{e}</p>
           <span className="w-7" aria-hidden="true" />
         </div>
-  <ul className={eb("overflow-y-auto", r ? eb("grid gap-2.5 px-5 pt-1", s.some((o) => o.includes(" - ")) ? "grid-cols-2" : "grid-cols-3") : "flex flex-col px-3")}>
+  <ul className={eb("overflow-y-auto", r ? "grid grid-cols-3 gap-2 px-5 pt-1" : "flex flex-col px-3")}>
   {s.map((s) => {
   let n = s === t;
   return (
@@ -1592,7 +1592,7 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
   aria-pressed={n}
   className={eb(
   r
-  ? "press flex w-full items-center justify-center rounded-2xl px-2 py-3 text-center text-[14px] tabular-nums"
+  ? "press flex w-full items-center justify-center rounded-2xl px-1 py-3 text-center text-[13px] whitespace-nowrap tabular-nums"
   : "press flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-[15px]",
   n
   ? "bg-brand-soft font-semibold text-brand-deep"
@@ -3191,7 +3191,7 @@ let ti = [
           },
           {
             t: "历史检测报告",
-            d: "日报 · 周报 · 月报 · 年报",
+            d: "日报 · 周报 · 月报 · ���报",
             icon: C_sG,
             to: "healthReport",
           },
@@ -4086,13 +4086,17 @@ let ti = [
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
       const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
- const dropTimes = ["07:00 - 07:30", "07:30 - 08:00", "08:00 - 08:30"];
-  const pickTimes = ["12:00 - 13:00", "15:30 - 16:30", "16:30 - 17:30", "17:30 - 18:30"];
+      const timeSlots = [
+        "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
+        "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
+        "14:00 - 15:00", "15:00 - 16:00", "17:00 - 18:00",
+        "18:00 - 19:00", "19:00 - 20:00", "20:00 - 21:00",
+      ];
       const pickerConfig = {
         dropSchool: { title: "选择送达学校", options: schools },
-        dropTime: { title: "选择送孩子时间", options: dropTimes, grid: !0 },
+        dropTime: { title: "选择时间", options: timeSlots, grid: !0 },
         pickSchool: { title: "选择接孩子学校", options: schools },
-        pickTime: { title: "选择接孩子时间", options: pickTimes, grid: !0 },
+        pickTime: { title: "选择时间", options: timeSlots, grid: !0 },
       };
       const openPicker = (key) => setPicker({ key, ...pickerConfig[key], value: picks[key] });
       return (
@@ -8220,7 +8224,7 @@ let tX = {
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的���人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
