@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -1552,7 +1552,7 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
     </div>
   );
 }
-function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a }) {
+function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a, grid: r }) {
   return (
     <div className="absolute inset-0 z-40 flex flex-col justify-end">
       <button type="button" aria-label="关闭" onClick={a} className="absolute inset-0 bg-shell/45" />
@@ -1569,23 +1569,29 @@ function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a }) 
           <p className="text-base font-bold text-ink">{e}</p>
           <span className="w-7" aria-hidden="true" />
         </div>
-        <ul className="flex flex-col overflow-y-auto px-3">
-          {s.map((s) => {
-            let n = s === t;
-            return (
-              <li key={s}>
-                <button
-                  type="button"
-                  onClick={() => l(s)}
-                  aria-pressed={n}
-                  className={eb(
-                    "press flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-[15px]",
-                    n ? "bg-brand-soft font-semibold text-brand-deep" : "text-ink",
-                  )}
-                >
-                  {s}
-                  {n ? <span className="size-2 rounded-full bg-brand" aria-hidden="true" /> : null}
-                </button>
+  <ul className={eb("overflow-y-auto", r ? "grid grid-cols-3 gap-2.5 px-5 pt-1" : "flex flex-col px-3")}>
+  {s.map((s) => {
+  let n = s === t;
+  return (
+  <li key={s}>
+  <button
+  type="button"
+  onClick={() => l(s)}
+  aria-pressed={n}
+  className={eb(
+  r
+  ? "press flex w-full items-center justify-center rounded-2xl px-2 py-3 text-center text-[14px] tabular-nums"
+  : "press flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-[15px]",
+  n
+  ? "bg-brand-soft font-semibold text-brand-deep"
+  : r
+  ? "bg-fill text-ink"
+  : "text-ink",
+  )}
+  >
+  {s}
+  {n && !r ? <span className="size-2 rounded-full bg-brand" aria-hidden="true" /> : null}
+  </button>
               </li>
             );
           })}
@@ -2243,9 +2249,9 @@ let sH = {
         d === "community"
           ? { title: "选择小区", options: Object.keys(p), value: t }
           : d === "building"
-            ? { title: "选择楼栋", options: p[t] ?? [], value: a }
+            ? { title: "选择楼栋", options: p[t] ?? [], value: a, grid: !0 }
             : d === "room"
-              ? { title: "选择房号", options: m, value: r }
+              ? { title: "选择房号", options: m, value: r, grid: !0 }
               : null;
     function h(e) {
       if (d === "community") {
@@ -3914,7 +3920,7 @@ let ti = [
             <span className="relative size-12 overflow-hidden rounded-2xl bg-brand-mist">
               <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="48px" className="object-cover" />
             </span>
-            <span className="text-[15px] font-bold text-ink">医院就诊全程陪诊</span>
+            <span className="text-[15px] font-bold text-ink">医院就诊���程陪诊</span>
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
@@ -4313,7 +4319,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油��卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
             </p>
           </C_sc>
           <C_sc>
