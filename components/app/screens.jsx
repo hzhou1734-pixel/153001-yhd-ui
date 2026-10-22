@@ -1688,23 +1688,28 @@ function C_sN({ min: e = 1, max: s = 5, initial: t = 1 }) {
 }
 function C_sk({ kind: e = "image", max: s, hint: t }) {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-between text-[13px]">
-        <span className="font-medium text-ink-2">{"image" === e ? "图片上传" : "视频上传"}</span>
-        <span className="text-ink-3 tabular-nums">0/{s}</span>
+    <div className="flex flex-col gap-3">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <span className="text-[13px] font-medium text-ink-2">{"image" === e ? "图片上传" : "视频上传"}</span>
+          <p className="text-[11px] leading-relaxed text-ink-3">{t}</p>
+        </div>
+        <span className="shrink-0 rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">
+          0/{s}
+        </span>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="grid grid-cols-4 gap-2">
         <button
           type="button"
-          className="press flex size-20 flex-col items-center justify-center gap-1 rounded-2xl bg-brand-mist text-brand-deep shadow-card"
+          aria-label={"image" === e ? "添加图片" : "添加视频"}
+          className="press flex aspect-square flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-brand-deep/40 bg-brand-mist text-brand-deep"
         >
           {(0, __jsxRuntime.jsx)("image" === e ? ss : C_sn, {
-            className: "size-6",
+            className: "size-5",
             strokeWidth: 1.6,
           })}
           <span className="text-[11px]">{"image" === e ? "添加图片" : "添加视频"}</span>
         </button>
-        <p className="flex-1 text-xs leading-relaxed text-ink-3">{t}</p>
       </div>
     </div>
   );
@@ -3676,7 +3681,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>健康建议</C_sd>
+            <C_sd>���康建议</C_sd>
             <C_s6
               items={[
                 "心率与血压均在正常范围，请保持规律作息与适度运动。",
@@ -3783,7 +3788,7 @@ let ti = [
                 "饮食中油脂、精制碳水化合物摄入偏多",
                 "运动量不足，能量消耗低于摄入",
                 "作息不规律，睡眠不足影响脂代谢",
-                "遗传���素与年龄增长的自然变化",
+                "��传���素与年龄增长的自然变化",
               ]}
             />
           </C_sc>
@@ -3980,7 +3985,7 @@ let ti = [
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
-          <C_sc className="flex flex-col gap-4">
+          <C_sc className="flex flex-col gap-4 divide-y divide-fill [&>*+*]:pt-4">
             <C_sk max={6} hint="请上传病情或就医相关资料图片（最多 6 张）" />
             <C_sk kind="video" max={1} hint="请上传病情或就医相关视频（最多 1 个）" />
           </C_sc>
@@ -6703,7 +6708,7 @@ function C_tQ({ title: e, head: s, items: t }) {
       <C_sc className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-bold text-ink">{s}</h2>
-          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期��2026-08-01</span>
+          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期���2026-08-01</span>
         </div>
         {t.map(([e, s]) => (
           <div key={e} className="flex flex-col gap-1">
@@ -7587,7 +7592,7 @@ let tX = {
               人才入驻
             </span>
             <p className="text-[13px] leading-relaxed opacity-95">
-              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
+              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的��活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
             </p>
             <button
               type="button"
