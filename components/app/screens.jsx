@@ -1651,7 +1651,7 @@ function C_sg({ defaultOn: e = !1, label: s, onChange: t }) {
       onClick={() => {
         (a(!l), t?.(!l));
       }}
-      className={eb("relative h-7 w-12 shrink-0 rounded-full transition-colors", l ? "bg-brand" : "bg-tag-muted")}
+      className={eb("relative h-7 w-12 shrink-0 rounded-full transition-colors", l ? "bg-brand" : "bg-ink-3/45")}
     >
       <span
         className={eb(
@@ -1950,7 +1950,7 @@ function sO() {
   return (
     <C_si className="bg-sub-wash -mx-0 gap-5 px-6" nav={<C_sr noBack={!0} />}>
       <C_sI />
-      <C_sj items={["验证码登录", "密码登录"]} value={t} onChange={l} />
+      <C_sj items={["验证码登录", "密码���录"]} value={t} onChange={l} />
       <div className="flex flex-col gap-3">
         <C_su placeholder="请输入手机号" type="tel" suffix={<C_e9 className="size-4 text-ink-3" />} />
         {"验证码登录" === t ? (
@@ -3783,7 +3783,7 @@ let ti = [
                 "饮食中油脂、精制碳水化合物摄入偏多",
                 "运动量不足，能量消耗低于摄入",
                 "作息不规律，睡眠不足影响脂代谢",
-                "遗传因素与年龄增长的自然变化",
+                "遗传���素与年龄增长的自然变化",
               ]}
             />
           </C_sc>
@@ -4297,7 +4297,7 @@ let ti = [
             返回 顾好家
           </C_sp>
           <C_sp block={!0} variant="ghost" onClick={() => s("暂无更多跳转记录")}>
-            查看跳转记录
+            查看跳��记录
           </C_sp>
         </C_si>
       );
@@ -4791,7 +4791,7 @@ let tf = [
             <C_sr title="社区活动" right={<C_to className="size-5 text-ink" />} onRight={() => e("activityFilter")} />
           }
         >
-          <C_sj items={["全部", "即将开始", "报名中", "已结束"]} value={s} onChange={t} />
+          <C_sj items={["全部", "���将开始", "报名中", "已结束"]} value={s} onChange={t} />
           <p className="px-1 text-xs text-ink-3">
             {"共 "}
             {l.length}
