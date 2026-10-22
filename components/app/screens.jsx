@@ -3977,7 +3977,7 @@ let ti = [
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
             {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} /> : null}
-            <C_sf label="医院地址" placeholder="请选择医院" required={!0} />
+            <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
@@ -6703,7 +6703,7 @@ function C_tQ({ title: e, head: s, items: t }) {
       <C_sc className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-bold text-ink">{s}</h2>
-          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期：2026-08-01</span>
+          <span className="text-xs text-ink-3">更新日期：2026-08-01 · 生效日期��2026-08-01</span>
         </div>
         {t.map(([e, s]) => (
           <div key={e} className="flex flex-col gap-1">
