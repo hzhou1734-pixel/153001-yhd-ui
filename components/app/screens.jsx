@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�������������区",
+      label: "���������������区",
       icon: C_eL,
       id: "community",
     },
@@ -2208,7 +2208,7 @@ let sH = {
     let { back: e, toast: s } = o(),
       [t, l] = (0, c.useState)(1);
     return (
-      <C_si title="找回密码" className="bg-sub-wash gap-5 px-6">
+      <C_si title="��回密码" className="bg-sub-wash gap-5 px-6">
         <div className="flex items-center gap-2 pt-2">
           {["验证手机号", "设置新密码"].map((e, s) => (
             <div key={e} className="flex flex-1 items-center gap-2">
@@ -3911,7 +3911,7 @@ let ti = [
           <C_s3
             img="/images/escort.png"
             cover={!0}
-            alt="陪诊员搀扶老人在医院��廊就诊"
+            alt="陪诊员搀��老人在医院��廊就诊"
             title="医院就诊全程陪诊"
             desc="含挂号协助、问诊陪同、取药代领、报告解读"
             price={
@@ -3955,7 +3955,7 @@ let ti = [
             <div className="overflow-hidden rounded-2xl bg-fill">
               {[
                 ["项目", "包含"],
-                ["挂号协助", "线上 / 现场均可"],
+                ["挂��协助", "线上 / 现场均可"],
                 ["问诊陪同", "全程记录医嘱"],
                 ["取药代领", "含处方核对"],
                 ["报告解读", "家属群同步"],
@@ -4085,7 +4085,7 @@ let ti = [
         [picks, setPicks] = (0, c.useState)({}),
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
-      const schools = ["禄口第一小学", "禄口第��小学", "禄口第三中��", "禄口实验小学"];
+      const schools = ["禄口第一小学", "禄口第���小学", "禄口第三中��", "禄口实验小学"];
       const timeSlots = [
         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
         "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
@@ -4233,7 +4233,7 @@ let ti = [
         [n, r] = (0, c.useState)(!0),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1),
         x = ta.reduce((e, s, t) => e + (l[t] ?? 0) * s.p, 0),
-        d = x > 0 && n ? 3 : 0;
+        d = n ? 3 : 0;
       return (
         <C_si
           title="健康膳食"
