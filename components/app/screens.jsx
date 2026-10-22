@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -2069,7 +2069,7 @@ let sH = {
           <span className="flex size-16 items-center justify-center rounded-full bg-success-soft text-success">
             <C_e2 className="size-8" strokeWidth={2.4} />
           </span>
-          <p className="text-sm leading-relaxed text-ink-2">微信授权登录成功，请绑定手机号码完成账号注册</p>
+          <p className="text-sm leading-relaxed text-ink-2">微信授权���录成功，请绑定手机号码完成账号注册</p>
         </div>
         <div className="flex flex-col gap-3">
           <C_su placeholder="请输入手机号" type="tel" />
@@ -2210,7 +2210,7 @@ let sH = {
             </p>
           ))}
         </div>
-        <C_sz>多个小区可分别认证，互不影响使用</C_sz>
+        <C_sz>多���小区可分别认证，互不影响使用</C_sz>
         <C_sc className="flex flex-col gap-4">
           <C_sd>房屋信息</C_sd>
           <C_sf label="小区" required={!0} />
@@ -2887,7 +2887,7 @@ let s8 = [
       icon: sU,
     },
     {
-      t: "邻居电话问安",
+      t: "邻居���话问安",
       d: "每日定时电话问候独居老人，了解需求并跟进反馈",
       icon: C_sQ,
     },
@@ -3188,7 +3188,7 @@ let ti = [
     bandConnect: function () {
       let { go: e } = o();
       return (
-        <C_si title="连接健康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
+        <C_si title="连接��康手环" className="bg-sub-wash items-center gap-6 px-6 text-center">
           <div className="relative mt-10 flex size-40 items-center justify-center">
             <span className="absolute inset-0 rounded-full bg-brand-soft" />
             <span className="absolute inset-5 rounded-full bg-brand/30" />
@@ -4115,7 +4115,7 @@ let ti = [
             <span className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-ink">营养参考</span>
               <span className="text-xs leading-relaxed text-ink-2">
-                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高血压 / 糖尿病慢病食谱。
+                单餐热量控制在 450 - 600 kcal，蛋白质 ≥ 18g，钠 ≤ 800mg，适合高���压 / 糖尿病慢病食谱。
               </span>
             </span>
           </C_sc>
@@ -5665,7 +5665,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用��待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -6544,32 +6544,6 @@ let tZ = [
         "请于 10 月 5 日前完成结算，逾期将暂停新订单的提交。",
       ],
       amount: "¥450.00",
-      tone: "warn",
-      route: "bill",
-    },
-    {
-      title: "顾好家币额度扣减通知",
-      time: "09-29 18:20",
-      unread: !0,
-      heading: "共享额度已扣减 ¥90.00",
-      body: [
-        "「顾家小林 · 业主」的全天托管单（9月5日）已完成，已从房号共享额度中扣减 ¥90.00。",
-        "当前共享额度剩余 ¥868.00。",
-      ],
-      amount: "-¥90.00",
-      tone: "brand",
-      route: "bill",
-    },
-    {
-      title: "共享额度不足提醒",
-      time: "09-26 10:05",
-      unread: !1,
-      heading: "房号共享额度即将不足",
-      body: [
-        "当前共享额度剩余 ¥868.00，按近期消费预计可使用约 10 天。",
-        "为避免影响家人和租户下单，建议及时联系物业充值额度。",
-      ],
-      amount: null,
       tone: "warn",
       route: "bill",
     },
