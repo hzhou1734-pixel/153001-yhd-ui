@@ -1560,7 +1560,7 @@ function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a, gr
         role="dialog"
         aria-modal="true"
         aria-label={e}
-        className="relative flex max-h-[70%] flex-col rounded-t-[28px] bg-surface pb-6 shadow-float"
+        className="relative flex min-h-[45%] max-h-[70%] flex-col rounded-t-[28px] bg-surface pb-6 shadow-float"
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-3">
           <button type="button" onClick={a} className="press text-sm text-ink-3">
@@ -2014,7 +2014,7 @@ let sA = [
     room: "2栋-1102",
     date: "08-28",
     status: "reject",
-    reason: "房号信息与物业登记不一致",
+    reason: "房号信息与物业登��不一致",
     to: "certReject",
   },
   {
@@ -4319,7 +4319,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油��卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              由物业认证保洁人员上门服务，覆盖日常清扫、���房除油��卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
             </p>
           </C_sc>
           <C_sc>
@@ -5738,7 +5738,7 @@ let t_ = [
     },
     orderEscortDetail: function () {
       return (
-        <C_si title="陪诊单详情" className="bg-sub-wash" bottom={<C_tS pay={!0} />}>
+        <C_si title="陪诊单详���" className="bg-sub-wash" bottom={<C_tS pay={!0} />}>
           <C_tC
             kind="陪诊单"
             code="PZ20250903-002"
@@ -7657,7 +7657,7 @@ let tX = {
           <C_sc className="flex flex-col gap-4">
             <C_sf label="意向服务小区" required={!0} />
             <C_su label="姓名" placeholder="请输入姓名" required={!0} />
-            <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
+            <C_su label="联系电话" placeholder="请输入��系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
