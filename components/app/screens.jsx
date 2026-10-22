@@ -2159,7 +2159,7 @@ let sH = {
         </div>
         {1 === t ? (
           <div className="flex flex-col gap-3">
-            <C_su placeholder="请输入�����册手机号" type="tel" />
+            <C_su placeholder="请输入�������册手机号" type="tel" />
             <C_sR />
           </div>
         ) : (
@@ -3306,7 +3306,7 @@ let ti = [
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
-            <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
+            <C_su label="服���地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
@@ -3860,14 +3860,15 @@ let ti = [
               </span>
             }
           />
-          <C_sc>
+          <C_sc className="flex shrink-0 flex-col gap-6">
+            <section>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
               由物业认证陪诊员全程陪同就医，从出门到回家，老人安心、家人放心。支持挂三甲 /
               专科医院，覆盖内科外科眼科口腔等常规科室。
             </p>
-          </C_sc>
-          <C_sc>
+            </section>
+            <section>
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
@@ -3887,8 +3888,8 @@ let ti = [
                 </div>
               ))}
             </div>
-          </C_sc>
-          <C_sc>
+            </section>
+            <section>
             <C_sd>服务内容</C_sd>
             <div className="overflow-hidden rounded-2xl bg-fill">
               {[
@@ -3911,8 +3912,8 @@ let ti = [
                 </div>
               ))}
             </div>
-          </C_sc>
-          <C_sc>
+            </section>
+            <section>
             <C_sd>适用人群</C_sd>
             <C_s6
               items={[
@@ -3921,6 +3922,7 @@ let ti = [
                 "异地家属，无法陪伴父母就诊时远程放心",
               ]}
             />
+            </section>
           </C_sc>
           <C_sc className="flex gap-3 bg-success-soft">
             <C_s0 className="size-5 shrink-0 text-success" />
@@ -4780,7 +4782,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入驻 · 技能服务派单</span>
+              <span className="text-xs text-ink-2">人才入驻 · 技能服务派���</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -6069,7 +6071,7 @@ let t_ = [
           }
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-1 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">当前退款状态 · 退款中</span>
+            <span className="text-xs opacity-90">当前退款状�� · 退款中</span>
             <span className="text-3xl font-bold tabular-nums">¥280.00</span>
             <span className="text-xs opacity-90">原路退回 · 预计 1-3 个工作���到账</span>
           </div>
@@ -6606,7 +6608,7 @@ let tT = [
       t: "托管单支出",
       d: "2026-07-01 15:20",
       v: "-¥980.00",
-      type: "支出",
+      type: "���出",
     },
     {
       t: "报餐单支出",
@@ -6695,7 +6697,7 @@ let tZ = [
       unread: !1,
       heading: "8月报餐账单已结清 ¥186.00",
       body: [
-        "您的8月报餐账单（共 11 笔）已于 2026-09-02 完成结算，金额 ¥186.00。",
+        "您的8月报餐账单（共 11 笔）已于 2026-09-02 完成结算，金额 ¥186.00��",
         "可在「我的账单 - 已结算」中查看账单明细。",
       ],
       amount: "¥186.00",
