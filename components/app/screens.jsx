@@ -1552,7 +1552,19 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
     </div>
   );
 }
-function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a, grid: r }) {
+  function TrustPickRow({ title, desc, placeholder, value, onClick }) {
+    return (
+      <button type="button" onClick={onClick} className="press flex w-full items-center gap-3 py-3 text-left">
+        <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+          <span className="text-sm text-ink">{title}</span>
+          <span className="text-xs text-ink-3">{desc}</span>
+        </span>
+        <span className={eb("shrink-0 text-sm", value ? "text-ink" : "text-ink-3")}>{value ?? placeholder}</span>
+        <C_e$ className="size-4 shrink-0 text-ink-3" strokeWidth={1.8} />
+      </button>
+    );
+  }
+  function C_sPicker({ title: e, options: s, value: t, onSelect: l, onClose: a, grid: r }) {
   return (
     <div className="absolute inset-0 z-40 flex flex-col justify-end">
       <button type="button" aria-label="关闭" onClick={a} className="absolute inset-0 bg-shell/45" />
@@ -3677,7 +3689,7 @@ let ti = [
             <C_sd>���康建议</C_sd>
             <C_s6
               items={[
-                "心率与血压均在正常范围，请保持规律作���与适度运动。",
+                "心率与血压均在正常范围，请保持规律作����与适度运动。",
                 "甘油三酯略高于正常值，建议减少油炸与高糖食物摄入，增加膳食纤维。",
                 "近一周平均睡眠 6.2 小时，低于建议时长，建议提前 30 分钟入睡。",
                 "建议每周进行 3 次以上、每次 30 分钟的中等强度有氧运动。",
@@ -3870,7 +3882,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约下单", "选择日期、时段与服务时������提交后陪诊员接单"],
+                ["预约下单", "选择日期、时段与服务���������提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -4017,7 +4029,8 @@ let ti = [
       let { go: e } = o(),
         [needDrop, setNeedDrop] = (0, c.useState)(!1),
         [needPick, setNeedPick] = (0, c.useState)(!0),
-        [needCare, setNeedCare] = (0, c.useState)(!0);
+        [needCare, setNeedCare] = (0, c.useState)(!1),
+        [careSlots, setCareSlots] = (0, c.useState)([]);
       return (
         <C_si
           title="托管详情"
@@ -4061,31 +4074,57 @@ let ti = [
             ))}
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
           </C_sc>
-          <C_sc className="flex flex-col gap-4">
-            <C_sd>{needDrop || needPick ? "接送设置" : "服务设置"}</C_sd>
-            {needDrop ? (
-              <>
-                <C_sf label="送 · 学校（从家里送到学校）" placeholder="请选择学校" />
-                <C_sf label="送 · 时间" placeholder="请选择送孩子的时间" />
-              </>
-            ) : null}
-            {needPick ? (
-              <>
-                <C_sf label="接 · 学校（从学校送到家里）" placeholder="请选择学校" />
-                <C_sf label="接 · 时间" placeholder="请选择接孩子的时间" />
-              </>
-            ) : null}
-            {needDrop || needPick ? (
-              <C_su label="接送地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
-            ) : null}
-            {needCare ? <C_sf label="看护 · 时段" placeholder="请选择看护时段" /> : null}
-            {needDrop || needPick || needCare ? (
-              <C_sv />
-            ) : (
-              <span className="rounded-2xl bg-fill px-3.5 py-3 text-xs text-ink-3">
-                请至少选择一项服务（送 / 接 / 看护）
-              </span>
-            )}
+          {needDrop || needPick ? (
+            <C_sc className="flex flex-col">
+              <C_sd>接送设置</C_sd>
+              <div className="flex flex-col divide-y divide-fill">
+                {needDrop ? (
+                  <>
+                    <TrustPickRow title="送 · 学校" desc="从小区送到学校" placeholder="请选择学校" />
+                    <TrustPickRow title="送 · 时间" desc="请选择送孩子的时间" placeholder="请选择时间" />
+                  </>
+                ) : null}
+                {needPick ? (
+                  <>
+                    <TrustPickRow title="接 · 学校" desc="从学校送到家里" placeholder="请选择学校" />
+                    <TrustPickRow title="接 · 时间" desc="请选择接孩子的时间" placeholder="请选择时间" />
+                  </>
+                ) : null}
+                <div className="flex items-center justify-between gap-3 py-3">
+                  <span className="text-sm text-ink">接送地址</span>
+                  <span className="truncate text-sm text-ink-3">阳光花园 3栋2单元1802</span>
+                </div>
+              </div>
+            </C_sc>
+          ) : null}
+          {needCare ? (
+            <C_sc className="flex flex-col">
+              <C_sd>看护时段（可多选）</C_sd>
+              <div className="flex gap-2">
+                {["上午 8-12", "下午 12-18", "晚上 18-21"].map((slot) => {
+                  const active = careSlots.includes(slot);
+                  return (
+                    <button
+                      key={slot}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() =>
+                        setCareSlots((prev) => (active ? prev.filter((s) => s !== slot) : [...prev, slot]))
+                      }
+                      className={eb(
+                        "press h-10 flex-1 rounded-2xl text-[13px] font-medium transition-colors",
+                        active ? "bg-brand-gradient shadow-soft text-surface" : "bg-fill text-ink-2",
+                      )}
+                    >
+                      {slot}
+                    </button>
+                  );
+                })}
+              </div>
+            </C_sc>
+          ) : null}
+          <C_sc>
+            <C_sv />
           </C_sc>
           <C_sz>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准</C_sz>
         </C_si>
@@ -4794,7 +4833,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入驻 · 技能服务派单</span>
+              <span className="text-xs text-ink-2">人才入�� · 技能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -5681,7 +5720,7 @@ let t_ = [
     },
     orderMealDetail: function () {
       return (
-        <C_si title="报餐单详情" className="bg-sub-wash" bottom={<C_tS />}>
+        <C_si title="报餐单详���" className="bg-sub-wash" bottom={<C_tS />}>
           <C_tC
             kind="报餐单"
             code="BC20250904-001"
@@ -7111,7 +7150,7 @@ let tX = {
                 ]}
               />
               <C_tU
-                title="报餐单明细"
+                title="报餐单��细"
                 count={7}
                 rows={[
                   ["午餐 · 9月5日", "顾家小林 · 业主", "¥18.00"],
@@ -7417,7 +7456,7 @@ let tX = {
             <span className="flex size-48 items-center justify-center rounded-[24px] bg-surface text-ink">
               <C_tH className="size-36" strokeWidth={1.2} />
             </span>
-            <span className="text-sm">扫码即可加入该房号</span>
+            <span className="text-sm">扫码即���加入该房号</span>
             <span className="flex items-center gap-2 pt-2 text-xs opacity-90">
               <C_sS name="顾" size={24} />
               顾家小林 邀请��加入 · 顾好家
@@ -7775,7 +7814,7 @@ let tX = {
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="订单金额" v="¥150.00" />
-            <C_sm k="收款方式" v="线上不做收款，服务金额由线下收取" />
+            <C_sm k="收款方式" v="线��不做收款，服务金额由线下收取" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
