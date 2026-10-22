@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -2484,7 +2484,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证小区</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证��区</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -3279,9 +3279,8 @@ let ti = [
                 "需求转介：有服务需求时协助对接物业与社区资源",
               ]}
             />
-          </C_sc>
-          <C_sz>预约后管家将与您电话确认上门时间</C_sz>
-        </C_si>
+  </C_sc>
+  </C_si>
       );
     },
     bandConnect: function () {
@@ -4585,7 +4584,7 @@ let tf = [
       img: "/images/act-midautumn.png",
     },
     {
-      t: "少儿阅读营",
+      t: "��儿阅读营",
       p: "09-01 至 09-12",
       s: "报名中",
       img: "/images/act-reading.png",
@@ -7859,7 +7858,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约���体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8012,7 +8011,7 @@ let tX = {
         items={[
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
-          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
+          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规���容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
           ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
