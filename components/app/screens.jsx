@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���������������区",
+      label: "�����������������区",
       icon: C_eL,
       id: "community",
     },
@@ -1613,6 +1613,7 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
   );
 }
 const COIN_BALANCE = 868;
+const MEAL_ROOMS = ["阳光花园 3栋2单元1802", "阳光花园 2栋1单元1101", "阳光花园 5栋3单元0602"];
 function C_sCoinConfirm({ amount, onConfirm, onClose }) {
   const cost = Math.round(Number(amount) || 0);
   const after = COIN_BALANCE - cost;
@@ -3191,7 +3192,7 @@ let ti = [
           },
           {
             t: "历史检测报告",
-            d: "日报 · 周报 · 月报 · ������",
+            d: "日报 · 周报 · 月报 · ��������",
             icon: C_sG,
             to: "healthReport",
           },
@@ -3720,7 +3721,7 @@ let ti = [
               {[
                 ["心率", "正常范围 60 - 100 次/分", "78 次/分", !0],
                 ["血压", "收缩压 120 / 舒张压 80", "120/80", !0],
-                ["血脂", "甘油三酯 1.6 mmol/L", "5.2", !1],
+                ["血脂", "甘油���酯 1.6 mmol/L", "5.2", !1],
                 ["睡眠", "建议 7 - 9 小���", "6.2 小时", !1],
               ].map(([e, s, t, l]) => (
                 <div key={e} className={eb("flex flex-col gap-1 rounded-2xl p-3", l ? "bg-fill" : "bg-danger-soft")}>
@@ -4085,7 +4086,7 @@ let ti = [
         [picks, setPicks] = (0, c.useState)({}),
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
-      const schools = ["禄口第一小学", "禄口第���小学", "禄口第三中��", "禄口实验小学"];
+      const schools = ["禄口第一��学", "禄口第���小学", "禄口第三中��", "禄口实验小学"];
       const timeSlots = [
         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
         "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
@@ -4232,6 +4233,8 @@ let ti = [
         [l, a] = (0, c.useState)({}),
         [n, r] = (0, c.useState)(!0),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1),
+        [deliveryAddr, setDeliveryAddr] = (0, c.useState)(MEAL_ROOMS[0]),
+        [addrOpen, setAddrOpen] = (0, c.useState)(!1),
         x = ta.reduce((e, s, t) => e + (l[t] ?? 0) * s.p, 0),
         d = n ? 3 : 0;
       return (
@@ -4261,6 +4264,18 @@ let ti = [
                 toast("已使用顾好家币支付，提交成功");
                 e("orders");
               }}
+            />
+          ) : null}
+          {addrOpen ? (
+            <C_sPicker
+              title="选择配送房号"
+              options={MEAL_ROOMS}
+              value={deliveryAddr}
+              onSelect={(v) => {
+                setDeliveryAddr(v);
+                setAddrOpen(!1);
+              }}
+              onClose={() => setAddrOpen(!1)}
             />
           ) : null}
           <C_sc onClick={() => e("mealDetail")} className="bg-hero-wash flex items-center gap-3 text-surface">
@@ -4348,6 +4363,15 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要配送" onChange={r} />
             </div>
+            {n ? (
+              <TrustPickRow
+                title="配送地址"
+                desc={deliveryAddr === MEAL_ROOMS[0] ? "已认证房号" : "点击切换房号"}
+                placeholder="请选择房号"
+                value={deliveryAddr}
+                onClick={() => setAddrOpen(!0)}
+              />
+            ) : null}
             <C_sm k="套餐小计" v={x ? `\xa5${x.toFixed(2)}` : "尚未选择套餐"} />
             <C_sm k="配送费" v={`\xa5${d.toFixed(2)}`} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
@@ -7487,7 +7511,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  ���除后该成员将无法使用本房号的服务与额度，确定解除吗？
+                  ������后该成员将无法使用本房号的服务与额度，确定解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
@@ -8185,7 +8209,7 @@ let tX = {
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保���", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的���人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您�����人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
