@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务，立即预约"
+            aria-label="陪诊服务���立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原因</C_sd>
+            <C_sd>���能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -5785,7 +5785,7 @@ let C_tk = ew("image", [
       },
       {
         code: "BC20250903-004",
-        status: "已取消",
+        status: "已取���",
         title: "午餐 · 1 份",
         use: "09-04",
         submit: "09-03 09:40",
@@ -6156,9 +6156,25 @@ let t_ = [
     ordersEscort: () => <C_tz kind="escort" />,
     ordersHelper: () => <C_tz kind="helper" />,
     orderSearch: function () {
-      let { back: e } = o(),
+      let { go: e } = o(),
         [s, t] = (0, c.useState)("不限"),
-        [l, a] = (0, c.useState)("全部");
+        [l, a] = (0, c.useState)("全部"),
+        [q, setQ] = (0, c.useState)(""),
+        [result, setResult] = (0, c.useState)(null),
+        runSearch = () => {
+          const kw = q.trim().toUpperCase();
+          if (!kw) {
+            setResult(null);
+            return;
+          }
+          setResult(
+            Object.keys(tv).flatMap((k) =>
+              "全部" !== l && ty[k].name !== l
+                ? []
+                : tv[k].filter((it) => it.code.toUpperCase().includes(kw)).map((it) => ({ ...it, kind: k })),
+            ),
+          );
+        };
       return (
         <C_si
           title="搜索订单"
@@ -6168,27 +6184,95 @@ let t_ = [
               <C_sp
                 variant="ghost"
                 onClick={() => {
-                  (t("不限"), a("全部"));
+                  (t("不限"), a("全部"), setQ(""), setResult(null));
                 }}
               >
                 重置
               </C_sp>
-              <C_sp block={!0} onClick={e}>
+              <C_sp block={!0} onClick={runSearch}>
                 搜索
               </C_sp>
             </>
           }
         >
-          <C_su placeholder="请输入订单编号" suffix={<C_eV className="size-4 text-ink-3" />} />
+          <label className="flex min-h-11 items-center gap-2 rounded-2xl bg-surface px-3.5 shadow-card">
+            <C_eV className="size-4 shrink-0 text-ink-3" />
+            <span className="sr-only">订单编号</span>
+            <input
+              type="text"
+              inputMode="search"
+              enterKeyHint="search"
+              value={q}
+              autoFocus
+              onChange={(ev) => setQ(ev.target.value)}
+              onKeyDown={(ev) => {
+                if ("Enter" !== ev.key || ev.nativeEvent.isComposing || 229 === ev.keyCode) return;
+                runSearch();
+              }}
+              placeholder="请输入订单编号，如 BC20250904"
+              className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink-3"
+            />
+            {q ? (
+              <button
+                type="button"
+                aria-label="清空"
+                onClick={() => {
+                  (setQ(""), setResult(null));
+                }}
+                className="press shrink-0 whitespace-nowrap text-xs text-ink-3"
+              >
+                清空
+              </button>
+            ) : null}
+          </label>
           <C_sc>
             <C_sd>下单日期</C_sd>
             <C_sb items={["不限", "今天", "近 7 天", "近 30 天", "自定义"]} value={s} onChange={t} />
           </C_sc>
           <C_sc>
             <C_sd>订单类型</C_sd>
-            <C_sb items={["全部", "报餐单", "托管单", "陪诊单"]} value={l} onChange={a} />
+            <C_sb
+              items={["全部", "报餐单", "托管单", "陪诊单", "生活帮手单"]}
+              value={l}
+              onChange={a}
+            />
           </C_sc>
-          <C_sC>搜索与筛选对 4 类订单同时生效</C_sC>
+          {null === result ? (
+            <C_sC>输入订单编号（支持部分匹配）后点击搜索，对 4 类订单同时生效</C_sC>
+          ) : 0 === result.length ? (
+            <C_sc className="flex flex-col items-center gap-1 py-8 text-center">
+              <span className="text-sm font-semibold text-ink">未找到相关订单</span>
+              <span className="text-xs text-ink-3">请检查订单编号或调整订单类型</span>
+            </C_sc>
+          ) : (
+            <>
+              <span className="px-1 text-xs text-ink-3">
+                {"共找到 "}
+                <span className="font-semibold text-ink tabular-nums">{result.length}</span>
+                {" 条订单"}
+              </span>
+              {result.map((it) => (
+                <C_sc key={it.code} onClick={() => e(ty[it.kind].detail)} className="press flex flex-col gap-2">
+                  <span className="flex w-full items-center justify-between">
+                    <span className="flex items-center gap-2 text-xs text-ink-3">
+                      <span className="rounded-md bg-brand-soft px-1.5 py-0.5 font-semibold text-brand-deep">
+                        {ty[it.kind].name}
+                      </span>
+                      <span className="tabular-nums">{it.code}</span>
+                    </span>
+                    <C_sh tone={tw[it.status]}>{it.status}</C_sh>
+                  </span>
+                  <span className="flex w-full items-end justify-between gap-3">
+                    <span className="flex min-w-0 flex-col gap-1">
+                      <span className="truncate text-[15px] font-bold text-ink">{it.title}</span>
+                      <span className="text-xs text-ink-3 tabular-nums">提交：{it.submit}</span>
+                    </span>
+                    <C_sP value={it.price} />
+                  </span>
+                </C_sc>
+              ))}
+            </>
+          )}
         </C_si>
       );
     },
@@ -8573,9 +8657,9 @@ let tX = {
         items={[
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
-          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
+          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社��公约，平台有权对违规内容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
-          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
+          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无��正常提供的，平台不承担相应责任。"],
         ]}
       />
     ),
