@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务���立即预约"
+            aria-label="陪诊服务，立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>���能原因</C_sd>
+            <C_sd>可能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -5785,7 +5785,7 @@ let C_tk = ew("image", [
       },
       {
         code: "BC20250903-004",
-        status: "已取���",
+        status: "已取消",
         title: "午餐 · 1 份",
         use: "09-04",
         submit: "09-03 09:40",
@@ -8657,9 +8657,9 @@ let tX = {
         items={[
           ["一、协议的接受", "当您注册、登录或使用顾好家 APP 的任一服务，即视为您已阅读并同意本协议全部条款。"],
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
-          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社��公约，平台有权对违规内容进行处理。"],
+          ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
-          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无��正常提供的，平台不承担相应责任。"],
+          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
     ),
