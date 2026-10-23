@@ -2649,7 +2649,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证社区</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证社���</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -3244,7 +3244,7 @@ let tt = [
     },
     {
       n: "番茄炖牛腩 · 时蔬 · 杂粮饭",
-      d: "补铁暖身",
+      d: "补��暖身",
       p: 22,
       img: "/images/meal-beef.png",
     },
@@ -3766,7 +3766,7 @@ let ti = [
             </div>
             {[
               ["78", "09-04 09:30", "自动同步", !0],
-              ["92", "09-03 18:20", "运动后", !1],
+              ["92", "09-03 18:20", "运���后", !1],
               ["71", "09-03 09:00", "自动同步", !0],
               ["63", "09-02 23:10", "睡眠中", !0],
               ["81", "09-02 09:00", "自动同步", !0],
@@ -3963,7 +3963,7 @@ let ti = [
     escortList: function () {
       let { go: e } = o();
       return (
-        <C_si title="陪诊服务" className="bg-sub-wash">
+        <C_si title="陪诊服���" className="bg-sub-wash">
           {tt.map(([s, t, l, a], n) => (
             <C_sc key={s} onClick={() => e("escortDetail")} className="flex gap-3">
               <span className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -5055,14 +5055,22 @@ let tf = [
     communityList: function () {
       let { go: e } = o(),
         [s, t] = (0, c.useState)("全部"),
-        l = tf.filter((e) => "全部" === s || e.s === s);
+        [kw, setKw] = (0, c.useState)(""),
+        q = kw.trim().toLowerCase(),
+        l = tf.filter((e) => ("全部" === s || e.s === s) && (!q || e.t.toLowerCase().includes(q)));
       return (
-        <C_si
-          className="bg-sub-wash"
-          nav={
-            <C_sr title="社区活动" right={<C_to className="size-5 text-ink" />} onRight={() => e("activityFilter")} />
-          }
-        >
+        <C_si className="bg-sub-wash" nav={<C_sr title="社区活动" />}>
+          <label className="shadow-card flex h-11 items-center gap-2 rounded-full bg-surface px-4">
+            <C_eV className="size-[18px] shrink-0 text-brand-deep" strokeWidth={2} />
+            <span className="sr-only">搜索社区活动</span>
+            <input
+              type="search"
+              value={kw}
+              onChange={(ev) => setKw(ev.target.value)}
+              placeholder="搜索活动名称"
+              className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink-3"
+            />
+          </label>
           <C_sj items={["全部", "即将开始", "报名中", "已结束"]} value={s} onChange={t} />
           <p className="px-1 text-xs text-ink-3">
             {"共 "}
@@ -5172,7 +5180,7 @@ let tf = [
           },
           {
             icon: C_eE,
-            l: "活动地点",
+            l: "活动地���",
             v: "中心广场",
           },
           {
@@ -8313,7 +8321,7 @@ let tX = {
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
-          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
+          ["五、免责声明", "因不可抗���、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
     ),
