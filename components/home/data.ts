@@ -10,11 +10,11 @@ export type ServiceIcon =
 
 export type ServiceTone = 'orange' | 'teal' | 'sky' | 'rose'
 
-export const services: { name: string; icon: ServiceIcon; tone: ServiceTone }[] = [
+export const services: { name: string; icon: ServiceIcon; tone: ServiceTone; inert?: boolean }[] = [
   { name: '健康小屋', icon: 'health', tone: 'rose' },
   { name: '托管服务', icon: 'care', tone: 'sky' },
   { name: '健康膳食', icon: 'meal', tone: 'teal' },
-  { name: '物业服务', icon: 'property', tone: 'orange' },
+  { name: '物业服务', icon: 'property', tone: 'orange', inert: true },
   { name: '生活帮手', icon: 'helper', tone: 'sky' },
   { name: '社区活动', icon: 'event', tone: 'orange' },
   { name: '严选商城', icon: 'mall', tone: 'rose' },

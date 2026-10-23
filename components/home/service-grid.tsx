@@ -38,13 +38,8 @@ export function ServiceGrid({ onAction }: { onAction: (label: string) => void })
         {services.map((service) => {
           const Icon = icons[service.icon]
           const tone = tones[service.tone]
-          return (
-            <button
-              key={service.name}
-              type="button"
-              onClick={() => onAction(service.name)}
-              className="press flex flex-col items-center gap-2"
-            >
+          const content = (
+            <>
               <span
                 className={`relative flex size-[50px] items-center justify-center overflow-hidden rounded-[18px] bg-gradient-to-br ring-1 ring-white/80 ring-inset ${tone.tile}`}
               >
@@ -56,6 +51,23 @@ export function ServiceGrid({ onAction }: { onAction: (label: string) => void })
                 <Icon className={`relative size-6 ${tone.icon}`} strokeWidth={1.9} aria-hidden="true" />
               </span>
               <span className="text-xs whitespace-nowrap text-ink">{service.name}</span>
+            </>
+          )
+          if (service.inert) {
+            return (
+              <div key={service.name} className="flex flex-col items-center gap-2">
+                {content}
+              </div>
+            )
+          }
+          return (
+            <button
+              key={service.name}
+              type="button"
+              onClick={() => onAction(service.name)}
+              className="press flex flex-col items-center gap-2"
+            >
+              {content}
             </button>
           )
         })}
