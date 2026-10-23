@@ -1883,7 +1883,7 @@ let sy = [
   ["周三", "10"],
   ["周四", "11"],
 ];
-function C_sv({ label: e = "服务日期（仅可选择未来 7 天内）" }) {
+function C_sv({ label: e = "服务日期（仅可选��未来 7 天内）" }) {
   let [s, t] = (0, c.useState)(0);
   return (
     <div className="flex flex-col gap-2">
@@ -2649,7 +2649,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证社���</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证社�����</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -4030,7 +4030,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
+                ["预约��单", "选择日期、时段与服务需求，提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -5060,7 +5060,7 @@ let tf = [
         l = tf.filter((e) => ("全部" === s || e.s === s) && (!q || e.t.toLowerCase().includes(q)));
       return (
         <C_si className="bg-sub-wash" nav={<C_sr title="社区活动" />}>
-          <label className="shadow-card flex h-11 items-center gap-2 rounded-full bg-surface px-4">
+          <label className="shadow-card flex h-11 shrink-0 items-center gap-2 rounded-full bg-surface px-4 focus-within:ring-2 focus-within:ring-brand/40">
             <C_eV className="size-[18px] shrink-0 text-brand-deep" strokeWidth={2} />
             <span className="sr-only">搜索社区活动</span>
             <input
@@ -6027,7 +6027,7 @@ let t_ = [
             <span>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准。</span>
             <span>超时说明：如实际看护时长超出所选看护时段：</span>
             <span>· 选择 上午场，超时 1 小时后额外计费（含下午场）；</span>
-            <span>· 选择 下午场，超时 1 小时后额外计费（含晚上场）；</span>
+            <span>· 选择 下午场，超时 1 ���时后额外计费（含晚上场）；</span>
             <span>· 选择 晚上场，超时每小时 ¥100。</span>
           </C_sz>
           <C_sc>
@@ -6131,7 +6131,7 @@ let t_ = [
               <C_sQ className="size-4" />
             </button>
           </C_sc>
-          <C_tM img="3 张 · 上门前确认" video="00:26 · 上门前确认" />
+          <C_tM img="3 张 · 上门前确��" video="00:26 · 上门前确认" />
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="预估金额" v="¥180.00" accent={!0} />
