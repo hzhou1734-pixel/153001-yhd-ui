@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务，立即预约"
+            aria-label="陪诊服务���立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原因</C_sd>
+            <C_sd>���能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -4862,7 +4862,7 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上传服务需求相关图片" />
+            <C_sk max={6} hint="请上传服务需求��关图片" />
             <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
           <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
@@ -5153,13 +5153,13 @@ let tf = [
       t: "秋季养生小贴士",
       d: "适老饮食与起居建议",
       m: "09-01 · 健康小屋",
-      img: "/images/meal-fish.png",
+      img: "/images/article-autumn-health.png",
     },
     {
       t: "小区停车位改造进展说明",
       d: "新增 60 个车位，预计月底完工",
       m: "08-28 · 物业服务中心",
-      img: "/images/banner-1.png",
+      img: "/images/article-parking.png",
     },
   ],
   tN = {
@@ -8450,7 +8450,7 @@ let tX = {
               desc="授权管理与个人信息"
               onClick={() => e("privacy")}
             />
-            <C_so icon={<C_sG className="size-4" />} label="用户协议" onClick={() => e("agreement")} />
+            <C_so icon={<C_sG className="size-4" />} label="用户协���" onClick={() => e("agreement")} />
             <C_so icon={<C_sG className="size-4" />} label="隐私政策" onClick={() => e("privacy")} />
           </C_sc>
           <C_sc className="flex flex-col py-1">
