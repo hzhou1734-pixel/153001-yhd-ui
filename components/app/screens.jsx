@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务，立即预约"
+            aria-label="陪诊服务���立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原因</C_sd>
+            <C_sd>���能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -4862,7 +4862,7 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上传服务需求相关图片" />
+            <C_sk max={6} hint="请上传服务需求��关图片" />
             <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
           <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
@@ -6157,44 +6157,18 @@ let t_ = [
     ordersHelper: () => <C_tz kind="helper" />,
     orderSearch: function () {
       let { go: e } = o(),
-        [s, t] = (0, c.useState)("不限"),
         [l, a] = (0, c.useState)("全部"),
         [q, setQ] = (0, c.useState)(""),
-        [result, setResult] = (0, c.useState)(null),
-        runSearch = () => {
-          const kw = q.trim().toUpperCase();
-          if (!kw) {
-            setResult(null);
-            return;
-          }
-          setResult(
-            Object.keys(tv).flatMap((k) =>
+        kw = q.trim().toUpperCase(),
+        result = kw
+          ? Object.keys(tv).flatMap((k) =>
               "全部" !== l && ty[k].name !== l
                 ? []
                 : tv[k].filter((it) => it.code.toUpperCase().includes(kw)).map((it) => ({ ...it, kind: k })),
-            ),
-          );
-        };
+            )
+          : null;
       return (
-        <C_si
-          title="搜索订单"
-          className="bg-sub-wash"
-          bottom={
-            <>
-              <C_sp
-                variant="ghost"
-                onClick={() => {
-                  (t("不限"), a("全部"), setQ(""), setResult(null));
-                }}
-              >
-                重置
-              </C_sp>
-              <C_sp block={!0} onClick={runSearch}>
-                搜索
-              </C_sp>
-            </>
-          }
-        >
+        <C_si title="搜索订单" className="bg-sub-wash">
           <label className="flex min-h-11 items-center gap-2 rounded-2xl bg-surface px-3.5 shadow-card">
             <C_eV className="size-4 shrink-0 text-ink-3" />
             <span className="sr-only">订单编号</span>
@@ -6205,10 +6179,6 @@ let t_ = [
               value={q}
               autoFocus
               onChange={(ev) => setQ(ev.target.value)}
-              onKeyDown={(ev) => {
-                if ("Enter" !== ev.key || ev.nativeEvent.isComposing || 229 === ev.keyCode) return;
-                runSearch();
-              }}
               placeholder="请输入订单编号，如 BC20250904"
               className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink-3"
             />
@@ -6216,19 +6186,13 @@ let t_ = [
               <button
                 type="button"
                 aria-label="清空"
-                onClick={() => {
-                  (setQ(""), setResult(null));
-                }}
+                onClick={() => setQ("")}
                 className="press shrink-0 whitespace-nowrap text-xs text-ink-3"
               >
                 清空
               </button>
             ) : null}
           </label>
-          <C_sc>
-            <C_sd>下单日期</C_sd>
-            <C_sb items={["不限", "今天", "近 7 天", "近 30 天", "自定义"]} value={s} onChange={t} />
-          </C_sc>
           <C_sc>
             <C_sd>订单类型</C_sd>
             <C_sb
@@ -6238,7 +6202,7 @@ let t_ = [
             />
           </C_sc>
           {null === result ? (
-            <C_sC>输入订单编号（支持部分匹配）后点击搜索，对 4 类订单同时生效</C_sC>
+            <C_sC>输入订单编号（支持部分匹配）即可实时搜索，对 4 类订单同时生效</C_sC>
           ) : 0 === result.length ? (
             <C_sc className="flex flex-col items-center gap-1 py-8 text-center">
               <span className="text-sm font-semibold text-ink">未找到相关订单</span>
@@ -8626,7 +8590,7 @@ let tX = {
     about: function () {
       let { go: e } = o();
       return (
-        <C_si title="关于我们" className="bg-sub-wash">
+        <C_si title="关于���们" className="bg-sub-wash">
           <div className="flex flex-col items-center gap-2 py-6">
             <span className="bg-brand-gradient shadow-float flex size-20 items-center justify-center rounded-[26px] text-surface">
               <C_e0 className="size-10" strokeWidth={1.6} />
