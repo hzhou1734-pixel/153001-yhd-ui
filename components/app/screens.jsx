@@ -1883,7 +1883,7 @@ let sy = [
   ["周三", "10"],
   ["周四", "11"],
 ];
-function C_sv({ label: e = "服务日期（仅可选��未��� 7 天内）" }) {
+function C_sv({ label: e = "服务日期（仅可选���未��� 7 天内）" }) {
   let [s, t] = (0, c.useState)(0);
   return (
     <div className="flex flex-col gap-2">
@@ -4921,6 +4921,7 @@ let tf = [
       img: "/images/act-walk.png",
     },
   ],
+  tfSel = { v: tf[0] },
   tj = {
     报名中: "brand",
     即将开始: "warm",
@@ -4991,7 +4992,7 @@ let tf = [
           },
           {
             t: "精彩内容",
-            d: "小区资讯、生活指南",
+            d: "小区资讯、���活指南",
             to: "featuredList",
             icon: tm,
           },
@@ -5080,7 +5081,10 @@ let tf = [
           {l.map((s) => (
             <C_sc
               key={s.t}
-              onClick={() => e("activityDetail")}
+              onClick={() => {
+                tfSel.v = s;
+                e("activityDetail");
+              }}
               className={eb("flex items-center gap-3 p-2.5", "已结束" === s.s && "opacity-70")}
             >
               <span className="relative h-[72px] w-[92px] shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -5167,11 +5171,13 @@ let tf = [
     },
     activityDetail: function () {
       let { go: e } = o(),
+        act = tfSel.v,
+        canSignup = "报名中" === act.s,
         s = [
           {
             icon: C_td,
             l: "报名时间",
-            v: "9-01 ~ 9-20",
+            v: act.p.replace(" 至 ", " ~ "),
           },
           {
             icon: C_eq,
@@ -5194,23 +5200,25 @@ let tf = [
           title="活动详情"
           className="bg-sub-wash"
           bottom={
-            <C_sp block={!0} onClick={() => e("activitySignup")}>
-              立即报名
-            </C_sp>
+            canSignup ? (
+              <C_sp block={!0} onClick={() => e("activitySignup")}>
+                立即报名
+              </C_sp>
+            ) : void 0
           }
         >
           <div className="shadow-float relative h-48 shrink-0 overflow-hidden rounded-[24px]">
             <eW.Image
-              src="/images/act-midautumn.png"
-              alt="中秋邻里联欢会"
+              src={act.img}
+              alt={act.t}
               fill={!0}
               sizes="343px"
-              className="object-cover"
+              className={eb("object-cover", "已结束" === act.s && "grayscale")}
             />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/70 to-transparent" />
-            <span className="absolute inset-x-4 bottom-4 flex items-center justify-between">
-              <span className="text-xl font-bold text-surface">中秋邻里联欢会</span>
-              <C_sh>报名中</C_sh>
+            <span className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">
+              <span className="min-w-0 truncate text-xl font-bold text-surface">{act.t}</span>
+              <C_sh tone={tj[act.s]}>{act.s}</C_sh>
             </span>
           </div>
           <C_sc className="py-1">
