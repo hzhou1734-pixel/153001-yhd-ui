@@ -1611,6 +1611,103 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
     </div>
   );
 }
+const VISIT_WEEK = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+const VISIT_DATES = Array.from({ length: 7 }, (_, i) => {
+  const d = new Date(2026, 8, 5 + i);
+  const m = d.getMonth() + 1;
+  const day = d.getDate();
+  return {
+    key: `${m}-${day}`,
+    label: `${m} · ${day}`,
+    week: i === 0 ? "今天" : i === 1 ? "明天" : VISIT_WEEK[d.getDay()],
+    text: `${String(m).padStart(2, "0")}-${String(day).padStart(2, "0")} ${VISIT_WEEK[d.getDay()]}`,
+  };
+});
+const VISIT_SLOTS = Array.from({ length: 13 }, (_, i) => `${8 + i}:00 - ${9 + i}:00`);
+function C_sVisitTime({ value, onConfirm, onClose }) {
+  const [date, setDate] = (0, c.useState)(value?.date ?? VISIT_DATES[0].key);
+  const [slot, setSlot] = (0, c.useState)(value?.slot ?? null);
+  const current = VISIT_DATES.find((d) => d.key === date) ?? VISIT_DATES[0];
+  return (
+    <div className="absolute inset-0 z-40 flex flex-col justify-end">
+      <button type="button" aria-label="关闭" onClick={onClose} className="absolute inset-0 bg-shell/45" />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="visit-time-title"
+        className="relative flex max-h-[78%] flex-col rounded-t-[28px] bg-surface pb-6 shadow-float"
+      >
+        <div className="flex items-center justify-between px-5 pt-5 pb-2">
+          <button type="button" onClick={onClose} aria-label="关闭" className="press -ml-1 flex size-8 items-center justify-center rounded-full text-ink-3">
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+          <p id="visit-time-title" className="text-base font-bold text-ink">
+            期望上门时间
+          </p>
+          <button
+            type="button"
+            disabled={!slot}
+            onClick={() => onConfirm({ date, slot, text: `${current.text} ${slot}` })}
+            className="press text-sm font-bold text-brand-deep disabled:text-ink-3"
+          >
+            完成
+          </button>
+        </div>
+        <div className="flex flex-col gap-5 overflow-y-auto pt-2">
+          <section className="flex flex-col gap-3">
+            <p className="px-5 text-sm font-bold text-ink">上门日期</p>
+            <ul className="flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {VISIT_DATES.map((d) => {
+                const on = d.key === date;
+                return (
+                  <li key={d.key} className="shrink-0">
+                    <button
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => setDate(d.key)}
+                      className={eb(
+                        "press flex w-16 flex-col items-center gap-0.5 rounded-2xl py-2.5 tabular-nums",
+                        on ? "bg-hero-wash text-surface shadow-float" : "bg-fill text-ink",
+                      )}
+                    >
+                      <span className="text-[15px] font-bold leading-tight">{d.label}</span>
+                      <span className={eb("text-[11px]", on ? "opacity-90" : "text-ink-3")}>{d.week}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+          <section className="flex flex-col gap-3 px-5">
+            <p className="text-sm font-bold text-ink">上门时间点</p>
+            <ul className="grid grid-cols-3 gap-2">
+              {VISIT_SLOTS.map((s) => {
+                const on = s === slot;
+                return (
+                  <li key={s}>
+                    <button
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => setSlot(s)}
+                      className={eb(
+                        "press flex h-11 w-full items-center justify-center rounded-2xl text-[13px] whitespace-nowrap tabular-nums",
+                        on ? "bg-brand-soft font-semibold text-brand-deep ring-1 ring-brand" : "bg-fill text-ink",
+                      )}
+                    >
+                      {s}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}
 const COIN_BALANCE = 868;
 const MEAL_ROOMS = ["阳光花园 3栋2单元1802", "阳光花园 2栋1单元1101", "阳光花园 5栋3单元0602"];
 function C_sCoinConfirm({ amount, onConfirm, onClose }) {
@@ -2135,7 +2232,7 @@ function sW(e) {
           <C_sd>驳回记录</C_sd>
           <C_s_
             items={e.logs.map((e, s) => ({
-              title: `第 ${e.n} 次��回 \xb7 ${e.title}`,
+              title: `第 ${e.n} 次���回 \xb7 ${e.title}`,
               desc: `${e.desc}
 审核人：${e.who}`,
               time: e.time,
@@ -3094,7 +3191,7 @@ let te = [
   },
   {
     t: "睡眠不足",
-    d: "近一��平均睡眠 5.6 小时",
+    d: "近����平均睡眠 5.6 小时",
     icon: sJ,
   },
 ];
@@ -3764,7 +3861,7 @@ let ti = [
               {[
                 ["心血管", "血压与心率综合评估", "低风险"],
                 ["血脂代谢", "甘油三酯与总胆固醇", "中风险"],
-                ["睡眠质量", "近一周平均���眠时长", "中风险"],
+                ["睡眠质量", "近���周平均���眠时长", "中风险"],
                 ["运动状况", "日均步数与活动量", "低风险"],
               ].map(([e, s, t]) => (
                 <div key={e} className="flex items-center gap-3 rounded-2xl bg-fill p-3">
@@ -4527,6 +4624,8 @@ let ti = [
     },
     helper: function () {
       let { go: e, toast: s } = o();
+      const [visitOpen, setVisitOpen] = (0, c.useState)(!1);
+      const [visitTime, setVisitTime] = (0, c.useState)(null);
       return (
         <C_si
           title="提交服务订单"
@@ -4557,8 +4656,24 @@ let ti = [
             </span>
             <C_sP value="180" size="sm" />
           </C_sc>
+          {visitOpen ? (
+            <C_sVisitTime
+              value={visitTime}
+              onClose={() => setVisitOpen(!1)}
+              onConfirm={(v) => {
+                setVisitTime(v);
+                setVisitOpen(!1);
+              }}
+            />
+          ) : null}
           <C_sc className="flex flex-col gap-4">
-            <C_sf label="上门时间" placeholder="请选择上门服务时间" required={!0} />
+            <C_sf
+              label="上门时间"
+              placeholder="请选择上门服务时间"
+              required={!0}
+              value={visitTime?.text}
+              onClick={() => setVisitOpen(!0)}
+            />
             <C_su label="服务地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} />
             <C_su label="联系电话" defaultValue="13800006688" type="tel" />
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
@@ -5179,7 +5294,7 @@ let tf = [
                 公告
               </C_sh>
               <h2 className="text-lg leading-snug font-bold text-ink">关于本周六小区供水检修的通知</h2>
-              <p className="text-xs text-ink-3">物业服务中心 · 09-04 09:00</p>
+              <p className="text-xs text-ink-3">物业服务���心 · 09-04 09:00</p>
             </div>
             <div className="flex flex-col gap-3 text-sm leading-relaxed text-ink-2">
               <p>各位业主：</p>
@@ -5859,7 +5974,7 @@ let t_ = [
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
-            <C_sd>订单日志</C_sd>
+            <C_sd>���单日志</C_sd>
             <C_s_
               items={[
                 {
@@ -7481,7 +7596,7 @@ let tX = {
             <span className="flex flex-col gap-0.5">
               <span className="text-lg font-bold text-ink">爸爸</span>
               <span className="text-xs text-ink-2">
-                {"阳光花园 3栋2单元-1802 · "}
+                {"阳光花��� 3栋2单元-1802 · "}
                 {l}
               </span>
             </span>
@@ -7847,7 +7962,7 @@ let tX = {
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
-            <C_su label="技能描述" placeholder="请描述从业经验与擅长��能" textarea={!0} />
+            <C_su label="技能描述" placeholder="请描述从业���验与擅长��能" textarea={!0} />
           </C_sc>
           <C_sc>
             <C_sk max={6} hint="上传凭证（证书 / 资质照片），如：低压电工证" />
@@ -8211,7 +8326,7 @@ let tX = {
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人���息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
