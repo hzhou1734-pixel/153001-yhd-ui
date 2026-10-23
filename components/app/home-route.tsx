@@ -24,6 +24,7 @@ export function HomeRoute() {
   const { go, reset } = useRouter()
 
   const handleAction = (label: string) => {
+    if (label === '物业服务') return true
     if (tabRoutes[label]) {
       reset(tabRoutes[label])
       return true

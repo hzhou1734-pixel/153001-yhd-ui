@@ -842,7 +842,6 @@ let eQ = {
     健康小屋: "healthHome",
     托管服务: "trusteeship",
     健康膳食: "meal",
-    物业服务: "miniJump",
     生活帮手: "helperList",
     社区活动: "communityList",
     小区钱袋子: "moneyBag",
@@ -3167,12 +3166,12 @@ function C_tr() {
   );
 }
 let ti = [
-    ["家政保洁", "全屋深度清洁 · 含厨卫除污", "180"],
-    ["家电维修", "空调 / 洗衣机 / 冰箱上门检修", "120"],
-    ["管道疏通", "厨卫下水道疏通 · 30 分钟响应", "150"],
-    ["开锁换锁", "公安备案锁匠 · 24 小时上门", "200"],
-    ["家具安装", "拆装、组装、墙面打孔挂件", "160"],
-    ["适老改造", "扶手安装、防滑处理、无障碍改造", "380"],
+    ["家政保洁", "全屋深度清洁 · 含厨卫除污", "180", "/images/helper-cleaning.png"],
+    ["家电维修", "空调 / 洗衣机 / 冰箱上门检修", "120", "/images/helper-appliance.png"],
+    ["管道疏通", "厨卫下水道疏通 · 30 分钟响应", "150", "/images/helper-plumbing.png"],
+    ["开锁换锁", "公安备案锁匠 · 24 小时上门", "200", "/images/helper-lock.png"],
+    ["家具安装", "拆装、组装、墙面打孔挂件", "160", "/images/helper-furniture.png"],
+    ["适老改造", "扶手安装、防滑处理、无障碍改造", "380", "/images/helper-elderly.png"],
   ],
   tc = {
     healthHome: function () {
@@ -4468,15 +4467,15 @@ let ti = [
       return (
         <C_si title="生活帮手" className="bg-sub-wash">
           <div className="grid grid-cols-2 gap-3">
-            {ti.map(([s, t, l]) => (
+            {ti.map(([s, t, l, img]) => (
               <C_sc key={s} onClick={() => e("helperInfo")} className="flex flex-col gap-2 p-3">
                 <span className="relative h-24 w-full overflow-hidden rounded-2xl bg-brand-mist">
                   <eW.Image
-                    src="/images/svc-helper.png"
-                    alt=""
+                    src={img}
+                    alt={s}
                     fill={!0}
                     sizes="160px"
-                    className="object-contain p-2"
+                    className="object-cover"
                   />
                 </span>
                 <span className="text-[15px] font-bold text-ink">{s}</span>
@@ -4501,7 +4500,9 @@ let ti = [
           }
         >
           <C_s3
-            img="/images/svc-helper.png"
+            img="/images/helper-cleaning.png"
+            cover={!0}
+            alt="家政保洁"
             title="家政保洁"
             desc="全屋深度清洁 · 含厨卫除污"
             price={<C_sP value="180" from={!0} />}
