@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����������������区",
+      label: "�������������������区",
       icon: C_eL,
       id: "community",
     },
@@ -3090,7 +3090,7 @@ function C_s7() {
 let te = [
   {
     t: "血脂偏高",
-    d: "甘油三酯 1.6 mmol/L，高于正常值",
+    d: "甘油三酯 1.6 mmol/L，高���正常值",
     icon: C_sV,
   },
   {
@@ -4124,7 +4124,7 @@ let ti = [
               onClose={() => setCoinOpen(!1)}
               onConfirm={() => {
                 setCoinOpen(!1);
-                toast("已使用顾好家币支付，提交成功");
+                toast("已使���顾好家币支付，提交成功");
                 e("ordersTrust");
               }}
             />
@@ -4278,15 +4278,21 @@ let ti = [
               onClose={() => setAddrOpen(!1)}
             />
           ) : null}
-          <C_sc onClick={() => e("mealDetail")} className="bg-hero-wash flex items-center gap-3 text-surface">
-            <span className="flex flex-1 flex-col gap-1">
-              <span className="text-xs opacity-90">今日菜单</span>
-              <span className="text-lg font-bold">
-                {"9月5日 周六 · "}
+          <C_sc className="flex items-center gap-4 p-3">
+            <span className="bg-hero-wash flex size-16 shrink-0 flex-col items-center justify-center rounded-2xl text-surface">
+              <span className="text-[11px] leading-none opacity-90">9月</span>
+              <span className="mt-1 text-2xl font-bold leading-none tabular-nums">05</span>
+            </span>
+            <span className="flex min-w-0 flex-1 flex-col gap-1">
+              <span className="flex items-center gap-2">
+                <span className="text-base font-bold text-ink">今日菜单</span>
+                <span className="rounded-full bg-brand-mist px-2 py-0.5 text-[11px] font-bold text-brand-ink">今天</span>
+              </span>
+              <span className="text-xs text-ink-3">
+                {"2026年9月5日 周六 · "}
                 {s}
-  </span>
-  </span>
-            <C_e$ className="size-5" />
+              </span>
+            </span>
           </C_sc>
           <C_sw
             items={["早餐", "午餐", "晚餐"]}
@@ -4503,7 +4509,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫���除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
             </p>
           </C_sc>
           <C_sc>
@@ -5184,7 +5190,7 @@ let tf = [
               <p>
                 {"因供水主管道例行检修，本周六（9月6日）上午 "}
                 <b className="text-ink">8:00 至下午 17:00</b>{" "}
-                期间，小区将暂停供水。请各位业主提前储备生活用水，并关闭水龙头阀门，以免恢复供水时发生溢水。
+                期间，小区将暂停供水。请各位业主提前储备生活��水，并关闭水龙头阀门，以免恢复供水时发生溢水。
               </p>
               <p>检修完成后将立即恢复供水，如遇特殊情况将另行通知。给您带来不便，敬请谅解。</p>
               <p className="text-right">物业服务中心</p>
@@ -6708,7 +6714,7 @@ function C_tV({ title: e, items: s }) {
 let tT = [
     {
       n: "爸爸",
-      role: "家庭成员",
+      role: "���庭成员",
     },
     {
       n: "妈妈",
@@ -8072,7 +8078,7 @@ let tX = {
               onClick={() => e("privacy")}
             />
             <C_so icon={<C_sG className="size-4" />} label="用户协议" onClick={() => e("agreement")} />
-            <C_so icon={<C_sG className="size-4" />} label="隐私政策" onClick={() => e("privacy")} />
+            <C_so icon={<C_sG className="size-4" />} label="隐私���策" onClick={() => e("privacy")} />
           </C_sc>
           <C_sc className="flex flex-col py-1">
             <div className="pt-3">
@@ -8228,7 +8234,7 @@ let tX = {
       ids: Object.keys(sH),
     },
     {
-      group: "首页与服务",
+      group: "首��与服务",
       ids: ["home", ...Object.keys(tc)],
     },
     {
