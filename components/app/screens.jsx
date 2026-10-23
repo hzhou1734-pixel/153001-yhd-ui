@@ -2135,7 +2135,7 @@ function sW(e) {
           <C_sd>驳回记录</C_sd>
           <C_s_
             items={e.logs.map((e, s) => ({
-              title: `第 ${e.n} 次驳回 \xb7 ${e.title}`,
+              title: `第 ${e.n} 次��回 \xb7 ${e.title}`,
               desc: `${e.desc}
 审核人：${e.who}`,
               time: e.time,
@@ -3094,7 +3094,7 @@ let te = [
   },
   {
     t: "睡眠不足",
-    d: "近一周平均睡眠 5.6 小时",
+    d: "近一��平均睡眠 5.6 小时",
     icon: sJ,
   },
 ];
@@ -3282,7 +3282,7 @@ let ti = [
               </span>
             </span>
           </button>
-          <C_sx title="生活服务帮手" />
+          <C_sx title="���活服务帮手" />
           <C_sc className="flex flex-col py-1">
             {s8.map((s, t) => (
               <div key={s.t} className={eb(t > 0 && "border-t border-hairline")}>
@@ -3764,7 +3764,7 @@ let ti = [
               {[
                 ["心血管", "血压与心率综合评估", "低风险"],
                 ["血脂代谢", "甘油三酯与总胆固醇", "中风险"],
-                ["睡眠质量", "近一周平均睡眠时长", "中风险"],
+                ["睡眠质量", "近一周平均���眠时长", "中风险"],
                 ["运动状况", "日均步数与活动量", "低风险"],
               ].map(([e, s, t]) => (
                 <div key={e} className="flex items-center gap-3 rounded-2xl bg-fill p-3">
@@ -4509,23 +4509,18 @@ let ti = [
           />
           <C_sc>
             <C_sd>服务详情</C_sd>
-            <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
-            </p>
-          </C_sc>
-          <C_sc>
-            <C_sd>服务内容</C_sd>
-            <C_s6
-              items={[
-                "全屋清扫：地面、桌面、家具表面除尘擦拭",
-                "厨卫除污：油烟机、瓷砖、马桶深度清洁",
-                "玻璃擦拭：门窗玻璃内外清洁",
-              ]}
-            />
-          </C_sc>
-          <C_sc>
-            <C_sd>服务说明</C_sd>
-            <C_s6 items={["服务前确认范围，服务后由您验收签字", "面积约 90㎡ 内为标准单，超面积按补充协议计费"]} />
+            <div className="text-[13px] leading-relaxed text-ink-2">
+              <p>
+                由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              </p>
+              <p className="font-semibold text-ink">服务内容</p>
+              <p>1. 全屋清扫：地面、桌面、家具表面除尘擦拭</p>
+              <p>2. 厨卫除污：油烟机、瓷砖、马桶深度清洁</p>
+              <p>3. 玻璃擦拭：门窗玻璃内外清洁</p>
+              <p className="font-semibold text-ink">服务说明</p>
+              <p>1. 服务前确认范围，服务后由您验收签字</p>
+              <p>2. 面积约 90㎡ 内为标准单，超面积按补充协议计费</p>
+            </div>
           </C_sc>
         </C_si>
       );
@@ -5958,7 +5953,7 @@ let t_ = [
             <C_sm k="附加费用" v="¥0.00" />
             <C_sm k="订单总额" v="¥240.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="red">未支付</C_sh>} />
-            <C_sm k="支付方式" v="/" />
+            <C_sm k="支付���式" v="/" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -7294,7 +7289,7 @@ let tX = {
             <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
             <div className="mt-1 grid grid-cols-3 gap-2 text-center">
               {[
-                ["付款", "¥450.00"],
+                ["付��", "¥450.00"],
                 ["退款", "-¥45.00"],
                 ["已结合计", "¥405.00"],
               ].map(([e, s], t) => (
@@ -7852,7 +7847,7 @@ let tX = {
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
-            <C_su label="技能描述" placeholder="请描述从业经验与擅长技能" textarea={!0} />
+            <C_su label="技能描述" placeholder="请描述从业经验与擅长��能" textarea={!0} />
           </C_sc>
           <C_sc>
             <C_sk max={6} hint="上传凭证（证书 / 资质照片），如：低压电工证" />
