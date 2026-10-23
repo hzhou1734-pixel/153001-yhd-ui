@@ -5,6 +5,21 @@ import * as __jsxRuntime from "react/jsx-runtime";
 import * as __React from "react";
 import __NextImage from "next/image";
 import { cn as eb } from "@/lib/utils";
+import {
+  Baby as LuBaby,
+  BookOpen as LuBookOpen,
+  Car as LuCar,
+  Fuel as LuFuel,
+  Megaphone as LuMegaphone,
+  Package as LuPackage,
+  PlugZap as LuPlugZap,
+  ShoppingBasket as LuShoppingBasket,
+  Soup as LuSoup,
+  Sun as LuSun,
+  Users as LuUsers,
+  Wrench as LuWrench,
+  Zap as LuZap,
+} from "lucide-react";
 
 let s, t, l, a, n;
 var r,
@@ -365,7 +380,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�������区",
+      label: "���������区",
       icon: C_eL,
       id: "community",
     },
@@ -1615,54 +1630,80 @@ const BAG_MIN = { y: 2025, m: 1 };
 const BAG_MAX = { y: 2026, m: 9 };
 const bagIndex = ({ y, m }) => y * 12 + (m - 1);
 const bagFromIndex = (i) => ({ y: Math.floor(i / 12), m: (i % 12) + 1 });
-  const BAG_LEDGERS = {
+const BAG_LEDGERS = {
   物业钱袋子: {
-  base: 12580,
-  items: [
-  ["公共电费", 31, -1200],
-  ["电梯维保费", 28, -2000],
-  ["停车费收入", 25, 5200],
-  ["广告位租金", 20, 2400],
-  ["充电桩服务费", 18, 1000],
-  ],
+    items: [
+      { name: "公共电费", day: 31, amount: -1200, icon: LuZap },
+      { name: "电梯维保费", day: 28, amount: -2000, icon: LuWrench },
+      { name: "停车费收入", day: 25, amount: 5200, icon: LuCar },
+      { name: "广告位租金", day: 20, amount: 2400, icon: LuMegaphone },
+      { name: "充电桩服务费", day: 18, amount: 1000, icon: LuPlugZap },
+    ],
   },
   膳食钱袋子: {
-  base: 8640,
-  items: [
-  ["食材采购", 30, -3600],
-  ["长者餐补贴收入", 27, 4200],
-  ["厨房燃气费", 24, -680],
-  ["居民订餐收入", 21, 5600],
-  ["餐具消毒耗材", 15, -420],
-  ],
+    prices: [
+      ["早餐均价", "¥6"],
+      ["中餐均价", "¥15"],
+      ["晚餐均价", "¥15"],
+    ],
+    items: [
+      { name: "晚餐报餐收入", qty: 18, unit: 15, qtyLabel: "份", day: 31, icon: LuSoup },
+      { name: "午餐报餐收入", qty: 30, unit: 15, qtyLabel: "份", day: 29, icon: LuSoup },
+      { name: "食材采购（蔬菜 / 肉类）", day: 28, amount: -860, icon: LuShoppingBasket },
+      { name: "早餐报餐收入", qty: 28, unit: 6, qtyLabel: "份", day: 28, icon: LuSun },
+      { name: "餐盒与耗材采购", day: 26, amount: -240, icon: LuPackage },
+      { name: "午餐报餐收入", qty: 27, unit: 15, qtyLabel: "份", day: 26, icon: LuSoup },
+    ],
   },
   托管钱袋子: {
-  base: 6320,
-  items: [
-  ["托管服务费收入", 29, 6800],
-  ["老师课时费", 26, -3200],
-  ["学习用品采购", 22, -560],
-  ["课后点心", 19, -740],
-  ["街道托管补贴", 12, 2000],
-  ],
+    prices: [
+      ["接", "¥8/趟"],
+      ["送", "¥8/趟"],
+      ["看护", "¥45/餐"],
+    ],
+    items: [
+      { name: "托管费收入", qtyPrefix: "全日托 ", qty: 12, unit: 45, qtyLabel: "人", day: 31, icon: LuBaby },
+      { name: "用餐费收入", qtyPrefix: "午餐 ", qty: 26, unit: 15, qtyLabel: "餐", day: 30, icon: LuSoup },
+      { name: "接送车辆油耗与保养", day: 29, amount: -180, icon: LuFuel },
+      { name: "接送趟次收入", qtyPrefix: "早接 ", qty: 18, unit: 8, qtyLabel: "趟", day: 28, icon: LuUsers },
+      { name: "接送趟次收入", qtyPrefix: "晚送 ", qty: 16, unit: 8, qtyLabel: "趟", day: 28, icon: LuUsers },
+      { name: "托管教具与图书采购", day: 25, amount: -260, icon: LuBookOpen },
+    ],
   },
-  };
+};
 const bagFmt = (n) => Math.abs(n).toLocaleString("en-US");
-  function bagMonthData(ym, bag) {
+function bagMonthData(ym, bag) {
   const ledger = BAG_LEDGERS[bag] || BAG_LEDGERS["物业钱袋子"];
   const offset = bagIndex(ym) - bagIndex({ y: 2026, m: 8 });
   const lastDay = new Date(ym.y, ym.m, 0).getDate();
   const mm = String(ym.m).padStart(2, "0");
-  const rows = ledger.items.map(([name, day, amt], i) => {
-    const factor = offset === 0 ? 1 : 1 + (((offset * 7 + i * 3) % 9) - 4) * 0.05;
-    const v = Math.round((amt * factor) / 10) * 10;
-    return { name, date: `${mm}-${String(Math.min(day, lastDay)).padStart(2, "0")}`, amount: v };
+  const rows = ledger.items.map((item, i) => {
+    const shift = offset === 0 ? 0 : ((((offset * 7 + i * 3) % 9) + 9) % 9) - 4;
+    let amount, title;
+    if (item.qty) {
+      const qty = Math.max(1, item.qty + shift);
+      amount = qty * item.unit;
+      title = `${item.name} · ${item.qtyPrefix ?? ""}${qty} ${item.qtyLabel}`;
+    } else {
+      amount = Math.round((item.amount * (1 + shift * 0.05)) / 10) * 10;
+      title = item.name;
+    }
+    return {
+      key: `${i}-${item.name}`,
+      title,
+      icon: item.icon,
+      date: `${mm}-${String(Math.min(item.day, lastDay)).padStart(2, "0")}`,
+      amount,
+    };
   });
   const income = rows.filter((r) => r.amount > 0).reduce((a, r) => a + r.amount, 0);
   const expense = rows.filter((r) => r.amount < 0).reduce((a, r) => a - r.amount, 0);
-  const net = ledger.items.reduce((a, [, , amt]) => a + amt, 0);
-  const balance = ledger.base + offset * Math.round(ledger.base / 940) * 100 + (income - expense - net);
-  return { rows, income, expense, balance };
+  const stats = ledger.prices ?? [
+    ["收入", `¥${bagFmt(income)}`],
+    ["支出", `¥${bagFmt(expense)}`],
+    ["结余", `${income - expense < 0 ? "-" : ""}¥${bagFmt(income - expense)}`],
+  ];
+  return { rows, income, expense, stats };
 }
 function C_sMonthPicker({ value, onConfirm, onClose }) {
   const [year, setYear] = (0, c.useState)(value.y);
@@ -3317,7 +3358,7 @@ function C_s7() {
       <div className="flex flex-col gap-1">
         <span className="text-xs opacity-90">综合风险等级</span>
         <span className="text-3xl font-bold">中风险</span>
-        <span className="text-xs opacity-90">评估时间 09-01 · 每周自动更新一次</span>
+        <span className="text-xs opacity-90">评���时间 09-01 · 每周自动更新一次</span>
       </div>
       <span className="flex size-16 items-center justify-center rounded-full bg-surface/25">
         <C_sK className="size-8" />
@@ -3513,7 +3554,7 @@ let ti = [
             <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
-                <span className="text-lg font-bold">陪诊服务</span>
+                <span className="text-lg font-bold">陪诊��务</span>
                 <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
@@ -5552,14 +5593,14 @@ let tf = [
       return (
         <C_si title="小区钱袋子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
-            <div className="flex items-center justify-between">
-              <div className="-ml-2 flex items-center gap-0.5">
+            <div className="flex items-center justify-center">
+              <div className="flex items-center gap-3">
                 <button
                   type="button"
                   aria-label="上个月"
                   disabled={!canPrev}
                   onClick={() => setYm(bagFromIndex(idx - 1))}
-                  className="press flex size-8 items-center justify-center rounded-full disabled:opacity-40"
+                  className="press flex size-9 items-center justify-center rounded-full bg-surface/25 disabled:bg-surface/10 disabled:opacity-50"
                 >
                   <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="m15 18-6-6 6-6" />
@@ -5569,7 +5610,7 @@ let tf = [
                   type="button"
                   aria-haspopup="dialog"
                   onClick={() => setPickerOpen(!0)}
-                  className="press flex items-center gap-1 rounded-full bg-surface/20 px-3 py-1 text-sm font-semibold tabular-nums"
+                  className="press flex items-center gap-1 px-1 text-lg font-bold tabular-nums"
                 >
                   {ym.y}年{ym.m}月
                   <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -5581,56 +5622,71 @@ let tf = [
                   aria-label="下个月"
                   disabled={!canNext}
                   onClick={() => setYm(bagFromIndex(idx + 1))}
-                  className="press flex size-8 items-center justify-center rounded-full disabled:opacity-40"
+                  className="press flex size-9 items-center justify-center rounded-full bg-surface/25 disabled:bg-surface/10 disabled:opacity-50"
                 >
                   <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="m9 18 6-6-6-6" />
                   </svg>
                 </button>
               </div>
-              <C_tp className="size-5 opacity-80" />
             </div>
-            <span className="flex flex-col">
-              <span className="text-xs opacity-90">本月结余</span>
-              <span className="text-3xl font-bold tabular-nums">¥{bagFmt(data.balance)}</span>
+            <span className="flex flex-col gap-1">
+              <span className="text-sm opacity-90">本月收入总额</span>
+              <span className="text-[34px] leading-tight font-bold tabular-nums">¥{bagFmt(data.income)}</span>
             </span>
-            <div className="grid grid-cols-2 rounded-2xl bg-surface/20 py-2.5 text-center">
-              <span className="flex flex-col">
-                <span className="text-[11px] opacity-90">收入</span>
-                <span className="font-bold tabular-nums">+{bagFmt(data.income)}</span>
-              </span>
-              <span className="flex flex-col">
-                <span className="text-[11px] opacity-90">支出</span>
-                <span className="font-bold tabular-nums">-{bagFmt(data.expense)}</span>
-              </span>
-            </div>
+            <dl className="grid grid-cols-3 divide-x divide-surface/30 border-t border-surface/30 pt-4 text-center">
+              {data.stats.map(([label, value]) => (
+                <div key={label} className="flex min-w-0 flex-col gap-1 px-1">
+                  <dt className="truncate text-xs opacity-90">{label}</dt>
+                  <dd className="truncate text-base font-bold tabular-nums">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
+          <h2 className="mt-2 px-1 text-lg font-bold text-ink">收支明细</h2>
           <C_sj items={["物业钱袋子", "膳食钱袋子", "托管钱袋子"]} value={s} onChange={t} />
-          <C_sc className="py-1">
-            <div className="pt-3">
-              <C_sd>收支明细</C_sd>
-            </div>
-            {data.rows.map(({ name: s, date: t, amount: a }) => [s, t, `${a > 0 ? "+" : "-"}${bagFmt(a)}`]).map(([s, t, l]) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => e("凭证预览")}
-                className="press flex w-full items-center gap-3 border-t border-hairline py-3 text-left first:border-t-0"
-              >
-                <span className="flex flex-1 flex-col gap-0.5">
-                  <span className="text-sm font-semibold text-ink">{s}</span>
-                  <span className="text-xs text-ink-3">
-                    {t}
-                    {" · 点击查看凭证"}
-                  </span>
-                </span>
-                <span
-                  className={eb("text-base font-bold tabular-nums", l.startsWith("+") ? "text-danger" : "text-success")}
-                >
-                  {l[0]}¥{l.slice(1)}
-                </span>
-              </button>
-            ))}
+          <C_sc className="p-0">
+            <ul className="flex flex-col">
+              {data.rows.map(({ key, title, icon: Icon, date, amount }) => {
+                const isIncome = amount > 0;
+                return (
+                  <li key={key} className="group">
+                    <button
+                      type="button"
+                      onClick={() => e("凭证预览")}
+                      className="press flex w-full items-center gap-3 px-4 text-left"
+                    >
+                      <span
+                        className={eb(
+                          "flex size-10 shrink-0 items-center justify-center rounded-xl text-surface",
+                          isIncome ? "bg-brand" : "bg-ink-3",
+                        )}
+                        aria-hidden="true"
+                      >
+                        <Icon className="size-5" strokeWidth={2} />
+                      </span>
+                      <span className="flex min-w-0 flex-1 items-center gap-3 border-b border-hairline py-3.5 group-last:border-b-0">
+                        <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                          <span className="text-[15px] leading-snug text-ink">{title}</span>
+                          <span className="text-xs text-ink-3">
+                            {date}
+                            {" · 点击查看凭证"}
+                          </span>
+                        </span>
+                        <span
+                          className={eb(
+                            "shrink-0 text-base font-bold tabular-nums",
+                            isIncome ? "text-danger" : "text-success",
+                          )}
+                        >
+                          {isIncome ? "+" : "-"}¥{bagFmt(amount)}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </C_sc>
           {pickerOpen ? (
             <C_sMonthPicker
@@ -7834,7 +7890,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  解除后该成员将无法使用本房号的服务与额度，确定解除吗？
+                  解除后该成员将���法使用本房号的服务与额度，确定解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
@@ -8589,7 +8645,7 @@ let tX = {
     healthReport: "检测报告",
     healthRisk: "风险评估",
     healthTrend: "健康趋势",
-    reportDetail: "报告详情",
+    reportDetail: "��告详情",
     riskReport: "完整评估报告",
     riskFactor: "风险因素",
     careInfo: "关爱服务",
