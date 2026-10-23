@@ -380,7 +380,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���������区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2051,7 +2051,7 @@ function C_sk({ kind: e = "image", max: s, hint: t }) {
             className: "size-5",
             strokeWidth: 1.6,
           })}
-          <span className="text-[11px]">{"image" === e ? "添加��片" : "添加视频"}</span>
+          <span className="text-[11px]">{"image" === e ? "添加图片" : "添加视频"}</span>
         </button>
       </div>
     </div>
@@ -2066,7 +2066,7 @@ let sy = [
   ["周三", "10"],
   ["周四", "11"],
 ];
-function C_sv({ label: e = "服务日期（仅可选���未��� 7 天内）" }) {
+function C_sv({ label: e = "服务日期（仅可选择未来 7 天内）" }) {
   let [s, t] = (0, c.useState)(0);
   return (
     <div className="flex flex-col gap-2">
@@ -2415,7 +2415,7 @@ function sW(e) {
           <C_sd>驳回记录</C_sd>
           <C_s_
             items={e.logs.map((e, s) => ({
-              title: `第 ${e.n} 次���回 \xb7 ${e.title}`,
+              title: `第 ${e.n} 次驳回 \xb7 ${e.title}`,
               desc: `${e.desc}
 审核人：${e.who}`,
               time: e.time,
@@ -2832,7 +2832,7 @@ let sH = {
             <C_e8 className="size-5" />
           </span>
           <span className="flex flex-1 flex-col gap-1">
-            <span className="text-[15px] font-semibold text-ink">添加认证社�����</span>
+            <span className="text-[15px] font-semibold text-ink">添加认证社区</span>
             <span className="text-xs text-ink-2">选择小区提交认证申请</span>
           </span>
         </C_sc>
@@ -3333,7 +3333,7 @@ let s8 = [
       value: "78",
       unit: "次/分",
       ok: !0,
-      range: "60 - 100 次/��",
+      range: "60 - 100 次/分",
     },
     {
       name: "血压",
@@ -3358,7 +3358,7 @@ function C_s7() {
       <div className="flex flex-col gap-1">
         <span className="text-xs opacity-90">综合风险等级</span>
         <span className="text-3xl font-bold">中风险</span>
-        <span className="text-xs opacity-90">评���时间 09-01 · 每周自动更新一次</span>
+        <span className="text-xs opacity-90">评估时间 09-01 · 每周自动更新一次</span>
       </div>
       <span className="flex size-16 items-center justify-center rounded-full bg-surface/25">
         <C_sK className="size-8" />
@@ -3374,7 +3374,7 @@ let te = [
   },
   {
     t: "睡眠不足",
-    d: "近����平均睡眠 5.6 小时",
+    d: "近一周平均睡眠 5.6 小时",
     icon: sJ,
   },
 ];
@@ -3427,7 +3427,7 @@ let tt = [
     },
     {
       n: "番茄炖牛腩 · 时蔬 · 杂粮饭",
-      d: "补��暖身",
+      d: "补钙暖身",
       p: 22,
       img: "/images/meal-beef.png",
     },
@@ -3554,7 +3554,7 @@ let ti = [
             <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
-                <span className="text-lg font-bold">陪诊��务</span>
+                <span className="text-lg font-bold">陪诊服务</span>
                 <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
@@ -3562,7 +3562,7 @@ let ti = [
               </span>
             </span>
           </button>
-          <C_sx title="���活服务帮手" />
+          <C_sx title="生活服务帮手" />
           <C_sc className="flex flex-col py-1">
             {s8.map((s, t) => (
               <div key={s.t} className={eb(t > 0 && "border-t border-hairline")}>
@@ -3603,7 +3603,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由社��管��定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
+              由社区管家定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
             </p>
           </C_sc>
           <C_sc>
@@ -3694,7 +3694,7 @@ let ti = [
           <div className="flex flex-col gap-2">
             <p className="text-lg font-bold text-ink">正在匹配健康手环…</p>
             <p className="text-sm leading-relaxed text-ink-2">
-              正在���过注册手机号 138****6688 与手环厂商账号匹配
+              正在通过注册手机号 138****6688 与手环厂商账号匹配
               <br />
               匹配成功后将自动同步历史数据
             </p>
@@ -3949,7 +3949,7 @@ let ti = [
             </div>
             {[
               ["78", "09-04 09:30", "自动同步", !0],
-              ["92", "09-03 18:20", "运���后", !1],
+              ["92", "09-03 18:20", "运动后", !1],
               ["71", "09-03 09:00", "自动同步", !0],
               ["63", "09-02 23:10", "睡眠中", !0],
               ["81", "09-02 09:00", "自动同步", !0],
@@ -4044,7 +4044,7 @@ let ti = [
               {[
                 ["心血管", "血压与心率综合评估", "低风险"],
                 ["血脂代谢", "甘油三酯与总胆固醇", "中风险"],
-                ["睡眠质量", "近���周平均���眠时长", "中风险"],
+                ["睡眠质量", "近一周平均睡眠时长", "中风险"],
                 ["运动状况", "日均步数与活动量", "低风险"],
               ].map(([e, s, t]) => (
                 <div key={e} className="flex items-center gap-3 rounded-2xl bg-fill p-3">
@@ -4065,7 +4065,7 @@ let ti = [
                 "控制油脂摄入，每周至少 3 次有氧运动，每次 30 分钟以上。",
                 "固定作息时间，睡前 1 小时避免使用电子设备。",
                 "建议 3 个月后复查血脂四项，持续观察变化趋势。",
-                "如出现胸闷、头晕等不��症状，请及时就医。",
+                "如出现胸闷、头晕等不适症状，请及时就医。",
               ]}
             />
           </C_sc>
@@ -4146,7 +4146,7 @@ let ti = [
     escortList: function () {
       let { go: e } = o();
       return (
-        <C_si title="陪诊服���" className="bg-sub-wash">
+        <C_si title="陪诊服务" className="bg-sub-wash">
           {tt.map(([s, t, l, a], n) => (
             <C_sc key={s} onClick={() => e("escortDetail")} className="flex gap-3">
               <span className="relative size-20 shrink-0 overflow-hidden rounded-2xl bg-brand-mist">
@@ -4213,7 +4213,7 @@ let ti = [
             <C_sd>服务流程</C_sd>
             <div className="flex flex-col gap-3">
               {[
-                ["预约��单", "选择日期、时段与服务需求，提交后陪诊员接单"],
+                ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
                 ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
@@ -4703,7 +4703,7 @@ let ti = [
             <C_s6
               items={[
                 "主菜：清蒸鲈鱼 / 香菇滑鸡 / 红烧排骨 / 番茄炖牛腩（每日轮换）",
-                "配菜：清炒时蔬 2 �� / 凉拌木耳 / 蒜蓉西兰花",
+                "配菜：清炒时蔬 2 选 1 / 凉拌木耳 / 蒜蓉西兰花",
                 "主食：软米饭 / 杂粮饭 / 小米粥（三选一）",
                 "汤品：紫菜蛋花汤 / 莲藕排骨汤 / 山药排骨汤",
               ]}
@@ -4726,7 +4726,7 @@ let ti = [
               <C_sT className="size-9" />
             </span>
             <p className="text-xl font-bold text-ink">已打开 物业服务系统</p>
-            <p className="text-sm text-ink-2">若小���序未自动弹���，可下拉通知栏手动进入</p>
+            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
             <C_sm k="小程序名称" v="物业服务系统" />
@@ -5175,7 +5175,7 @@ let tf = [
           },
           {
             t: "精彩内容",
-            d: "小区资讯、���活指南",
+            d: "小区资讯、生活指南",
             to: "featuredList",
             icon: tm,
           },
@@ -5497,7 +5497,7 @@ let tf = [
                 公告
               </C_sh>
               <h2 className="text-lg leading-snug font-bold text-ink">关于本周六小区供水检修的通知</h2>
-              <p className="text-xs text-ink-3">物业服务���心 · 09-04 09:00</p>
+              <p className="text-xs text-ink-3">物业服务中心 · 09-04 09:00</p>
             </div>
             <div className="flex flex-col gap-3 text-sm leading-relaxed text-ink-2">
               <p>各位业主：</p>
@@ -5506,7 +5506,7 @@ let tf = [
                 <b className="text-ink">8:00 至下午 17:00</b>{" "}
                 期间，小区将暂停供水。请各位业主提前储备生活用水，并关闭水龙头阀门，以免恢复供水时发生溢水。
               </p>
-              <p>检修完成后将立即恢复供水，如遇特殊情况将���行通知。给您带来不便，敬请谅解。</p>
+              <p>检修完成后将立即恢复供水，如遇特殊情况将另行通知。给您带来不便，敬请谅解。</p>
               <p className="text-right">物业服务中心</p>
             </div>
           </C_sc>
@@ -5777,7 +5777,7 @@ let C_tk = ew("image", [
       {
         code: "BC20250902-008",
         status: "已完成",
-        title: "昨日午��",
+        title: "昨日午餐",
         use: "09-03",
         submit: "09-02 11:05",
         count: "共 1 份订单",
@@ -5835,7 +5835,7 @@ let C_tk = ew("image", [
       {
         code: "PZ20250903-002",
         status: "待支付",
-        title: "医院就诊全程���诊 · 半天",
+        title: "医院就诊全程陪诊 · 半天",
         use: "09-05 09:00",
         submit: "09-03 16:00",
         price: "240.00",
@@ -5852,7 +5852,7 @@ let C_tk = ew("image", [
       {
         code: "PZ20250805-001",
         status: "已取消",
-        title: "老���复诊陪诊 · 半天",
+        title: "老人复诊陪诊 · 半天",
         use: "08-06 09:30",
         submit: "08-05 19:20",
         price: "320.00",
@@ -6236,7 +6236,7 @@ let t_ = [
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
-            <C_sd>���单日志</C_sd>
+            <C_sd>订单日志</C_sd>
             <C_s_
               items={[
                 {
@@ -6281,7 +6281,7 @@ let t_ = [
             <span>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准。</span>
             <span>超时说明：如实际看护时长超出所选看护时段：</span>
             <span>· 选择 上午场，超时 1 小时后额外计费（含下午场）；</span>
-            <span>· 选择 下午场，超时 1 ���时后额外计费（含晚上场）；</span>
+            <span>· 选择 下午场，超时 1 小时后额外计费（含晚上场）；</span>
             <span>· 选择 晚上场，超时每小时 ¥100。</span>
           </C_sz>
           <C_sc>
@@ -6330,7 +6330,7 @@ let t_ = [
             <C_sm k="附加费用" v="¥0.00" />
             <C_sm k="订单总额" v="¥240.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="red">未支付</C_sh>} />
-            <C_sm k="支付���式" v="/" />
+            <C_sm k="支付方式" v="/" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -6385,11 +6385,11 @@ let t_ = [
               <C_sQ className="size-4" />
             </button>
           </C_sc>
-          <C_tM img="3 张 · 上门前确��" video="00:26 · 上门前确认" />
+          <C_tM img="3 张 · 上门前确认" video="00:26 · 上门前确认" />
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="预估金额" v="¥180.00" accent={!0} />
-            <C_sm k="支付方式" v="线上不做订���支付，由线下收取" />
+            <C_sm k="支付方式" v="线上不做订单支付，由线下收取" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -6677,7 +6677,7 @@ let t_ = [
             <p className="text-sm text-ink-2 tabular-nums">¥54.00 · 支付宝支付</p>
           </div>
           <C_sc>
-            <C_sm k="支付方式" v="支��宝" />
+            <C_sm k="支付方式" v="支付宝" />
             <C_sm k="支付时间" v="09-05 09:50" />
             <C_sm k="交易单号" v="20260905095000123456" />
           </C_sc>
@@ -7099,7 +7099,7 @@ let tT = [
     },
     {
       n: "租客小王",
-      role: "��户",
+      role: "租户",
       note: "已授权托管/报餐",
     },
   ],
@@ -7176,7 +7176,7 @@ let tZ = [
     ["课后托管 · 8月28日", "08-28 16:30", "顾小妹 · 家庭成员", "¥45.00", "¥0.00"],
     ["全天托管 · 8月22日", "08-22 09:00", "顾家小林 · 业主", "¥90.00", "¥0.00"],
     ["课后托管 · 8月21日", "08-21 16:30", "租客小王 · 租户", "¥45.00", "¥0.00"],
-    ["课后托管 · 8月20日", "08-20 16:30 · 当日取消 · 全额退款", "顾小妹 · ���庭成员", "¥45.00", "-¥45.00"],
+    ["课后托管 · 8月20日", "08-20 16:30 · 当日取消 · 全额退款", "顾小妹 · 家庭成员", "¥45.00", "-¥45.00"],
     ["全天托管 · 8月15日", "08-15 09:00", "顾家小林 · 业主", "¥90.00", "¥0.00"],
     ["课后托管 · 8月14日", "08-14 16:30", "租客小王 · 租户", "¥45.00", "¥0.00"],
   ],
@@ -7275,7 +7275,7 @@ let tX = {
             <span className="flex flex-1 flex-col gap-1">
               <span className="text-xl font-bold text-ink">顾家小林</span>
               <span className="flex items-center gap-1 text-xs text-ink-2">
-                ��光花园 3栋2单元-1802
+                阳光花园 3栋2单元-1802
                 <C_sh tone="teal">
                   <C_tR className="mr-0.5 size-3" />
                   已认证
@@ -7303,7 +7303,7 @@ let tX = {
                 to: "coin",
               },
               {
-                t: "��的账单",
+                t: "我的账单",
                 icon: C_tq,
                 to: "bill",
               },
@@ -7542,7 +7542,7 @@ let tX = {
       );
     },
     coinDetail: function () {
-      let [e, s] = (0, c.useState)("全���"),
+      let [e, s] = (0, c.useState)("全部"),
         t = tG.filter((s) => "全部" === e || s.type === e);
       return (
         <C_si title="账户明细" className="bg-sub-wash">
@@ -7666,7 +7666,7 @@ let tX = {
             <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
             <div className="mt-1 grid grid-cols-3 gap-2 text-center">
               {[
-                ["付��", "¥450.00"],
+                ["付款", "¥450.00"],
                 ["退款", "-¥45.00"],
                 ["已结合计", "¥405.00"],
               ].map(([e, s], t) => (
@@ -7858,7 +7858,7 @@ let tX = {
             <span className="flex flex-col gap-0.5">
               <span className="text-lg font-bold text-ink">爸爸</span>
               <span className="text-xs text-ink-2">
-                {"阳光花��� 3栋2单元-1802 · "}
+                {"阳光花园 3栋2单元-1802 · "}
                 {l}
               </span>
             </span>
@@ -7890,7 +7890,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  解除后该成员将���法使用本房号的服务与额度，确定解除吗？
+                  解除后该成员将无法使用本房号的服务与额度，确定解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
@@ -7916,7 +7916,7 @@ let tX = {
       let { toast: e } = o();
       return (
         <C_si
-          title="邀请��员"
+          title="邀请成员"
           className="bg-sub-wash"
           bottom={
             <C_sp block={!0} onClick={() => e("海报已保存至相册")}>
@@ -8101,7 +8101,7 @@ let tX = {
           <C_sc className="flex flex-col gap-3">
             <C_sd extra={<C_sh tone="warm">已提交</C_sh>}>提交信息</C_sd>
             <span className="text-lg font-bold text-ink">水管维修</span>
-            <span className="text-xs text-ink-3">类型：维修 · ���交 09-02 11:20</span>
+            <span className="text-xs text-ink-3">类型：维修 · 提交 09-02 11:20</span>
             <p className="rounded-2xl bg-fill p-3 text-[13px] leading-relaxed text-ink-2">
               厨房水龙头下方水管漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
             </p>
@@ -8224,7 +8224,7 @@ let tX = {
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
-            <C_su label="技能描述" placeholder="请描述从业���验与擅长��能" textarea={!0} />
+            <C_su label="技能描述" placeholder="请描述从业经验与擅长技能" textarea={!0} />
           </C_sc>
           <C_sc>
             <C_sk max={6} hint="上传凭证（证书 / 资质照片），如：低压电工证" />
@@ -8269,7 +8269,7 @@ let tX = {
               <span className="text-sm font-semibold text-ink">下单人 · 张先生</span>
               <span className="text-xs text-ink-2 tabular-nums">13800001234</span>
             </span>
-            <C_sp size="sm" onClick={() => s("正在联���业主")}>
+            <C_sp size="sm" onClick={() => s("正在联系业主")}>
               <C_sQ className="size-3.5" />
               联系业主
             </C_sp>
@@ -8575,7 +8575,7 @@ let tX = {
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
-          ["五、免责声明", "因不可抗���、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
+          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
         ]}
       />
     ),
@@ -8588,7 +8588,7 @@ let tX = {
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人���息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
@@ -8645,7 +8645,7 @@ let tX = {
     healthReport: "检测报告",
     healthRisk: "风险评估",
     healthTrend: "健康趋势",
-    reportDetail: "��告详情",
+    reportDetail: "报告详情",
     riskReport: "完整评估报告",
     riskFactor: "风险因素",
     careInfo: "关爱服务",
