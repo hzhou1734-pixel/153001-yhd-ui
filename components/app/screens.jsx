@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�������������������区",
+      label: "社区",
       icon: C_eL,
       id: "community",
     },
@@ -2209,7 +2209,7 @@ let sH = {
     let { back: e, toast: s } = o(),
       [t, l] = (0, c.useState)(1);
     return (
-      <C_si title="��回密码" className="bg-sub-wash gap-5 px-6">
+      <C_si title="找回密码" className="bg-sub-wash gap-5 px-6">
         <div className="flex items-center gap-2 pt-2">
           {["验证手机号", "设置新密码"].map((e, s) => (
             <div key={e} className="flex flex-1 items-center gap-2">
@@ -2454,7 +2454,7 @@ let sH = {
     );
   },
   certReject: sW({
-    name: "江畔雅苑 2���-1102",
+    name: "江畔雅苑 2栋-1102",
     owner: "林小雨",
     phone: "138****6721",
     submit: "08-28 14:20",
@@ -3090,7 +3090,7 @@ function C_s7() {
 let te = [
   {
     t: "血脂偏高",
-    d: "甘油三酯 1.6 mmol/L，高���正常值",
+    d: "甘油三酯 1.6 mmol/L，高于正常值",
     icon: C_sV,
   },
   {
@@ -3192,7 +3192,7 @@ let ti = [
           },
           {
             t: "历史检测报告",
-            d: "日报 · 周报 · 月报 · ��������",
+            d: "日报 · 周报 · 月报 · 趋势分析",
             icon: C_sG,
             to: "healthReport",
           },
@@ -3353,7 +3353,7 @@ let ti = [
                 (s("订单已提交"), e("ordersHelper"));
               }}
             >
-              提交订���
+              提交订单
             </C_sp>
           }
         >
@@ -3721,8 +3721,8 @@ let ti = [
               {[
                 ["心率", "正常范围 60 - 100 次/分", "78 次/分", !0],
                 ["血压", "收缩压 120 / 舒张压 80", "120/80", !0],
-                ["血脂", "甘油���酯 1.6 mmol/L", "5.2", !1],
-                ["睡眠", "建议 7 - 9 小���", "6.2 小时", !1],
+                ["血脂", "甘油三酯 1.6 mmol/L", "5.2", !1],
+                ["睡眠", "建议 7 - 9 小时", "6.2 小时", !1],
               ].map(([e, s, t, l]) => (
                 <div key={e} className={eb("flex flex-col gap-1 rounded-2xl p-3", l ? "bg-fill" : "bg-danger-soft")}>
                   <span className="flex items-center justify-between text-xs">
@@ -3912,7 +3912,7 @@ let ti = [
           <C_s3
             img="/images/escort.png"
             cover={!0}
-            alt="陪诊员搀��老人在医院��廊就诊"
+            alt="陪诊员搀扶老人在医院走廊就诊"
             title="医院就诊全程陪诊"
             desc="含挂号协助、问诊陪同、取药代领、报告解读"
             price={
@@ -3935,7 +3935,7 @@ let ti = [
             <div className="flex flex-col gap-3">
               {[
                 ["预约下单", "选择日期、时段与服务需求，提交后陪诊员接单"],
-                ["上���接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
+                ["上门接送", "从已绑定房号出发，必要时提供轮椅 / 拐杖辅助"],
                 ["就诊陪同", "协助挂号、排队、问诊沟通、取药取报告"],
                 ["送回返程", "陪护回家，整理药盒与下次复诊提示"],
               ].map(([e, s], t) => (
@@ -3956,7 +3956,7 @@ let ti = [
             <div className="overflow-hidden rounded-2xl bg-fill">
               {[
                 ["项目", "包含"],
-                ["挂��协助", "线上 / 现场均可"],
+                ["挂号协助", "线上 / 现场均可"],
                 ["问诊陪同", "全程记录医嘱"],
                 ["取药代领", "含处方核对"],
                 ["报告解读", "家属群同步"],
@@ -4086,7 +4086,7 @@ let ti = [
         [picks, setPicks] = (0, c.useState)({}),
         [picker, setPicker] = (0, c.useState)(null),
         [coinOpen, setCoinOpen] = (0, c.useState)(!1);
-      const schools = ["禄口第一��学", "禄口第���小学", "禄口第三中��", "禄口实验小学"];
+      const schools = ["禄口第一小学", "禄口第二小学", "禄口第三中学", "禄口实验小学"];
       const timeSlots = [
         "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00",
         "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00",
@@ -4124,14 +4124,14 @@ let ti = [
               onClose={() => setCoinOpen(!1)}
               onConfirm={() => {
                 setCoinOpen(!1);
-                toast("已使���顾好家币支付，提交成功");
+                toast("已使用顾好家币支付，提交成功");
                 e("ordersTrust");
               }}
             />
           ) : null}
           <C_s3
             img="/images/trust.png"
-            title="禄口��小课后托管"
+            title="禄口一小课后托管"
             desc="工作日课后看护 · 单日预约"
             price={<C_sP value="45" from={!0} />}
           />
@@ -4509,7 +4509,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫���除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
+              由物业认证保洁人员上门服务，覆盖日常清扫、厨房除油、卫浴除污、玻璃擦拭等场景，工具与清洁剂均由服务方提供。
             </p>
           </C_sc>
           <C_sc>
@@ -4850,7 +4850,7 @@ let tf = [
   tg = [
     {
       t: "垃圾分类新指南来了",
-      d: "了解四分类标准，共建整洁��区",
+      d: "了解四分类标准，共建整洁社区",
       m: "09-03 · 物业服务中心",
       img: "/images/article-recycle.png",
     },
@@ -5042,7 +5042,7 @@ let tf = [
               </div>
             </C_sc>
           ))}
-          <C_sC>支持多条件叠加筛���</C_sC>
+          <C_sC>支持多条件叠加筛选</C_sC>
         </C_si>
       );
     },
@@ -5190,7 +5190,7 @@ let tf = [
               <p>
                 {"因供水主管道例行检修，本周六（9月6日）上午 "}
                 <b className="text-ink">8:00 至下午 17:00</b>{" "}
-                期间，小区将暂停供水。请各位业主提前储备生活��水，并关闭水龙头阀门，以免恢复供水时发生溢水。
+                期间，小区将暂停供水。请各位业主提前储备生活用水，并关闭水龙头阀门，以免恢复供水时发生溢水。
               </p>
               <p>检修完成后将立即恢复供水，如遇特殊情况将另行通知。给您带来不便，敬请谅解。</p>
               <p className="text-right">物业服务中心</p>
@@ -5470,7 +5470,7 @@ let C_tk = ew("image", [
       {
         code: "PZ20250820-006",
         status: "已完成",
-        title: "体检���诊 · 整天",
+        title: "体检陪诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
         price: "160.00",
@@ -5948,7 +5948,7 @@ let t_ = [
           <C_sc>
             <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂��需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
+              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
           </C_sc>
           <C_sc>
@@ -6049,7 +6049,7 @@ let t_ = [
             icon: e_,
           },
           {
-            t: "托管单总金���",
+            t: "托管单总金额",
             d: "1 笔托管单待结算",
             p: "1,200.00",
             icon: C_eL,
@@ -6198,7 +6198,7 @@ let t_ = [
           </C_sc>
           <C_sz>
             <span>仅陪诊日期前可申请全额退款</span>
-            <span>审��通过后原路退回，1-3 个工作日到账</span>
+            <span>审核通过后原路退回，1-3 个工作日到账</span>
           </C_sz>
         </C_si>
       );
@@ -6714,14 +6714,14 @@ function C_tV({ title: e, items: s }) {
 let tT = [
     {
       n: "爸爸",
-      role: "���庭成员",
+      role: "家庭成员",
     },
     {
       n: "妈妈",
       role: "家庭成员",
     },
     {
-      n: "���明",
+      n: "小明",
       role: "家庭成员",
     },
     {
@@ -7016,7 +7016,7 @@ let tX = {
               <C_sd>协议与条款</C_sd>
             </div>
             <C_so label="用户协议" onClick={() => e("agreement")} />
-            <C_so label="隐私���策" onClick={() => e("privacy")} />
+            <C_so label="隐私政策" onClick={() => e("privacy")} />
           </C_sc>
         </C_si>
       );
@@ -7517,7 +7517,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  ������后该成员将无法使用本房号的服务与额度，确定解除吗？
+                  解除后该成员将无法使用本房号的服务与额度，确定解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
@@ -7642,7 +7642,7 @@ let tX = {
       let { back: e, toast: s } = o();
       return (
         <C_si title="修改名称" className="bg-sub-wash gap-4">
-          <C_sz>该名称仅在本系统内生效，用于区分多台手环设备，��会修改手环厂商的原始名称</C_sz>
+          <C_sz>该名称仅在本系统内生效，用于区分多台手环设备，不会修改手环厂商的原始名称</C_sz>
           <C_sc className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
               <C_s2 className="size-5" />
@@ -7796,7 +7796,7 @@ let tX = {
           <C_sc>
             <C_sd extra={<C_sh tone="teal">已通过</C_sh>}>基础资料</C_sd>
             <C_sm k="提交小区" v="翠湖小区" />
-            <C_sm k="��名" v="李建国" />
+            <C_sm k="姓名" v="李建国" />
             <C_sm k="联系电话" v="138****6688" />
             <C_sm k="意向服务小区" v="阳光花园" />
             <C_sm k="服务类目" v="家电维修 · 管道疏通" />
@@ -7844,7 +7844,7 @@ let tX = {
         >
           <C_sz>人力资源认证无需业主认证；请先选择意向服务小区，物业将就近为您匹配派单。</C_sz>
           <C_sc className="flex flex-col gap-4">
-            <C_sf label="意���服务小区" required={!0} />
+            <C_sf label="意向服务小区" required={!0} />
             <C_su label="姓名" placeholder="请输入姓名" required={!0} />
             <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
@@ -7887,7 +7887,7 @@ let tX = {
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
             <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
-            <C_sm k="服务数量" v="1 · 线���收取" />
+            <C_sm k="服务数量" v="1 · 线下收取" />
             <C_sm k="服务金额" v="¥150.00" accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
@@ -8047,7 +8047,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约的体检陪诊服务（整��）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8078,7 +8078,7 @@ let tX = {
               onClick={() => e("privacy")}
             />
             <C_so icon={<C_sG className="size-4" />} label="用户协议" onClick={() => e("agreement")} />
-            <C_so icon={<C_sG className="size-4" />} label="隐私���策" onClick={() => e("privacy")} />
+            <C_so icon={<C_sG className="size-4" />} label="隐私政策" onClick={() => e("privacy")} />
           </C_sc>
           <C_sc className="flex flex-col py-1">
             <div className="pt-3">
@@ -8213,9 +8213,9 @@ let tX = {
         items={[
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
-          ["三、信息的存储与保���", "您的信息存储于境内服���器，采用加密传输与访问控制等安全措施防止泄露。"],
+          ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您�����人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
@@ -8234,7 +8234,7 @@ let tX = {
       ids: Object.keys(sH),
     },
     {
-      group: "首��与服务",
+      group: "首页与服务",
       ids: ["home", ...Object.keys(tc)],
     },
     {
