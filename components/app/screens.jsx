@@ -6179,7 +6179,7 @@ let t_ = [
               value={q}
               autoFocus
               onChange={(ev) => setQ(ev.target.value)}
-              placeholder="请输入订单编号，如 BC20250904"
+              placeholder="请输入订单编号"
               className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink-3"
             />
             {q ? (
@@ -6280,7 +6280,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">���支付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">�����支付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -7371,7 +7371,7 @@ let tX = {
             title="家庭与设备"
             items={[
               {
-                t: "我的家���",
+                t: "我的������",
                 icon: C_eL,
                 to: "family",
                 tint: "bg-warm-soft text-warm-ink",
@@ -7819,7 +7819,7 @@ let tX = {
               <C_sm k="调整���剩余" v="¥868.00" accent={!0} />
             </div>
           </C_sc>
-          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账号将共用新���度。</C_sz>
+          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账���将共用新���度。</C_sz>
         </C_si>
       );
     },
