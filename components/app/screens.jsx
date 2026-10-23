@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务�����立即预约"
+            aria-label="陪诊服务�����立���预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>���能原因</C_sd>
+            <C_sd>�����能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -5157,7 +5157,7 @@ let tf = [
     },
     {
       t: "小区停车位改造进展说明",
-      d: "新增 60 个车位，预计月底��工",
+      d: "新增 60 个车位，预计月底���工",
       m: "08-28 · 物业服务中心",
       img: "/images/article-parking.png",
     },
@@ -6195,11 +6195,22 @@ let t_ = [
           </label>
           <C_sc>
             <C_sd>订单类型</C_sd>
-            <C_sb
-              items={["全部", "报餐单", "托管单", "陪诊单", "生活帮手单"]}
-              value={l}
-              onChange={a}
-            />
+            <div className="grid grid-cols-4 gap-1.5 py-0.5">
+              {["报餐单", "托管单", "陪诊单", "生活帮手单"].map((name) => (
+                <button
+                  key={name}
+                  type="button"
+                  aria-pressed={name === l}
+                  onClick={() => a(name === l ? "全部" : name)}
+                  className={eb(
+                    "press min-w-0 rounded-full px-1 py-1.5 text-[13px] whitespace-nowrap",
+                    name === l ? "bg-ink font-semibold text-surface" : "bg-canvas text-ink-2 ring-1 ring-ink/5",
+                  )}
+                >
+                  {name}
+                </button>
+              ))}
+            </div>
           </C_sc>
           {null === result ? (
             <C_sC>输入订单编号（支持部分匹配）即可实时搜索，对 4 类订单同时生效</C_sC>
@@ -7371,7 +7382,7 @@ let tX = {
             title="家庭与设备"
             items={[
               {
-                t: "我的������",
+                t: "我的��������",
                 icon: C_eL,
                 to: "family",
                 tint: "bg-warm-soft text-warm-ink",
