@@ -82,7 +82,7 @@ export function ServiceGrid({ onAction }: { onAction: (label: string) => void })
           <Megaphone className="size-3.5 text-danger" aria-hidden="true" />
         </span>
         <span className="min-w-0 flex-1 truncate text-[13px] text-ink">本周六小区供水检修，请提前储水…</span>
-        <span className="shrink-0 text-[11px] text-ink-3 tabular-nums">09-04</span>
+        
         <ChevronRight className="size-3.5 shrink-0 text-ink-3" aria-hidden="true" />
       </button>
     </section>
