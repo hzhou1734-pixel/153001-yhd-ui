@@ -1966,7 +1966,7 @@ function C_sj({ items: e, value: s, onChange: t, className: l }) {
 }
 function C_sb({ items: e, value: s, onChange: t }) {
   return (
-    <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4">
+    <div className="flex flex-wrap gap-2 py-0.5">
       {e.map((e) => (
         <button
           key={e}
@@ -1974,7 +1974,7 @@ function C_sb({ items: e, value: s, onChange: t }) {
           onClick={() => t(e)}
           className={eb(
             "press shrink-0 rounded-full px-3.5 py-1.5 text-[13px] whitespace-nowrap",
-            e === s ? "bg-ink font-semibold text-surface" : "bg-surface text-ink-2 shadow-card",
+            e === s ? "bg-ink font-semibold text-surface" : "bg-canvas text-ink-2 ring-1 ring-ink/5",
           )}
         >
           {e}
@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务���立即预约"
+            aria-label="陪诊服务�����立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4862,7 +4862,7 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上传服务需求��关图片" />
+            <C_sk max={6} hint="请上���服务需求��关图片" />
             <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
           <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
@@ -5157,7 +5157,7 @@ let tf = [
     },
     {
       t: "小区停车位改造进展说明",
-      d: "新增 60 个车位，预计月底完工",
+      d: "新增 60 个车位，预计月底��工",
       m: "08-28 · 物业服务中心",
       img: "/images/article-parking.png",
     },
@@ -6280,7 +6280,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">���支付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -7371,7 +7371,7 @@ let tX = {
             title="家庭与设备"
             items={[
               {
-                t: "我的家庭",
+                t: "我的家���",
                 icon: C_eL,
                 to: "family",
                 tint: "bg-warm-soft text-warm-ink",
@@ -7816,10 +7816,10 @@ let tX = {
             <C_su label="顾好家币额度（元）" defaultValue="1000" type="number" />
             <div className="rounded-2xl bg-fill px-3 py-1">
               <C_sm k="已使用额度" v="¥132.00" />
-              <C_sm k="调整后剩余" v="¥868.00" accent={!0} />
+              <C_sm k="调整���剩余" v="¥868.00" accent={!0} />
             </div>
           </C_sc>
-          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账号将共用新额度。</C_sz>
+          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账号将共用新���度。</C_sz>
         </C_si>
       );
     },
