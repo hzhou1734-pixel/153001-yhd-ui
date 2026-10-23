@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "社区",
+      label: "���区",
       icon: C_eL,
       id: "community",
     },
@@ -1603,6 +1603,121 @@ function C_sf({ label: e, value: s, placeholder: t = "请选择", required: l, o
   {s}
   {n && !r ? <span className="size-2 rounded-full bg-brand" aria-hidden="true" /> : null}
   </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+}
+const BAG_MIN = { y: 2025, m: 1 };
+const BAG_MAX = { y: 2026, m: 9 };
+const bagIndex = ({ y, m }) => y * 12 + (m - 1);
+const bagFromIndex = (i) => ({ y: Math.floor(i / 12), m: (i % 12) + 1 });
+const BAG_ITEMS = [
+  ["公共电费", 31, -1200],
+  ["电梯维保费", 28, -2000],
+  ["停车费收入", 25, 5200],
+  ["广告位租金", 20, 2400],
+  ["充电桩服务费", 18, 1000],
+];
+const bagFmt = (n) => Math.abs(n).toLocaleString("en-US");
+function bagMonthData(ym) {
+  const offset = bagIndex(ym) - bagIndex({ y: 2026, m: 8 });
+  const lastDay = new Date(ym.y, ym.m, 0).getDate();
+  const mm = String(ym.m).padStart(2, "0");
+  const rows = BAG_ITEMS.map(([name, day, amt], i) => {
+    const factor = offset === 0 ? 1 : 1 + (((offset * 7 + i * 3) % 9) - 4) * 0.05;
+    const v = Math.round((amt * factor) / 10) * 10;
+    return { name, date: `${mm}-${String(Math.min(day, lastDay)).padStart(2, "0")}`, amount: v };
+  });
+  const income = rows.filter((r) => r.amount > 0).reduce((a, r) => a + r.amount, 0);
+  const expense = rows.filter((r) => r.amount < 0).reduce((a, r) => a - r.amount, 0);
+  const balance = 12580 + offset * 1340 + (income - expense - 5400);
+  return { rows, income, expense, balance };
+}
+function C_sMonthPicker({ value, onConfirm, onClose }) {
+  const [year, setYear] = (0, c.useState)(value.y);
+  const [month, setMonth] = (0, c.useState)(value.m);
+  const isDisabled = (m) => {
+    const i = bagIndex({ y: year, m });
+    return i < bagIndex(BAG_MIN) || i > bagIndex(BAG_MAX);
+  };
+  const changeYear = (ny) => {
+    setYear(ny);
+    const i = bagIndex({ y: ny, m: month });
+    if (i > bagIndex(BAG_MAX)) setMonth(BAG_MAX.m);
+    if (i < bagIndex(BAG_MIN)) setMonth(BAG_MIN.m);
+  };
+  return (
+    <div className="absolute inset-0 z-40 flex flex-col justify-end">
+      <button type="button" aria-label="关闭" onClick={onClose} className="absolute inset-0 bg-shell/45" />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="month-picker-title"
+        className="relative flex flex-col gap-4 rounded-t-[28px] bg-surface px-5 pt-5 pb-8 shadow-float"
+      >
+        <div className="flex items-center justify-between">
+          <button type="button" onClick={onClose} aria-label="关闭" className="press -ml-1 flex size-8 items-center justify-center rounded-full text-ink-3">
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+          <p id="month-picker-title" className="text-base font-bold text-ink">
+            选择年月
+          </p>
+          <button type="button" onClick={() => onConfirm({ y: year, m: month })} className="press text-sm font-bold text-brand-deep">
+            完成
+          </button>
+        </div>
+        <div className="flex items-center justify-between rounded-2xl bg-fill px-2 py-1.5">
+          <button
+            type="button"
+            aria-label="上一年"
+            disabled={year <= BAG_MIN.y}
+            onClick={() => changeYear(year - 1)}
+            className="press flex size-9 items-center justify-center rounded-full text-ink disabled:text-ink-3/50"
+          >
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <span className="text-base font-bold tabular-nums text-ink" aria-live="polite">
+            {year}年
+          </span>
+          <button
+            type="button"
+            aria-label="下一年"
+            disabled={year >= BAG_MAX.y}
+            onClick={() => changeYear(year + 1)}
+            className="press flex size-9 items-center justify-center rounded-full text-ink disabled:text-ink-3/50"
+          >
+            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+        <ul className="grid grid-cols-4 gap-2.5">
+          {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
+            const on = m === month;
+            const off = isDisabled(m);
+            return (
+              <li key={m}>
+                <button
+                  type="button"
+                  aria-pressed={on}
+                  disabled={off}
+                  onClick={() => setMonth(m)}
+                  className={eb(
+                    "press h-11 w-full rounded-2xl text-sm font-semibold tabular-nums transition-colors",
+                    on ? "bg-brand text-surface shadow-card" : "bg-fill text-ink",
+                    off && "bg-fill/50 text-ink-3/50",
+                  )}
+                >
+                  {m}月
+                </button>
               </li>
             );
           })}
@@ -3511,7 +3626,7 @@ let ti = [
           <div className="flex flex-col gap-2">
             <p className="text-lg font-bold text-ink">正在匹配健康手环…</p>
             <p className="text-sm leading-relaxed text-ink-2">
-              正在通过注册手机号 138****6688 与手环厂商账号匹配
+              正在���过注册手机号 138****6688 与手环厂商账号匹配
               <br />
               匹配成功后将自动同步历史数据
             </p>
@@ -5400,26 +5515,66 @@ let tf = [
     },
     moneyBag: function () {
       let { toast: e } = o(),
-        [s, t] = (0, c.useState)("物业钱袋子");
+        [s, t] = (0, c.useState)("物业钱袋子"),
+        [ym, setYm] = (0, c.useState)({ y: 2026, m: 8 }),
+        [pickerOpen, setPickerOpen] = (0, c.useState)(!1);
+      const idx = bagIndex(ym),
+        canPrev = idx > bagIndex(BAG_MIN),
+        canNext = idx < bagIndex(BAG_MAX),
+        data = bagMonthData(ym);
       return (
         <C_si title="小区钱袋子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-semibold">2026年8月</span>
+              <div className="-ml-2 flex items-center gap-0.5">
+                <button
+                  type="button"
+                  aria-label="上个月"
+                  disabled={!canPrev}
+                  onClick={() => setYm(bagFromIndex(idx - 1))}
+                  className="press flex size-8 items-center justify-center rounded-full disabled:opacity-40"
+                >
+                  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  aria-haspopup="dialog"
+                  onClick={() => setPickerOpen(!0)}
+                  className="press flex items-center gap-1 rounded-full bg-surface/20 px-3 py-1 text-sm font-semibold tabular-nums"
+                >
+                  {ym.y}年{ym.m}月
+                  <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  aria-label="下个月"
+                  disabled={!canNext}
+                  onClick={() => setYm(bagFromIndex(idx + 1))}
+                  className="press flex size-8 items-center justify-center rounded-full disabled:opacity-40"
+                >
+                  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
               <C_tp className="size-5 opacity-80" />
             </div>
             <span className="flex flex-col">
               <span className="text-xs opacity-90">本月结余</span>
-              <span className="text-3xl font-bold tabular-nums">¥12,580</span>
+              <span className="text-3xl font-bold tabular-nums">¥{bagFmt(data.balance)}</span>
             </span>
             <div className="grid grid-cols-2 rounded-2xl bg-surface/20 py-2.5 text-center">
               <span className="flex flex-col">
                 <span className="text-[11px] opacity-90">收入</span>
-                <span className="font-bold tabular-nums">+8,600</span>
+                <span className="font-bold tabular-nums">+{bagFmt(data.income)}</span>
               </span>
               <span className="flex flex-col">
                 <span className="text-[11px] opacity-90">支出</span>
-                <span className="font-bold tabular-nums">-3,200</span>
+                <span className="font-bold tabular-nums">-{bagFmt(data.expense)}</span>
               </span>
             </div>
           </div>
@@ -5428,13 +5583,7 @@ let tf = [
             <div className="pt-3">
               <C_sd>收支明细</C_sd>
             </div>
-            {[
-              ["公共电费", "08-31", "-1,200"],
-              ["电梯维保费", "08-28", "-2,000"],
-              ["停车费收入", "08-25", "+5,200"],
-              ["广告位租金", "08-20", "+2,400"],
-              ["充电桩服务费", "08-18", "+1,000"],
-            ].map(([s, t, l]) => (
+            {data.rows.map(({ name: s, date: t, amount: a }) => [s, t, `${a > 0 ? "+" : "-"}${bagFmt(a)}`]).map(([s, t, l]) => (
               <button
                 key={s}
                 type="button"
@@ -5456,6 +5605,16 @@ let tf = [
               </button>
             ))}
           </C_sc>
+          {pickerOpen ? (
+            <C_sMonthPicker
+              value={ym}
+              onClose={() => setPickerOpen(!1)}
+              onConfirm={(v) => {
+                setYm(v);
+                setPickerOpen(!1);
+              }}
+            />
+          ) : null}
         </C_si>
       );
     },
@@ -6147,7 +6306,7 @@ let t_ = [
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="预估金额" v="¥180.00" accent={!0} />
-            <C_sm k="支付方式" v="线上不做订单支付，由线下收取" />
+            <C_sm k="支付方式" v="线上不做订���支付，由线下收取" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
@@ -6435,7 +6594,7 @@ let t_ = [
             <p className="text-sm text-ink-2 tabular-nums">¥54.00 · 支付宝支付</p>
           </div>
           <C_sc>
-            <C_sm k="支付方式" v="支付宝" />
+            <C_sm k="支付方式" v="支��宝" />
             <C_sm k="支付时间" v="09-05 09:50" />
             <C_sm k="交易单号" v="20260905095000123456" />
           </C_sc>
@@ -7061,7 +7220,7 @@ let tX = {
                 to: "coin",
               },
               {
-                t: "我的账单",
+                t: "��的账单",
                 icon: C_tq,
                 to: "bill",
               },
