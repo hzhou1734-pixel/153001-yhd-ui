@@ -1883,7 +1883,7 @@ let sy = [
   ["周三", "10"],
   ["周四", "11"],
 ];
-function C_sv({ label: e = "服务日期（仅可选��未来 7 天内）" }) {
+function C_sv({ label: e = "服务日期（仅可选��未��� 7 天内）" }) {
   let [s, t] = (0, c.useState)(0);
   return (
     <div className="flex flex-col gap-2">
@@ -3150,7 +3150,7 @@ let s8 = [
       value: "78",
       unit: "次/分",
       ok: !0,
-      range: "60 - 100 次/分",
+      range: "60 - 100 次/��",
     },
     {
       name: "血压",
@@ -4520,7 +4520,7 @@ let ti = [
             <C_s6
               items={[
                 "主菜：清蒸鲈鱼 / 香菇滑鸡 / 红烧排骨 / 番茄炖牛腩（每日轮换）",
-                "配菜：清炒时蔬 2 份 / 凉拌木耳 / 蒜蓉西兰花",
+                "配菜：清炒时蔬 2 �� / 凉拌木耳 / 蒜蓉西兰花",
                 "主食：软米饭 / 杂粮饭 / 小米粥（三选一）",
                 "汤品：紫菜蛋花汤 / 莲藕排骨汤 / 山药排骨汤",
               ]}
@@ -5180,7 +5180,7 @@ let tf = [
           },
           {
             icon: C_eE,
-            l: "活动地���",
+            l: "活动地点",
             v: "中心广场",
           },
           {
@@ -5213,16 +5213,20 @@ let tf = [
               <C_sh>报名中</C_sh>
             </span>
           </div>
-          <C_sc className="grid grid-cols-2 gap-3">
-            {s.map((e) => (
-              <div key={e.l} className="flex items-center gap-2.5 rounded-2xl bg-fill p-3">
-                <e.icon className="size-4 shrink-0 text-brand-deep" />
-                <span className="flex flex-col">
-                  <span className="text-[11px] text-ink-3">{e.l}</span>
-                  <span className="text-sm font-semibold text-ink tabular-nums">{e.v}</span>
-                </span>
-              </div>
-            ))}
+          <C_sc className="py-1">
+            <dl className="flex flex-col divide-y divide-line">
+              {s.map((e) => (
+                <div key={e.l} className="flex items-start gap-3 py-3">
+                  <dt className="flex shrink-0 items-center gap-2 text-[13px] text-ink-3">
+                    <e.icon className="size-4 shrink-0 text-brand-deep" aria-hidden="true" />
+                    {e.l}
+                  </dt>
+                  <dd className="min-w-0 flex-1 break-words text-right text-sm font-semibold leading-snug text-ink tabular-nums">
+                    {e.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </C_sc>
           <C_sc>
             <C_sd>活动介绍</C_sd>
@@ -5581,7 +5585,7 @@ let C_tk = ew("image", [
       {
         code: "PZ20250903-002",
         status: "待支付",
-        title: "医院就诊全程陪诊 · 半天",
+        title: "医院就诊全程���诊 · 半天",
         use: "09-05 09:00",
         submit: "09-03 16:00",
         price: "240.00",
@@ -7847,7 +7851,7 @@ let tX = {
           <C_sc className="flex flex-col gap-3">
             <C_sd extra={<C_sh tone="warm">已提交</C_sh>}>提交信息</C_sd>
             <span className="text-lg font-bold text-ink">水管维修</span>
-            <span className="text-xs text-ink-3">类型：维修 · 提交 09-02 11:20</span>
+            <span className="text-xs text-ink-3">类型：维修 · ���交 09-02 11:20</span>
             <p className="rounded-2xl bg-fill p-3 text-[13px] leading-relaxed text-ink-2">
               厨房水龙头下方水管漏水，地面已有积水，麻烦尽快安排师傅上门查看。家中白天有人，可直接联系我。
             </p>
