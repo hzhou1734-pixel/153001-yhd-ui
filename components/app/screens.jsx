@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "���区",
+      label: "�����区",
       icon: C_eL,
       id: "community",
     },
@@ -3535,7 +3535,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由社区管家定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
+              由社区管��定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
             </p>
           </C_sc>
           <C_sc>
@@ -4658,7 +4658,7 @@ let ti = [
               <C_sT className="size-9" />
             </span>
             <p className="text-xl font-bold text-ink">已打开 物业服务系统</p>
-            <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
+            <p className="text-sm text-ink-2">若小程序未自动弹���，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
             <C_sm k="小程序名称" v="物业服务系统" />
@@ -5598,7 +5598,7 @@ let tf = [
                   </span>
                 </span>
                 <span
-                  className={eb("text-base font-bold tabular-nums", l.startsWith("+") ? "text-success" : "text-ink")}
+                  className={eb("text-base font-bold tabular-nums", l.startsWith("+") ? "text-danger" : "text-success")}
                 >
                   {l[0]}¥{l.slice(1)}
                 </span>
@@ -7192,7 +7192,7 @@ let tX = {
             <span className="flex flex-1 flex-col gap-1">
               <span className="text-xl font-bold text-ink">顾家小林</span>
               <span className="flex items-center gap-1 text-xs text-ink-2">
-                阳光花园 3栋2单元-1802
+                ��光花园 3栋2单元-1802
                 <C_sh tone="teal">
                   <C_tR className="mr-0.5 size-3" />
                   已认证
@@ -7833,7 +7833,7 @@ let tX = {
       let { toast: e } = o();
       return (
         <C_si
-          title="邀请成员"
+          title="邀请��员"
           className="bg-sub-wash"
           bottom={
             <C_sp block={!0} onClick={() => e("海报已保存至相册")}>
@@ -8186,7 +8186,7 @@ let tX = {
               <span className="text-sm font-semibold text-ink">下单人 · 张先生</span>
               <span className="text-xs text-ink-2 tabular-nums">13800001234</span>
             </span>
-            <C_sp size="sm" onClick={() => s("正在联系业主")}>
+            <C_sp size="sm" onClick={() => s("正在联���业主")}>
               <C_sQ className="size-3.5" />
               联系业主
             </C_sp>
