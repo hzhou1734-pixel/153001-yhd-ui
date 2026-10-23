@@ -365,7 +365,7 @@ let e_ = ew("clipboard-list", [
       id: "home",
     },
     {
-      label: "�����区",
+      label: "�������区",
       icon: C_eL,
       id: "community",
     },
@@ -1615,26 +1615,53 @@ const BAG_MIN = { y: 2025, m: 1 };
 const BAG_MAX = { y: 2026, m: 9 };
 const bagIndex = ({ y, m }) => y * 12 + (m - 1);
 const bagFromIndex = (i) => ({ y: Math.floor(i / 12), m: (i % 12) + 1 });
-const BAG_ITEMS = [
+  const BAG_LEDGERS = {
+  物业钱袋子: {
+  base: 12580,
+  items: [
   ["公共电费", 31, -1200],
   ["电梯维保费", 28, -2000],
   ["停车费收入", 25, 5200],
   ["广告位租金", 20, 2400],
   ["充电桩服务费", 18, 1000],
-];
+  ],
+  },
+  膳食钱袋子: {
+  base: 8640,
+  items: [
+  ["食材采购", 30, -3600],
+  ["长者餐补贴收入", 27, 4200],
+  ["厨房燃气费", 24, -680],
+  ["居民订餐收入", 21, 5600],
+  ["餐具消毒耗材", 15, -420],
+  ],
+  },
+  托管钱袋子: {
+  base: 6320,
+  items: [
+  ["托管服务费收入", 29, 6800],
+  ["老师课时费", 26, -3200],
+  ["学习用品采购", 22, -560],
+  ["课后点心", 19, -740],
+  ["街道托管补贴", 12, 2000],
+  ],
+  },
+  };
 const bagFmt = (n) => Math.abs(n).toLocaleString("en-US");
-function bagMonthData(ym) {
+  function bagMonthData(ym, bag) {
+  const ledger = BAG_LEDGERS[bag] || BAG_LEDGERS["物业钱袋子"];
   const offset = bagIndex(ym) - bagIndex({ y: 2026, m: 8 });
   const lastDay = new Date(ym.y, ym.m, 0).getDate();
   const mm = String(ym.m).padStart(2, "0");
-  const rows = BAG_ITEMS.map(([name, day, amt], i) => {
+  const rows = ledger.items.map(([name, day, amt], i) => {
     const factor = offset === 0 ? 1 : 1 + (((offset * 7 + i * 3) % 9) - 4) * 0.05;
     const v = Math.round((amt * factor) / 10) * 10;
     return { name, date: `${mm}-${String(Math.min(day, lastDay)).padStart(2, "0")}`, amount: v };
   });
   const income = rows.filter((r) => r.amount > 0).reduce((a, r) => a + r.amount, 0);
   const expense = rows.filter((r) => r.amount < 0).reduce((a, r) => a - r.amount, 0);
-  const balance = 12580 + offset * 1340 + (income - expense - 5400);
+  const net = ledger.items.reduce((a, [, , amt]) => a + amt, 0);
+  const balance = ledger.base + offset * Math.round(ledger.base / 940) * 100 + (income - expense - net);
   return { rows, income, expense, balance };
 }
 function C_sMonthPicker({ value, onConfirm, onClose }) {
@@ -3535,7 +3562,7 @@ let ti = [
           <C_sc>
             <C_sd>服务详情</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              由社区管��定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
+              由社��管��定期上门探望老人，面对面了解生活起居、身体状况与实际需求，探访情况将同步反馈家属。
             </p>
           </C_sc>
           <C_sc>
@@ -4658,7 +4685,7 @@ let ti = [
               <C_sT className="size-9" />
             </span>
             <p className="text-xl font-bold text-ink">已打开 物业服务系统</p>
-            <p className="text-sm text-ink-2">若小程序未自动弹���，可下拉通知栏手动进入</p>
+            <p className="text-sm text-ink-2">若小���序未自动弹���，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
             <C_sm k="小程序名称" v="物业服务系统" />
@@ -5438,7 +5465,7 @@ let tf = [
                 <b className="text-ink">8:00 至下午 17:00</b>{" "}
                 期间，小区将暂停供水。请各位业主提前储备生活用水，并关闭水龙头阀门，以免恢复供水时发生溢水。
               </p>
-              <p>检修完成后将立即恢复供水，如遇特殊情况将另行通知。给您带来不便，敬请谅解。</p>
+              <p>检修完成后将立即恢复供水，如遇特殊情况将���行通知。给您带来不便，敬请谅解。</p>
               <p className="text-right">物业服务中心</p>
             </div>
           </C_sc>
@@ -5521,7 +5548,7 @@ let tf = [
       const idx = bagIndex(ym),
         canPrev = idx > bagIndex(BAG_MIN),
         canNext = idx < bagIndex(BAG_MAX),
-        data = bagMonthData(ym);
+        data = bagMonthData(ym, s);
       return (
         <C_si title="小区钱袋子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
@@ -7016,7 +7043,7 @@ let tT = [
     },
     {
       n: "租客小王",
-      role: "租户",
+      role: "��户",
       note: "已授权托管/报餐",
     },
   ],
@@ -7459,7 +7486,7 @@ let tX = {
       );
     },
     coinDetail: function () {
-      let [e, s] = (0, c.useState)("全部"),
+      let [e, s] = (0, c.useState)("全���"),
         t = tG.filter((s) => "全部" === e || s.type === e);
       return (
         <C_si title="账户明细" className="bg-sub-wash">
