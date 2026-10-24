@@ -9019,7 +9019,7 @@ let tX = {
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
             <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
             <C_sm k="服务数量" v="1 · 线下收取" />
-            <C_sm k="服务金额" v="¥150.00" accent={!0} />
+            <C_sm k="预估金额" v="¥150.00" accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
             <C_sS name="张" size={44} tone="warm" />
@@ -9045,7 +9045,7 @@ let tX = {
           </C_sc>
           <C_sc>
             <C_sd>金额信息</C_sd>
-            <C_sm k="订单金额" v="¥150.00" />
+            <C_sm k="预估金额" v="¥150.00" />
             <C_sm k="收款方式" v="线上不做收款，服务金额由线下收取" />
           </C_sc>
           <C_sc>
@@ -9059,7 +9059,6 @@ let tX = {
                 },
                 {
                   title: "接单",
-                  time: "09-18 11:05",
                   state: "doing",
                 },
               ]}
