@@ -8948,7 +8948,7 @@ let tX = {
             block={!0}
             variant="danger"
             onClick={() => {
-              (s("账号已注销"), e("welcome"));
+              (s("账号已注销"), e("home"));
             }}
           >
             确认注销
