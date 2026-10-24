@@ -7755,11 +7755,6 @@ let tX = {
                 icon: tL,
                 to: "mySignup",
               },
-              {
-                t: "生活帮手",
-                icon: C_tB,
-                to: "myHelper",
-              },
             ]}
           />
           <C_tV
@@ -7804,12 +7799,6 @@ let tX = {
                 t: "业主认证",
                 icon: C_s0,
                 to: "certList",
-                tint: "bg-success-soft text-success",
-              },
-              {
-                t: "物业后台",
-                icon: C_e0,
-                to: "propBackend",
                 tint: "bg-success-soft text-success",
               },
             ]}
