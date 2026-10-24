@@ -8,6 +8,7 @@ import { cn as eb } from "@/lib/utils";
 import {
   Baby as LuBaby,
   BookOpen as LuBookOpen,
+  ChevronDown as LuChevronDown,
   Car as LuCar,
   Fuel as LuFuel,
   HeartHandshake as LuHeartHandshake,
@@ -7875,11 +7876,25 @@ let tX = {
       );
     },
     coin: function () {
-      let { go: e } = o();
+      let { go: e, toast: ts } = o(),
+        rooms = ["阳光花园 3栋2单元-1802", "阳光花园 5栋1单元-0601", "翠湖雅苑 2栋3单元-1203"],
+        [room, setRoom] = (0, c.useState)(rooms[0]),
+        [roomOpen, setRoomOpen] = (0, c.useState)(!1);
       return (
         <C_si title="房号共享额度" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">房号共享额度 · 阳光花园 3栋2单元-1802</span>
+            <button
+              type="button"
+              onClick={() => setRoomOpen(!0)}
+              aria-haspopup="dialog"
+              aria-label={"切换小区房号，当前：" + room}
+              className="press flex items-center gap-1 self-start text-left text-xs"
+            >
+              <span className="opacity-90">房号共享额度 · {room}</span>
+              <span className="flex size-5 items-center justify-center rounded-full bg-surface/25">
+                <LuChevronDown className="size-3.5" aria-hidden="true" />
+              </span>
+            </button>
             <span className="text-4xl font-bold tabular-nums">¥ 868.00</span>
             <div className="h-2 overflow-hidden rounded-full bg-surface/30">
               <span className="block h-full w-[13.2%] rounded-full bg-surface" />
@@ -7920,6 +7935,21 @@ let tX = {
               账户充值
             </C_sp>
           </div>
+          {roomOpen ? (
+            <C_sPicker
+              title="切换小区房号"
+              options={rooms}
+              value={room}
+              onSelect={(r) => {
+                setRoomOpen(!1);
+                if (r !== room) {
+                  setRoom(r);
+                  ts("已切换至 " + r);
+                }
+              }}
+              onClose={() => setRoomOpen(!1)}
+            />
+          ) : null}
         </C_si>
       );
     },
