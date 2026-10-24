@@ -6291,7 +6291,7 @@ let t_ = [
       const order = selectedMealOrder || tv.meal[0];
       const isActive = "进行中" === order.status || "待支付" === order.status;
       const isDone = "已完成" === order.status;
-      const isCanceled = "���取消" === order.status;
+      const isCanceled = "已取消" === order.status;
       const dishes = [
         ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
         ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
