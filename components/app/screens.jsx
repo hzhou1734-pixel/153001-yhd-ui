@@ -8998,7 +8998,8 @@ let tX = {
         isCancel = "已取消" === od.st,
         [startAt, endAt] = od.time.split(" - "),
         doneAt = startAt.split(" ")[0] + " " + endAt,
-        createdAt = hrSel ? startAt.split(" ")[0] + " 08:30" : "09-18 10:20";
+        createdAt = hrSel ? startAt.split(" ")[0] + " 08:30" : "09-18 10:20",
+        canceledAt = startAt.split(" ")[0] + " 09:15";
       return (
         <C_si
           title="订单详情"
@@ -9068,6 +9069,7 @@ let tX = {
                   state: "done",
                 },
                 ...(isDone ? [{ title: "完成时间", time: doneAt, state: "done" }] : []),
+                ...(isCancel ? [{ title: "取消时间", time: canceledAt, state: "done" }] : []),
               ]}
             />
           </C_sc>
