@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号���������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -5169,7 +5169,7 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="社区" sub="阳光花园 · 邻里有温度" />
+          <C_tu title="社区" sub="阳光花��� · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
@@ -5578,7 +5578,7 @@ let tf = [
         canNext = idx < bagIndex(BAG_MAX),
         data = bagMonthData(ym, s);
       return (
-        <C_si title="小区布袋子" className="bg-sub-wash">
+        <C_si title="小区布���子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
             <div className="flex items-center justify-center">
               <div className="flex items-center gap-3">
@@ -6629,7 +6629,7 @@ let t_ = [
             <C_sm k="基础费用" v={`¥${order.price}`} />
             <C_sm k="附加费用" v={isActive ? "¥0.00" : `¥${feeTotal.toFixed(2)}`} />
             {isPending ? (
-              <C_sm k="待支付金额" v={`¥${feeTotal.toFixed(2)}`} accent={!0} />
+              <C_sm k="待支付金额" v={`¥${total}`} accent={!0} />
             ) : (
               <C_sm k={isActive ? "预估金额" : "订单总额"} v={`¥${total}`} accent={!0} />
             )}
@@ -7731,7 +7731,7 @@ let tX = {
       return (
         <C_si title="换绑手机号" className="bg-sub-wash gap-4">
           <C_sc className="flex flex-col items-center gap-1 py-5">
-            <span className="text-xs text-ink-3">当前号码</span>
+            <span className="text-xs text-ink-3">���前号码</span>
             <span className="text-2xl font-bold text-ink tabular-nums">138****6688</span>
           </C_sc>
           <C_sc className="flex flex-col gap-3">
@@ -8165,7 +8165,7 @@ let tX = {
           </C_sc>
           <C_sc>
             <C_sd>成员��色</C_sd>
-            <C_sb items={["家庭成员", "租户"]} value={l} onChange={a} />
+            <C_sb items={["家庭成���", "租户"]} value={l} onChange={a} />
           </C_sc>
           <C_sc
             onClick={() => {
@@ -8566,7 +8566,7 @@ let tX = {
           <C_sc className="flex items-center gap-3">
             <C_sS name="张" size={44} tone="warm" />
             <span className="flex flex-1 flex-col">
-              <span className="text-sm font-semibold text-ink">下单人 · 张先生</span>
+              <span className="text-sm font-semibold text-ink">��单人 · 张先生</span>
               <span className="text-xs text-ink-2 tabular-nums">13800001234</span>
             </span>
             <C_sp size="sm" onClick={() => s("正在联系业主")}>
@@ -8983,7 +8983,7 @@ let tX = {
     orderHelperDetail: "帮手单详情",
     orderSettlement: "订单结算",
     review: "服务评价",
-    addReview: "添加评价",
+    addReview: "添加评���",
     refund: "退款申请",
     refundProgress: "退款进度",
     payment: "收银台",
