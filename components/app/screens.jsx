@@ -2182,22 +2182,8 @@ function C_sP({ value: e, size: s = "md", from: t }) {
 function C_s_({ items: e }) {
   return (
     <ol className="flex flex-col">
-      {e.map((s, t) => (
-        <li key={s.title} className="flex gap-3">
-          <div className="flex flex-col items-center">
-            <span
-              className={eb(
-                "mt-1 flex size-4 shrink-0 items-center justify-center rounded-full",
-                "done" === s.state && "bg-brand text-surface",
-                "doing" === s.state && "bg-surface ring-4 ring-brand/30",
-                "todo" === s.state && "bg-tag-muted",
-              )}
-            >
-              {"done" === s.state ? <C_e2 className="size-2.5" strokeWidth={3.5} /> : null}
-              {"doing" === s.state ? <span className="size-2 rounded-full bg-brand" /> : null}
-            </span>
-            {t < e.length - 1 ? <span className="my-1 w-0.5 flex-1 rounded-full bg-brand-soft" /> : null}
-          </div>
+      {e.map((s) => (
+        <li key={s.title} className="flex">
           <div className="flex flex-1 flex-col gap-0.5 pb-4">
             <div className="flex items-center justify-between gap-2">
               <span className={eb("text-sm", "todo" === s.state ? "text-ink-3" : "font-semibold text-ink")}>
@@ -3696,7 +3682,7 @@ let ti = [
             <p className="text-sm leading-relaxed text-ink-2">
               正在通过注册手机号 138****6688 与手环厂商账号匹配
               <br />
-              匹配���功后将自动同步历史数据
+              匹配�����功后将自动同步历史数据
             </p>
           </div>
           <div className="flex w-full flex-col gap-3">
@@ -4118,7 +4104,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能原因</C_sd>
+            <C_sd>可能���因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
