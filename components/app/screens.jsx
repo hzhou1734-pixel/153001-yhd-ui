@@ -2510,7 +2510,7 @@ let sH = {
         >
           {1 === t ? "下一步" : "确认修改"}
         </C_sp>
-        <C_sC>验证码���发送至注册手机号，5 分钟内有效</C_sC>
+        <C_sC>验证码�����发送至注册手机号，5 分钟内有效</C_sC>
       </C_si>
     );
   },
@@ -3541,7 +3541,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊���同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4121,7 +4121,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证每日 7-8 小时睡眠",
-                "3 个月后复查��脂四项，若持续升高建议就医",
+                "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4665,7 +4665,7 @@ let ti = [
         >
           <C_s3
             img="/images/meal-fish.png"
-            title="适老营养餐"
+            title="适老��养餐"
             tag="推荐"
             desc="由营养师 + 三星主厨联合研发 · 每日新鲜配送"
             price={
@@ -5215,7 +5215,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入库 · ���能服务派单</span>
+              <span className="text-xs text-ink-2">人才���库 · ���能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -5828,7 +5828,7 @@ let C_tk = ew("image", [
       },
       {
         code: "PZ20250820-006",
-        status: "已完成",
+        status: "已���成",
         title: "体检陪诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
@@ -5874,6 +5874,7 @@ let C_tk = ew("image", [
       },
     ],
   },
+  selectedMealOrder = null,
   tw = {
     进行中: "brand",
     已完成: "teal",
@@ -5957,7 +5958,14 @@ function C_tz({ kind: e }) {
       </div>
       {m.map((t) => (
         <C_sc key={t.code} className="flex flex-col gap-0">
-          <button type="button" onClick={() => s(a.detail)} className="press flex flex-col gap-3 text-left">
+          <button
+                type="button"
+                onClick={() => {
+                  if ("meal" === e) selectedMealOrder = t;
+                  s(a.detail);
+                }}
+                className="press flex flex-col gap-3 text-left"
+              >
             <span className="flex w-full items-center justify-between gap-2">
               <span className="flex min-w-0 items-center gap-2 text-xs text-ink-3">
                 <span className="shrink-0 rounded-md bg-brand-soft px-1.5 py-0.5 font-semibold text-brand-deep">{a.name}</span>
@@ -6223,7 +6231,14 @@ let t_ = [
                 {" 条订单"}
               </span>
               {result.map((it) => (
-                <C_sc key={it.code} onClick={() => e(ty[it.kind].detail)} className="press flex flex-col gap-2">
+                <C_sc
+                  key={it.code}
+                  onClick={() => {
+                    if ("meal" === it.kind) selectedMealOrder = tv.meal.find((o) => o.code === it.code) || null;
+                    e(ty[it.kind].detail);
+                  }}
+                  className="press flex flex-col gap-2"
+                >
                   <span className="flex w-full items-center justify-between">
                     <span className="flex items-center gap-2 text-xs text-ink-3">
                       <span className="rounded-md bg-brand-soft px-1.5 py-0.5 font-semibold text-brand-deep">
@@ -6248,22 +6263,33 @@ let t_ = [
       );
     },
     orderMealDetail: function () {
+      const order = selectedMealOrder || tv.meal[0];
+      const isActive = "进行中" === order.status || "待支付" === order.status;
+      const isDone = "已完成" === order.status;
+      const isCanceled = "已取消" === order.status;
+      const dishes = [
+        ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
+        ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
+      ].slice(0, order.count.includes("2") ? 2 : 1);
+      const subtotal = dishes.reduce((sum, [, p]) => sum + Number(p), 0);
+      const deliveryFee = 3;
+      const total = (subtotal + deliveryFee).toFixed(2);
+      const logs = [{ title: "订单提交", time: order.submit, state: "done" }];
+      if (isDone) logs.push({ title: "订单完成", time: `${order.use} 12:30`, state: "done" });
+      if (isCanceled) logs.push({ title: "订单已取消", time: order.submit, state: "done" });
       return (
-        <C_si title="报餐单详情" className="bg-sub-wash" bottom={<C_tS />}>
+        <C_si title="报餐单详情" className="bg-sub-wash" bottom={isActive ? <C_tS /> : undefined}>
           <C_tC
             kind="报餐单"
-            code="BC20250904-001"
-            status="进行中"
-            title="午餐× 2"
-            sub="配送 / 使用：09-05 · 提交：09-04 10:20"
-            price="41.00"
+            code={order.code}
+            status={order.status}
+            title={order.title}
+            sub={`配送 / 使用：${order.use} · 提交：${order.submit}`}
+            price={total}
           />
           <C_sc>
             <C_sd>菜单信息</C_sd>
-            {[
-              ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
-              ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
-            ].map(([e, s, t]) => (
+            {dishes.map(([e, s, t]) => (
               <div key={e} className="flex items-center gap-3 py-1.5">
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-xl">
                   <eW.Image src={t} alt={e} fill={!0} sizes="48px" className="object-cover" />
@@ -6276,32 +6302,27 @@ let t_ = [
               </div>
             ))}
             <div className="mt-2 rounded-2xl bg-fill px-3 py-1">
-              <C_sm k="菜品小计" v="¥38.00" />
+              <C_sm k="菜品小计" v={`¥${subtotal.toFixed(2)}`} />
               <C_sm k="配送方式" v="物业配送" />
-              <C_sm k="配送费" v="¥3.00" />
-              <C_sm k="报餐日期" v="09-05" />
+              <C_sm k="配送费" v={`¥${deliveryFee.toFixed(2)}`} />
+              <C_sm k="报餐日期" v={order.use} />
               <C_sm k="联系电话" v="13800006688" />
             </div>
           </C_sc>
           <C_sc>
             <C_sd>支付信息</C_sd>
-            <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
+            <C_sm k={isDone ? "实付金额" : "预估金额"} v={`¥${total}`} accent={!0} />
+            <C_sm
+              k="支付状态"
+              v={isCanceled ? <C_sh tone="gray">已退款</C_sh> : <C_sh tone="teal">已支付</C_sh>}
+            />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
-            <C_s_
-              items={[
-                {
-                  title: "订单提交",
-                  time: "09-04 10:20",
-                  state: "done",
-                },
-              ]}
-            />
+            <C_s_ items={logs} />
           </C_sc>
-          <C_tr />
+          {isActive ? <C_tr /> : null}
         </C_si>
       );
     },
@@ -7434,7 +7455,7 @@ let tX = {
         <C_si className="bg-sub-wash" nav={<C_sr title="个人信息" right="编辑" onRight={() => e("editProfile")} />}>
           <C_sc className="flex flex-col py-1">
             <C_so label="头像" value={<C_sS name="顾" size={36} />} />
-            <C_so label="昵称" value="顾家小林" />
+            <C_so label="���称" value="顾家小林" />
             <C_so label="手机号码" value="138****6688" />
             <C_so label="认证状态" value={<C_sh tone="teal">已认证</C_sh>} onClick={() => e("certList")} />
           </C_sc>
