@@ -2511,7 +2511,7 @@ let sH = {
         >
           {1 === t ? "下一步" : "确认修改"}
         </C_sp>
-        <C_sC>验证码�������发送至注册手机号，5 分钟内有效</C_sC>
+        <C_sC>验证码已发送至注册手机号，5 分钟内有效</C_sC>
       </C_si>
     );
   },
@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步���������康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步至健康小屋",
       icon: sU,
     },
     {
@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · ���诊���同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -3683,7 +3683,7 @@ let ti = [
             <p className="text-sm leading-relaxed text-ink-2">
               正在通过注册手机号 138****6688 与手环厂商账号匹配
               <br />
-              匹配�����功后将自动同步历史数据
+              匹配成功后将自动同步历史数据
             </p>
           </div>
           <div className="flex w-full flex-col gap-3">
@@ -3889,7 +3889,7 @@ let ti = [
       );
     },
     healthTrend: function () {
-      let [e, s] = (0, c.useState)("近七���"),
+      let [e, s] = (0, c.useState)("近七天"),
         t = [72, 81, 63, 92, 71, 76, 78];
       return (
         <C_si title="健康趋势" className="bg-sub-wash">
@@ -4105,7 +4105,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>可能���因</C_sd>
+            <C_sd>可能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -4121,8 +4121,8 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息����������� 7-8 小时睡眠",
-                "3 个月后��查��脂四项，若持续升高建议就医",
+                "保持规律作息，保证 7-8 小时睡眠",
+                "3 个月后复查血脂四项，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="��诊������" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -4666,7 +4666,7 @@ let ti = [
         >
           <C_s3
             img="/images/meal-fish.png"
-            title="适老��养餐"
+            title="适老营养餐"
             tag="推荐"
             desc="由营养师 + 三星主厨联合研发 · 每日新鲜配送"
             price={
@@ -4716,12 +4716,12 @@ let ti = [
             <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序��称" v="物业服务系统" />
+            <C_sm k="小程序名称" v="物业服务系统" />
             <C_sm k="打开方式" v="APP 内跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
           <C_sp block={!0} onClick={e}>
-            ���回 顾好家
+            返回 顾好家
           </C_sp>
           <C_sp block={!0} variant="ghost" onClick={() => s("暂无更多跳转记录")}>
             查看跳转记录
@@ -5169,14 +5169,14 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="���区" sub="阳���花园 · 邻里有温度" />
+          <C_tu title="社区" sub="阳光花园 · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
             <span className="absolute inset-x-4 bottom-4 flex items-end justify-between text-surface">
               <span className="flex flex-col gap-1">
                 <span className="text-lg font-bold">社区活动</span>
-                <span className="text-xs opacity-90">报名邻里活动，���看最新动态</span>
+                <span className="text-xs opacity-90">报名邻里活动，查看最新动态</span>
               </span>
               <span className="bg-brand-gradient rounded-full px-3 py-1.5 text-xs font-semibold">去报名</span>
             </span>
@@ -5216,7 +5216,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才���库 · ���能服务派单</span>
+              <span className="text-xs text-ink-2">人才入库 · 技能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -5409,8 +5409,8 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏���品茗，趣味游戏与才���展示。现场设置灯谜区、手工月饼 DIY
-              与儿童游��区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
+              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月饼 DIY
+              与儿童游乐区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
         </C_si>
@@ -5538,7 +5538,7 @@ let tf = [
           <div className="shadow-card relative h-44 shrink-0 overflow-hidden rounded-[24px]">
             <eW.Image
               src="/images/article-recycle.png"
-              alt="垃���分类"
+              alt="垃圾分类"
               fill={!0}
               sizes="343px"
               className="object-cover"
@@ -5578,7 +5578,7 @@ let tf = [
         canNext = idx < bagIndex(BAG_MAX),
         data = bagMonthData(ym, s);
       return (
-        <C_si title="小区��袋子" className="bg-sub-wash">
+        <C_si title="小区布袋子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
             <div className="flex items-center justify-center">
               <div className="flex items-center gap-3">
@@ -5834,7 +5834,7 @@ let C_tk = ew("image", [
       },
       {
         code: "PZ20250820-006",
-        status: "已���成",
+        status: "已完成",
         title: "体检陪诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
@@ -5872,10 +5872,10 @@ let C_tk = ew("image", [
       {
         code: "SH20250828-002",
         status: "已取消",
-        title: "水电维修 · 厨房水管更��",
+        title: "水电维修 · 厨房水管更换",
         use: "08-29 10:00",
         submit: "08-28 09:20",
-        count: "��� 1 份���单",
+        count: "共 1 份订单",
         price: "150.00",
       },
     ],
@@ -6077,7 +6077,7 @@ function C_tM({ img: e, video: s }) {
         </span>
       </div>
       <p className="mt-2 text-[11px] text-ink-3">
-        图片（{e}） · 视频���{s}）
+        图片（{e}） · 视频（{s}）
       </p>
     </C_sc>
   );
@@ -6502,7 +6502,7 @@ let t_ = [
           </C_sc>
           <C_sc>
             <C_sd>支付信息</C_sd>
-            <C_sm k="基础费���" v="¥240.00" />
+            <C_sm k="基础费用" v="¥240.00" />
             <C_sm k="附加费用" v="¥0.00" />
             <C_sm k="订单总额" v="¥240.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="red">未支付</C_sh>} />
@@ -6619,7 +6619,7 @@ let t_ = [
           }
         >
           <C_sc>
-            <C_sd>��结算订单</C_sd>
+            <C_sd>待结算订单</C_sd>
             {l.map((e) => (
               <div key={e.t} className="flex items-center gap-3 py-2">
                 <span className="flex size-10 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
@@ -7258,7 +7258,7 @@ function C_tV({ title: e, items: s }) {
 }
 let tT = [
     {
-      n: "��爸",
+      n: "爸爸",
       role: "家庭成员",
     },
     {
@@ -7552,7 +7552,7 @@ let tX = {
         <C_si className="bg-sub-wash" nav={<C_sr title="个人信息" right="编辑" onRight={() => e("editProfile")} />}>
           <C_sc className="flex flex-col py-1">
             <C_so label="头像" value={<C_sS name="顾" size={36} />} />
-            <C_so label="���称" value="顾家小林" />
+            <C_so label="昵称" value="顾家小林" />
             <C_so label="手机号码" value="138****6688" />
             <C_so label="认证状态" value={<C_sh tone="teal">已认证</C_sh>} onClick={() => e("certList")} />
           </C_sc>
@@ -7635,7 +7635,7 @@ let tX = {
               {[
                 ["总额度", "¥1000.00"],
                 ["已使用", "¥132.00"],
-                ["���余", "¥868.00"],
+                ["剩余", "¥868.00"],
               ].map(([e, s]) => (
                 <span key={e} className="flex flex-col gap-0.5">
                   <span className="text-sm font-bold tabular-nums">{s}</span>
@@ -7763,7 +7763,7 @@ let tX = {
           }
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-3 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">本房号账单整���（业主 + 家人 + 租户）</span>
+            <span className="text-xs opacity-90">本房号账单整合（业主 + 家人 + 租户）</span>
             <div className="flex items-end justify-between">
               <span className="flex flex-col">
                 <span className="text-xs opacity-90">待结算合计</span>
@@ -7884,7 +7884,7 @@ let tX = {
         <C_si title="物业后台" className="bg-sub-wash">
           <C_sz>
             物业后台 ·
-            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整���后从额度���扣减。
+            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整合后从额度中扣减。
           </C_sz>
           <h2 className="px-1 text-[15px] font-bold text-ink">房号额度配置</h2>
           {[
@@ -8072,7 +8072,7 @@ let tX = {
                     block={!0}
                     variant="danger"
                     onClick={() => {
-                      (t("已解除�����"), s());
+                      (t("已解除绑定"), s());
                     }}
                   >
                     确认解除
@@ -8119,7 +8119,7 @@ let tX = {
             <C_sS name="张" size={60} tone="warm" />
             <span className="flex flex-col gap-1">
               <span className="text-lg font-bold text-ink">管家 · 张姐</span>
-              <span className="text-xs text-ink-2">服务楼栋：3栋2单��</span>
+              <span className="text-xs text-ink-2">服务楼栋：3栋2单元</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col py-1">
@@ -8261,7 +8261,7 @@ let tX = {
                 <span className="text-[15px] font-bold text-ink">{s.t}</span>
                 <span className="text-xs text-ink-3">{s.d}</span>
               </span>
-              <C_sh tone={"处理��" === s.s ? "brand" : "warm"}>{s.s}</C_sh>
+              <C_sh tone={"处理中" === s.s ? "brand" : "warm"}>{s.s}</C_sh>
             </C_sc>
           ))}
         </C_si>
@@ -8292,7 +8292,7 @@ let tX = {
               人才入驻
             </span>
             <p className="text-[13px] leading-relaxed opacity-95">
-              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求��物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
+              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
             </p>
             <button
               type="button"
@@ -8308,7 +8308,7 @@ let tX = {
               <C_sG className="size-5" />
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
-              <span className="text-sm font-semibold text-ink">我��认证资料</span>
+              <span className="text-sm font-semibold text-ink">我的认证资料</span>
               <span className="text-xs text-ink-3">家电维修 · 管道疏通</span>
             </span>
             <C_sh tone="teal">已通过</C_sh>
@@ -8427,7 +8427,7 @@ let tX = {
               <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">进行中</span>
             </div>
             <span className="text-xl font-bold">家电维修</span>
-            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服��</span>
+            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服务</span>
           </div>
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
@@ -8592,7 +8592,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约的体检陪诊服���（整天）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8629,7 +8629,7 @@ let tX = {
             <div className="pt-3">
               <C_sd>通用</C_sd>
             </div>
-            <C_so label="清除缓存" desc="清理��片与临时文件" value="36.2MB" onClick={() => t("缓存已清除")} />
+            <C_so label="清除缓存" desc="清理图片与临时文件" value="36.2MB" onClick={() => t("缓存已清除")} />
             <C_so label="检查更新" desc="当前已是最新版本" value="v1.0.339" />
           </C_sc>
           <C_sc className="flex flex-col py-1">
@@ -8810,7 +8810,7 @@ let tX = {
     certList: "我的认证",
     certReject: "驳回原因",
     communitySwitch: "切换小区",
-    healthHome: "健康小���",
+    healthHome: "健康小屋",
     bandConnect: "连接手环",
     healthData: "健康数据",
     healthCompare: "数据对比",
@@ -8830,7 +8830,7 @@ let tX = {
     trustDetail: "托管详情",
     mealDetail: "膳食详情",
     meal: "膳食下单",
-    miniJump: "物业��务",
+    miniJump: "物业服务",
     helperList: "生活帮手",
     helperInfo: "帮手详情",
     helper: "提交需求",
@@ -8861,7 +8861,7 @@ let tX = {
     payment: "收银台",
     payResult: "支付结果",
     profile: "我的",
-    personInfo: "个人信���",
+    personInfo: "个人信息",
     editProfile: "编辑资料",
     changePhone: "换绑手机",
     coin: "顾好家币",
