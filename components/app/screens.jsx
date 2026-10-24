@@ -1476,6 +1476,7 @@ function C_sp({ children: e, variant: s = "primary", size: t = "lg", block: l, o
       onClick={a}
       className={eb(
         "press inline-flex flex-none items-center justify-center gap-1.5 rounded-full font-semibold whitespace-nowrap",
+        "xl" === t && "h-[52px] min-h-[52px] px-6 text-base tracking-widest",
         "lg" === t && "h-11 px-6 text-[15px]",
         "md" === t && "h-10 px-5 text-sm",
         "sm" === t && "h-8 px-3.5 text-xs",
@@ -1519,6 +1520,8 @@ function C_su({
   required: r,
   readOnly: c,
   onClick: x,
+  prefix: p,
+  variant: v,
 }) {
   return (
     <label className="flex flex-col gap-1.5">
@@ -1528,7 +1531,16 @@ function C_su({
           {e}
         </span>
       ) : null}
-      <span className="flex min-h-11 items-center gap-2 rounded-2xl bg-fill px-3.5" onClick={x}>
+      <span
+        className={eb(
+          "flex items-center",
+          "login" === v
+            ? "h-14 shrink-0 gap-3 rounded-2xl bg-surface px-4 shadow-card ring-1 ring-brand/15 transition-shadow focus-within:ring-2 focus-within:ring-brand/60"
+            : "min-h-11 gap-2 rounded-2xl bg-fill px-3.5",
+        )}
+        onClick={x}
+      >
+        {p}
         {n ? (
           <textarea
             rows={3}
@@ -1542,7 +1554,10 @@ function C_su({
             placeholder={s}
             defaultValue={t}
             readOnly={c}
-            className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink-3"
+            className={eb(
+              "w-full min-w-0 bg-transparent text-ink outline-none placeholder:text-ink-3",
+              "login" === v ? "text-[15px]" : "text-sm",
+            )}
           />
         )}
         {a}
@@ -1946,9 +1961,12 @@ function C_sCoinConfirm({ amount, onConfirm, onClose }) {
     </div>
   );
 }
-function C_sj({ items: e, value: s, onChange: t, className: l }) {
+function C_sj({ items: e, value: s, onChange: t, className: l, size: z }) {
   return (
-    <div role="tablist" className={eb("flex gap-1 rounded-full bg-surface/80 p-1 shadow-card", l)}>
+    <div
+      role="tablist"
+      className={eb("flex gap-1 rounded-full bg-surface/80 shadow-card", "lg" === z ? "h-14 shrink-0 p-1.5" : "p-1", l)}
+    >
       {e.map((e) => (
         <button
           key={e}
@@ -1957,7 +1975,8 @@ function C_sj({ items: e, value: s, onChange: t, className: l }) {
           aria-selected={e === s}
           onClick={() => t(e)}
           className={eb(
-            "press flex-1 rounded-full px-2 py-1.5 text-[13px] whitespace-nowrap transition-colors",
+            "press flex-1 rounded-full px-2 whitespace-nowrap transition-colors",
+            "lg" === z ? "text-[15px]" : "py-1.5 text-[13px]",
             e === s ? "bg-brand-gradient font-semibold text-surface" : "text-ink-2",
           )}
         >
@@ -2232,11 +2251,13 @@ function C_sD() {
     </div>
   );
 }
-function C_sR({ placeholder: e = "请输入验证码" }) {
+function C_sR({ placeholder: e = "请输入验证码", prefix: p, variant: v }) {
   let [s, t] = (0, c.useState)(0);
   return (
     <C_su
       placeholder={e}
+      prefix={p}
+      variant={v}
       type="tel"
       suffix={
         <button
@@ -2285,15 +2306,22 @@ function sO() {
     [t, l] = (0, c.useState)("验证码登录"),
     [a, n] = (0, c.useState)(!1);
   return (
-    <C_si className="bg-sub-wash -mx-0 gap-5 px-6" nav={<C_sr noBack={!0} />}>
+    <C_si className="bg-sub-wash -mx-0 gap-5 px-6 pt-4" nav={null}>
       <C_sI />
-      <C_sj items={["验证码登录", "密码登录"]} value={t} onChange={l} />
-      <div className="flex flex-col gap-3">
-        <C_su placeholder="请输入手机号" type="tel" suffix={<C_e9 className="size-4 text-ink-3" />} />
+      <C_sj size="lg" items={["验证码登录", "密码登录"]} value={t} onChange={l} />
+      <div className="flex flex-col gap-3.5">
+        <C_su
+          variant="login"
+          placeholder="请输入手机号"
+          type="tel"
+          prefix={<C_e9 className="size-5 shrink-0 text-brand-deep" />}
+        />
         {"验证码登录" === t ? (
-          <C_sR />
+          <C_sR variant="login" prefix={<C_s0 className="size-5 shrink-0 text-brand-deep" />} />
         ) : (
           <C_su
+            variant="login"
+            prefix={<C_s0 className="size-5 shrink-0 text-brand-deep" />}
             placeholder="请输入密码"
             type={a ? "text" : "password"}
             suffix={
@@ -2310,7 +2338,7 @@ function sO() {
         ) : null}
       </div>
       <C_sD />
-      <C_sp block={!0} onClick={() => e("regProfile")}>
+      <C_sp block={!0} size="xl" onClick={() => e("regProfile")}>
         登录
       </C_sp>
       <div className="flex flex-col items-center gap-3 pt-4">
