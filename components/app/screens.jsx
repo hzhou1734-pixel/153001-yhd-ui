@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步��康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步���康小屋",
       icon: sU,
     },
     {
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊地���" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -6648,10 +6648,6 @@ let t_ = [
               {["", "非常不满意", "不满意", "一般", "满意", "非常满意"][t]}
             </span>
           </C_sc>
-          <C_sc className="flex flex-col gap-4">
-            <C_su label="评价内容" placeholder="说说你的服务体验吧" textarea={!0} />
-            <C_sk max={6} hint="可上传服务相关图片" />
-          </C_sc>
         </C_si>
       );
     },
@@ -8010,7 +8006,7 @@ let tX = {
                     block={!0}
                     variant="danger"
                     onClick={() => {
-                      (t("已解除绑定"), s());
+                      (t("已解除���定"), s());
                     }}
                   >
                     确认解除
@@ -8768,7 +8764,7 @@ let tX = {
     trustDetail: "托管详情",
     mealDetail: "膳食详情",
     meal: "膳食下单",
-    miniJump: "物业服务",
+    miniJump: "物业��务",
     helperList: "生活帮手",
     helperInfo: "帮手详情",
     helper: "提交需求",
