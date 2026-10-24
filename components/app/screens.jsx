@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -5409,7 +5409,7 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯���区、手工月��� DIY
+              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现��设置灯���区、手工月��� DIY
               与儿童游乐区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
@@ -5851,9 +5851,10 @@ let C_tk = ew("image", [
         title: "体检陪诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
-        price: "160.00",
-        old: "180.00",
-      },
+  price: "160.00",
+  old: "180.00",
+  payMethod: "支付宝支付",
+  },
       {
         code: "PZ20250805-001",
         status: "已取消",
@@ -6612,7 +6613,7 @@ let t_ = [
               <C_sm k={isActive ? "预估金额" : "订单总额"} v={`¥${total}`} accent={!0} />
             )}
             <C_sm k="支付状态" v={paymentTag} />
-            <C_sm k="支付方式" v={isPending ? "/" : "顾好家币"} />
+            <C_sm k="支付方式" v={isPending ? "/" : order.payMethod || "微信支付"} />
             {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
           <C_sc>
