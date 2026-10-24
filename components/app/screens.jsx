@@ -8958,7 +8958,7 @@ let tX = {
               <C_sc key={r.id} onClick={() => e("hrOrderDetail")} className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-ink-3 tabular-nums">{r.id}</span>
-                  <C_sh tone={"进行中" === r.st ? "brand" : "gray"}>{r.st}</C_sh>
+                  <C_sh tone={{ 进行中: "brand", 已完成: "teal", 已取消: "gray" }[r.st]}>{r.st}</C_sh>
                 </div>
                 <div className={"flex items-end justify-between gap-3" + ("已取消" === r.st ? " opacity-60" : "")}>
                   <span className="flex flex-col gap-0.5">
