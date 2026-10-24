@@ -6303,13 +6303,11 @@ function C_tS({ pay: e }) {
         {[
           {
             n: "支付宝支付",
-            bg: "bg-[#1677ff]",
-            ch: "支",
+            logo: "/images/pay/alipay.svg",
           },
           {
             n: "微信支付",
-            bg: "bg-success",
-            ch: "微",
+            logo: "/images/pay/wechat.svg",
           },
         ].map((t) => (
           <button
@@ -6321,10 +6319,8 @@ function C_tS({ pay: e }) {
               e === t.n ? "bg-brand-soft ring-2 ring-brand" : "bg-fill",
             )}
           >
-            <span
-              className={eb("flex size-8 items-center justify-center rounded-xl text-sm font-bold text-surface", t.bg)}
-            >
-              {t.ch}
+            <span className="flex size-8 items-center justify-center rounded-xl bg-surface">
+              <img src={t.logo} alt="" aria-hidden="true" width={24} height={24} className="size-6" />
             </span>
             <span className="flex-1 text-left text-sm font-semibold text-ink">{t.n}</span>
             <span
