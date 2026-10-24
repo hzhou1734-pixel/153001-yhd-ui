@@ -12,9 +12,8 @@ export function SectionHeading({ id, title, subtitle, actionLabel, onAction }: S
   return (
     <div className="flex items-end justify-between px-1">
       <div className="flex items-baseline gap-2">
-        <h2 id={id} className="relative text-[17px] font-bold text-ink">
+        <h2 id={id} className="text-[17px] font-bold text-ink">
           {title}
-          <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-danger" aria-hidden="true" />
         </h2>
         <span className="pl-1 text-xs text-ink-3">{subtitle}</span>
       </div>

@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 const tabs: { label: string; icon: LucideIcon; dot?: boolean }[] = [
   { label: '首页', icon: House },
   { label: '社区', icon: Users },
-  { label: '订单', icon: ClipboardList, dot: true },
+  { label: '订单', icon: ClipboardList },
   { label: '我的', icon: User },
 ]
 

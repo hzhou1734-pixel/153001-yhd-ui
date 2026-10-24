@@ -1411,9 +1411,8 @@ function C_sc({ children: e, className: s, onClick: t, as: l }) {
 function C_sx({ title: e, action: s, onAction: t, dot = !0 }) {
   return (
   <div className="flex items-center justify-between px-1 pt-1">
-  <h2 className="relative text-[15px] font-bold text-ink">
+  <h2 className="text-[15px] font-bold text-ink">
   {e}
-  {dot ? <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-danger" aria-hidden="true" /> : null}
   </h2>
       {s ? (
         <button type="button" onClick={t} className="press flex items-center text-xs text-ink-2">
@@ -2420,7 +2419,7 @@ let sA = [
     status: "ok",
   },
   {
-    name: "玫瑰���城",
+    name: "玫瑰新城",
     room: "5栋1单元-0903",
     date: "09-01",
     status: "pending",
@@ -3941,7 +3940,7 @@ let ti = [
                 </span>
                 <span className="text-xs text-ink-3">
                   {s}
-                  {" �� "}
+                  {" · "}
                   {l}
                   {" 08:00 自动生成"}
                 </span>
@@ -4131,7 +4130,7 @@ let ti = [
             <C_s6
               items={[
                 "控制油脂摄入，每周至少 3 次有氧运动，每次 30 分钟以上。",
-                "固定作息���间，睡前 1 小时避免使用电子设备。",
+                "固定作息时间，睡前 1 小时避免使用电子设备。",
                 "建议 3 个月后复查血脂四项，持续观察变化趋势。",
                 "如出现胸闷、头晕等不适症状，请及时就医。",
               ]}
@@ -4530,7 +4529,7 @@ let ti = [
           ) : null}
           {needCare ? (
             <C_sc className="flex flex-col">
-              <C_sd>看护时段（��多选）</C_sd>
+              <C_sd>看护时段（可多选）</C_sd>
               <div className="flex gap-2">
                 {["上午 8-12", "下午 12-18", "晚上 18-21"].map((slot) => {
                   const active = careSlots.includes(slot);
@@ -9052,7 +9051,7 @@ let tX = {
       let { back: e, toast: s } = o(),
         od = hrSel || { id: "#HR20250918-001", n: "家电维修", time: "09-21 14:00 - 16:00", addr: "阳光花园 3栋2单元1802", amt: "¥150.00", st: "进行中" },
         isDone = "已完成" === od.st,
-        isCancel = "已���消" === od.st,
+        isCancel = "已取消" === od.st,
         [startAt, endAt] = od.time.split(" - "),
         doneAt = startAt.split(" ")[0] + " " + endAt,
         createdAt = hrSel ? startAt.split(" ")[0] + " 08:30" : "09-18 10:20",
@@ -9412,7 +9411,7 @@ let tX = {
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
           ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
-          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您���个人信息，也可联系客服申请删除账号数据。"],
+          ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
     ),
