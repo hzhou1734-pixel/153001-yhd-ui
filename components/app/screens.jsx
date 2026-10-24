@@ -2510,7 +2510,7 @@ let sH = {
         >
           {1 === t ? "下一步" : "确认修改"}
         </C_sp>
-        <C_sC>验证码将发送至注册手机号，5 分钟内有效</C_sC>
+        <C_sC>验证码���发送至注册手机号，5 分钟内有效</C_sC>
       </C_si>
     );
   },
@@ -4121,7 +4121,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证每日 7-8 小时睡眠",
-                "3 个月后复查血脂四项，若持续升高建议就医",
+                "3 个月后复查��脂四项，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -5215,7 +5215,7 @@ let tf = [
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
               <span className="text-[15px] font-bold text-ink">人力资源</span>
-              <span className="text-xs text-ink-2">人才入库 · 技能服务派单</span>
+              <span className="text-xs text-ink-2">人才入库 · ���能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
           </C_sc>
@@ -5409,7 +5409,7 @@ let tf = [
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
               邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月饼 DIY
-              与儿童游乐区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
+              与儿童游��区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
         </C_si>
@@ -5537,7 +5537,7 @@ let tf = [
           <div className="shadow-card relative h-44 shrink-0 overflow-hidden rounded-[24px]">
             <eW.Image
               src="/images/article-recycle.png"
-              alt="垃圾分类"
+              alt="垃���分类"
               fill={!0}
               sizes="343px"
               className="object-cover"
@@ -6276,7 +6276,7 @@ let t_ = [
               </div>
             ))}
             <div className="mt-2 rounded-2xl bg-fill px-3 py-1">
-              <C_sm k="套餐小计" v="¥38.00" />
+              <C_sm k="菜品小计" v="¥38.00" />
               <C_sm k="配送方式" v="物业配送" />
               <C_sm k="配送费" v="¥3.00" />
               <C_sm k="报餐日期" v="09-05" />
@@ -6380,7 +6380,7 @@ let t_ = [
           </C_sc>
           <C_sc>
             <C_sd>支付信息</C_sd>
-            <C_sm k="基础费用" v="¥240.00" />
+            <C_sm k="基础费���" v="¥240.00" />
             <C_sm k="附加费用" v="¥0.00" />
             <C_sm k="订单总额" v="¥240.00" accent={!0} />
             <C_sm k="支付状态" v={<C_sh tone="red">未支付</C_sh>} />
@@ -6497,7 +6497,7 @@ let t_ = [
           }
         >
           <C_sc>
-            <C_sd>待结算订单</C_sd>
+            <C_sd>��结算订单</C_sd>
             {l.map((e) => (
               <div key={e.t} className="flex items-center gap-3 py-2">
                 <span className="flex size-10 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
@@ -7140,7 +7140,7 @@ function C_tV({ title: e, items: s }) {
 }
 let tT = [
     {
-      n: "爸爸",
+      n: "��爸",
       role: "家庭成员",
     },
     {
@@ -7645,7 +7645,7 @@ let tX = {
           }
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-3 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">本房号账单整合（业主 + 家人 + 租户）</span>
+            <span className="text-xs opacity-90">本房号账单整���（业主 + 家人 + 租户）</span>
             <div className="flex items-end justify-between">
               <span className="flex flex-col">
                 <span className="text-xs opacity-90">待结算合计</span>
