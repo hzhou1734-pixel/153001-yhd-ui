@@ -8904,7 +8904,7 @@ let tX = {
                     取消
                   </C_sp>
                   <C_sp block={!0} onClick={() => s("welcome")}>
-                    退款
+                    退出
                   </C_sp>
                 </div>
               </div>
