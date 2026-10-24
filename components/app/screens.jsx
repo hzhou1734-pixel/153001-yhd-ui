@@ -7601,6 +7601,14 @@ function C_tU({ title: e, count: s, rows: t }) {
     </C_sc>
   );
 }
+const tMealSummary = { paid: "¥540.00", refund: "-¥54.00", total: "¥486.00" },
+  tCareSummary = { paid: "¥450.00", refund: "-¥45.00", total: "¥405.00" },
+  tMealSettled = [
+    { title: "报餐 · 2份", meta: "08-25 10:20 · 午餐", name: "顾小妹", role: "家庭成员", amount: "¥36.00", refund: "¥0.00", avatar: "bg-brand" },
+    { title: "报餐 · 1份", meta: "08-30 12:10 · 午餐", name: "顾家小林", role: "业主", amount: "¥18.00", refund: "¥0.00", avatar: "bg-success" },
+    { title: "报餐 · 3份", meta: "08-18 11:50 · 当日停餐 · 全额退款", name: "租客小王", role: "租户", amount: "¥54.00", refund: "-¥54.00", avatar: "bg-sky-500" },
+    { title: "报餐 · 1份 × 14天", meta: "08-01 ~ 08-14 · 午餐套餐", name: "顾小妹", role: "家庭成员", amount: "¥432.00", refund: "¥0.00", avatar: "bg-brand" },
+  ];
 let tZ = [
     ["全天托管 · 8月29日", "08-29 09:00", "顾家小林 · 业主", "¥90.00", "¥0.00"],
     ["课后托管 · 8月28日", "08-28 16:30", "顾小妹 · 家庭成员", "¥45.00", "¥0.00"],
@@ -7659,6 +7667,11 @@ let tZ = [
       route: "billDetail",
     },
   ];
+const tCareSettled = tZ.map(([title, meta, who, amount, refund]) => {
+  const [name, role] = who.split(" · ");
+  return { title, meta, name, role, amount, refund, avatar: {"顾家小林":"bg-success","顾小妹":"bg-brand","租客小王":"bg-sky-500"}[name] || "bg-brand" };
+});
+
 let sysMsgCurrent = null;
 function C_tQ({ title: e, head: s, items: t }) {
   return (
@@ -8077,50 +8090,75 @@ let tX = {
       );
     },
     billDetail: function () {
-      let [e, s] = (0, c.useState)("托管");
+      let [e, s] = (0, c.useState)("托管"),
+        isMeal = "报餐" === e,
+        summary = isMeal ? tMealSummary : tCareSummary,
+        records = isMeal ? tMealSettled : tCareSettled;
       return (
         <C_si title="账单详情" className="bg-sub-wash">
           <C_sj items={["托管", "报餐"]} value={e} onChange={s} />
-          <C_sc className="flex flex-col gap-2">
-            <div className="flex items-center justify-between">
-              <span className="text-base font-bold text-ink">8月{e}账单</span>
+          <C_sc className="flex flex-col gap-1">
+            <div className="flex items-center gap-3 pb-2">
+              <span className="bg-brand-gradient flex size-11 shrink-0 items-center justify-center rounded-2xl text-white">
+                {isMeal ? <LuSoup className="size-5" aria-hidden="true" /> : <C_tq className="size-5" />}
+              </span>
+              <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                <span className="text-base font-bold text-ink">8月{e}账单</span>
+                <span className="text-xs text-ink-3 tabular-nums">
+                  {"结算时间 2026-08-31 · 共 "}
+                  {records.length}
+                  {" 笔"}
+                </span>
+              </span>
               <C_sh tone="teal">已结清</C_sh>
             </div>
-            <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
-            <div className="mt-1 grid grid-cols-3 gap-2 text-center">
-              {[
-                ["付款", "¥450.00"],
-                ["退款", "-¥45.00"],
-                ["已结合计", "¥405.00"],
-              ].map(([e, s], t) => (
-                <span
-                  key={e}
-                  className={eb("flex flex-col gap-0.5 rounded-2xl py-2.5", 2 === t ? "bg-brand-soft" : "bg-fill")}
-                >
-                  <span className="text-[11px] text-ink-3">{e}</span>
-                  <span className={eb("text-sm font-bold tabular-nums", 2 === t ? "text-brand-ink" : "text-ink")}>
-                    {s}
-                  </span>
-                </span>
-              ))}
+            <div className="flex items-center justify-between py-2.5">
+              <span className="text-sm text-ink-2">付款</span>
+              <span className="text-sm font-semibold text-ink tabular-nums">{summary.paid}</span>
+            </div>
+            <div className="flex items-center justify-between py-2.5">
+              <span className="text-sm text-ink-2">退款</span>
+              <span className="text-sm font-semibold text-danger tabular-nums">{summary.refund}</span>
+            </div>
+            <div className="flex items-center justify-between border-t border-hairline pt-3">
+              <span className="text-[15px] font-bold text-ink">已结合计</span>
+              <span className="text-xl font-bold text-success tabular-nums">{summary.total}</span>
             </div>
           </C_sc>
+          <h2 className="px-1 text-[15px] font-bold text-ink">结算明细</h2>
           <C_sc className="flex flex-col py-1">
-            <div className="pt-3">
-              <C_sd>结算明细</C_sd>
-            </div>
-            {tZ.map(([e, s, t, l, a]) => (
-              <div key={e} className="flex items-start gap-3 border-t border-hairline py-3 first:border-t-0">
-                <span className="flex flex-1 flex-col gap-0.5">
-                  <span className="text-sm font-semibold text-ink">{e}</span>
-                  <span className="text-[11px] text-ink-3">{s}</span>
-                  <span className="text-[11px] text-ink-2">{t}</span>
+            {records.map((r, i) => (
+              <div
+                key={r.title + r.meta + i}
+                className="flex items-center gap-3 border-t border-hairline py-3.5 first:border-t-0"
+              >
+                <span className="flex min-w-0 flex-1 flex-col gap-1">
+                  <span className="text-sm font-semibold text-ink">{r.title}</span>
+                  <span className="text-xs text-ink-3 tabular-nums">{r.meta}</span>
+                  <span className="mt-0.5 flex items-center gap-1.5 text-xs">
+                    <span
+                      className={eb(
+                        "flex size-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white",
+                        r.avatar,
+                      )}
+                      aria-hidden="true"
+                    >
+                      {r.name.slice(-1)}
+                    </span>
+                    <span className="text-ink-2">{r.name}</span>
+                    <span className="text-ink-3">{"· "}{r.role}</span>
+                  </span>
                 </span>
-                <span className="flex flex-col items-end gap-0.5">
-                  <span className="text-sm font-bold text-ink tabular-nums">{l}</span>
-                  <span className={eb("text-[11px] tabular-nums", a.startsWith("-") ? "text-danger" : "text-ink-3")}>
+                <span className="flex shrink-0 flex-col items-end gap-1">
+                  <span className="text-base font-bold text-ink tabular-nums">{r.amount}</span>
+                  <span
+                    className={eb(
+                      "text-xs tabular-nums",
+                      r.refund.startsWith("-") ? "font-semibold text-danger" : "text-ink-3",
+                    )}
+                  >
                     {"退款 "}
-                    {a}
+                    {r.refund}
                   </span>
                 </span>
               </div>
