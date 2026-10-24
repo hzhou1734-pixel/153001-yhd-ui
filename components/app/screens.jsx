@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步�����康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步������康小屋",
       icon: sU,
     },
     {
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保证每��� 7-8 小时睡眠",
+                "保持规律作息，保证����� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -5169,7 +5169,7 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="社区" sub="阳光花园 · 邻里有温度" />
+          <C_tu title="社区" sub="阳���花园 · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
@@ -5887,7 +5887,14 @@ function C_tz({ kind: e }) {
   let { go: s, replace: t, cur: l } = o(),
     a = ty[e],
     n = tv[e],
-    r = ["全部", ...Array.from(new Set(n.map((e) => e.status)))],
+    r = [
+      "全部",
+      ...Array.from(new Set(n.map((e) => e.status))).sort((a, b) => {
+        const order = ["待支付", "进行中", "已完成", "已取消"];
+        const ia = order.indexOf(a), ib = order.indexOf(b);
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+      }),
+    ],
     [x, d] = (0, c.useState)("全部"),
     m = n.filter((e) => "全部" === x || e.status === x);
   return (
@@ -8376,7 +8383,7 @@ let tX = {
               <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">进行中</span>
             </div>
             <span className="text-xl font-bold">家电维修</span>
-            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服务</span>
+            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服��</span>
           </div>
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
