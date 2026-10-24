@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务�����立�����预约"
+            aria-label="陪诊服务�����立�������预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4069,7 +4069,7 @@ let ti = [
               ]}
             />
           </C_sc>
-          <C_sC>评估结果仅供参考，不能替代医疗诊断 · 评估每周自动更新一次</C_sC>
+          <C_sC>评估结果仅供参考，不能替代医疗诊断 · 评估每周自动更新一��</C_sC>
         </C_si>
       );
     },
@@ -5970,44 +5970,53 @@ function C_tz({ kind: e }) {
         ))}
       </div>
       {m.map((t) => (
-        <C_sc key={t.code} className="flex flex-col gap-3">
+        <C_sc key={t.code} className="flex flex-col gap-0">
           <button type="button" onClick={() => s(a.detail)} className="press flex flex-col gap-3 text-left">
-            <span className="flex w-full items-center justify-between">
-              <span className="flex items-center gap-2 text-xs text-ink-3">
-                <span className="rounded-md bg-brand-soft px-1.5 py-0.5 font-semibold text-brand-deep">{a.name}</span>
-                <span className="tabular-nums">{t.code}</span>
+            <span className="flex w-full items-center justify-between gap-2">
+              <span className="flex min-w-0 items-center gap-2 text-xs text-ink-3">
+                <span className="shrink-0 rounded-md bg-brand-soft px-1.5 py-0.5 font-semibold text-brand-deep">{a.name}</span>
+                <span className="truncate tabular-nums">{t.code}</span>
               </span>
               <C_sh tone={tw[t.status]}>{t.status}</C_sh>
             </span>
-            <span className="flex w-full items-end justify-between gap-3">
-              <span className="flex min-w-0 flex-col gap-1">
-                <span className="truncate text-[15px] font-bold text-ink">{t.title}</span>
-                <span className="text-xs text-ink-2 tabular-nums">配送 / 使用：{t.use}</span>
-                <span className="text-xs text-ink-3 tabular-nums">提交：{t.submit}</span>
-              </span>
-              <span className="flex shrink-0 flex-col items-end">
-                {t.count ? <span className="text-[11px] text-ink-3">{t.count}</span> : null}
-                {t.old ? <span className="text-[11px] text-ink-3 line-through">¥{t.old}</span> : null}
+            <span className="flex w-full items-start justify-between gap-3">
+              <span className="min-w-0 truncate text-base font-bold leading-7 text-ink">{t.title}</span>
+              <span className="flex shrink-0 flex-col items-end leading-none">
                 <C_sP value={t.price} />
+                {t.old ? <span className="mt-1 text-[11px] text-ink-3 line-through tabular-nums">¥{t.old}</span> : null}
+              </span>
+            </span>
+            <span className="flex w-full flex-col gap-1.5 rounded-xl bg-fill px-3 py-2.5 text-xs tabular-nums">
+              <span className="flex items-center justify-between gap-3">
+                <span className="text-ink-3">配送 / 使用</span>
+                <span className="font-medium text-ink-2">{t.use}</span>
+              </span>
+              <span className="flex items-center justify-between gap-3">
+                <span className="text-ink-3">提交时间</span>
+                <span className="text-ink-2">{t.submit}</span>
               </span>
             </span>
           </button>
-          {"进行中" === t.status || "待支付" === t.status ? (
-            <div className="flex justify-end gap-2 rounded-2xl bg-fill p-2">
-              <C_sp size="sm" variant="outline" onClick={() => s("escort" === e ? "refund" : a.detail)}>
-                取消订单
-              </C_sp>
-              {"待支付" === t.status ? (
-                <C_sp size="sm" onClick={() => s("payment")}>
-                  去支付
-                </C_sp>
-              ) : null}
-            </div>
-          ) : "已完成" === t.status ? (
-            <div className="flex justify-end gap-2 rounded-2xl bg-fill p-2">
-              <C_sp size="sm" variant="outline" onClick={() => s("addReview")}>
-                评价
-              </C_sp>
+          {t.count || ["进行中", "待支付", "已完成"].includes(t.status) ? (
+            <div className="mt-3 flex items-center justify-between gap-2 border-t border-dashed border-ink/10 pt-3">
+              <span className="text-xs text-ink-3">{t.count ?? ""}</span>
+              <div className="flex gap-2">
+                {"进行中" === t.status || "待支付" === t.status ? (
+                  <C_sp size="sm" variant="outline" onClick={() => s("escort" === e ? "refund" : a.detail)}>
+                    取消订单
+                  </C_sp>
+                ) : null}
+                {"待支付" === t.status ? (
+                  <C_sp size="sm" onClick={() => s("payment")}>
+                    去支付
+                  </C_sp>
+                ) : null}
+                {"已完成" === t.status ? (
+                  <C_sp size="sm" variant="outline" onClick={() => s("addReview")}>
+                    评价
+                  </C_sp>
+                ) : null}
+              </div>
             </div>
           ) : null}
         </C_sc>
@@ -6278,7 +6287,7 @@ let t_ = [
               <C_sm k="配送方式" v="物业配送" />
               <C_sm k="配送费" v="¥3.00" />
               <C_sm k="报餐日期" v="09-05" />
-              <C_sm k="套餐规格" v="A套餐 · 12:00送达" />
+              <C_sm k="套���规格" v="A套餐 · 12:00送达" />
               <C_sm k="联系电话" v="13800006688" />
             </div>
           </C_sc>
@@ -8558,7 +8567,7 @@ let tX = {
               <C_e3 className="size-10" strokeWidth={1.6} />
             </span>
             <p className="text-xl font-bold text-ink">注销账号</p>
-            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销吗？</p>
+            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定��注销吗？</p>
           </div>
           <div className="flex w-full flex-col gap-3">
             <C_sp block={!0} onClick={s}>
@@ -8605,7 +8614,7 @@ let tX = {
           </div>
           <C_sc>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              顾好家是面向社区居民的一站式生活服务平台，围绕健康、膳食、托管、陪诊与生活帮手等日常需求，联合物业与社区服务资源，为业主提供便捷、可信的社区服务体验。
+              顾好家是面向社区居民的一站式生活服务平台，围绕健康、膳食、托管、陪诊���生活帮手等日常需求，联合物业与社区服务资源，为业主提供便捷、可信的社区服务体验。
             </p>
           </C_sc>
           <C_sc className="flex flex-col py-1">
