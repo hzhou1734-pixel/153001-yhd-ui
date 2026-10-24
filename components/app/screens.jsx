@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步��������康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步���������康小屋",
       icon: sU,
     },
     {
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，��������� 7-8 小时睡眠",
+                "保持规律作息����������� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -5169,7 +5169,7 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="社区" sub="阳���花园 · 邻里有温度" />
+          <C_tu title="���区" sub="阳���花园 · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
@@ -6112,11 +6112,12 @@ function C_tS({ pay: e }) {
       </C_sp>
     );
   }
-  function C_mealDeliveryPhotos() {
-    const photos = [
+  function C_mealDeliveryPhotos({
+    photos = [
       ["/images/meal-delivered-1.png", "送达实拍 · 门口"],
       ["/images/meal-delivered-2.png", "送达实拍 · 餐品"],
-    ];
+    ],
+  } = {}) {
     return (
       <div className="grid grid-cols-3 gap-2">
         {photos.map(([src, label]) => (
@@ -6430,6 +6431,17 @@ let t_ = [
             <C_sm k="支付方式" v="顾好家币" />
             {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
+          {isDone ? (
+            <C_sc>
+              <C_sd>完成图片</C_sd>
+              <C_mealDeliveryPhotos
+                photos={[
+                  ["/images/trust-done-1.png", "完成实拍 · 交接"],
+                  ["/images/trust-done-2.png", "完成实拍 · 托管"],
+                ]}
+              />
+            </C_sc>
+          ) : null}
           <C_sc>
             <C_sd>备注说明</C_sd>
             <div className="flex flex-col gap-2 pt-1 text-[13px] leading-6 text-ink-2">
