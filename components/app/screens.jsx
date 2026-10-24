@@ -9024,7 +9024,7 @@ let tX = {
           <C_sc className="flex items-center gap-3">
             <C_sS name="张" size={44} tone="warm" />
             <span className="flex flex-1 flex-col">
-              <span className="text-sm font-semibold text-ink">下单人 · 张先生</span>
+              <span className="text-sm font-semibold text-ink">张先生</span>
               <span className="text-xs text-ink-2 tabular-nums">13800001234</span>
             </span>
             <C_sp size="sm" onClick={() => s("正在联系业主")}>
