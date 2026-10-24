@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地址" defaultValue="阳光花�� 3栋2单��1802" readOnly={!0} /> : null}
+            {l ? <C_su label="���诊地址" defaultValue="阳光花�� 3栋2单��1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -6065,9 +6065,11 @@ function C_tC({ kind: e, code: s, status: t, title: l, sub: a, price: n }) {
         </span>
         <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">{t}</span>
       </div>
-      <div className="flex items-end justify-between gap-3">
+      <span className="truncate whitespace-nowrap text-lg font-bold" title={l}>
+        {l}
+      </span>
+      <div className="-mt-2 flex items-end justify-between gap-3">
         <span className="flex min-w-0 flex-col gap-1">
-          <span className="text-lg font-bold">{l}</span>
           {a.split(" · ").map((line) => (
             <span
               key={line}
@@ -7514,7 +7516,7 @@ let tZ = [
       heading: "8月托管账单已结清 ¥405.00",
       body: [
         "您的8月托管账单（共 7 笔）已于 2026-09-02 完成结算，金额 ¥405.00。",
-        "可在「我的账单 - 已结算」中查看账单明细。",
+        "可在「��的账单 - 已结算」中查看账单明细。",
       ],
       amount: "¥405.00",
       tone: "teal",
