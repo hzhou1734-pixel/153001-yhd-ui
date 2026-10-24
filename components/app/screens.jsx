@@ -8918,6 +8918,7 @@ let tX = {
           { id: "#HR20250915-004", n: "管道疏通", time: "09-16 09:00 - 10:00", addr: "阳光花园 5栋1单元0602", amt: "¥80.00", st: "已完成" },
           { id: "#HR20250910-002", n: "家电维修", time: "09-11 15:00 - 17:00", addr: "阳光花园 2栋3单元1101", amt: "¥200.00", st: "已完成" },
           { id: "#HR20250905-007", n: "管道疏通", time: "09-06 10:00 - 11:00", addr: "阳光花园 1栋2单元0303", amt: "¥60.00", st: "已完成" },
+          { id: "#HR20250902-003", n: "家电维修", time: "09-03 14:00 - 15:00", addr: "阳光花园 4栋1单元0901", amt: "¥120.00", st: "已取消" },
         ],
         list = "全部" === t ? orders : orders.filter((r) => r.st === t);
       return (
@@ -8936,7 +8937,7 @@ let tX = {
             <span className="text-base font-bold text-ink">派单订单</span>
             <span className="text-xs text-ink-3">共 {orders.length} 单</span>
           </div>
-          <C_sj items={["全部", "进行中", "已完成"]} value={t} onChange={l} />
+          <C_sj items={["全部", "进行中", "已完成", "已取消"]} value={t} onChange={l} />
           <div className="flex flex-col gap-3">
             {list.map((r) => (
               <C_sc key={r.id} onClick={() => e("hrOrderDetail")} className="flex flex-col gap-2">
@@ -8944,7 +8945,7 @@ let tX = {
                   <span className="text-xs text-ink-3 tabular-nums">{r.id}</span>
                   <C_sh tone={"进行中" === r.st ? "brand" : "gray"}>{r.st}</C_sh>
                 </div>
-                <div className="flex items-end justify-between gap-3">
+                <div className={"flex items-end justify-between gap-3" + ("已取消" === r.st ? " opacity-60" : "")}>
                   <span className="flex flex-col gap-0.5">
                     <span className="text-[15px] font-semibold text-ink">{r.n}</span>
                     <span className="text-xs text-ink-3 tabular-nums">{r.time}</span>
