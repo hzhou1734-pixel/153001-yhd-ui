@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号���助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�����助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4122,7 +4122,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证 7-8 小时睡眠",
-                "3 个月后复查血脂四��，若持续升高建议就医",
+                "3 个月后复查血��四��，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4300,7 +4300,7 @@ let ti = [
                 )}
               />
             </div>
-            <C_sv label="陪诊日期（仅可选择未�� 7 天内）" />
+            <C_sv label="陪诊日期（仅可��择未�� 7 天内）" />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
@@ -4666,7 +4666,7 @@ let ti = [
         >
           <C_s3
             img="/images/meal-fish.png"
-            title="适老营养餐"
+            title="适老营养���"
             tag="推荐"
             desc="由营养师 + 三星主厨联合研发 · 每日新鲜配送"
             price={
@@ -5909,7 +5909,7 @@ function C_tz({ kind: e }) {
     r = [
       "全部",
       ...Array.from(new Set(n.map((e) => e.status))).sort((a, b) => {
-        const order = ["待支付", "进行中", "已完成", "已取消"];
+        const order = ["进行中", "待支付", "已完成", "已取消"];
         const ia = order.indexOf(a), ib = order.indexOf(b);
         return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
       }),
@@ -7322,7 +7322,7 @@ let tT = [
     {
       n: "租客小王",
       role: "租户",
-      note: "已授权托管/报餐",
+      note: "已授权���管/报餐",
     },
   ],
   tG = [
