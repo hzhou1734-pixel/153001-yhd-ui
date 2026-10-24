@@ -8749,7 +8749,9 @@ let tX = {
     },
     hrCertApply: function () {
       let { back: e, toast: s } = o(),
-        [t, l] = (0, c.useState)("家电维修");
+        [t, l] = (0, c.useState)("家电维修"),
+        [community, setCommunity] = (0, c.useState)(null),
+        [communityOpen, setCommunityOpen] = (0, c.useState)(!1);
       return (
         <C_si
           title="人才认证"
@@ -8767,7 +8769,7 @@ let tX = {
         >
           <C_sz>人力资源认证无需业主认证；请先选择意向服务小区，物业将就近为您匹配派单。</C_sz>
           <C_sc className="flex flex-col gap-4">
-            <C_sf label="意向服务小区" required={!0} />
+            <C_sf label="意向服务小区" required={!0} value={community ?? void 0} onClick={() => setCommunityOpen(!0)} />
             <C_su label="姓名" placeholder="请输入姓名" required={!0} />
             <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
@@ -8779,6 +8781,18 @@ let tX = {
           <C_sc>
             <C_sk max={6} hint="上传凭证（证书 / 资质照片），如：低压电工证" />
           </C_sc>
+          {communityOpen ? (
+            <C_sPicker
+              title="选择服务小区"
+              options={["阳光花园", "翠湖雅苑", "锦绣华庭", "滨江一号", "金色家园", "梧桐里", "紫荆苑", "天鹅湖小区"]}
+              value={community}
+              onSelect={(v) => {
+                setCommunity(v);
+                setCommunityOpen(!1);
+              }}
+              onClose={() => setCommunityOpen(!1)}
+            />
+          ) : null}
         </C_si>
       );
     },
