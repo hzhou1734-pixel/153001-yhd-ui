@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号���������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4122,7 +4122,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证 7-8 小时睡眠",
-                "3 个月��复��血��四��，若持续升高建议就医",
+                "3 ��月��复��血��四��，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -5409,7 +5409,7 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月��� DIY
+              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯���区、手工月��� DIY
               与儿童游乐区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
@@ -6097,24 +6097,13 @@ function C_tM({ img: e, video: s }) {
     </C_sc>
   );
 }
-function C_escortMedia({
-  images,
-  video,
-  imageHint = "下单时上传的病情或就医相关资料图片",
-  videoHint = "下单时上传的病情或就医相关视频",
-}) {
+function C_escortMedia({ images, video }) {
   const { toast } = o();
   return (
     <C_sc>
       <div className="flex flex-col gap-5">
         <section className="flex flex-col gap-2.5">
-          <div className="flex items-center gap-2">
-            <span className="text-[13px] font-semibold text-ink">图片资料</span>
-            <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">
-              {images.length}/6
-            </span>
-          </div>
-          <p className="text-xs text-ink-3">{imageHint}</p>
+          <span className="text-[13px] font-semibold text-ink">图片资料</span>
           <div className="grid grid-cols-3 gap-2">
             {images.map(([src, label]) => (
               <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
@@ -6125,11 +6114,7 @@ function C_escortMedia({
         </section>
         {video ? (
           <section className="flex flex-col gap-2.5 border-t border-hairline pt-5">
-            <div className="flex items-center gap-2">
-              <span className="text-[13px] font-semibold text-ink">视频资料</span>
-              <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">1/1</span>
-            </div>
-            <p className="text-xs text-ink-3">{videoHint}</p>
+            <span className="text-[13px] font-semibold text-ink">视频资料</span>
             <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
@@ -6332,7 +6317,7 @@ let t_ = [
             <C_sC>输入订单编号（支持部分匹配）即可实时搜索，对 4 类订单同时生效</C_sC>
           ) : 0 === result.length ? (
             <C_sc className="flex flex-col items-center gap-1 py-8 text-center">
-              <span className="text-sm font-semibold text-ink">未找到相关订单</span>
+              <span className="text-sm font-semibold text-ink">未���到相关订单</span>
               <span className="text-xs text-ink-3">请检查订单编号或调整订单类型</span>
             </C_sc>
           ) : (
@@ -6682,8 +6667,6 @@ let t_ = [
               ["/images/helper-upload-3.png", "客厅地面"],
             ]}
             video={{ poster: "/images/helper-upload-video.png", duration: "00:26" }}
-            imageHint="下单时上传的待服务区域现场图片"
-            videoHint="下单时上传的待服务区域现场视频"
           />
           <C_sc>
             <C_sd>金额信息</C_sd>
