@@ -7931,9 +7931,6 @@ let tX = {
             <C_sp block={!0} variant="outline" onClick={() => e("coinDetail")}>
               账户明细
             </C_sp>
-            <C_sp block={!0} onClick={() => e("coinRecharge")}>
-              账户充值
-            </C_sp>
           </div>
           {roomOpen ? (
             <C_sPicker
