@@ -6711,11 +6711,6 @@ let t_ = [
                   time: "2026-09-04 15:30",
                   state: "done",
                 },
-                {
-                  title: "支付",
-                  desc: "—（线下收取）",
-                  state: "todo",
-                },
               ]}
             />
           </C_sc>
