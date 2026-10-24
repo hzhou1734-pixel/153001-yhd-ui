@@ -9027,9 +9027,9 @@ let tX = {
               <span className="text-sm font-semibold text-ink">张先生</span>
               <span className="text-xs text-ink-2 tabular-nums">13800001234</span>
             </span>
-            <C_sp size="sm" onClick={() => s("正在联系业主")}>
+            <C_sp size="sm" onClick={() => s("正在联系客户")}>
               <C_sQ className="size-3.5" />
-              联系业主
+              联系客户
             </C_sp>
           </C_sc>
           <C_sc>
