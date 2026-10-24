@@ -8496,13 +8496,39 @@ let tX = {
               </div>
             ))}
           </C_sc>
-          <C_sc className="flex flex-col items-center gap-3 py-6">
-            <C_sd>微信二维码</C_sd>
-            <span className="flex size-40 items-center justify-center rounded-[20px] bg-fill text-ink">
-              <C_tH className="size-28" strokeWidth={1.2} />
-            </span>
-            <span className="text-xs text-ink-3">长按识别二维码添加管家微信</span>
-          </C_sc>
+          <section aria-labelledby="butler-wechat-title" className="shadow-float overflow-hidden rounded-[24px] bg-surface">
+            <div className="bg-hero-wash flex items-center justify-between gap-3 px-5 py-4 text-surface">
+              <span className="flex flex-col gap-0.5">
+                <span id="butler-wechat-title" className="text-base font-bold">添加管家微信</span>
+                <span className="text-xs text-surface/85">一对一服务 · 消息及时回复</span>
+              </span>
+              <span className="rounded-full bg-surface/25 px-2.5 py-1 text-[11px] font-semibold">工作日 8:30-18:00</span>
+            </div>
+            <div className="flex items-center gap-4 p-5">
+              <span className="flex size-28 shrink-0 items-center justify-center rounded-[18px] border border-hairline bg-surface text-ink">
+                <C_tH className="size-20" strokeWidth={1.2} aria-label="管家微信二维码" />
+              </span>
+              <span className="flex min-w-0 flex-1 flex-col gap-2">
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-xs text-ink-3">微信号</span>
+                  <span className="truncate text-sm font-semibold text-ink tabular-nums">zhangjie_yg1802</span>
+                </span>
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-xs text-ink-3">微信昵称</span>
+                  <span className="truncate text-sm font-semibold text-ink">阳光花园 · 张姐</span>
+                </span>
+              </span>
+            </div>
+            <div className="flex gap-3 px-5 pb-4">
+              <C_sp variant="outline" size="sm" className="flex-1" onClick={() => e("微信号已复制")}>
+                复制微信号
+              </C_sp>
+              <C_sp size="sm" className="flex-1" onClick={() => e("二维码已保存至相册")}>
+                保存二维码
+              </C_sp>
+            </div>
+            <p className="border-t border-dashed border-hairline py-3 text-center text-xs text-ink-3">长按识别二维码，或搜索微信号添加</p>
+          </section>
         </C_si>
       );
     },
