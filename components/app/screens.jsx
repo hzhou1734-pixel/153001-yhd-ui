@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步�������康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步��������康小屋",
       icon: sU,
     },
     {
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保������� 7-8 小时睡眠",
+                "保持规律作息，��������� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -6430,13 +6430,32 @@ let t_ = [
             <C_sm k="支付方式" v="顾好家币" />
             {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
-          <C_sz>
-            <span>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准。</span>
-            <span>超时说明：如实际看护时长超出所选看护时段：</span>
-            <span>· 选择 上午场，超时 1 小时后额外计费（含下午场）；</span>
-            <span>· 选择 下午场，超时 1 小时后额外计费（含晚上场）；</span>
-            <span>· 选择 晚上场，超时每小时 ¥100。</span>
-          </C_sz>
+          <C_sc>
+            <C_sd>备注说明</C_sd>
+            <div className="flex flex-col gap-2 pt-1 text-[13px] leading-6 text-ink-2">
+              <p>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准。</p>
+              <p>超时说明：如实际看护时长超出所选看护时段：</p>
+              <ul className="flex flex-col gap-1.5">
+                {[
+                  ["上午场", "超时 1 小时后额外计费（含下午场）；"],
+                  ["下午场", "超时 1 小时后额外计费（含晚上场）；"],
+                  ["晚上场", null],
+                ].map(([slot, rule]) => (
+                  <li key={slot} className="flex gap-2">
+                    <span aria-hidden="true" className="mt-[9px] size-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>
+                      选择 <b className="font-semibold text-brand-deep">{slot}</b>，
+                      {rule ?? (
+                        <>
+                          超时每小时 <b className="font-semibold text-brand-deep">¥100</b>。
+                        </>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
             <C_s_ items={logs} />
@@ -8561,7 +8580,7 @@ let tX = {
             <h2 className="text-lg font-bold text-ink">您的陪诊单已下单成功</h2>
             <span className="text-xs text-ink-3">09-29 10:20</span>
             <p className="text-sm leading-relaxed text-ink-2">
-              您为「顾家小林」预约的体检陪诊服务（整天）已下单成功，陪诊员将于服务当天上午 8:30
+              您为「顾家小林」预约的体检陪诊服���（整天）已下单成功，陪诊员将于服务当天上午 8:30
               到达小区南门接人，全程陪同前往医院体检。
             </p>
             <p className="text-sm leading-relaxed text-ink-2">您可在「订单」中查看陪诊单详情。</p>
@@ -8598,7 +8617,7 @@ let tX = {
             <div className="pt-3">
               <C_sd>通用</C_sd>
             </div>
-            <C_so label="清除缓存" desc="清理图片与临时文件" value="36.2MB" onClick={() => t("缓存已清除")} />
+            <C_so label="清除缓存" desc="清理��片与临时文件" value="36.2MB" onClick={() => t("缓存已清除")} />
             <C_so label="检查更新" desc="当前已是最新版本" value="v1.0.339" />
           </C_sc>
           <C_sc className="flex flex-col py-1">
