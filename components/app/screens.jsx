@@ -7745,7 +7745,8 @@ let tX = {
       let { go: e } = o();
       return (
         <C_si tab={!0} className="bg-header-wash gap-4">
-          <div className="flex items-center justify-end gap-2 pt-1">
+          <div className="flex items-center gap-2 pt-1">
+            <h1 className="flex-1 px-1 text-xl font-bold text-ink">个人中心</h1>
             <button
               type="button"
               aria-label="系统设置"
