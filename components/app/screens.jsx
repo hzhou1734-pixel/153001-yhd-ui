@@ -8327,7 +8327,9 @@ let tX = {
     memberRole: function () {
       let { reset: e, back: s, toast: t } = o(),
         [l, a] = (0, c.useState)("家庭成员"),
-        [n, r] = (0, c.useState)(!1);
+        [n, r] = (0, c.useState)(!1),
+        [authCare, setAuthCare] = (0, c.useState)(!0),
+        [authMeal, setAuthMeal] = (0, c.useState)(!0);
       return (
         <C_si title="成员设置" className="bg-sub-wash">
           <C_sc className="flex items-center gap-3">
@@ -8344,6 +8346,35 @@ let tX = {
             <C_sd>成员角色</C_sd>
             <C_sb items={["家庭成员", "租户"]} value={l} onChange={a} />
           </C_sc>
+          {"租户" === l ? (
+            <section aria-labelledby="tenant-auth-title" className="flex flex-col gap-2.5">
+              <h2 id="tenant-auth-title" className="px-1 text-base font-bold text-ink">
+                顾好家币使用授权
+              </h2>
+              <C_sc className="flex flex-col divide-y divide-line py-1">
+                {[
+                  { key: "care", title: "托管授权", desc: "托管服务", on: authCare, set: setAuthCare },
+                  { key: "meal", title: "报餐授权", desc: "报餐服务", on: authMeal, set: setAuthMeal },
+                ].map((item) => (
+                  <div key={item.key} className="flex items-center gap-3 py-3">
+                    <span className="flex flex-1 flex-col gap-0.5">
+                      <span className="text-[15px] font-semibold text-ink">{item.title}</span>
+                      <span className="text-xs text-ink-2">
+                        {item.on ? "已授权 · 可使用" + item.desc : "未授权 · 不可使用" + item.desc}
+                      </span>
+                    </span>
+                    <C_sg
+                      defaultOn={item.on}
+                      label={item.title}
+                      onChange={(v) => {
+                        (item.set(v), t(v ? "已开启" + item.title : "已关闭" + item.title));
+                      }}
+                    />
+                  </div>
+                ))}
+              </C_sc>
+            </section>
+          ) : null}
           <C_sc
             onClick={() => {
               (t("已切换演示身份"), e("home"));
