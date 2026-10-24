@@ -7614,39 +7614,63 @@ let tT = [
       type: "支出",
     },
   ];
-function C_tU({ title: e, count: s, rows: t }) {
-  let [l, a] = (0, c.useState)(!1);
+function C_tU({ title: e, count: s, rows: t, total: g, share: p = 0, icon: Ic, tone: tn = "brand" }) {
+  let [l, a] = (0, c.useState)(!1),
+    teal = "teal" === tn;
   return (
-    <C_sc className="flex flex-col gap-2">
-      <button type="button" onClick={() => a(!l)} className="press flex items-center justify-between">
-        <span className="text-sm font-semibold text-ink">
-          {e}
-          {" · 共 "}
-          {s}
-          {" 笔"}
+    <C_sc className="flex flex-col gap-3">
+      <button
+        type="button"
+        onClick={() => a(!l)}
+        aria-expanded={l}
+        className="press flex items-center gap-3 text-left"
+      >
+        <span
+          className={eb(
+            "flex size-11 shrink-0 items-center justify-center rounded-2xl",
+            teal ? "bg-success-soft text-success" : "bg-brand-soft text-brand-deep",
+          )}
+        >
+          {Ic ? <Ic className="size-5" aria-hidden="true" /> : null}
         </span>
-        <span className="flex items-center gap-0.5 text-xs text-brand-deep">
-          {l ? "收起" : "展开"}
-          <C_tI className={eb("size-3.5 transition-transform", l && "rotate-180")} />
+        <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+          <span className="text-[15px] font-bold text-ink">{e}</span>
+          <span className="text-xs text-ink-3 tabular-nums">
+            {"共 "}
+            {s}
+            {" 笔 · 占比 "}
+            {p}
+            {"%"}
+          </span>
         </span>
+        <span className="text-lg font-bold text-ink tabular-nums">{g}</span>
+        <C_tI className={eb("size-4 text-ink-3 transition-transform", l && "rotate-180")} />
       </button>
-      {l
-        ? t.map(([e, s, t, r = "¥0.00"]) => (
-            <div key={e} className="flex items-center justify-between rounded-2xl bg-fill px-3 py-2.5">
-              <span className="flex flex-col gap-0.5">
-                <span className="text-[13px] text-ink">{e}</span>
+      <div className="h-1.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
+        <div
+          className={eb("h-full rounded-full", teal ? "bg-success" : "bg-brand-gradient")}
+          style={{ width: p + "%" }}
+        />
+      </div>
+      {l ? (
+        <div className="flex flex-col">
+          {t.map(([e, s, t, r = "¥0.00"]) => (
+            <div key={e} className="flex items-center justify-between gap-3 border-t border-hairline py-3">
+              <span className="flex min-w-0 flex-col gap-0.5">
+                <span className="text-[13px] font-medium text-ink">{e}</span>
                 <span className="text-[11px] text-ink-3">{s}</span>
               </span>
               <span className="flex flex-col items-end gap-0.5">
-                <span className="text-sm font-semibold text-danger tabular-nums">{t}</span>
+                <span className="text-sm font-semibold text-ink tabular-nums">{t}</span>
                 <span className={eb("text-[11px] tabular-nums", r.startsWith("-") ? "text-success" : "text-ink-3")}>
                   {"退款 "}
                   {r}
                 </span>
               </span>
             </div>
-          ))
-        : null}
+          ))}
+        </div>
+      ) : null}
     </C_sc>
   );
 }
@@ -8121,23 +8145,40 @@ let tX = {
               </span>
               <span className="rounded-full bg-surface/25 px-2.5 py-1 text-[11px]">共享额度剩余 ¥868</span>
             </div>
-            <div className="grid grid-cols-2 rounded-2xl bg-surface/20 py-2.5 text-center">
-              <span className="flex flex-col">
-                <span className="text-[11px] opacity-90">托管</span>
-                <span className="font-bold tabular-nums">¥315.00</span>
-              </span>
-              <span className="flex flex-col">
-                <span className="text-[11px] opacity-90">报餐</span>
-                <span className="font-bold tabular-nums">¥135.00</span>
-              </span>
-            </div>
           </div>
-          <C_sj items={["待结算", "已结算"]} value={s} onChange={t} />
+          <div role="tablist" aria-label="账单状态" className="flex items-center gap-6 px-1">
+            {["待结算", "已结算"].map((k) => (
+              <button
+                key={k}
+                type="button"
+                role="tab"
+                aria-selected={k === s}
+                onClick={() => t(k)}
+                className={eb(
+                  "press relative pb-2 text-[15px] transition-colors",
+                  k === s ? "font-bold text-ink" : "text-ink-3",
+                )}
+              >
+                {k}
+                <span
+                  aria-hidden="true"
+                  className={eb(
+                    "absolute inset-x-1 bottom-0 h-1 rounded-full bg-brand-gradient transition-opacity",
+                    k === s ? "opacity-100" : "opacity-0",
+                  )}
+                />
+              </button>
+            ))}
+          </div>
           {"待结算" === s ? (
             <>
               <C_tU
-                title="托管单明细"
+                title="托管单"
                 count={4}
+                total="¥315.00"
+                share={70}
+                icon={LuBaby}
+                tone="brand"
                 rows={[
                   ["全天托管 · 9月5日", "顾家小林 · 业主", "¥90.00", "¥0.00"],
                   ["课后托管 · 9月4日", "顾小妹 · 家庭成员", "¥45.00", "-¥45.00"],
@@ -8146,8 +8187,12 @@ let tX = {
                 ]}
               />
               <C_tU
-                title="报餐单明细"
+                title="报餐单"
                 count={7}
+                total="¥135.00"
+                share={30}
+                icon={LuSoup}
+                tone="teal"
                 rows={[
                   ["午餐 · 9月5日", "顾家小林 · 业主", "¥18.00"],
                   ["晚餐 · 9月4日", "妈妈 · 家庭成员", "¥16.00"],
