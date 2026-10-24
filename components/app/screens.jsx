@@ -2292,7 +2292,7 @@ function C_sL({ children: e, onClose: s }) {
 }
 function C_sI({ sub: e = "社区服务，从家开始" }) {
   return (
-    <div className="flex flex-col items-center gap-3 pt-6 pb-4">
+    <div className="flex flex-col items-center gap-2.5 pt-2 pb-1">
       <span className="bg-brand-gradient shadow-float flex size-20 items-center justify-center rounded-[26px] text-surface">
         <C_e0 className="size-10" strokeWidth={1.6} />
       </span>
@@ -2306,7 +2306,7 @@ function sO() {
     [t, l] = (0, c.useState)("验证码登录"),
     [a, n] = (0, c.useState)(!1);
   return (
-    <C_si className="bg-sub-wash -mx-0 gap-5 px-6 pt-4" nav={null}>
+    <C_si className="bg-sub-wash -mx-0 gap-4 px-6 pt-2 pb-8" nav={null}>
       <C_sI />
       <C_sj size="lg" items={["验证码登录", "密码登录"]} value={t} onChange={l} />
       <div className="flex flex-col gap-3.5">
@@ -2341,7 +2341,7 @@ function sO() {
       <C_sp block={!0} size="xl" onClick={() => e("regProfile")}>
         登录
       </C_sp>
-      <div className="flex flex-col items-center gap-3 pt-4">
+      <div className="flex flex-col items-center gap-2.5 pt-1">
         <span className="flex w-full items-center gap-3 text-xs text-ink-3">
           <span className="h-px flex-1 bg-hairline" />
           其他登录方式
@@ -2355,7 +2355,7 @@ function sO() {
         </button>
       </div>
       <C_sC>未注册的手机号验证后将自动为你创建账号</C_sC>
-      <button type="button" onClick={() => s("home")} className="press text-center text-xs text-ink-3">
+      <button type="button" onClick={() => s("home")} className="press -mt-1 self-center px-4 py-1.5 text-center text-xs text-ink-2">
         先逛逛
       </button>
     </C_si>
