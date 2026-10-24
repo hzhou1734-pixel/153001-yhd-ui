@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步���康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步����康小屋",
       icon: sU,
     },
     {
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地���" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊������" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -5870,7 +5870,7 @@ let C_tk = ew("image", [
         title: "水电维修 · 厨房水管更换",
         use: "08-29 10:00",
         submit: "08-28 09:20",
-        count: "共 1 份订单",
+        count: "共 1 份���单",
         price: "150.00",
       },
     ],
@@ -6291,7 +6291,7 @@ let t_ = [
       const order = selectedMealOrder || tv.meal[0];
       const isActive = "进行中" === order.status || "待支付" === order.status;
       const isDone = "已完成" === order.status;
-      const isCanceled = "已取消" === order.status;
+      const isCanceled = "���取消" === order.status;
       const dishes = [
         ["清蒸鲈鱼 · 时蔬 · 米饭", "18.00", "/images/meal-fish.png"],
         ["香菇滑鸡 · 西兰花 · 软米饭", "20.00", "/images/meal-chicken.png"],
@@ -6343,7 +6343,7 @@ let t_ = [
             <C_sm k={isDone ? "实付金额" : "预估金额"} v={`¥${total}`} accent={!0} />
             <C_sm
               k="支付状态"
-              v={isCanceled ? <C_sh tone="gray">已退款</C_sh> : <C_sh tone="teal">已支付</C_sh>}
+              v={isCanceled ? <C_sh tone="gray">已取消</C_sh> : <C_sh tone="teal">已支付</C_sh>}
             />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
@@ -7818,7 +7818,7 @@ let tX = {
         <C_si title="物业后台" className="bg-sub-wash">
           <C_sz>
             物业后台 ·
-            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整合后从额度中扣减。
+            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整合后从额度���扣减。
           </C_sz>
           <h2 className="px-1 text-[15px] font-bold text-ink">房号额度配置</h2>
           {[
