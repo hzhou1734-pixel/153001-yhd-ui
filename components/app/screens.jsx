@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步����康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步�����康小屋",
       icon: sU,
     },
     {
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保证每�� 7-8 小时睡眠",
+                "保持规律作息，保证每��� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -4721,7 +4721,7 @@ let ti = [
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
           <C_sp block={!0} onClick={e}>
-            返回 顾好家
+            ���回 顾好家
           </C_sp>
           <C_sp block={!0} variant="ghost" onClick={() => s("暂无更多跳转记录")}>
             查看跳转记录
@@ -5409,7 +5409,7 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏月品茗，趣味游戏与才���展示。现场设置灯谜区、手工月饼 DIY
+              邻里齐聚，赏���品茗，趣味游戏与才���展示。现场设置灯谜区、手工月饼 DIY
               与儿童游��区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
@@ -5578,7 +5578,7 @@ let tf = [
         canNext = idx < bagIndex(BAG_MAX),
         data = bagMonthData(ym, s);
       return (
-        <C_si title="小区钱袋子" className="bg-sub-wash">
+        <C_si title="小区��袋子" className="bg-sub-wash">
           <div className="bg-hero-wash shadow-float flex flex-col gap-4 rounded-[24px] p-5 text-surface">
             <div className="flex items-center justify-center">
               <div className="flex items-center gap-3">
@@ -6064,7 +6064,7 @@ function C_tM({ img: e, video: s }) {
         </span>
       </div>
       <p className="mt-2 text-[11px] text-ink-3">
-        图片（{e}） · 视频（{s}）
+        图片（{e}） · 视频���{s}）
       </p>
     </C_sc>
   );
@@ -6379,6 +6379,18 @@ let t_ = [
             <C_sd>托管信息</C_sd>
             <C_sm k="托管项目" v="禄口一小课后托管" />
             <C_sm k="托管人数" v="1 人" />
+            <C_sm
+              k="服务内容"
+              v={
+                <span className="flex flex-wrap justify-end gap-1.5">
+                  {["接", "送", "看护"].map((label) => (
+                    <C_sh key={label} tone="brand">
+                      {label}
+                    </C_sh>
+                  ))}
+                </span>
+              }
+            />
             <C_sm k="接 · 学校" v="禄口一小" />
             <C_sm k="接 · 时间" v="08:00" />
             <C_sm k="接送地址" v="阳光花园 3栋2单元1802" />
@@ -8009,7 +8021,7 @@ let tX = {
                     block={!0}
                     variant="danger"
                     onClick={() => {
-                      (t("已解除���定"), s());
+                      (t("已解除�����"), s());
                     }}
                   >
                     确认解除
