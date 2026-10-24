@@ -716,7 +716,7 @@ let C_eH = ew("bell", [
       image: "/images/act-walk.png",
     },
   ],
-  eZ = "垃圾分类新指南来了";
+  eZ = "垃圾分��新指南来了";
 var eW = eW;
 function C_eJ({ variant: e, className: s, onSelect: t }) {
   let l = (0, c.useRef)(null),
@@ -3306,7 +3306,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步至健康小屋",
+      d: "为行动不��老人上门测量心率血压，数据同步至健康小屋",
       icon: sU,
     },
     {
@@ -3947,7 +3947,7 @@ let ti = [
               <div key={s} className="flex items-center gap-3 border-t border-hairline py-2.5 first:border-t-0">
                 <span className="flex w-20 items-baseline gap-0.5">
                   <span className={eb("text-lg font-bold tabular-nums", l ? "text-ink" : "text-danger")}>{e}</span>
-                  <span className="text-[11px] text-ink-3">次/分</span>
+                  <span className="text-[11px] text-ink-3">��/分</span>
                 </span>
                 <span className="flex flex-1 flex-col text-xs text-ink-2">
                   <span className="tabular-nums">{s}</span>
@@ -4122,7 +4122,7 @@ let ti = [
             <C_s6
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
-                "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
+                "每周进行 3-5 次有���运动，如快走、游泳、骑行",
                 "保持规律��息��保�� 7-8 小时睡眠",
                 "3 ��月��复��血��四��，若持续升高建议就医",
               ]}
@@ -6641,7 +6641,7 @@ let t_ = [
               <C_sm k={isActive ? "预估金额" : "订单总额"} v={`¥${total}`} accent={!0} />
             )}
             <C_sm k="支付状态" v={paymentTag} />
-            <C_sm k="支付方式" v={isPending ? "/" : order.payMethod || "微信支付"} />
+            <C_sm k="支付方式" v={isPending || isCanceled ? "/" : order.payMethod || "微信支付"} />
             {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
           <C_sc>
@@ -6733,7 +6733,7 @@ let t_ = [
             icon: e_,
           },
           {
-            t: "托管单总金额",
+            t: "托��单总金额",
             d: "1 笔托管单待结算",
             p: "1,200.00",
             icon: C_eL,
