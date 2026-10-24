@@ -10,6 +10,8 @@ import {
   BookOpen as LuBookOpen,
   Car as LuCar,
   Fuel as LuFuel,
+  HeartHandshake as LuHeartHandshake,
+  ImagePlus as LuImagePlus,
   Megaphone as LuMegaphone,
   Star as LuStar,
   Package as LuPackage,
@@ -3542,7 +3544,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号���������������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4121,7 +4123,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息��保�� 7-8 小时睡眠",
+                "保持规律��息��保�� 7-8 小时睡眠",
                 "3 ��月��复��血��四��，若持续升高建议就医",
               ]}
             />
@@ -6169,10 +6171,10 @@ function C_tS({ pay: e }) {
     </>
   );
 }
-  function C_mealReviewBar() {
+  function C_mealReviewBar({ target = "addReview" } = {}) {
     const { go } = o();
     return (
-      <C_sp block={!0} onClick={() => go("addReview")}>
+      <C_sp block={!0} onClick={() => go(target)}>
         <LuStar className="size-4" strokeWidth={2} aria-hidden="true" />
         服务评价
       </C_sp>
@@ -6564,7 +6566,7 @@ let t_ = [
       ) : (
         <C_sh tone="teal">已支付</C_sh>
       );
-      const bottom = isActive ? <C_tS /> : isPending ? <C_tS pay={!0} /> : isDone ? <C_mealReviewBar /> : undefined;
+      const bottom = isActive ? <C_tS /> : isPending ? <C_tS pay={!0} /> : isDone ? <C_mealReviewBar target="escortReview" /> : undefined;
       return (
         <C_si title="陪诊单详情" className="bg-sub-wash" bottom={bottom}>
           <C_tC
@@ -6850,6 +6852,78 @@ let t_ = [
         </C_si>
       );
     },
+    escortReview: function () {
+      const { back, toast } = o();
+      const [rating, setRating] = (0, c.useState)(5);
+      const order = selectedEscortOrder || tv.escort[0];
+      const escortName = order.escort || "张师傅";
+      return (
+        <C_si
+          title="添加评价"
+          className="bg-sub-wash"
+          bottom={
+            <C_sp
+              block={!0}
+              onClick={() => {
+                toast("感谢你的评价");
+                back();
+              }}
+            >
+              提交评价
+            </C_sp>
+          }
+        >
+          <C_sc className="flex items-center gap-3">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
+              <LuHeartHandshake className="size-6" strokeWidth={1.8} aria-hidden="true" />
+            </span>
+            <span className="flex min-w-0 flex-col">
+              <span className="text-xs text-ink-3">陪诊单</span>
+              <span className="truncate text-[15px] font-bold text-ink">{order.title}</span>
+            </span>
+          </C_sc>
+          <C_sc className="flex items-center gap-3">
+            <span className="relative size-12 shrink-0 overflow-hidden rounded-full">
+              <eW.Image src="/images/escort-avatar.png" alt={`陪诊员${escortName}`} fill={!0} sizes="48px" className="object-cover" />
+            </span>
+            <span className="flex flex-col">
+              <span className="text-[15px] font-bold text-ink">{escortName}</span>
+              <span className="text-xs text-ink-3">陪诊员</span>
+            </span>
+          </C_sc>
+          <C_sc className="flex flex-col items-center gap-3 py-6">
+            <span className="text-sm text-ink-2">为本次陪诊服务评分</span>
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5].map((n) => (
+                <button key={n} type="button" aria-label={`${n} 星`} onClick={() => setRating(n)} className="press">
+                  <svg viewBox="0 0 24 24" className={eb("size-9", n <= rating ? "fill-brand" : "fill-tag-muted")} aria-hidden="true">
+                    <path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" />
+                  </svg>
+                </button>
+              ))}
+            </div>
+            <span className="text-base font-bold text-brand-deep">
+              {["", "非常不满意", "不满意", "一般", "满意", "非常满意"][rating]}
+            </span>
+          </C_sc>
+          <C_sc className="flex flex-col gap-3">
+            <C_sd>文字评价</C_sd>
+            <C_su placeholder="说说本次陪诊服务的感受，或对陪诊人员的建议…" textarea={!0} />
+          </C_sc>
+          <C_sc className="flex flex-col gap-3">
+            <C_sd>上传图片</C_sd>
+            <button
+              type="button"
+              onClick={() => toast("请选择图片")}
+              className="press flex size-20 flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-line bg-fill text-ink-3"
+            >
+              <LuImagePlus className="size-6" strokeWidth={1.6} aria-hidden="true" />
+              <span className="text-[11px]">添加图片</span>
+            </button>
+          </C_sc>
+        </C_si>
+      );
+    },
     refund: function () {
       let { replace: e } = o();
       return (
@@ -6876,7 +6950,7 @@ let t_ = [
           </C_sc>
           <C_sz>
             <span>仅陪诊日期前可申请全额退款</span>
-            <span>审核通过后原路退回，1-3 个工作日到账</span>
+            <span>审核通过后原路退回��1-3 个工作日到账</span>
           </C_sz>
         </C_si>
       );
@@ -8161,9 +8235,9 @@ let tX = {
           <C_sc className="flex items-center gap-3">
             <C_sS name="爸" size={52} tone="warm" />
             <span className="flex flex-col gap-0.5">
-              <span className="text-lg font-bold text-ink">爸爸</span>
+              <span className="text-lg font-bold text-ink">��爸</span>
               <span className="text-xs text-ink-2">
-                {"阳光花园 3��2单元-1802 · "}
+                {"阳光花园 3��2单���-1802 · "}
                 {l}
               </span>
             </span>
@@ -8527,7 +8601,7 @@ let tX = {
             <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
-              <C_sb items={["家电维修", "管道���通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
+              <C_sb items={["家电维修", "管�����通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
             <C_su label="技能描述" placeholder="请描述从业经验与���长技能" textarea={!0} />
           </C_sc>
@@ -8565,7 +8639,7 @@ let tX = {
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
             <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
-            <C_sm k="服务数量" v="1 · 线下收��" />
+            <C_sm k="服务数量" v="1 · 线下收����" />
             <C_sm k="服务金额" v="¥150.00" accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
@@ -8892,7 +8966,7 @@ let tX = {
           ["一、我们收集的信息", "为提供报餐、托管、生活帮手等服务，我们会收集您的手机号码、房号、订单与账单信息。"],
           ["二、信息的使用", "收集的信息仅用于服务提供、订单履约、账单结算与服务通知，不用于任何无关用途。"],
           ["三、信息的存储与保护", "您的信息存储于境内服务器，采用加密传输与访问控制等安全措施防止泄露。"],
-          ["四、信息的共享", "除法律法规要求或经您明确同意外，我们不会向任何第三方共享您的个人信息。"],
+          ["四、信息的共享", "除法律法规要求或经��明确同意外，我们不会向任何第三方共享您的个人信息。"],
           ["五、您的权利", "您可在「我的-个人信息」中查阅、更正您的个人信息，也可联系客服申请删除账号数据。"],
         ]}
       />
@@ -8989,6 +9063,7 @@ let tX = {
     orderSettlement: "订单结算",
     review: "服务评价",
     addReview: "添加评���",
+    escortReview: "添加评价",
     refund: "退款申请",
     refundProgress: "退款进度",
     payment: "收银台",
