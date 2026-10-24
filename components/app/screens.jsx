@@ -8833,14 +8833,7 @@ let tX = {
             <C_so
               icon={<C_st className="size-4" />}
               label="关于我们"
-              desc="平台介绍与版本信息"
               onClick={() => e("about")}
-            />
-            <C_so
-              icon={<C_s0 className="size-4" />}
-              label="隐私设置"
-              desc="授权管理与个人信息"
-              onClick={() => e("privacy")}
             />
             <C_so icon={<C_sG className="size-4" />} label="用户协议" onClick={() => e("agreement")} />
             <C_so icon={<C_sG className="size-4" />} label="隐私政策" onClick={() => e("privacy")} />
