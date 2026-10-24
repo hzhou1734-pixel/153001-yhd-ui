@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步������康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步�������康小屋",
       icon: sU,
     },
     {
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保证����� 7-8 小时睡眠",
+                "保持规律作息，保������� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -5799,6 +5799,7 @@ let C_tk = ew("image", [
         submit: "09-01 09:00",
         count: "共 1 份订单",
         price: "45.00",
+        service: "接",
       },
       {
         code: "TG20250701-011",
@@ -5808,6 +5809,8 @@ let C_tk = ew("image", [
         submit: "07-01 15:20",
         count: "共 1 份订单",
         price: "90.00",
+        service: "看护",
+        canceledAt: "07-02 10:15",
       },
       {
         code: "TG20250601-005",
@@ -5817,6 +5820,7 @@ let C_tk = ew("image", [
         submit: "05-28 14:00",
         count: "共 1 份订单",
         price: "45.00",
+        service: "送",
       },
     ],
     escort: [
@@ -5868,7 +5872,7 @@ let C_tk = ew("image", [
       {
         code: "SH20250828-002",
         status: "已取消",
-        title: "水电维修 · 厨房水管更换",
+        title: "水电维修 · 厨房水管更��",
         use: "08-29 10:00",
         submit: "08-28 09:20",
         count: "��� 1 份���单",
@@ -5877,6 +5881,7 @@ let C_tk = ew("image", [
     ],
   },
   selectedMealOrder = null,
+  selectedTrustOrder = null,
   tw = {
     进行中: "brand",
     已完成: "teal",
@@ -5971,6 +5976,7 @@ function C_tz({ kind: e }) {
                 type="button"
                 onClick={() => {
                   if ("meal" === e) selectedMealOrder = t;
+                  if ("trust" === e) selectedTrustOrder = t;
                   s(a.detail);
                 }}
                 className="press flex flex-col gap-3 text-left"
@@ -6268,6 +6274,7 @@ let t_ = [
                   key={it.code}
                   onClick={() => {
                     if ("meal" === it.kind) selectedMealOrder = tv.meal.find((o) => o.code === it.code) || null;
+                    if ("trust" === it.kind) selectedTrustOrder = tv.trust.find((o) => o.code === it.code) || null;
                     e(ty[it.kind].detail);
                   }}
                   className="press flex flex-col gap-2"
@@ -6372,42 +6379,56 @@ let t_ = [
       );
     },
     orderTrustDetail: function () {
+      const order = selectedTrustOrder || tv.trust[0];
+      const isActive = "进行中" === order.status || "待支付" === order.status;
+      const isDone = "已完成" === order.status;
+      const isCanceled = "已取消" === order.status;
+      const service = order.service || "接";
+      const serviceRows = {
+        接: [
+          ["接 · 学校", "禄口一小"],
+          ["接 · 时间", "16:30"],
+        ],
+        送: [
+          ["送 · 学校", "禄口一小"],
+          ["送 · 时间", "07:30"],
+        ],
+        看护: [["看护时段", "上午场"]],
+      }[service];
+      const canceledAt = order.canceledAt || order.submit;
+      const logs = [{ title: "订单提交", time: order.submit, state: "done" }];
+      if (isDone) logs.push({ title: "订单完成", time: `${order.use} 18:00`, state: "done" });
+      if (isCanceled) logs.push({ title: "订单已取消", time: canceledAt, state: "done" });
       return (
-        <C_si title="托管单详情" className="bg-sub-wash" bottom={<C_tS />}>
+        <C_si title="托管单详情" className="bg-sub-wash" bottom={isActive ? <C_tS /> : undefined}>
           <C_tC
             kind="托管单"
-            code="TG20250901-003"
-            status="进行中"
-            title="禄口一小课后托管 · 1 人"
-            sub="提交：09-01 09:00"
-            price="45.00"
+            code={order.code}
+            status={order.status}
+            title={`${order.title} · 1 人`}
+            sub={`提交：${order.submit}`}
+            price={order.price}
           />
           <C_sc>
             <C_sd>托管信息</C_sd>
-            <C_sm k="托管项目" v="禄口一小课后托管" />
+            <C_sm k="托管项目" v={order.title} />
             <C_sm k="托管人数" v="1 人" />
-            <C_sm
-              k="服务内容"
-              v={
-                <span className="flex flex-wrap justify-end gap-1.5">
-                  {["接", "送", "看护"].map((label) => (
-                    <C_sh key={label} tone="brand">
-                      {label}
-                    </C_sh>
-                  ))}
-                </span>
-              }
-            />
-            <C_sm k="接 · 学校" v="禄口一小" />
-            <C_sm k="接 · 时间" v="08:00" />
-            <C_sm k="接送地址" v="阳光花园 3栋2单元1802" />
+            <C_sm k="服务内容" v={<C_sh tone="brand">{service}</C_sh>} />
+            {serviceRows.map(([k, v]) => (
+              <C_sm key={k} k={k} v={v} />
+            ))}
+            <C_sm k={"看护" === service ? "看护地址" : "接送地址"} v="阳光花园 3栋2单元1802" />
             <C_sm k="联系电话" v="13800006688" />
           </C_sc>
           <C_sc>
             <C_sd>支付信息</C_sd>
-            <C_sm k="实付金额" v="¥45.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
+            <C_sm k={isActive ? "预估金额" : "实付金额"} v={`¥${order.price}`} accent={!0} />
+            <C_sm
+              k="支付状态"
+              v={isCanceled ? <C_sh tone="gray">已取消</C_sh> : <C_sh tone="teal">已支付</C_sh>}
+            />
             <C_sm k="支付方式" v="顾好家币" />
+            {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
           <C_sz>
             <span>预估金额为单次最高金额，实际费用以服务结束后的结算金额为准。</span>
@@ -6418,15 +6439,7 @@ let t_ = [
           </C_sz>
           <C_sc>
             <C_sd>订单日志</C_sd>
-            <C_s_
-              items={[
-                {
-                  title: "订单提交",
-                  time: "09-01 09:00",
-                  state: "done",
-                },
-              ]}
-            />
+            <C_s_ items={logs} />
           </C_sc>
         </C_si>
       );
@@ -8766,7 +8779,7 @@ let tX = {
     certList: "我的认证",
     certReject: "驳回原因",
     communitySwitch: "切换小区",
-    healthHome: "健康小屋",
+    healthHome: "健康小���",
     bandConnect: "连接手环",
     healthData: "健康数据",
     healthCompare: "数据对比",
