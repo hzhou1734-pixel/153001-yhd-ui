@@ -2384,11 +2384,15 @@ function sO() {
             }
           />
         )}
-        {"密码登录" === t ? (
-          <button type="button" onClick={() => e("findPwd")} className="press self-end text-xs text-brand-deep">
-            忘记密码？
-          </button>
-        ) : null}
+        <button
+          type="button"
+          onClick={() => e("findPwd")}
+          aria-hidden={"密码登录" !== t}
+          tabIndex={"密码登录" === t ? 0 : -1}
+          className={`press self-end text-xs text-brand-deep ${"密码登录" === t ? "" : "invisible"}`}
+        >
+          忘记密码？
+        </button>
       </div>
       <C_sD />
       <C_sp block={!0} size="xl" onClick={() => e("home")}>
