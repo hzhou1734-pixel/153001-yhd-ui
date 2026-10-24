@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号���������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4122,7 +4122,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证 7-8 小时睡眠",
-                "3 个月后复��血��四��，若持续升高建议就医",
+                "3 个月��复��血��四��，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4300,7 +4300,7 @@ let ti = [
                 )}
               />
             </div>
-            <C_sv label="陪诊日期��仅可��择未�� 7 天内）" />
+            <C_sv label="陪��日期��仅可��择未�� 7 天内）" />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单��1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊地址" defaultValue="阳光花�� 3栋2单��1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -5409,7 +5409,7 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月饼 DIY
+              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月��� DIY
               与儿童游乐区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
@@ -6097,7 +6097,12 @@ function C_tM({ img: e, video: s }) {
     </C_sc>
   );
 }
-function C_escortMedia({ images, video }) {
+function C_escortMedia({
+  images,
+  video,
+  imageHint = "下单时上传的病情或就医相关资料图片",
+  videoHint = "下单时上传的病情或就医相关视频",
+}) {
   const { toast } = o();
   return (
     <C_sc>
@@ -6109,7 +6114,7 @@ function C_escortMedia({ images, video }) {
               {images.length}/6
             </span>
           </div>
-          <p className="text-xs text-ink-3">下单时上传的病情或就医相关资料图片</p>
+          <p className="text-xs text-ink-3">{imageHint}</p>
           <div className="grid grid-cols-3 gap-2">
             {images.map(([src, label]) => (
               <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
@@ -6124,7 +6129,7 @@ function C_escortMedia({ images, video }) {
               <span className="text-[13px] font-semibold text-ink">视频资料</span>
               <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">1/1</span>
             </div>
-            <p className="text-xs text-ink-3">下单时上传的病情或就医相关视频</p>
+            <p className="text-xs text-ink-3">{videoHint}</p>
             <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
@@ -6670,7 +6675,16 @@ let t_ = [
               <C_sQ className="size-4" />
             </button>
           </C_sc>
-          <C_tM img="3 张 · 上门前确认" video="00:26 · 上门前确认" />
+          <C_escortMedia
+            images={[
+              ["/images/helper-upload-1.png", "厨房台面"],
+              ["/images/helper-upload-2.png", "卫生间"],
+              ["/images/helper-upload-3.png", "客厅地面"],
+            ]}
+            video={{ poster: "/images/helper-upload-video.png", duration: "00:26" }}
+            imageHint="下单时上传的待服务区域现场图片"
+            videoHint="下单时上传的待服务区域现场视频"
+          />
           <C_sc>
             <C_sd>金额信息</C_sd>
             <C_sm k="预估金额" v="¥180.00" accent={!0} />
@@ -8171,7 +8185,7 @@ let tX = {
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-lg font-bold text-ink">解除绑定</p>
                 <p className="text-sm leading-relaxed text-ink-2">
-                  解除后该成员将无法使用本房号的服务与额度，确定解除吗？
+                  解除后该成员将无法使用本房号的服务与额度，确���解除吗？
                 </p>
                 <div className="flex w-full gap-3 pt-2">
                   <C_sp block={!0} variant="ghost" onClick={() => r(!1)}>
