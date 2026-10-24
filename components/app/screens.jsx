@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号���������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -5215,7 +5215,7 @@ let tf = [
               <C_tx className="size-6" />
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
-              <span className="text-[15px] font-bold text-ink">人力资源</span>
+              <span className="text-[15px] font-bold text-ink">人力资��</span>
               <span className="text-xs text-ink-2">人才入库 · 技能服务派单</span>
             </span>
             <C_e$ className="size-4 text-ink-3" />
@@ -6324,7 +6324,7 @@ let t_ = [
           ) : (
             <>
               <span className="px-1 text-xs text-ink-3">
-                {"共找到 "}
+                {"共找�� "}
                 <span className="font-semibold text-ink tabular-nums">{result.length}</span>
                 {" 条订单"}
               </span>
@@ -6606,7 +6606,7 @@ let t_ = [
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="基础费用" v={`¥${order.price}`} />
-            <C_sm k="附加费用" v={isActive ? "待陪诊员提交" : `¥${feeTotal.toFixed(2)}`} />
+            <C_sm k="附加费用" v={isActive ? "¥0.00" : `¥${feeTotal.toFixed(2)}`} />
             {isPending ? (
               <C_sm k="待支付金额" v={`¥${feeTotal.toFixed(2)}`} accent={!0} />
             ) : (
