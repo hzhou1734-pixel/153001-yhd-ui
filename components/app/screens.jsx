@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务�����立���预约"
+            aria-label="陪诊服务�����立�����预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>�����能原因</C_sd>
+            <C_sd>�������能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -5046,7 +5046,7 @@ function C_th() {
     </button>
   );
 }
-function C_tu({ title: e, sub: s, extra: t }) {
+function C_tu({ title: e, sub: s, extra: t, noBell: b }) {
   return (
     <div className="flex items-center justify-between px-1 pt-2 pb-1">
       <div className="flex flex-col gap-0.5">
@@ -5054,9 +5054,9 @@ function C_tu({ title: e, sub: s, extra: t }) {
         {s ? <p className="text-xs text-ink-2">{s}</p> : null}
       </div>
       <div className="flex gap-2">
-        {t}
-        <C_th />
-      </div>
+  {t}
+  {b ? null : <C_th />}
+  </div>
     </div>
   );
 }
@@ -5157,7 +5157,7 @@ let tf = [
     },
     {
       t: "小区停车位改造进展说明",
-      d: "新增 60 个车位，预计月底���工",
+      d: "新增 60 个车位，��计月底���工",
       m: "08-28 · 物业服务中心",
       img: "/images/article-parking.png",
     },
@@ -5906,6 +5906,7 @@ function C_tz({ kind: e }) {
       <C_tu
         title="订单"
         sub={a.sub}
+        noBell
         extra={
           <button
             type="button"
@@ -5927,13 +5928,6 @@ function C_tz({ kind: e }) {
               {" 单"}
             </span>
           </span>
-          <button
-            type="button"
-            onClick={() => s("orderSettlement")}
-            className="press rounded-full bg-surface px-3 py-1.5 text-xs font-semibold text-brand-deep"
-          >
-            订单结算
-          </button>
         </div>
         <div className="grid grid-cols-4 rounded-2xl bg-surface/20 py-2.5">
           {["待支付", "进行中", "已完成", "取消/退款"].map((e, s) => (
@@ -6378,7 +6372,7 @@ let t_ = [
           </C_sc>
           <C_tM img="3 张 · 下单上传" video="00:18 · 下单上传" />
           <C_sc>
-            <C_sd>附加费明细</C_sd>
+            <C_sd>附���费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
               暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
