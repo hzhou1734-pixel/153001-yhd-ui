@@ -7582,13 +7582,19 @@ function C_tU({ title: e, count: s, rows: t }) {
         </span>
       </button>
       {l
-        ? t.map(([e, s, t]) => (
+        ? t.map(([e, s, t, r = "¥0.00"]) => (
             <div key={e} className="flex items-center justify-between rounded-2xl bg-fill px-3 py-2.5">
               <span className="flex flex-col gap-0.5">
                 <span className="text-[13px] text-ink">{e}</span>
                 <span className="text-[11px] text-ink-3">{s}</span>
               </span>
-              <span className="text-sm font-semibold text-ink tabular-nums">{t}</span>
+              <span className="flex flex-col items-end gap-0.5">
+                <span className="text-sm font-semibold text-ink tabular-nums">{t}</span>
+                <span className={eb("text-[11px] tabular-nums", r.startsWith("-") ? "text-danger" : "text-ink-3")}>
+                  {"退款 "}
+                  {r}
+                </span>
+              </span>
             </div>
           ))
         : null}
@@ -8034,10 +8040,10 @@ let tX = {
                 title="托管单明细"
                 count={4}
                 rows={[
-                  ["全天托管 · 9月5日", "顾家小林 · 业主", "¥90.00"],
-                  ["课后托管 · 9月4日", "顾小妹 · 家庭成员", "¥45.00"],
-                  ["全天托管 · 9月3日", "租客小王 · 租户", "¥90.00"],
-                  ["全天托管 · 9月2日", "顾家小林 · 业主", "¥90.00"],
+                  ["全天托管 · 9月5日", "顾家小林 · 业主", "¥90.00", "¥0.00"],
+                  ["课后托管 · 9月4日", "顾小妹 · 家庭成员", "¥45.00", "-¥45.00"],
+                  ["全天托管 · 9月3日", "租客小王 · 租户", "¥90.00", "¥0.00"],
+                  ["全天托管 · 9月2日", "顾家小林 · 业主", "¥90.00", "¥0.00"],
                 ]}
               />
               <C_tU
