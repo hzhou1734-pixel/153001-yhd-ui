@@ -3696,7 +3696,7 @@ let ti = [
             <p className="text-sm leading-relaxed text-ink-2">
               正在通过注册手机号 138****6688 与手环厂商账号匹配
               <br />
-              匹配成功后将自动同步历史数据
+              匹配���功后将自动同步历史数据
             </p>
           </div>
           <div className="flex w-full flex-col gap-3">
@@ -3902,7 +3902,7 @@ let ti = [
       );
     },
     healthTrend: function () {
-      let [e, s] = (0, c.useState)("近七天"),
+      let [e, s] = (0, c.useState)("近七���"),
         t = [72, 81, 63, 92, 71, 76, 78];
       return (
         <C_si title="健康趋势" className="bg-sub-wash">
@@ -6036,9 +6036,16 @@ function C_tC({ kind: e, code: s, status: t, title: l, sub: a, price: n }) {
         <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">{t}</span>
       </div>
       <div className="flex items-end justify-between gap-3">
-        <span className="flex flex-col gap-1">
+        <span className="flex min-w-0 flex-col gap-1">
           <span className="text-lg font-bold">{l}</span>
-          <span className="text-xs opacity-90 tabular-nums">{a}</span>
+          {a.split(" · ").map((line) => (
+            <span
+              key={line}
+              className={`text-xs tabular-nums ${line.startsWith("提交") ? "opacity-75" : "opacity-90"}`}
+            >
+              {line}
+            </span>
+          ))}
         </span>
         <span className="text-2xl font-bold tabular-nums">¥{n}</span>
       </div>
@@ -8008,7 +8015,7 @@ let tX = {
             <C_sS name="张" size={60} tone="warm" />
             <span className="flex flex-col gap-1">
               <span className="text-lg font-bold text-ink">管家 · 张姐</span>
-              <span className="text-xs text-ink-2">服务楼栋：3栋2单元</span>
+              <span className="text-xs text-ink-2">服务楼栋：3栋2单��</span>
             </span>
           </C_sc>
           <C_sc className="flex flex-col py-1">
@@ -8181,7 +8188,7 @@ let tX = {
               人才入驻
             </span>
             <p className="text-[13px] leading-relaxed opacity-95">
-              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求由物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
+              编辑个人技能并上传凭证，提交物业审核；审核通过后资料进入小区人才库。业主的生活服务需求��物业后台匹配派单，双方线下对接交易，平台仅生成订单留痕、不做收费。
             </p>
             <button
               type="button"
