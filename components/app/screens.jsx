@@ -870,10 +870,7 @@ function C_eY({ title: e, hint: s, action: t, onAction: l }) {
   return (
     <div className="flex items-end justify-between px-1">
       <div className="flex items-baseline gap-2">
-        <h2 className="relative text-[17px] font-bold text-ink">
-          {e}
-          <span className="absolute -top-0.5 -right-2 size-1.5 rounded-full bg-danger" aria-hidden="true" />
-        </h2>
+        <h2 className="text-[17px] font-bold text-ink">{e}</h2>
         {s ? <span className="pl-1 text-xs text-ink-3">{s}</span> : null}
       </div>
       {t ? (
