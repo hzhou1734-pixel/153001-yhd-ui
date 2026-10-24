@@ -3547,7 +3547,7 @@ let ti = [
           <button
             type="button"
             onClick={() => e("escortList")}
-            aria-label="陪诊服务�����立�������预约"
+            aria-label="陪诊服务，立即预约"
             className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden rounded-[20px] bg-brand-mist text-left shadow-[0_8px_24px_-12px_rgba(120,72,20,0.35)]"
           >
             <eW.Image src="/images/escort.png" alt="" fill={!0} sizes="(max-width: 480px) 100vw, 360px" className="object-cover" />
@@ -4069,7 +4069,7 @@ let ti = [
               ]}
             />
           </C_sc>
-          <C_sC>评估结果仅供参考，不能替代医疗诊断 · 评估每周自动更新一��</C_sC>
+          <C_sC>评估结果仅供参考，不能替代医疗诊断 · 评估每周自动更新一次</C_sC>
         </C_si>
       );
     },
@@ -4118,7 +4118,7 @@ let ti = [
             </div>
           </C_sc>
           <C_sc>
-            <C_sd>�������能原因</C_sd>
+            <C_sd>可能原因</C_sd>
             <C_s6
               items={[
                 "饮食中油脂、精制碳水化合物摄入偏多",
@@ -4862,7 +4862,7 @@ let ti = [
             <C_su label="备注" placeholder="请描述服务需求" textarea={!0} />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
-            <C_sk max={6} hint="请上���服务需求��关图片" />
+            <C_sk max={6} hint="请上传服务需求相关图片" />
             <C_sk kind="video" max={1} hint="请上传服务需求相关视频" />
           </C_sc>
           <C_sz>仅为预估金额，具体费用与线下服务人员沟通，系统不收取费用</C_sz>
@@ -5157,7 +5157,7 @@ let tf = [
     },
     {
       t: "小区停车位改造进展说明",
-      d: "新增 60 个车位，��计月底���工",
+      d: "新增 60 个车位，预计月底完工",
       m: "08-28 · 物业服务中心",
       img: "/images/article-parking.png",
     },
@@ -6287,14 +6287,13 @@ let t_ = [
               <C_sm k="配送方式" v="物业配送" />
               <C_sm k="配送费" v="¥3.00" />
               <C_sm k="报餐日期" v="09-05" />
-              <C_sm k="套���规格" v="A套餐 · 12:00送达" />
               <C_sm k="联系电话" v="13800006688" />
             </div>
           </C_sc>
           <C_sc>
             <C_sd>支付信息</C_sd>
             <C_sm k="预估金额" v="¥41.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="teal">�����支付</C_sh>} />
+            <C_sm k="支付状态" v={<C_sh tone="teal">已支付</C_sh>} />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
           <C_sc>
@@ -6381,7 +6380,7 @@ let t_ = [
           </C_sc>
           <C_tM img="3 张 · 下单上传" video="00:18 · 下单上传" />
           <C_sc>
-            <C_sd>附���费明细</C_sd>
+            <C_sd>附加费明细</C_sd>
             <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
               暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
             </p>
@@ -7385,7 +7384,7 @@ let tX = {
             title="家庭与设备"
             items={[
               {
-                t: "我的��������",
+                t: "我的家人",
                 icon: C_eL,
                 to: "family",
                 tint: "bg-warm-soft text-warm-ink",
@@ -7830,10 +7829,10 @@ let tX = {
             <C_su label="顾好家币额度（元）" defaultValue="1000" type="number" />
             <div className="rounded-2xl bg-fill px-3 py-1">
               <C_sm k="已使用额度" v="¥132.00" />
-              <C_sm k="调整���剩余" v="¥868.00" accent={!0} />
+              <C_sm k="调整后剩余" v="¥868.00" accent={!0} />
             </div>
           </C_sc>
-          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账���将共用新���度。</C_sz>
+          <C_sz>降低额度时不可低于已使用额度（¥132.00）。保存后，该房号下所有业主、家人、租户账号将共用新额度。</C_sz>
         </C_si>
       );
     },
@@ -8567,7 +8566,7 @@ let tX = {
               <C_e3 className="size-10" strokeWidth={1.6} />
             </span>
             <p className="text-xl font-bold text-ink">注销账号</p>
-            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定��注销吗？</p>
+            <p className="text-sm leading-relaxed text-ink-2">注销后账号数据将无法恢复，确定要注销吗？</p>
           </div>
           <div className="flex w-full flex-col gap-3">
             <C_sp block={!0} onClick={s}>
@@ -8604,7 +8603,7 @@ let tX = {
     about: function () {
       let { go: e } = o();
       return (
-        <C_si title="关于���们" className="bg-sub-wash">
+        <C_si title="关于我们" className="bg-sub-wash">
           <div className="flex flex-col items-center gap-2 py-6">
             <span className="bg-brand-gradient shadow-float flex size-20 items-center justify-center rounded-[26px] text-surface">
               <C_e0 className="size-10" strokeWidth={1.6} />
@@ -8614,7 +8613,7 @@ let tX = {
           </div>
           <C_sc>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              顾好家是面向社区居民的一站式生活服务平台，围绕健康、膳食、托管、陪诊���生活帮手等日常需求，联合物业与社区服务资源，为业主提供便捷、可信的社区服务体验。
+              顾好家是面向社区居民的一站式生活服务平台，围绕健康、膳食、托管、陪诊、生活帮手等日常需求，联合物业与社区服务资源，为业主提供便捷、可信的社区服务体验。
             </p>
           </C_sc>
           <C_sc className="flex flex-col py-1">
