@@ -7116,10 +7116,6 @@ let t_ = [
           <C_sc className="flex flex-col items-center gap-1 py-8">
             <span className="text-sm text-ink-2">待支付金额</span>
             <C_sP value="54.00" size="lg" />
-            <span className="mt-1 flex items-center gap-1 text-xs text-ink-3">
-              <C_td className="size-3.5" />
-              请在 15:00 内完成支付
-            </span>
           </C_sc>
           <C_tP value={s} onChange={t} />
         </C_si>
