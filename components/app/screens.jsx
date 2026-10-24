@@ -6690,8 +6690,8 @@ let t_ = [
             title={`${order.title} · ${qty}`}
             sub={
               done
-                ? `上门时间：${order.use} · 完成：2026-${order.finishAt}`
-                : `上门时间：${order.use} · 提交：2026-${order.submit}`
+                ? `完成：2026-${order.finishAt}`
+                : `提交：2026-${order.submit}`
             }
             price={order.price}
           />
