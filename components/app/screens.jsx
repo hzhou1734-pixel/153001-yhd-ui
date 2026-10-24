@@ -2338,7 +2338,7 @@ function sO() {
         ) : null}
       </div>
       <C_sD />
-      <C_sp block={!0} size="xl" onClick={() => e("regProfile")}>
+      <C_sp block={!0} size="xl" onClick={() => e("home")}>
         登录
       </C_sp>
       <div className="flex flex-col items-center gap-2.5 pt-1">
