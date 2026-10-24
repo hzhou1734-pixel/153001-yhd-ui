@@ -8401,17 +8401,35 @@ let tX = {
             </C_sp>
           }
         >
-          <div className="bg-hero-wash shadow-float flex flex-col items-center gap-4 rounded-[28px] px-6 py-8 text-surface">
-            <span className="text-2xl font-bold">加入我的家庭</span>
-            <span className="text-sm opacity-90">阳光花园 3栋2单元-1802</span>
-            <span className="flex size-48 items-center justify-center rounded-[24px] bg-surface text-ink">
-              <C_tH className="size-36" strokeWidth={1.2} />
-            </span>
-            <span className="text-sm">扫码即可加入该房号</span>
-            <span className="flex items-center gap-2 pt-2 text-xs opacity-90">
-              <C_sS name="顾" size={24} />
-              顾家小林 邀请您加入 · 顾好家
-            </span>
+          <div className="shadow-float overflow-hidden rounded-[28px] bg-surface">
+            <div className="relative aspect-[4/3] w-full">
+              <img
+                src="/images/invite-poster.png"
+                alt="一家人在小区楼下的温馨插画"
+                className="absolute inset-0 size-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1 bg-gradient-to-t from-black/55 to-transparent px-5 pb-4 pt-12 text-surface">
+                <span className="text-2xl font-bold">加入我的家庭</span>
+                <span className="text-xs opacity-90">一起共享托管、报餐与社区服务</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-5">
+              <span className="flex size-28 shrink-0 items-center justify-center rounded-[18px] border border-hairline bg-surface text-ink">
+                <C_tH className="size-24" strokeWidth={1.2} />
+              </span>
+              <div className="flex min-w-0 flex-1 flex-col gap-2">
+                <span className="text-xs text-ink-3">邀请加入房号</span>
+                <span className="text-base font-bold leading-snug text-ink">阳光花园</span>
+                <span className="text-sm font-semibold text-ink-2 tabular-nums">3栋2单元-1802</span>
+                <span className="flex items-center gap-1.5 pt-1 text-xs text-ink-3">
+                  <C_sS name="顾" size={20} />
+                  顾家小林 邀请您
+                </span>
+              </div>
+            </div>
+            <div className="border-t border-dashed border-hairline px-5 py-3 text-center text-xs text-ink-3">
+              微信扫一扫二维码，即可加入该房号
+            </div>
           </div>
         </C_si>
       );
