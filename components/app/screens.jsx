@@ -7778,14 +7778,34 @@ let tX = {
             </span>
             <C_e$ className="size-5 text-ink-3" />
           </button>
-          <C_sc onClick={() => e("bill")} className="bg-hero-wash grid grid-cols-2 text-surface">
-            <span className="flex flex-col gap-0.5 border-r border-surface/30">
-              <span className="text-xl font-bold tabular-nums">¥1,254.00</span>
-              <span className="text-xs opacity-90">待结算</span>
+          <C_sc onClick={() => e("bill")} className="flex flex-col gap-3">
+            <span className="flex items-center justify-between">
+              <span className="flex items-center gap-2 text-sm font-bold text-ink">
+                <span className="flex size-7 items-center justify-center rounded-full bg-brand-mist text-brand-deep">
+                  <C_tq className="size-4" />
+                </span>
+                结算概览
+              </span>
+              <span className="flex items-center text-xs text-ink-3">
+                查看账单
+                <C_e$ className="size-4" />
+              </span>
             </span>
-            <span className="flex flex-col gap-0.5 pl-4">
-              <span className="text-xl font-bold tabular-nums">¥1,686.00</span>
-              <span className="text-xs opacity-90">已结算</span>
+            <span className="grid grid-cols-2 gap-2.5">
+              <span className="flex flex-col gap-1 rounded-2xl bg-brand-mist px-3.5 py-3">
+                <span className="flex items-center gap-1.5 text-xs text-brand-ink">
+                  <span className="size-1.5 rounded-full bg-brand-deep" aria-hidden="true" />
+                  待结算
+                </span>
+                <span className="text-lg font-bold tabular-nums text-brand-deep">¥1,254.00</span>
+              </span>
+              <span className="flex flex-col gap-1 rounded-2xl bg-success-soft px-3.5 py-3">
+                <span className="flex items-center gap-1.5 text-xs text-success">
+                  <span className="size-1.5 rounded-full bg-success" aria-hidden="true" />
+                  已结算
+                </span>
+                <span className="text-lg font-bold tabular-nums text-ink">¥1,686.00</span>
+              </span>
             </span>
           </C_sc>
           <C_tV
