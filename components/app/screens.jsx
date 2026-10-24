@@ -8947,14 +8947,6 @@ let tX = {
               顾好家是面向社区居民的一站式生活服务平台，围绕健康、膳食、托管、陪诊、生活帮手等日常需求，联合物业与社区服务资源，为业主提供便捷、可信的社区服务体验。
             </p>
           </C_sc>
-          <C_sc className="flex flex-col py-1">
-            <div className="pt-3">
-              <C_sd>版本与协议</C_sd>
-            </div>
-            <C_so label="版本号" value="v1.0.339" />
-            <C_so label="用户协议" onClick={() => e("agreement")} />
-            <C_so label="隐私政策" onClick={() => e("privacy")} />
-          </C_sc>
         </C_si>
       );
     },
