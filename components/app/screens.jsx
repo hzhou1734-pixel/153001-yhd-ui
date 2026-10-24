@@ -8402,7 +8402,7 @@ let tX = {
           }
         >
           <div className="shadow-float overflow-hidden rounded-[28px] bg-surface">
-            <div className="relative aspect-[4/3] w-full">
+            <div className="relative aspect-[6/7] w-full">
               <img
                 src="/images/invite-poster.png"
                 alt="一家人在小区楼下的温馨插画"
