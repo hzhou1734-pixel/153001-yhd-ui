@@ -7589,8 +7589,8 @@ function C_tU({ title: e, count: s, rows: t }) {
                 <span className="text-[11px] text-ink-3">{s}</span>
               </span>
               <span className="flex flex-col items-end gap-0.5">
-                <span className="text-sm font-semibold text-ink tabular-nums">{t}</span>
-                <span className={eb("text-[11px] tabular-nums", r.startsWith("-") ? "text-danger" : "text-ink-3")}>
+                <span className="text-sm font-semibold text-danger tabular-nums">{t}</span>
+                <span className={eb("text-[11px] tabular-nums", r.startsWith("-") ? "text-success" : "text-ink-3")}>
                   {"退款 "}
                   {r}
                 </span>
@@ -7989,7 +7989,7 @@ let tX = {
                 <span
                   className={eb(
                     "flex size-10 items-center justify-center rounded-2xl",
-                    e.v.startsWith("+") ? "bg-success-soft text-success" : "bg-brand-soft text-brand-deep",
+                    e.v.startsWith("+") ? "bg-danger-soft text-danger" : "bg-success-soft text-success",
                   )}
                 >
                   <C_tO className="size-5" />
@@ -7999,7 +7999,7 @@ let tX = {
                   <span className="text-xs text-ink-3 tabular-nums">{e.d}</span>
                 </span>
                 <span
-                  className={eb("text-base font-bold tabular-nums", e.v.startsWith("+") ? "text-success" : "text-ink")}
+                  className={eb("text-base font-bold tabular-nums", e.v.startsWith("+") ? "text-danger" : "text-success")}
                 >
                   {e.v}
                 </span>
@@ -8080,7 +8080,7 @@ let tX = {
                   <span className="text-xs text-ink-3">结算时间 2026-08-01 · 共 7 笔</span>
                 </span>
                 <span className="flex flex-col items-end gap-0.5">
-                  <span className="text-base font-bold text-ink tabular-nums">¥405.00</span>
+                  <span className="text-base font-bold text-danger tabular-nums">¥405.00</span>
                   <C_sh tone="teal">已结清</C_sh>
                 </span>
               </C_sc>
@@ -8114,15 +8114,15 @@ let tX = {
             </div>
             <div className="flex items-center justify-between py-2.5">
               <span className="text-sm text-ink-2">付款</span>
-              <span className="text-sm font-semibold text-ink tabular-nums">{summary.paid}</span>
+              <span className="text-sm font-semibold text-danger tabular-nums">{summary.paid}</span>
             </div>
             <div className="flex items-center justify-between py-2.5">
               <span className="text-sm text-ink-2">退款</span>
-              <span className="text-sm font-semibold text-danger tabular-nums">{summary.refund}</span>
+              <span className="text-sm font-semibold text-success tabular-nums">{summary.refund}</span>
             </div>
             <div className="flex items-center justify-between border-t border-hairline pt-3">
               <span className="text-[15px] font-bold text-ink">已结合计</span>
-              <span className="text-xl font-bold text-success tabular-nums">{summary.total}</span>
+              <span className="text-xl font-bold text-danger tabular-nums">{summary.total}</span>
             </div>
           </C_sc>
           <h2 className="px-1 text-[15px] font-bold text-ink">结算明细</h2>
@@ -8150,11 +8150,11 @@ let tX = {
                   </span>
                 </span>
                 <span className="flex shrink-0 flex-col items-end gap-1">
-                  <span className="text-base font-bold text-ink tabular-nums">{r.amount}</span>
+                  <span className="text-base font-bold text-danger tabular-nums">{r.amount}</span>
                   <span
                     className={eb(
                       "text-xs tabular-nums",
-                      r.refund.startsWith("-") ? "font-semibold text-danger" : "text-ink-3",
+                      r.refund.startsWith("-") ? "font-semibold text-success" : "text-ink-3",
                     )}
                   >
                     {"退款 "}
