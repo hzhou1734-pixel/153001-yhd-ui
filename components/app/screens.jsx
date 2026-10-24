@@ -3304,7 +3304,7 @@ let s8 = [
     },
     {
       t: "健康上门随访",
-      d: "为行动不便老人上门测量心率血压，数据同步健康小屋",
+      d: "为行动不便老人上门测量心率血压，数据同步��康小屋",
       icon: sU,
     },
     {
@@ -5409,7 +5409,7 @@ let tf = [
           <C_sc>
             <C_sd>活动介绍</C_sd>
             <p className="text-[13px] leading-relaxed text-ink-2">
-              邻里齐聚，赏月品茗，趣味游戏与才艺展示。现场设置灯谜区、手工月饼 DIY
+              邻里齐聚，赏月品茗，趣味游戏与才���展示。现场设置灯谜区、手工月饼 DIY
               与儿童游��区，欢迎携家人一同参加。活动免费，名额不限，欢迎广大业主积极参与。
             </p>
           </C_sc>
@@ -6107,11 +6107,8 @@ function C_tS({ pay: e }) {
       <div className="grid grid-cols-3 gap-2">
         {photos.map(([src, label]) => (
           <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
-            <eW.Image src={src} alt={label} fill={!0} sizes="110px" className="object-cover" />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-ink/55 px-1.5 py-0.5 text-[10px] text-surface">
-              {label}
-            </figcaption>
-          </figure>
+  <eW.Image src={src} alt={label} fill={!0} sizes="110px" className="object-cover" />
+  </figure>
         ))}
       </div>
     );
@@ -7576,7 +7573,7 @@ let tX = {
               {[
                 ["总额度", "¥1000.00"],
                 ["已使用", "¥132.00"],
-                ["剩余", "¥868.00"],
+                ["���余", "¥868.00"],
               ].map(([e, s]) => (
                 <span key={e} className="flex flex-col gap-0.5">
                   <span className="text-sm font-bold tabular-nums">{s}</span>
