@@ -9065,7 +9065,7 @@ let tX = {
             />
           </C_sc>
           <C_sc>
-            <C_sd extra={<span className="text-xs text-ink-3">0/6</span>}>完成凭证</C_sd>
+            <C_sd>完成凭证</C_sd>
             <C_sk max={6} hint="请上传服务完成后的现场照片，作为订单完成凭证。" />
           </C_sc>
         </C_si>
