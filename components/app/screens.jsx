@@ -7808,13 +7808,6 @@ let tX = {
             <C_so label="手机号码" value="138****6688" />
             <C_so label="认证状态" value={<C_sh tone="teal">已认证</C_sh>} onClick={() => e("certList")} />
           </C_sc>
-          <C_sc className="flex flex-col py-1">
-            <div className="pt-3">
-              <C_sd>协议与条款</C_sd>
-            </div>
-            <C_so label="用户协议" onClick={() => e("agreement")} />
-            <C_so label="隐私政策" onClick={() => e("privacy")} />
-          </C_sc>
         </C_si>
       );
     },
@@ -8015,7 +8008,7 @@ let tX = {
           }
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-3 rounded-[24px] p-5 text-surface">
-            <span className="text-xs opacity-90">本房号账单整合（业主 + 家人 + 租户）</span>
+            <span className="text-xs opacity-90">本房号账单整合</span>
             <div className="flex items-end justify-between">
               <span className="flex flex-col">
                 <span className="text-xs opacity-90">待结算合计</span>
