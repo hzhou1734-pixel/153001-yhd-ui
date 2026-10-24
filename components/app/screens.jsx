@@ -1384,10 +1384,14 @@ function C_sr({ title: e, right: s, onRight: t, noBack: l }) {
 }
 function C_si({ title: e, nav: s, children: t, bottom: l, className: a, tab: n }) {
   return (
-    <div className="absolute inset-x-0 top-[46px] bottom-0 flex flex-col">
+    <div className={eb("absolute inset-x-0 bottom-0 flex flex-col", n ? eb("top-0 pt-[46px]", a?.split(" ").filter((c) => c.startsWith("bg-")).join(" ")) : "top-[46px]")}>
       {s ?? (void 0 !== e ? <C_sr title={e} /> : null)}
       <div
-        className={eb("no-scrollbar flex flex-1 flex-col gap-3 overflow-y-auto px-4 pt-2 pb-6", n && "pb-[92px]", a)}
+        className={eb(
+          "no-scrollbar flex flex-1 flex-col gap-3 overflow-y-auto px-4 pt-2 pb-6",
+          n && "pb-[92px]",
+          n ? a?.split(" ").filter((c) => !c.startsWith("bg-")).join(" ") : a,
+        )}
       >
         {t}
       </div>
