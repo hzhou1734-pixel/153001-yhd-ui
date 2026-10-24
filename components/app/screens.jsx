@@ -6021,7 +6021,7 @@ function C_tz({ kind: e }) {
             </span>
             <span className="flex w-full flex-col gap-1.5 rounded-xl bg-fill px-3 py-2.5 text-xs tabular-nums">
               <span className="flex items-center justify-between gap-3">
-                <span className="text-ink-3">配送 / 使用</span>
+                <span className="text-ink-3">{"helper" === e ? "上门时间" : "配送 / 使用"}</span>
                 <span className="font-medium text-ink-2">{t.use}</span>
               </span>
               <span className="flex items-center justify-between gap-3">
