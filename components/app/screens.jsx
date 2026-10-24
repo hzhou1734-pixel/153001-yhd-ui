@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号���������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -5840,15 +5840,11 @@ let C_tk = ew("image", [
         submit: "09-03 16:00",
         price: "240.00",
         fees: [
-          ["挂号费", "20.00"],
-          ["打车费", "35.00"],
+          ["挂号费", "20.00", "/images/escort-fee-1.png"],
+          ["打车费", "35.00", "/images/escort-fee-2.png"],
         ],
         feeAt: "09-05 12:10",
         feeBy: "陪诊员 李敏",
-        feeProofs: [
-          ["/images/escort-fee-1.png", "挂号费收据"],
-          ["/images/escort-fee-2.png", "打车费行程单"],
-        ],
       },
       {
         code: "PZ20250820-006",
@@ -6596,26 +6592,23 @@ let t_ = [
                 <div className="flex flex-col gap-0.5">
                   <C_sm k="提交人" v={order.feeBy || "陪诊员 李敏"} />
                   <C_sm k="提交时间" v={order.feeAt} />
-                  <div className="my-1 flex flex-col gap-0.5 rounded-2xl bg-fill px-3 py-1">
-                    {fees.map(([k, v]) => (
-                      <C_sm key={k} k={k} v={`¥${v}`} />
+                  <ul className="mt-2 flex flex-col divide-y divide-hairline border-t border-hairline">
+                    {fees.map(([k, v, img]) => (
+                      <li key={k} className="flex items-center gap-3 py-3">
+                        <figure className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-fill">
+                          {img ? (
+                            <eW.Image src={img} alt={`${k}凭证`} fill={!0} sizes="56px" className="object-cover" />
+                          ) : null}
+                        </figure>
+                        <span className="flex-1 text-[15px] font-semibold text-ink">{k}</span>
+                        <span className="text-[15px] font-bold tabular-nums text-brand-deep">{`¥${v}`}</span>
+                      </li>
                     ))}
-                    <div className="border-t border-hairline">
-                      <C_sm k="附加费合计" v={`¥${feeTotal.toFixed(2)}`} accent={!0} />
-                    </div>
+                  </ul>
+                  <div className="-mx-1 flex items-center justify-between rounded-2xl bg-fill px-3 py-3">
+                    <span className="text-[13px] font-semibold text-ink-2">附加费合计</span>
+                    <span className="text-base font-bold tabular-nums text-brand-deep">{`¥${feeTotal.toFixed(2)}`}</span>
                   </div>
-                  {order.feeProofs?.length ? (
-                    <section className="flex flex-col gap-2.5 pt-2">
-                      <span className="text-[13px] font-semibold text-ink">缴费凭证</span>
-                      <div className="grid grid-cols-3 gap-2">
-                        {order.feeProofs.map(([src, label]) => (
-                          <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
-                            <eW.Image src={src} alt={label} fill={!0} sizes="110px" className="object-cover" />
-                          </figure>
-                        ))}
-                      </div>
-                    </section>
-                  ) : null}
                   {isPending ? (
                     <p className="mt-2 rounded-2xl bg-brand-soft p-3 text-xs leading-relaxed text-brand-deep">
                       陪诊员已上传缴费凭证，请核对后支付附加费用
@@ -8171,7 +8164,7 @@ let tX = {
             </span>
           </C_sc>
           <C_sc>
-            <C_sd>成员角色</C_sd>
+            <C_sd>成员��色</C_sd>
             <C_sb items={["家庭成员", "租户"]} value={l} onChange={a} />
           </C_sc>
           <C_sc
