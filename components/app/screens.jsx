@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保证每日 7-8 小时睡眠",
+                "保持规律作息，保证每�� 7-8 小时睡眠",
                 "3 个月后��查��脂四项，若持续升高建议就医",
               ]}
             />
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊������" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="��诊������" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -5176,7 +5176,7 @@ let tf = [
             <span className="absolute inset-x-4 bottom-4 flex items-end justify-between text-surface">
               <span className="flex flex-col gap-1">
                 <span className="text-lg font-bold">社区活动</span>
-                <span className="text-xs opacity-90">报名邻里活动，查看最新动态</span>
+                <span className="text-xs opacity-90">报名邻里活动，���看最新动态</span>
               </span>
               <span className="bg-brand-gradient rounded-full px-3 py-1.5 text-xs font-semibold">去报名</span>
             </span>
@@ -5776,6 +5776,7 @@ let C_tk = ew("image", [
         title: "午餐 · 1 份",
         use: "09-04",
         submit: "09-03 09:40",
+        canceledAt: "09-03 09:58",
         count: "共 1 份订单",
         price: "18.00",
       },
@@ -5870,7 +5871,7 @@ let C_tk = ew("image", [
         title: "水电维修 · 厨房水管更换",
         use: "08-29 10:00",
         submit: "08-28 09:20",
-        count: "共 1 份���单",
+        count: "��� 1 份���单",
         price: "150.00",
       },
     ],
@@ -6301,7 +6302,8 @@ let t_ = [
       const total = (subtotal + deliveryFee).toFixed(2);
       const logs = [{ title: "订单提交", time: order.submit, state: "done" }];
       if (isDone) logs.push({ title: "订单完成", time: `${order.use} 12:30`, state: "done" });
-      if (isCanceled) logs.push({ title: "订单已取消", time: order.submit, state: "done" });
+      const canceledAt = order.canceledAt || order.submit;
+      if (isCanceled) logs.push({ title: "订单已取消", time: canceledAt, state: "done" });
       return (
         <C_si
           title="报餐单详情"
@@ -6346,6 +6348,7 @@ let t_ = [
               v={isCanceled ? <C_sh tone="gray">已取消</C_sh> : <C_sh tone="teal">已支付</C_sh>}
             />
             <C_sm k="支付方式" v="顾好家币" />
+            {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
           {isDone ? (
             <C_sc>
@@ -7818,7 +7821,7 @@ let tX = {
         <C_si title="物业后台" className="bg-sub-wash">
           <C_sz>
             物业后台 ·
-            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整合后从额度���扣减。
+            按房号配置顾好家币额度。额度为房号级共享额度，同房号下业主、家人、租户账号共用，所有账单整���后从额度���扣减。
           </C_sz>
           <h2 className="px-1 text-[15px] font-bold text-ink">房号额度配置</h2>
           {[
@@ -8195,7 +8198,7 @@ let tX = {
                 <span className="text-[15px] font-bold text-ink">{s.t}</span>
                 <span className="text-xs text-ink-3">{s.d}</span>
               </span>
-              <C_sh tone={"处理中" === s.s ? "brand" : "warm"}>{s.s}</C_sh>
+              <C_sh tone={"处理��" === s.s ? "brand" : "warm"}>{s.s}</C_sh>
             </C_sc>
           ))}
         </C_si>
