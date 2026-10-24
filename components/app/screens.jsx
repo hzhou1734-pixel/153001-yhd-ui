@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号���助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4122,7 +4122,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证 7-8 小时睡眠",
-                "3 个月后复查血脂四项，若持续升高建议就医",
+                "3 个月后复查血脂四��，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4300,7 +4300,7 @@ let ti = [
                 )}
               />
             </div>
-            <C_sv label="陪诊日期（仅可选择未来 7 天内）" />
+            <C_sv label="陪诊日期（仅可选择未�� 7 天内）" />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
@@ -5740,7 +5740,7 @@ let C_tk = ew("image", [
       sub: "陪诊订单 · 暖心陪伴",
       screen: "ordersEscort",
       detail: "orderEscortDetail",
-      cnt: [1, 0, 1, 1],
+      cnt: [1, 1, 1, 1],
     },
     helper: {
       name: "生活帮手单",
@@ -5825,12 +5825,25 @@ let C_tk = ew("image", [
     ],
     escort: [
       {
+        code: "PZ20250904-007",
+        status: "进行中",
+        title: "专家门诊陪诊 · 半天",
+        use: "09-06 08:30",
+        submit: "09-04 14:20",
+        price: "240.00",
+      },
+      {
         code: "PZ20250903-002",
         status: "待支付",
         title: "医院就诊全程陪诊 · 半天",
         use: "09-05 09:00",
         submit: "09-03 16:00",
         price: "240.00",
+        fees: [
+          ["挂号费", "20.00"],
+          ["打车费", "35.00"],
+        ],
+        feeAt: "09-05 12:10",
       },
       {
         code: "PZ20250820-006",
@@ -5882,6 +5895,7 @@ let C_tk = ew("image", [
   },
   selectedMealOrder = null,
   selectedTrustOrder = null,
+  selectedEscortOrder = null,
   tw = {
     进行中: "brand",
     已完成: "teal",
@@ -5977,6 +5991,7 @@ function C_tz({ kind: e }) {
                 onClick={() => {
                   if ("meal" === e) selectedMealOrder = t;
                   if ("trust" === e) selectedTrustOrder = t;
+                  if ("escort" === e) selectedEscortOrder = t;
                   s(a.detail);
                 }}
                 className="press flex flex-col gap-3 text-left"
@@ -6276,6 +6291,7 @@ let t_ = [
                   onClick={() => {
                     if ("meal" === it.kind) selectedMealOrder = tv.meal.find((o) => o.code === it.code) || null;
                     if ("trust" === it.kind) selectedTrustOrder = tv.trust.find((o) => o.code === it.code) || null;
+                    if ("escort" === it.kind) selectedEscortOrder = tv.escort.find((o) => o.code === it.code) || null;
                     e(ty[it.kind].detail);
                   }}
                   className="press flex flex-col gap-2"
@@ -6476,49 +6492,83 @@ let t_ = [
       );
     },
     orderEscortDetail: function () {
+      const order = selectedEscortOrder || tv.escort[0];
+      const isActive = "进行中" === order.status;
+      const isPending = "待支付" === order.status;
+      const isDone = "已完成" === order.status;
+      const isCanceled = "已取消" === order.status;
+      const fees = order.fees || [];
+      const feeTotal = fees.reduce((sum, [, v]) => sum + Number(v), 0);
+      const total = (Number(order.price) + feeTotal).toFixed(2);
+      const [serviceName, duration] = order.title.split(" · ");
+      const canceledAt = order.canceledAt || order.submit;
+      const logs = [{ title: "订单提交", time: order.submit, state: "done" }];
+      if (isPending) logs.push({ title: "陪诊员提交附加费", time: order.feeAt, state: "done" });
+      if (isDone) logs.push({ title: "订单完成", time: `${order.use.split(" ")[0]} 12:00`, state: "done" });
+      if (isCanceled) logs.push({ title: "订单已取消", time: canceledAt, state: "done" });
+      const paymentTag = isCanceled ? (
+        <C_sh tone="gray">已取消</C_sh>
+      ) : isPending ? (
+        <C_sh tone="red">待支付</C_sh>
+      ) : (
+        <C_sh tone="teal">已支付</C_sh>
+      );
+      const bottom = isActive ? <C_tS /> : isPending ? <C_tS pay={!0} /> : isDone ? <C_mealReviewBar /> : undefined;
       return (
-        <C_si title="陪诊单详情" className="bg-sub-wash" bottom={<C_tS pay={!0} />}>
+        <C_si title="陪诊单详情" className="bg-sub-wash" bottom={bottom}>
           <C_tC
             kind="陪诊单"
-            code="PZ20250903-002"
-            status="待支付"
-            title="医院就诊全程陪诊 · 半天"
-            sub="陪诊日期：09-05 09:00 · 提交：2026-09-03 16:00"
-            price="240.00"
+            code={order.code}
+            status={order.status}
+            title={order.title}
+            sub={`陪诊日期：${order.use} · 提交：${order.submit}`}
+            price={order.price}
           />
           <C_sc>
             <C_sd>陪诊信息</C_sd>
-            <C_sm k="服务名称" v="医院就诊全程陪诊" />
-            <C_sm k="陪诊日期" v="09-05 09:00" />
-            <C_sm k="服务时长" v="半天" />
+            <C_sm k="服务名称" v={serviceName} />
+            <C_sm k="陪诊日期" v={order.use} />
+            <C_sm k="服务时长" v={duration} />
             <C_sm k="陪诊地址" v="市第一人民医院" />
           </C_sc>
           <C_tM img="3 张 · 下单上传" video="00:18 · 下单上传" />
-          <C_sc>
-            <C_sd>附加费明细</C_sd>
-            <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
-              暂无需支付的附加费用，待陪诊服务完成后由陪诊员上传缴费凭证
-            </p>
-          </C_sc>
+          {isCanceled ? null : (
+            <C_sc>
+              <C_sd>附加费明细</C_sd>
+              {fees.length ? (
+                <div className="flex flex-col gap-0.5">
+                  {fees.map(([k, v]) => (
+                    <C_sm key={k} k={k} v={`¥${v}`} />
+                  ))}
+                  <p className="mt-1 rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
+                    陪诊员已上传缴费凭证，请核对后支付附加费用
+                  </p>
+                </div>
+              ) : (
+                <p className="rounded-2xl bg-fill p-3 text-xs leading-relaxed text-ink-2">
+                  {isActive
+                    ? "陪诊服务进行中，如产生挂号费、打车费等垫付费用，陪诊员将在服务完成后提交附加费"
+                    : "本次服务未产生附加费用"}
+                </p>
+              )}
+            </C_sc>
+          )}
           <C_sc>
             <C_sd>支付信息</C_sd>
-            <C_sm k="基础费用" v="¥240.00" />
-            <C_sm k="附加费用" v="¥0.00" />
-            <C_sm k="订单总额" v="¥240.00" accent={!0} />
-            <C_sm k="支付状态" v={<C_sh tone="red">未支付</C_sh>} />
-            <C_sm k="支付方式" v="/" />
+            <C_sm k="基础费用" v={`¥${order.price}`} />
+            <C_sm k="附加费用" v={isActive ? "待陪诊员提交" : `¥${feeTotal.toFixed(2)}`} />
+            {isPending ? (
+              <C_sm k="待支付金额" v={`¥${feeTotal.toFixed(2)}`} accent={!0} />
+            ) : (
+              <C_sm k={isActive ? "预估金额" : "订单总额"} v={`¥${total}`} accent={!0} />
+            )}
+            <C_sm k="支付状态" v={paymentTag} />
+            <C_sm k="支付方式" v={isPending ? "/" : "顾好家币"} />
+            {isCanceled ? <C_sm k="取消时间" v={canceledAt} /> : null}
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
-            <C_s_
-              items={[
-                {
-                  title: "订单提交",
-                  time: "2026-09-03 16:00",
-                  state: "done",
-                },
-              ]}
-            />
+            <C_s_ items={logs} />
           </C_sc>
         </C_si>
       );
@@ -8427,7 +8477,7 @@ let tX = {
               <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">进行中</span>
             </div>
             <span className="text-xl font-bold">家电维修</span>
-            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服务</span>
+            <span className="text-xs opacity-90">物业后台已派单，请按约定��间上门服务</span>
           </div>
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
@@ -8747,7 +8797,7 @@ let tX = {
           ["二、账号与安全", "账号仅限本人使用，请妥善保管登录凭证；因个人保管不当造成的损失由用户自行承担。"],
           ["三、社区服务规范", "您通过本平台发布的内容不得违反法律法规及社区公约，平台有权对违规内容进行处理。"],
           ["四、服务的变更与中止", "平台有权根据运营需要对服务内容进行调整、中止或终止，并提前予以公告。"],
-          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担相应责任。"],
+          ["五、免责声明", "因不可抗力、网络故障等原因导致服务无法正常提供的，平台不承担��应责任。"],
         ]}
       />
     ),
