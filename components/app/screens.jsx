@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�����助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4122,7 +4122,7 @@ let ti = [
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
                 "保持规律作息，保证 7-8 小时睡眠",
-                "3 个月后复查血��四��，若持续升高建议就医",
+                "3 个月后复��血��四��，若持续升高建议就医",
               ]}
             />
           </C_sc>
@@ -4300,7 +4300,7 @@ let ti = [
                 )}
               />
             </div>
-            <C_sv label="陪诊日期（仅可��择未�� 7 天内）" />
+            <C_sv label="陪诊日期��仅可��择未�� 7 天内）" />
           </C_sc>
           <C_sc className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
@@ -4310,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单��1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -4666,7 +4666,7 @@ let ti = [
         >
           <C_s3
             img="/images/meal-fish.png"
-            title="适老营养���"
+            title="���老营养���"
             tag="推荐"
             desc="由营养师 + 三星主厨联合研发 · 每日新鲜配送"
             price={
@@ -5875,7 +5875,7 @@ let C_tk = ew("image", [
       },
       {
         code: "SH20250902-003",
-        status: "已完成",
+        status: "���完成",
         title: "空调维修 · 挂机加氟",
         use: "09-02 14:00",
         submit: "09-01 20:10",
@@ -6094,6 +6094,58 @@ function C_tM({ img: e, video: s }) {
       <p className="mt-2 text-[11px] text-ink-3">
         图片（{e}） · 视频（{s}）
       </p>
+    </C_sc>
+  );
+}
+function C_escortMedia({ images, video }) {
+  const { toast } = o();
+  return (
+    <C_sc>
+      <div className="flex flex-col gap-5">
+        <section className="flex flex-col gap-2.5">
+          <div className="flex items-center gap-2">
+            <span className="text-[13px] font-semibold text-ink">图片资料</span>
+            <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">
+              {images.length}/6
+            </span>
+          </div>
+          <p className="text-xs text-ink-3">下单时上传的病情或就医相关资料图片</p>
+          <div className="grid grid-cols-3 gap-2">
+            {images.map(([src, label]) => (
+              <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
+                <eW.Image src={src} alt={label} fill={!0} sizes="110px" className="object-cover" />
+              </figure>
+            ))}
+          </div>
+        </section>
+        {video ? (
+          <section className="flex flex-col gap-2.5 border-t border-hairline pt-5">
+            <div className="flex items-center gap-2">
+              <span className="text-[13px] font-semibold text-ink">视频资料</span>
+              <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] text-ink-3 tabular-nums">1/1</span>
+            </div>
+            <p className="text-xs text-ink-3">下单时上传的病情或就医相关视频</p>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => toast("正在播放视频")}
+                aria-label={`播放视频，时长 ${video.duration}`}
+                className="press relative aspect-square overflow-hidden rounded-xl bg-ink"
+              >
+                <eW.Image src={video.poster} alt="" fill={!0} sizes="110px" className="object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/30">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-surface/90 text-ink">
+                    <C_sn className="size-4" />
+                  </span>
+                </span>
+                <span className="absolute right-1.5 bottom-1.5 rounded-md bg-ink/60 px-1.5 py-0.5 text-[10px] text-surface tabular-nums">
+                  {video.duration}
+                </span>
+              </button>
+            </div>
+          </section>
+        ) : null}
+      </div>
     </C_sc>
   );
 }
@@ -6531,7 +6583,14 @@ let t_ = [
             <C_sm k="服务时长" v={duration} />
             <C_sm k="陪诊地址" v="市第一人民医院" />
           </C_sc>
-          <C_tM img="3 张 · 下单上传" video="00:18 · 下单上传" />
+          <C_escortMedia
+            images={[
+              ["/images/escort-upload-1.png", "检查报告单"],
+              ["/images/escort-upload-2.png", "病历与药品"],
+              ["/images/escort-upload-3.png", "X 光片"],
+            ]}
+            video={{ poster: "/images/escort-upload-video.png", duration: "00:18" }}
+          />
           {isCanceled ? null : (
             <C_sc>
               <C_sd>附加费明细</C_sd>
@@ -7545,7 +7604,7 @@ let tX = {
             title="家庭与设备"
             items={[
               {
-                t: "我的家人",
+                t: "我的家��",
                 icon: C_eL,
                 to: "family",
                 tint: "bg-warm-soft text-warm-ink",
@@ -8782,7 +8841,7 @@ let tX = {
               <C_sd>版本与协议</C_sd>
             </div>
             <C_so label="版本号" value="v1.0.339" />
-            <C_so label="用户协议" onClick={() => e("agreement")} />
+            <C_so label="用户��议" onClick={() => e("agreement")} />
             <C_so label="隐私政策" onClick={() => e("privacy")} />
           </C_sc>
         </C_si>
