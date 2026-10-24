@@ -2355,7 +2355,7 @@ function C_sI({ sub: e = "社区服务，从家开始" }) {
   );
 }
 function sO() {
-  let { go: e, reset: s } = o(),
+  let { go: e, reset: s, toast: wxToast } = o(),
     [t, l] = (0, c.useState)("验证码登录"),
     [a, n] = (0, c.useState)(!1);
   return (
@@ -2404,7 +2404,7 @@ function sO() {
           其他登录方式
           <span className="h-px flex-1 bg-hairline" />
         </span>
-        <button type="button" onClick={() => e("wechatLogin")} className="press flex flex-col items-center gap-1.5">
+        <button type="button" onClick={() => wxToast("打开微信授权")} className="press flex flex-col items-center gap-1.5">
           <span className="shadow-card flex size-12 items-center justify-center rounded-full bg-success-soft text-success">
             <C_e6 className="size-6" />
           </span>
