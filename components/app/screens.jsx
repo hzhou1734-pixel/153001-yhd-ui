@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号���������������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保�� 7-8 小时睡眠",
+                "保持规律作息��保�� 7-8 小时睡眠",
                 "3 ��月��复��血��四��，若持续升高建议就医",
               ]}
             />
@@ -5169,7 +5169,7 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="社区" sub="���光花��� · 邻里有温度" />
+          <C_tu title="社区" sub="���光花����� · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
@@ -5853,7 +5853,6 @@ let C_tk = ew("image", [
         use: "08-22 08:30",
         submit: "08-20 10:30",
         price: "160.00",
-        old: "180.00",
         payMethod: "支付宝支付",
         fees: [
           ["挂号费", "15.00", "/images/escort-fee-1.png"],
@@ -8164,7 +8163,7 @@ let tX = {
             <span className="flex flex-col gap-0.5">
               <span className="text-lg font-bold text-ink">爸爸</span>
               <span className="text-xs text-ink-2">
-                {"阳光花园 3栋2单元-1802 · "}
+                {"阳光花园 3��2单元-1802 · "}
                 {l}
               </span>
             </span>
@@ -8528,7 +8527,7 @@ let tX = {
             <C_su label="联系电话" placeholder="请输入联系电话" type="tel" required={!0} />
             <div className="flex flex-col gap-2">
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
-              <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
+              <C_sb items={["家电维修", "管道���通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
             <C_su label="技能描述" placeholder="请描述从业经验与���长技能" textarea={!0} />
           </C_sc>
@@ -8566,7 +8565,7 @@ let tX = {
           <C_sc>
             <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
             <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
-            <C_sm k="服务数量" v="1 · 线下收取" />
+            <C_sm k="服务数量" v="1 · 线下收��" />
             <C_sm k="服务金额" v="¥150.00" accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
