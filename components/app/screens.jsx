@@ -3542,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号�����������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号�������������������������助 · 陪诊陪同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4121,7 +4121,7 @@ let ti = [
               items={[
                 "减少动物内脏、油炸食品摄入，增加蔬菜与粗粮比例",
                 "每周进行 3-5 次有氧运动，如快走、游泳、骑行",
-                "保持规律作息，保证 7-8 小时睡眠",
+                "保持规律作息，保�� 7-8 小时睡眠",
                 "3 ��月��复��血��四��，若持续升高建议就医",
               ]}
             />
@@ -5169,7 +5169,7 @@ let tf = [
         ];
       return (
         <C_si tab={!0} className="bg-sub-wash">
-          <C_tu title="社区" sub="阳光花��� · 邻里有温度" />
+          <C_tu title="社区" sub="���光花��� · 邻里有温度" />
           <C_sc onClick={() => e("communityList")} className="relative h-40 overflow-hidden p-0">
             <eW.Image src="/images/act-midautumn.png" alt="" fill={!0} sizes="343px" className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-[#3a230c]/75 to-transparent" />
@@ -5852,10 +5852,16 @@ let C_tk = ew("image", [
         title: "体检陪诊 · 整天",
         use: "08-22 08:30",
         submit: "08-20 10:30",
-  price: "160.00",
-  old: "180.00",
-  payMethod: "支付宝支付",
-  },
+        price: "160.00",
+        old: "180.00",
+        payMethod: "支付宝支付",
+        fees: [
+          ["挂号费", "15.00", "/images/escort-fee-1.png"],
+          ["打车费", "28.00", "/images/escort-fee-2.png"],
+        ],
+        feeAt: "08-22 11:40",
+        feeBy: "陪诊员 王芳",
+      },
       {
         code: "PZ20250805-001",
         status: "已取消",
@@ -6549,7 +6555,7 @@ let t_ = [
       const [serviceName, duration] = order.title.split(" · ");
       const canceledAt = order.canceledAt || order.submit;
       const logs = [{ title: "订单提交", time: order.submit, state: "done" }];
-      if (isPending) logs.push({ title: "陪诊员提交附加费", time: order.feeAt, state: "done" });
+      if ((isPending || isDone) && order.feeAt) logs.push({ title: "陪诊员提交附加费", time: order.feeAt, state: "done" });
       if (isDone) logs.push({ title: "订单完成", time: `${order.use.split(" ")[0]} 12:00`, state: "done" });
       if (isCanceled) logs.push({ title: "订单已取消", time: canceledAt, state: "done" });
       const paymentTag = isCanceled ? (
@@ -7731,7 +7737,7 @@ let tX = {
       return (
         <C_si title="换绑手机号" className="bg-sub-wash gap-4">
           <C_sc className="flex flex-col items-center gap-1 py-5">
-            <span className="text-xs text-ink-3">���前号码</span>
+            <span className="text-xs text-ink-3">����前号码</span>
             <span className="text-2xl font-bold text-ink tabular-nums">138****6688</span>
           </C_sc>
           <C_sc className="flex flex-col gap-3">
@@ -8524,10 +8530,10 @@ let tX = {
               <span className="text-[13px] font-medium text-ink-2">服务类目</span>
               <C_sb items={["家电维修", "管道疏通", "家政保洁", "开锁换锁", "家具安装"]} value={t} onChange={l} />
             </div>
-            <C_su label="技能描述" placeholder="请描述从业经验与擅长技能" textarea={!0} />
+            <C_su label="技能描述" placeholder="请描述从业经验与���长技能" textarea={!0} />
           </C_sc>
           <C_sc>
-            <C_sk max={6} hint="上传凭证（证书 / 资质照片），如：低压电工证" />
+            <C_sk max={6} hint="上���凭证（证书 / 资质照片），如：低压电工证" />
           </C_sc>
         </C_si>
       );
