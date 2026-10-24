@@ -9038,9 +9038,6 @@ let tX = {
               <span className="flex size-16 items-center justify-center rounded-2xl bg-brand-mist text-brand-deep">
                 <C_tk className="size-5" />
               </span>
-              <span className="flex size-16 items-center justify-center rounded-2xl bg-ink text-surface">
-                <C_sn className="size-5" />
-              </span>
             </div>
           </C_sc>
           <C_sc>
