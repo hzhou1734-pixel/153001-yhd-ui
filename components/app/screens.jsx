@@ -2103,6 +2103,7 @@ function C_sN({ min: e = 1, max: s = 5, initial: t = 1 }) {
     </div>
   );
 }
+let hrSel = null;
 function C_sk({ kind: e = "image", max: s, hint: t }) {
   return (
     <div className="flex flex-col gap-3">
@@ -8955,7 +8956,7 @@ let tX = {
               <C_sc className="py-8 text-center text-sm text-ink-3">{community}暂无相关订单</C_sc>
             ) : null}
             {list.map((r) => (
-              <C_sc key={r.id} onClick={() => e("hrOrderDetail")} className="flex flex-col gap-2">
+              <C_sc key={r.id} onClick={() => { hrSel = r; e("hrOrderDetail"); }} className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-ink-3 tabular-nums">{r.id}</span>
                   <C_sh tone={{ 进行中: "brand", 已完成: "teal", 已取消: "gray" }[r.st]}>{r.st}</C_sh>
@@ -8991,13 +8992,19 @@ let tX = {
       );
     },
     hrOrderDetail: function () {
-      let { back: e, toast: s } = o();
+      let { back: e, toast: s } = o(),
+        od = hrSel || { id: "#HR20250918-001", n: "家电维修", time: "09-21 14:00 - 16:00", addr: "阳光花园 3栋2单元1802", amt: "¥150.00", st: "进行中" },
+        isDone = "已完成" === od.st,
+        isCancel = "已取消" === od.st,
+        [startAt, endAt] = od.time.split(" - "),
+        doneAt = startAt.split(" ")[0] + " " + endAt,
+        createdAt = hrSel ? startAt.split(" ")[0] + " 08:30" : "09-18 10:20";
       return (
         <C_si
           title="订单详情"
           className="bg-sub-wash"
           bottom={
-            <C_sp
+            "进行中" === od.st && <C_sp
               block={!0}
               onClick={() => {
                 (s("已确认完成"), e());
@@ -9009,17 +9016,19 @@ let tX = {
         >
           <div className="bg-hero-wash shadow-float flex flex-col gap-2 rounded-[24px] p-5 text-surface">
             <div className="flex items-center justify-between text-xs">
-              <span className="opacity-90 tabular-nums">#HR20250918-001</span>
-              <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">进行中</span>
+              <span className="opacity-90 tabular-nums">{od.id}</span>
+              <span className="rounded-full bg-surface px-2.5 py-0.5 font-semibold text-brand-deep">{od.st}</span>
             </div>
-            <span className="text-xl font-bold">家电维修</span>
-            <span className="text-xs opacity-90">物业后台已派单，请按约定时间上门服务</span>
+            <span className="text-xl font-bold">{od.n}</span>
+            <span className="text-xs opacity-90">
+              {isDone ? "服务已完成，感谢您的上门服务" : isCancel ? "订单已取消，无需上门服务" : "物业后台已派单，请按约定时间上门服务"}
+            </span>
           </div>
           <C_sc>
-            <C_sm k="上门时间" v="09-21 14:00 - 16:00" />
-            <C_sm k="服务地址" v="阳光花园 3栋2单元1802" />
+            <C_sm k="上门时间" v={od.time} />
+            <C_sm k="服务地址" v={od.addr} />
             <C_sm k="服务数量" v="1 · 线下收取" />
-            <C_sm k="预估金额" v="¥150.00" accent={!0} />
+            <C_sm k="预估金额" v={od.amt} accent={!0} />
           </C_sc>
           <C_sc className="flex items-center gap-3">
             <C_sS name="张" size={44} tone="warm" />
@@ -9046,7 +9055,7 @@ let tX = {
           </C_sc>
           <C_sc>
             <C_sd>金额信息</C_sd>
-            <C_sm k="预估金额" v="¥150.00" />
+            <C_sm k="预估金额" v={od.amt} />
             <C_sm k="收款方式" v="线上不做收款，服务金额由线下收取" />
           </C_sc>
           <C_sc>
@@ -9055,16 +9064,33 @@ let tX = {
               items={[
                 {
                   title: "创建时间",
-                  time: "09-18 10:20",
+                  time: createdAt,
                   state: "done",
                 },
+                ...(isDone ? [{ title: "完成时间", time: doneAt, state: "done" }] : []),
               ]}
             />
           </C_sc>
-          <C_sc>
-            <C_sd>完成凭证</C_sd>
-            <C_sk max={6} hint="请上传服务完成后的现场照片，作为订单完成凭证。" />
-          </C_sc>
+          {isDone ? (
+            <C_sc>
+              <C_sd>完成凭证</C_sd>
+              <div className="grid grid-cols-4 gap-2">
+                {["/images/hr-proof-1.png", "/images/hr-proof-2.png"].map((src, i) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={"完成凭证照片 " + (i + 1)}
+                    className="aspect-square w-full rounded-xl object-cover"
+                  />
+                ))}
+              </div>
+            </C_sc>
+          ) : isCancel ? null : (
+            <C_sc>
+              <C_sd>完成凭证</C_sd>
+              <C_sk max={6} hint="请上传服务完成后的现场照片，作为订单完成凭证。" />
+            </C_sc>
+          )}
         </C_si>
       );
     },
