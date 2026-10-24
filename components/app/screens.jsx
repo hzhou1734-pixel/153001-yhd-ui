@@ -1498,6 +1498,53 @@ function C_sp({ children: e, variant: s = "primary", size: t = "lg", block: l, o
     </button>
   );
 }
+function C_hrMaterials({ status: st }) {
+  return (
+    <>
+      <C_sc>
+        <C_sd extra={st}>基础资料</C_sd>
+        <C_sm k="意向服务小区" v="阳光花园" />
+        <C_sm k="姓名" v="李建国" />
+        <C_sm k="联系电话" v="138****6688" />
+        <C_sm k="服务类目" v="家电维修 · 管道疏通" />
+      </C_sc>
+      <C_sc>
+        <C_sd>技能描述</C_sd>
+        <p className="text-[13px] leading-relaxed text-ink-2">
+          10 年水电维修经验，持低压电工证；擅长家电检修、管道疏通、水电安装，工具齐全，市区 30 分钟内响应。
+        </p>
+      </C_sc>
+      <C_sc>
+        <C_sd>凭证资料</C_sd>
+        <div className="grid grid-cols-2 gap-2.5">
+          {["低压电工证", "技能证书"].map((e) => (
+            <span
+              key={e}
+              className="flex h-24 flex-col items-center justify-center gap-1.5 rounded-2xl bg-brand-mist text-brand-deep"
+            >
+              <C_tk className="size-6" />
+              <span className="text-xs text-ink-2">{e}</span>
+            </span>
+          ))}
+        </div>
+      </C_sc>
+    </>
+  );
+}
+function C_hrStatusBanner({ tone: t, title: a, desc: d }) {
+  const cls =
+    "red" === t
+      ? "bg-danger-soft text-danger"
+      : "teal" === t
+        ? "bg-success-soft text-success"
+        : "bg-warm-soft text-warm-ink";
+  return (
+    <div className={"flex flex-col gap-1 rounded-[24px] p-5 " + cls}>
+      <span className="text-lg font-bold">{a}</span>
+      <span className="text-xs leading-relaxed opacity-90">{d}</span>
+    </div>
+  );
+}
 function C_sh({ tone: e = "brand", children: s, className: t }) {
   return (
     <span
@@ -8681,15 +8728,26 @@ let tX = {
             </button>
             <span className="text-center text-[11px] opacity-90">提交后由物业审核，通过后进入人才库</span>
           </div>
-          <C_sc onClick={() => e("hrCertView")} className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
-              <C_sG className="size-5" />
-            </span>
-            <span className="flex flex-1 flex-col gap-0.5">
-              <span className="text-sm font-semibold text-ink">我的认证资料</span>
-              <span className="text-xs text-ink-3">家电维修 · 管道疏通</span>
-            </span>
-            <C_sh tone="teal">已通过</C_sh>
+          <C_sc className="flex flex-col gap-1">
+            <C_sd>认证进度</C_sd>
+            {[
+              { k: "hrPending", t: "审核中", d: "资料已提交，等待物业审核", tone: "warm" },
+              { k: "hrRejected", t: "已驳回", d: "凭证照片不清晰，请修改后重新提交", tone: "red" },
+              { k: "hrApproved", t: "已通过", d: "已进入小区人才库 · 查看派单", tone: "teal" },
+            ].map((r) => (
+              <button
+                key={r.k}
+                type="button"
+                onClick={() => e(r.k)}
+                className="press flex items-center gap-3 border-t border-line py-3 text-left first:border-t-0"
+              >
+                <span className="flex flex-1 flex-col gap-0.5">
+                  <span className="text-sm font-semibold text-ink">我的认证资料</span>
+                  <span className="text-xs text-ink-3">{r.d}</span>
+                </span>
+                <C_sh tone={r.tone}>{r.t}</C_sh>
+              </button>
+            ))}
           </C_sc>
           <C_sc onClick={() => e("hrOrderDetail")} className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
@@ -8748,7 +8806,8 @@ let tX = {
       );
     },
     hrCertApply: function () {
-      let { back: e, toast: s } = o(),
+      let { replace: rp, toast: s } = o(),
+        e = () => rp("hrPending"),
         [t, l] = (0, c.useState)("家电维修"),
         [community, setCommunity] = (0, c.useState)(null),
         [communityOpen, setCommunityOpen] = (0, c.useState)(!1);
@@ -8793,6 +8852,110 @@ let tX = {
               onClose={() => setCommunityOpen(!1)}
             />
           ) : null}
+        </C_si>
+      );
+    },
+    hrPending: function () {
+      return (
+        <C_si
+          title="审核中"
+          className="bg-sub-wash"
+          bottom={
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              className="h-12 w-full cursor-not-allowed rounded-full bg-fill text-sm font-semibold text-ink-3"
+            >
+              审核中，暂不可修改
+            </button>
+          }
+        >
+          <C_hrStatusBanner tone="warm" title="资料审核中" desc="已于 09-18 10:20 提交，物业将在 1-3 个工作日内完成审核，期间资料不可修改。" />
+          <C_sc>
+            <C_sd>审核进度</C_sd>
+            <C_s_
+              items={[
+                { title: "提交资料", time: "09-18 10:20", state: "done" },
+                { title: "物业审核", time: "审核中", state: "doing" },
+                { title: "进入人才库", time: "待审核通过", state: "todo" },
+              ]}
+            />
+          </C_sc>
+          <C_hrMaterials status={<C_sh tone="warm">审核中</C_sh>} />
+        </C_si>
+      );
+    },
+    hrRejected: function () {
+      let { go: e } = o();
+      return (
+        <C_si
+          title="已驳回"
+          className="bg-sub-wash"
+          bottom={
+            <C_sp block={!0} onClick={() => e("hrCertApply")}>
+              修改资料
+            </C_sp>
+          }
+        >
+          <C_hrStatusBanner tone="red" title="审核未通过" desc="物业已于 09-19 15:30 驳回本次认证，请根据驳回原因修改后重新提交。" />
+          <C_sc>
+            <C_sd>驳回原因</C_sd>
+            <p className="rounded-2xl bg-danger-soft p-3 text-[13px] leading-relaxed text-danger">
+              上传的低压电工证照片模糊，无法辨认证件编号与有效期，请重新拍摄清晰的证件正面照片后提交。
+            </p>
+            <span className="mt-2 block text-xs text-ink-3">审核人：阳光花园物业 · 09-19 15:30</span>
+          </C_sc>
+          <C_hrMaterials status={<C_sh tone="red">已驳回</C_sh>} />
+        </C_si>
+      );
+    },
+    hrApproved: function () {
+      let { go: e } = o(),
+        [t, l] = (0, c.useState)("全部"),
+        orders = [
+          { id: "#HR20250918-001", n: "家电维修", time: "09-21 14:00 - 16:00", addr: "阳光花园 3栋2单元1802", amt: "¥150.00", st: "进行中" },
+          { id: "#HR20250915-004", n: "管道疏通", time: "09-16 09:00 - 10:00", addr: "阳光花园 5栋1单元0602", amt: "¥80.00", st: "已完成" },
+          { id: "#HR20250910-002", n: "家电维修", time: "09-11 15:00 - 17:00", addr: "阳光花园 2栋3单元1101", amt: "¥200.00", st: "已完成" },
+          { id: "#HR20250905-007", n: "管道疏通", time: "09-06 10:00 - 11:00", addr: "阳光花园 1栋2单元0303", amt: "¥60.00", st: "已完成" },
+        ],
+        list = "全部" === t ? orders : orders.filter((r) => r.st === t);
+      return (
+        <C_si title="已通过" className="bg-sub-wash">
+          <C_hrStatusBanner tone="teal" title="认证已通过" desc="已进入阳光花园人才库，物业将根据业主需求为您派单。" />
+          <C_sc onClick={() => e("hrCertView")} className="flex items-center gap-3">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
+              <C_sG className="size-5" />
+            </span>
+            <span className="flex flex-1 flex-col gap-0.5">
+              <span className="text-sm font-semibold text-ink">我的认证资料</span>
+              <span className="text-xs text-ink-3">家电维修 · 管道疏通</span>
+            </span>
+            <C_sh tone="teal">已通过</C_sh>
+          </C_sc>
+          <div className="flex items-center justify-between px-1">
+            <span className="text-base font-bold text-ink">派单订单</span>
+            <span className="text-xs text-ink-3">共 {orders.length} 单</span>
+          </div>
+          <C_sj items={["全部", "进行中", "已完成"]} value={t} onChange={l} />
+          <div className="flex flex-col gap-3">
+            {list.map((r) => (
+              <C_sc key={r.id} onClick={() => e("hrOrderDetail")} className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-ink-3 tabular-nums">{r.id}</span>
+                  <C_sh tone={"进行中" === r.st ? "brand" : "gray"}>{r.st}</C_sh>
+                </div>
+                <div className="flex items-end justify-between gap-3">
+                  <span className="flex flex-col gap-0.5">
+                    <span className="text-[15px] font-semibold text-ink">{r.n}</span>
+                    <span className="text-xs text-ink-3 tabular-nums">{r.time}</span>
+                    <span className="text-xs text-ink-3">{r.addr}</span>
+                  </span>
+                  <span className="text-base font-bold text-ink tabular-nums">{r.amt}</span>
+                </div>
+              </C_sc>
+            ))}
+          </div>
         </C_si>
       );
     },
@@ -9262,6 +9425,9 @@ let tX = {
     hr: "人力资源",
     hrCertView: "认证资料",
     hrCertApply: "人才认证",
+    hrPending: "审核中",
+    hrRejected: "已驳回",
+    hrApproved: "已通过",
     hrOrderDetail: "派单详情",
     sysMsg: "系统消息",
     sysMsgDetail: "消息详情",
