@@ -8749,16 +8749,6 @@ let tX = {
               </button>
             ))}
           </C_sc>
-          <C_sc onClick={() => e("hrOrderDetail")} className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-soft text-brand-deep">
-              <C_tB className="size-5" />
-            </span>
-            <span className="flex flex-1 flex-col gap-0.5">
-              <span className="text-sm font-semibold text-ink">派单 · 家电维修</span>
-              <span className="text-xs text-ink-3">09-21 14:00 - 16:00 · 阳光花园</span>
-            </span>
-            <C_sh>进行中</C_sh>
-          </C_sc>
         </C_si>
       );
     },
