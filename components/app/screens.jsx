@@ -9038,6 +9038,10 @@ let tX = {
               <span className="flex size-16 items-center justify-center rounded-2xl bg-brand-mist text-brand-deep">
                 <C_tk className="size-5" />
               </span>
+              <span className="flex size-16 flex-col items-center justify-center gap-0.5 rounded-2xl bg-brand-mist text-brand-deep" aria-label="视频附件，时长 32 秒">
+                <C_sn className="size-5" />
+                <span className="text-[10px] tabular-nums">00:32</span>
+              </span>
             </div>
           </C_sc>
           <C_sc>
