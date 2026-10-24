@@ -8553,9 +8553,7 @@ let tX = {
             <div className="pt-3">
               <C_sd>设备管理</C_sd>
             </div>
-            <C_so label="修改名称" desc="仅在本系统内生效" onClick={() => e("bandRename")} />
             <C_so label="历史数据" desc="心率 · 血压 · 血脂" onClick={() => e("healthData")} />
-            <C_so label="更换设备" onClick={() => e("bandConnect")} />
           </C_sc>
           <C_sp block={!0} variant="danger" onClick={() => s("已断开连接")}>
             断开连接
