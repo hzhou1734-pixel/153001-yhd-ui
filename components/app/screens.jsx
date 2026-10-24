@@ -8901,18 +8901,40 @@ let tX = {
       );
     },
     hrApproved: function () {
-      let { go: e } = o(),
+      let { go: e, toast: ts } = o(),
         [t, l] = (0, c.useState)("全部"),
-        orders = [
+        communities = ["阳光花园", "翠湖雅苑", "锦绣华庭"],
+        [community, setCommunity] = (0, c.useState)(communities[0]),
+        [communityOpen, setCommunityOpen] = (0, c.useState)(!1),
+        allOrders = [
           { id: "#HR20250918-001", n: "家电维修", time: "09-21 14:00 - 16:00", addr: "阳光花园 3栋2单元1802", amt: "¥150.00", st: "进行中" },
           { id: "#HR20250915-004", n: "管道疏通", time: "09-16 09:00 - 10:00", addr: "阳光花园 5栋1单元0602", amt: "¥80.00", st: "已完成" },
           { id: "#HR20250910-002", n: "家电维修", time: "09-11 15:00 - 17:00", addr: "阳光花园 2栋3单元1101", amt: "¥200.00", st: "已完成" },
           { id: "#HR20250905-007", n: "管道疏通", time: "09-06 10:00 - 11:00", addr: "阳光花园 1栋2单元0303", amt: "¥60.00", st: "已完成" },
           { id: "#HR20250902-003", n: "家电维修", time: "09-03 14:00 - 15:00", addr: "阳光花园 4栋1单元0901", amt: "¥120.00", st: "已取消" },
+          { id: "#HR20250917-011", n: "家电维修", time: "09-20 09:30 - 11:00", addr: "翠湖雅苑 2栋3单元1203", amt: "¥180.00", st: "进行中" },
+          { id: "#HR20250908-006", n: "管道疏通", time: "09-09 16:00 - 17:00", addr: "翠湖雅苑 6栋2单元0501", amt: "¥70.00", st: "已完成" },
         ],
+        orders = allOrders.filter((r) => r.addr.startsWith(community)),
         list = "全部" === t ? orders : orders.filter((r) => r.st === t);
       return (
         <C_si title="人力资源" className="bg-sub-wash">
+          <button
+            type="button"
+            onClick={() => setCommunityOpen(!0)}
+            aria-haspopup="dialog"
+            aria-label={"切换服务小区，当前：" + community}
+            className="press flex items-center justify-between rounded-2xl bg-surface px-4 py-3 text-left shadow-card"
+          >
+            <span className="flex flex-col gap-0.5">
+              <span className="text-xs text-ink-3">当前服务小区</span>
+              <span className="text-[15px] font-semibold text-ink">{community}</span>
+            </span>
+            <span className="flex items-center gap-1 text-xs font-medium text-brand">
+              切换
+              <LuChevronDown className="size-4" aria-hidden="true" />
+            </span>
+          </button>
           <C_sc onClick={() => e("hrCertView")} className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
               <C_sG className="size-5" />
@@ -8929,6 +8951,9 @@ let tX = {
           </div>
           <C_sj items={["全部", "进行中", "已完成", "已取消"]} value={t} onChange={l} />
           <div className="flex flex-col gap-3">
+            {0 === list.length ? (
+              <C_sc className="py-8 text-center text-sm text-ink-3">{community}暂无相关订单</C_sc>
+            ) : null}
             {list.map((r) => (
               <C_sc key={r.id} onClick={() => e("hrOrderDetail")} className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
@@ -8946,6 +8971,22 @@ let tX = {
               </C_sc>
             ))}
           </div>
+          {communityOpen ? (
+            <C_sPicker
+              title="切换服务小区"
+              options={communities}
+              value={community}
+              onSelect={(r) => {
+                setCommunityOpen(!1);
+                if (r !== community) {
+                  setCommunity(r);
+                  l("全部");
+                  ts("已切换至 " + r);
+                }
+              }}
+              onClose={() => setCommunityOpen(!1)}
+            />
+          ) : null}
         </C_si>
       );
     },
