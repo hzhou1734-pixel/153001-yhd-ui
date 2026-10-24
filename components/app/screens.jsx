@@ -7744,9 +7744,10 @@ let tX = {
     profile: function () {
       let { go: e } = o();
       return (
-        <C_si tab={!0} className="bg-header-wash gap-4">
+        <C_si tab={!0} className="bg-profile-wash gap-4">
           <div className="flex items-center gap-2 pt-1">
-            <h1 className="flex-1 px-1 text-xl font-bold text-ink">个人中心</h1>
+            <h1 className="sr-only">个人中心</h1>
+            <span className="flex-1" aria-hidden="true" />
             <button
               type="button"
               aria-label="系统设置"
