@@ -8922,7 +8922,6 @@ let tX = {
         list = "全部" === t ? orders : orders.filter((r) => r.st === t);
       return (
         <C_si title="已通过" className="bg-sub-wash">
-          <C_hrStatusBanner tone="teal" title="认证已通过" desc="已进入阳光花园人才库，物业将根据业主需求为您派单。" />
           <C_sc onClick={() => e("hrCertView")} className="flex items-center gap-3">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-success-soft text-success">
               <C_sG className="size-5" />
