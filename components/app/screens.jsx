@@ -11,6 +11,7 @@ import {
   Car as LuCar,
   Fuel as LuFuel,
   Megaphone as LuMegaphone,
+  Star as LuStar,
   Package as LuPackage,
   PlugZap as LuPlugZap,
   ShoppingBasket as LuShoppingBasket,
@@ -2510,7 +2511,7 @@ let sH = {
         >
           {1 === t ? "下一步" : "确认修改"}
         </C_sp>
-        <C_sC>验证码�����发送至注册手机号，5 分钟内有效</C_sC>
+        <C_sC>验证码�������发送至注册手机号，5 分钟内有效</C_sC>
       </C_si>
     );
   },
@@ -3541,7 +3542,7 @@ let ti = [
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
               <span className="flex flex-col gap-1 text-white">
                 <span className="text-lg font-bold">陪诊服务</span>
-                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · 问诊���同 · 取药代领 · 报告解读</span>
+                <span className="text-[11px] leading-relaxed opacity-90">挂号协助 · ���诊���同 · 取药代领 · 报告解读</span>
               </span>
               <span className="bg-brand-gradient shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold text-surface">
                 立即预约
@@ -4309,7 +4310,7 @@ let ti = [
               </span>
               <C_sg defaultOn={!0} label="是否需要接送" onChange={a} />
             </div>
-            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3栋2单元1802" readOnly={!0} /> : null}
+            {l ? <C_su label="陪诊地址" defaultValue="阳光花园 3��2单元1802" readOnly={!0} /> : null}
             <C_su label="医院地址" placeholder="请输入医院" required={!0} />
             <C_su label="备注" placeholder="请输入病情或其他需求（0/500）" textarea={!0} />
           </C_sc>
@@ -4715,7 +4716,7 @@ let ti = [
             <p className="text-sm text-ink-2">若小程序未自动弹出，可下拉通知栏手动进入</p>
           </div>
           <C_sc>
-            <C_sm k="小程序名称" v="物业服务系统" />
+            <C_sm k="小程序��称" v="物业服务系统" />
             <C_sm k="打开方式" v="APP 内跳转" />
             <C_sm k="状态" v={<C_sh tone="teal">已成功跳转</C_sh>} />
           </C_sc>
@@ -6088,7 +6089,34 @@ function C_tS({ pay: e }) {
     </>
   );
 }
-function C_tP({ value: e, onChange: s }) {
+  function C_mealReviewBar() {
+    const { go } = o();
+    return (
+      <C_sp block={!0} onClick={() => go("addReview")}>
+        <LuStar className="size-4" strokeWidth={2} aria-hidden="true" />
+        服务评价
+      </C_sp>
+    );
+  }
+  function C_mealDeliveryPhotos() {
+    const photos = [
+      ["/images/meal-delivered-1.png", "送达实拍 · 门口"],
+      ["/images/meal-delivered-2.png", "送达实拍 · 餐品"],
+    ];
+    return (
+      <div className="grid grid-cols-3 gap-2">
+        {photos.map(([src, label]) => (
+          <figure key={src} className="relative aspect-square overflow-hidden rounded-xl bg-fill">
+            <eW.Image src={src} alt={label} fill={!0} sizes="110px" className="object-cover" />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-ink/55 px-1.5 py-0.5 text-[10px] text-surface">
+              {label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    );
+  }
+  function C_tP({ value: e, onChange: s }) {
   return (
     <C_sc>
       <C_sd>支付方式</C_sd>
@@ -6278,7 +6306,11 @@ let t_ = [
       if (isDone) logs.push({ title: "订单完成", time: `${order.use} 12:30`, state: "done" });
       if (isCanceled) logs.push({ title: "订单已取消", time: order.submit, state: "done" });
       return (
-        <C_si title="报餐单详情" className="bg-sub-wash" bottom={isActive ? <C_tS /> : undefined}>
+        <C_si
+          title="报餐单详情"
+          className="bg-sub-wash"
+          bottom={isActive ? <C_tS /> : isDone ? <C_mealReviewBar /> : undefined}
+        >
           <C_tC
             kind="报餐单"
             code={order.code}
@@ -6318,6 +6350,12 @@ let t_ = [
             />
             <C_sm k="支付方式" v="顾好家币" />
           </C_sc>
+          {isDone ? (
+            <C_sc>
+              <C_sd>送达图片</C_sd>
+              <C_mealDeliveryPhotos />
+            </C_sc>
+          ) : null}
           <C_sc>
             <C_sd>订单日志</C_sd>
             <C_s_ items={logs} />
@@ -8211,7 +8249,7 @@ let tX = {
               <C_sG className="size-5" />
             </span>
             <span className="flex flex-1 flex-col gap-0.5">
-              <span className="text-sm font-semibold text-ink">我的认证资料</span>
+              <span className="text-sm font-semibold text-ink">我��认证资料</span>
               <span className="text-xs text-ink-3">家电维修 · 管道疏通</span>
             </span>
             <C_sh tone="teal">已通过</C_sh>
@@ -8764,7 +8802,7 @@ let tX = {
     payment: "收银台",
     payResult: "支付结果",
     profile: "我的",
-    personInfo: "个人信息",
+    personInfo: "个人信���",
     editProfile: "编辑资料",
     changePhone: "换绑手机",
     coin: "顾好家币",
