@@ -5881,6 +5881,14 @@ let C_tk = ew("image", [
         submit: "09-04 15:30",
         count: "共 1 份订单",
         price: "180.00",
+        qty: "1 次",
+        worker: ["王", "王师傅", "138 0000 1234"],
+        images: [
+          ["/images/helper-upload-1.png", "厨房台面"],
+          ["/images/helper-upload-2.png", "卫生间"],
+          ["/images/helper-upload-3.png", "客厅地面"],
+        ],
+        video: { poster: "/images/helper-upload-video.png", duration: "00:26" },
       },
       {
         code: "SH20250902-003",
@@ -5890,6 +5898,14 @@ let C_tk = ew("image", [
         submit: "09-01 20:10",
         count: "共 1 份订单",
         price: "260.00",
+        qty: "1 台",
+        worker: ["李", "李师傅", "139 0000 5678"],
+        startAt: "09-02 14:05",
+        finishAt: "09-02 15:40",
+        images: [
+          ["/images/helper-ac-1.png", "空调室内机"],
+          ["/images/helper-ac-2.png", "制冷效果"],
+        ],
       },
       {
         code: "SH20250828-002",
@@ -5905,6 +5921,7 @@ let C_tk = ew("image", [
   selectedMealOrder = null,
   selectedTrustOrder = null,
   selectedEscortOrder = null,
+  selectedHelperOrder = null,
   tw = {
     进行中: "brand",
     已完成: "teal",
@@ -6001,6 +6018,7 @@ function C_tz({ kind: e }) {
                   if ("meal" === e) selectedMealOrder = t;
                   if ("trust" === e) selectedTrustOrder = t;
                   if ("escort" === e) selectedEscortOrder = t;
+                  if ("helper" === e) selectedHelperOrder = t;
                   s(a.detail);
                 }}
                 className="press flex flex-col gap-3 text-left"
@@ -6345,6 +6363,7 @@ let t_ = [
                     if ("meal" === it.kind) selectedMealOrder = tv.meal.find((o) => o.code === it.code) || null;
                     if ("trust" === it.kind) selectedTrustOrder = tv.trust.find((o) => o.code === it.code) || null;
                     if ("escort" === it.kind) selectedEscortOrder = tv.escort.find((o) => o.code === it.code) || null;
+                    if ("helper" === it.kind) selectedHelperOrder = tv.helper.find((o) => o.code === it.code) || null;
                     e(ty[it.kind].detail);
                   }}
                   className="press flex flex-col gap-2"
@@ -6653,66 +6672,65 @@ let t_ = [
     },
     orderHelperDetail: function () {
       let { toast: e } = o();
+      const order = selectedHelperOrder || tv.helper[0];
+      const done = "已完成" === order.status;
+      const qty = order.qty || "1 次";
+      const [initial, workerName, workerPhone] = order.worker || ["王", "王师傅", "138 0000 1234"];
+      const logs = [{ title: "下单", time: `2026-${order.submit}`, state: "done" }];
+      if (done) {
+        if (order.startAt) logs.push({ title: "服务人员上门", time: `2026-${order.startAt}`, state: "done" });
+        logs.push({ title: "服务完成", time: `2026-${order.finishAt}`, state: "done" });
+      }
       return (
-        <C_si title="生活帮手单详情" className="bg-sub-wash" bottom={<C_tS />}>
+        <C_si title="生活帮手单详情" className="bg-sub-wash" bottom={done ? null : <C_tS />}>
           <C_tC
             kind="生活帮手单"
-            code="SH20250904-001"
-            status="进行中"
-            title="家政保洁 · 全屋深度清洁 · 1 次"
-            sub="上门时间：09-05 09:00 · 提交：2026-09-04 15:30"
-            price="180.00"
+            code={order.code}
+            status={order.status}
+            title={`${order.title} · ${qty}`}
+            sub={
+              done
+                ? `上门时间：${order.use} · 完成：2026-${order.finishAt}`
+                : `上门时间：${order.use} · 提交：2026-${order.submit}`
+            }
+            price={order.price}
           />
           <C_sc>
             <C_sd>服务信息</C_sd>
-            <C_sm k="服务标题" v="家政保洁 · 全屋深度清洁" />
-            <C_sm k="服务数量" v="1 次" />
-            <C_sm k="服务价格" v="¥180.00" />
-            <C_sm k="上门时间" v="09-05 09:00" />
+            <C_sm k="服务标题" v={order.title} />
+            <C_sm k="服务数量" v={qty} />
+            <C_sm k="服务价格" v={`¥${order.price}`} />
+            <C_sm k="上门时间" v={order.use} />
+            {done ? <C_sm k="完成时间" v={`2026-${order.finishAt}`} /> : null}
             <C_sm k="服务地址" v="阳光花园 3栋2单元-1802" />
             <C_sm k="联系电话" v="13800006688" />
           </C_sc>
           <C_sc className="flex items-center gap-3">
             <span className="bg-brand-gradient flex size-11 items-center justify-center rounded-full text-base font-bold text-surface">
-              王
+              {initial}
             </span>
             <span className="flex flex-1 flex-col">
-              <span className="text-sm font-semibold text-ink">服务人员 · 王师傅</span>
-              <span className="text-xs text-ink-2 tabular-nums">138 0000 1234</span>
+              <span className="text-sm font-semibold text-ink">服务人员 · {workerName}</span>
+              <span className="text-xs text-ink-2 tabular-nums">{workerPhone}</span>
             </span>
             <button
               type="button"
               aria-label="拨打电话"
-              onClick={() => e("正在呼叫王师傅")}
+              onClick={() => e(`正在呼叫${workerName}`)}
               className="press flex size-10 items-center justify-center rounded-full bg-brand-soft text-brand-deep"
             >
               <C_sQ className="size-4" />
             </button>
           </C_sc>
-          <C_escortMedia
-            images={[
-              ["/images/helper-upload-1.png", "厨房台面"],
-              ["/images/helper-upload-2.png", "卫生间"],
-              ["/images/helper-upload-3.png", "客厅地面"],
-            ]}
-            video={{ poster: "/images/helper-upload-video.png", duration: "00:26" }}
-          />
+          {order.images ? <C_escortMedia images={order.images} video={order.video} /> : null}
           <C_sc>
             <C_sd>金额信息</C_sd>
-            <C_sm k="预估金额" v="¥180.00" accent={!0} />
+            <C_sm k={done ? "服务金额" : "预估金额"} v={`¥${order.price}`} accent={!0} />
             <C_sm k="支付方式" v="线上不做订单支付，由线下收取" />
           </C_sc>
           <C_sc>
             <C_sd>订单日志</C_sd>
-            <C_s_
-              items={[
-                {
-                  title: "下单",
-                  time: "2026-09-04 15:30",
-                  state: "done",
-                },
-              ]}
-            />
+            <C_s_ items={logs} />
           </C_sc>
         </C_si>
       );
